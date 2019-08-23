@@ -1,0 +1,22 @@
+{
+  "name": "desktop-ball",
+  "version": "1.0.0",
+  "description": "Efficient management assistant to assist development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/Ivorzk/desktop-ball.git"
+  },
+  "keywords": [
+    "suwis",
+    "work"
+  ],
+  "author": "ivorzk@qq.com",
+  "license": "(Apache-2.0)",
+  "dependencies": {
+    "electron": "^6.0.3"
+  }
+}
