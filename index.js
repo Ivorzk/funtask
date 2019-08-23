@@ -13,6 +13,11 @@ function createWindow() {
     height: 88,
     frame: false,
     transparent: true,
+    resizable: false,
+    maximizable: false,
+    minimizable: false,
+    alwaysOnTop: true,
+    fullscreenable: false,
     webPreferences: {
       nodeIntegration: false
     }
