@@ -25,7 +25,10 @@ function createWindow() {
   })
 
   // 加载index.html文件
-  win.loadURL('http://localhost:8080')
+  setTimeout(() => {
+    win.loadURL('http://localhost:8080/')
+  }, 999)
+  // win.loadFile(`dist/index.html`)
 
   // 打开开发者工具
   // win.webContents.openDevTools()
