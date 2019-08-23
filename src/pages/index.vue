@@ -1,11 +1,38 @@
 <template lang="html">
-  <div class="suwis-index">
+  <div class="suwis-index" @click="toggle">
     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566567949052&di=f3a200e2046e4c7778f9adf01b2c81cf&imgtype=0&src=http%3A%2F%2Fpic3.newssc.org%2Fupload%2Fori%2F0003000000000%2F20180622%2F1529676149541.jpg" alt="">
   </div>
 </template>
 
 <script>
-export default {}
+// const {
+//   BrowserWindow
+// } = require('electron')
+export default {
+  data() {
+    return {
+      // 控制面板
+      control: {}
+    }
+  },
+  mounted() {
+    // this.control = new BrowserWindow({
+    //   width: 600,
+    //   height: 399,
+    //   frame: false
+    // })
+    // this.control.on('closed', () => {
+    //   this.control = null
+    // })
+    // this.control.loadURL('https://github.com')
+  },
+  methods: {
+    // 切换菜单
+    toggle() {
+      console.log('切换')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
