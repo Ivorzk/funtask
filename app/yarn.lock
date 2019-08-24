@@ -188,6 +188,26 @@
   dependencies:
     "@electron-forge/shared-types" "6.0.0-beta.44"
 
+"@electron-forge/plugin-webpack@6.0.0-beta.44":
+  version "6.0.0-beta.44"
+  resolved "https://npm.suwis.com:443/@electron-forge%2fplugin-webpack/-/plugin-webpack-6.0.0-beta.44.tgz#a1ae242c394f0ebc589a8709dbb536d50ca97118"
+  integrity sha1-oa4kLDlPDrxYmocJ27U21QypcRg=
+  dependencies:
+    "@electron-forge/async-ora" "6.0.0-beta.44"
+    "@electron-forge/plugin-base" "6.0.0-beta.44"
+    "@electron-forge/shared-types" "6.0.0-beta.44"
+    "@electron-forge/web-multi-logger" "6.0.0-beta.44"
+    cross-spawn-promise "^0.10.1"
+    debug "^4.1.0"
+    express "^4.17.1"
+    fs-extra "^8.1.0"
+    global "^4.3.2"
+    html-webpack-plugin "^3.2.0"
+    webpack "^4.39.1"
+    webpack-dev-middleware "^3.7.0"
+    webpack-hot-middleware "^2.25.0"
+    webpack-merge "^4.1.1"
+
 "@electron-forge/publisher-base@6.0.0-beta.44":
   version "6.0.0-beta.44"
   resolved "https://npm.suwis.com:443/@electron-forge%2fpublisher-base/-/publisher-base-6.0.0-beta.44.tgz#fdc2f2862d30b966cb00e319bfd01ff63e5705e8"
@@ -212,6 +232,15 @@
     "@electron-forge/shared-types" "6.0.0-beta.44"
     fs-extra "^8.1.0"
 
+"@electron-forge/web-multi-logger@6.0.0-beta.44":
+  version "6.0.0-beta.44"
+  resolved "https://npm.suwis.com:443/@electron-forge%2fweb-multi-logger/-/web-multi-logger-6.0.0-beta.44.tgz#44b752a64bc8071d03c05e483bffe2c87aaae7bc"
+  integrity sha1-RLdSpkvIBx0DwF5IO//iyHqq57w=
+  dependencies:
+    express "^4.17.1"
+    express-ws "^4.0.0"
+    xterm "^3.14.5"
+
 "@electron/get@^1.3.0", "@electron/get@^1.3.1":
   version "1.4.0"
   resolved "https://npm.suwis.com:443/@electron%2fget/-/get-1.4.0.tgz#e405e0f37e5f4349e3ba3d3a21803ee5ca140fa9"
@@ -222,6 +251,13 @@
     fs-extra "^8.1.0"
     got "^9.6.0"
     sumchecker "^3.0.0"
+
+"@marshallofsound/webpack-asset-relocator-loader@^0.5.0":
+  version "0.5.0"
+  resolved "https://npm.suwis.com:443/@marshallofsound%2fwebpack-asset-relocator-loader/-/webpack-asset-relocator-loader-0.5.0.tgz#e764e9c1edf7dfc0db7aa5d67767f4f6f0a681c5"
+  integrity sha1-52Tpwe3338DbeqXWd2f09vCmgcU=
+  dependencies:
+    sourcemap-codec "^1.4.4"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -255,12 +291,191 @@
   resolved "https://npm.suwis.com:443/@types%2fnode/-/node-10.14.16.tgz#4d690c96cbb7b2728afea0e260d680501b3da5cf"
   integrity sha1-TWkMlsu3snKK/qDiYNaAUBs9pc8=
 
+"@webassemblyjs/ast@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"
+  integrity sha1-UbHF/mV2o0lTv0slPfnw1JDZ41k=
+  dependencies:
+    "@webassemblyjs/helper-module-context" "1.8.5"
+    "@webassemblyjs/helper-wasm-bytecode" "1.8.5"
+    "@webassemblyjs/wast-parser" "1.8.5"
+
+"@webassemblyjs/floating-point-hex-parser@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2ffloating-point-hex-parser/-/floating-point-hex-parser-1.8.5.tgz#1ba926a2923613edce496fd5b02e8ce8a5f49721"
+  integrity sha1-G6kmopI2E+3OSW/VsC6M6KX0lyE=
+
+"@webassemblyjs/helper-api-error@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-api-error/-/helper-api-error-1.8.5.tgz#c49dad22f645227c5edb610bdb9697f1aab721f7"
+  integrity sha1-xJ2tIvZFInxe22EL25aX8aq3Ifc=
+
+"@webassemblyjs/helper-buffer@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-buffer/-/helper-buffer-1.8.5.tgz#fea93e429863dd5e4338555f42292385a653f204"
+  integrity sha1-/qk+Qphj3V5DOFVfQikjhaZT8gQ=
+
+"@webassemblyjs/helper-code-frame@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-code-frame/-/helper-code-frame-1.8.5.tgz#9a740ff48e3faa3022b1dff54423df9aa293c25e"
+  integrity sha1-mnQP9I4/qjAisd/1RCPfmqKTwl4=
+  dependencies:
+    "@webassemblyjs/wast-printer" "1.8.5"
+
+"@webassemblyjs/helper-fsm@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-fsm/-/helper-fsm-1.8.5.tgz#ba0b7d3b3f7e4733da6059c9332275d860702452"
+  integrity sha1-ugt9Oz9+RzPaYFnJMyJ12GBwJFI=
+
+"@webassemblyjs/helper-module-context@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-module-context/-/helper-module-context-1.8.5.tgz#def4b9927b0101dc8cbbd8d1edb5b7b9c82eb245"
+  integrity sha1-3vS5knsBAdyMu9jR7bW3ucguskU=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    mamacro "^0.0.3"
+
+"@webassemblyjs/helper-wasm-bytecode@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-wasm-bytecode/-/helper-wasm-bytecode-1.8.5.tgz#537a750eddf5c1e932f3744206551c91c1b93e61"
+  integrity sha1-U3p1Dt31weky83RCBlUckcG5PmE=
+
+"@webassemblyjs/helper-wasm-section@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fhelper-wasm-section/-/helper-wasm-section-1.8.5.tgz#74ca6a6bcbe19e50a3b6b462847e69503e6bfcbf"
+  integrity sha1-dMpqa8vhnlCjtrRihH5pUD5r/L8=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-buffer" "1.8.5"
+    "@webassemblyjs/helper-wasm-bytecode" "1.8.5"
+    "@webassemblyjs/wasm-gen" "1.8.5"
+
+"@webassemblyjs/ieee754@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fieee754/-/ieee754-1.8.5.tgz#712329dbef240f36bf57bd2f7b8fb9bf4154421e"
+  integrity sha1-cSMp2+8kDza/V70ve4+5v0FUQh4=
+  dependencies:
+    "@xtuc/ieee754" "^1.2.0"
+
+"@webassemblyjs/leb128@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fleb128/-/leb128-1.8.5.tgz#044edeb34ea679f3e04cd4fd9824d5e35767ae10"
+  integrity sha1-BE7es06mefPgTNT9mCTV41dnrhA=
+  dependencies:
+    "@xtuc/long" "4.2.2"
+
+"@webassemblyjs/utf8@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2futf8/-/utf8-1.8.5.tgz#a8bf3b5d8ffe986c7c1e373ccbdc2a0915f0cedc"
+  integrity sha1-qL87XY/+mGx8Hjc8y9wqCRXwztw=
+
+"@webassemblyjs/wasm-edit@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fwasm-edit/-/wasm-edit-1.8.5.tgz#962da12aa5acc1c131c81c4232991c82ce56e01a"
+  integrity sha1-li2hKqWswcExyBxCMpkcgs5W4Bo=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-buffer" "1.8.5"
+    "@webassemblyjs/helper-wasm-bytecode" "1.8.5"
+    "@webassemblyjs/helper-wasm-section" "1.8.5"
+    "@webassemblyjs/wasm-gen" "1.8.5"
+    "@webassemblyjs/wasm-opt" "1.8.5"
+    "@webassemblyjs/wasm-parser" "1.8.5"
+    "@webassemblyjs/wast-printer" "1.8.5"
+
+"@webassemblyjs/wasm-gen@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fwasm-gen/-/wasm-gen-1.8.5.tgz#54840766c2c1002eb64ed1abe720aded714f98bc"
+  integrity sha1-VIQHZsLBAC62TtGr5yCt7XFPmLw=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-wasm-bytecode" "1.8.5"
+    "@webassemblyjs/ieee754" "1.8.5"
+    "@webassemblyjs/leb128" "1.8.5"
+    "@webassemblyjs/utf8" "1.8.5"
+
+"@webassemblyjs/wasm-opt@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fwasm-opt/-/wasm-opt-1.8.5.tgz#b24d9f6ba50394af1349f510afa8ffcb8a63d264"
+  integrity sha1-sk2fa6UDlK8TSfUQr6j/y4pj0mQ=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-buffer" "1.8.5"
+    "@webassemblyjs/wasm-gen" "1.8.5"
+    "@webassemblyjs/wasm-parser" "1.8.5"
+
+"@webassemblyjs/wasm-parser@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fwasm-parser/-/wasm-parser-1.8.5.tgz#21576f0ec88b91427357b8536383668ef7c66b8d"
+  integrity sha1-IVdvDsiLkUJzV7hTY4NmjvfGa40=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-api-error" "1.8.5"
+    "@webassemblyjs/helper-wasm-bytecode" "1.8.5"
+    "@webassemblyjs/ieee754" "1.8.5"
+    "@webassemblyjs/leb128" "1.8.5"
+    "@webassemblyjs/utf8" "1.8.5"
+
+"@webassemblyjs/wast-parser@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fwast-parser/-/wast-parser-1.8.5.tgz#e10eecd542d0e7bd394f6827c49f3df6d4eefb8c"
+  integrity sha1-4Q7s1ULQ5705T2gnxJ899tTu+4w=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/floating-point-hex-parser" "1.8.5"
+    "@webassemblyjs/helper-api-error" "1.8.5"
+    "@webassemblyjs/helper-code-frame" "1.8.5"
+    "@webassemblyjs/helper-fsm" "1.8.5"
+    "@xtuc/long" "4.2.2"
+
+"@webassemblyjs/wast-printer@1.8.5":
+  version "1.8.5"
+  resolved "https://npm.suwis.com:443/@webassemblyjs%2fwast-printer/-/wast-printer-1.8.5.tgz#114bbc481fd10ca0e23b3560fa812748b0bae5bc"
+  integrity sha1-EUu8SB/RDKDiOzVg+oEnSLC65bw=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/wast-parser" "1.8.5"
+    "@xtuc/long" "4.2.2"
+
+"@xtuc/ieee754@^1.2.0":
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/@xtuc%2fieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
+  integrity sha1-7vAUoxRa5Hehy8AM0eVSM23Ot5A=
+
+"@xtuc/long@4.2.2":
+  version "4.2.2"
+  resolved "https://npm.suwis.com:443/@xtuc%2flong/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
+  integrity sha1-0pHGpOl5ibXGHZrPOWrk/hM6cY0=
+
 abbrev@1:
   version "1.1.1"
   resolved "https://npm.suwis.com:443/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha1-+PLIh60Qv2f2NPAFtph/7TF5qsg=
 
-ajv@^6.5.5:
+accepts@~1.3.7:
+  version "1.3.7"
+  resolved "https://npm.suwis.com:443/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
+  integrity sha1-UxvHJlF6OytB+FACHGzBXqq1B80=
+  dependencies:
+    mime-types "~2.1.24"
+    negotiator "0.6.2"
+
+acorn@^6.2.1:
+  version "6.3.0"
+  resolved "https://npm.suwis.com:443/acorn/-/acorn-6.3.0.tgz#0087509119ffa4fc0a0041d1e93a417e68cb856e"
+  integrity sha1-AIdQkRn/pPwKAEHR6TpBfmjLhW4=
+
+ajv-errors@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
+  integrity sha1-81mGrOuRr63sQQL72FAUlQzvpk0=
+
+ajv-keywords@^3.1.0, ajv-keywords@^3.4.1:
+  version "3.4.1"
+  resolved "https://npm.suwis.com:443/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
+  integrity sha1-75FuJxxkrBIXH9g4TqrmsjRYVNo=
+
+ajv@^6.1.0, ajv@^6.10.2, ajv@^6.5.5:
   version "6.10.2"
   resolved "https://npm.suwis.com:443/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
   integrity sha1-086gTWsBeyiUrWkED+yLYj60vVI=
@@ -270,10 +485,20 @@ ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+ansi-colors@^3.0.0:
+  version "3.2.4"
+  resolved "https://npm.suwis.com:443/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
+  integrity sha1-46PaS/uubIapwoViXeEkojQCb78=
+
 ansi-escapes@^3.2.0:
   version "3.2.0"
   resolved "https://npm.suwis.com:443/ansi-escapes/-/ansi-escapes-3.2.0.tgz#8780b98ff9dbf5638152d1f1fe5c1d7b4442976b"
   integrity sha1-h4C5j/nb9WOBUtHx/lwde0RCl2s=
+
+ansi-html@0.0.7:
+  version "0.0.7"
+  resolved "https://npm.suwis.com:443/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"
+  integrity sha1-gTWEAhliqenm/QOflA0S9WynhZ4=
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -297,7 +522,15 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-aproba@^1.0.3:
+anymatch@^2.0.0:
+  version "2.0.0"
+  resolved "https://npm.suwis.com:443/anymatch/-/anymatch-2.0.0.tgz#bcb24b4f37934d9aa7ac17b4adaf89e7c76ef2eb"
+  integrity sha1-vLJLTzeTTZqnrBe0ra+J58du8us=
+  dependencies:
+    micromatch "^3.1.4"
+    normalize-path "^2.1.1"
+
+aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "https://npm.suwis.com:443/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha1-aALmJk79GMeQobDVF/DyYnvyyUo=
@@ -310,10 +543,35 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
+arr-diff@^4.0.0:
+  version "4.0.0"
+  resolved "https://npm.suwis.com:443/arr-diff/-/arr-diff-4.0.0.tgz#d6461074febfec71e7e15235761a329a5dc7c520"
+  integrity sha1-1kYQdP6/7HHn4VI1dhoyml3HxSA=
+
+arr-flatten@^1.1.0:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/arr-flatten/-/arr-flatten-1.1.0.tgz#36048bbff4e7b47e136644316c99669ea5ae91f1"
+  integrity sha1-NgSLv/TntH4TZkQxbJlmnqWukfE=
+
+arr-union@^3.1.0:
+  version "3.1.0"
+  resolved "https://npm.suwis.com:443/arr-union/-/arr-union-3.1.0.tgz#e39b09aea9def866a8f206e288af63919bae39c4"
+  integrity sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=
+
 array-find-index@^1.0.1:
   version "1.0.2"
   resolved "https://npm.suwis.com:443/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
   integrity sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
+
+array-flatten@1.1.1:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
+  integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+
+array-unique@^0.3.2:
+  version "0.3.2"
+  resolved "https://npm.suwis.com:443/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
+  integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
 asar@^2.0.1:
   version "2.0.1"
@@ -328,6 +586,15 @@ asar@^2.0.1:
     mkdirp "^0.5.1"
     tmp-promise "^1.0.5"
 
+asn1.js@^4.0.0:
+  version "4.10.1"
+  resolved "https://npm.suwis.com:443/asn1.js/-/asn1.js-4.10.1.tgz#b9c2bf5805f1e64aadeed6df3a2bfafb5a73f5a0"
+  integrity sha1-ucK/WAXx5kqt7tbfOiv6+1pz9aA=
+  dependencies:
+    bn.js "^4.0.0"
+    inherits "^2.0.1"
+    minimalistic-assert "^1.0.0"
+
 asn1@~0.2.3:
   version "0.2.4"
   resolved "https://npm.suwis.com:443/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"
@@ -340,10 +607,38 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "https://npm.suwis.com:443/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
 
+assert@^1.1.1:
+  version "1.5.0"
+  resolved "https://npm.suwis.com:443/assert/-/assert-1.5.0.tgz#55c109aaf6e0aefdb3dc4b71240c70bf574b18eb"
+  integrity sha1-VcEJqvbgrv2z3EtxJAxwv1dLGOs=
+  dependencies:
+    object-assign "^4.1.1"
+    util "0.10.3"
+
+assign-symbols@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
+  integrity sha1-WWZ/QfrdTyDMvCu5a41Pf3jsA2c=
+
+async-each@^1.0.1:
+  version "1.0.3"
+  resolved "https://npm.suwis.com:443/async-each/-/async-each-1.0.3.tgz#b727dbf87d7651602f06f4d4ac387f47d91b0cbf"
+  integrity sha1-tyfb+H12UWAvBvTUrDh/R9kbDL8=
+
+async-limiter@~1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
+  integrity sha1-3TeelPDbgxCwgpH51kwyCXZmF/0=
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://npm.suwis.com:443/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
+
+atob@^2.1.1:
+  version "2.1.2"
+  resolved "https://npm.suwis.com:443/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
+  integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
 
 author-regex@^1.0.0:
   version "1.0.0"
@@ -365,10 +660,23 @@ balanced-match@^1.0.0:
   resolved "https://npm.suwis.com:443/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-base64-js@^1.2.3:
+base64-js@^1.0.2, base64-js@^1.2.3:
   version "1.3.1"
   resolved "https://npm.suwis.com:443/base64-js/-/base64-js-1.3.1.tgz#58ece8cb75dd07e71ed08c736abc5fac4dbf8df1"
   integrity sha1-WOzoy3XdB+ce0IxzarxfrE2/jfE=
+
+base@^0.11.1:
+  version "0.11.2"
+  resolved "https://npm.suwis.com:443/base/-/base-0.11.2.tgz#7bde5ced145b6d551a90db87f83c558b4eb48a8f"
+  integrity sha1-e95c7RRbbVUakNuH+DxVi060io8=
+  dependencies:
+    cache-base "^1.0.1"
+    class-utils "^0.3.5"
+    component-emitter "^1.2.1"
+    define-property "^1.0.0"
+    isobject "^3.0.1"
+    mixin-deep "^1.2.0"
+    pascalcase "^0.1.1"
 
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
@@ -377,10 +685,51 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bluebird@^3.1.1, bluebird@^3.5.0:
+big.js@^3.1.3:
+  version "3.2.0"
+  resolved "https://npm.suwis.com:443/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
+  integrity sha1-pfwpi4G54Nyi5FiCR4S2XFK6WI4=
+
+big.js@^5.2.2:
+  version "5.2.2"
+  resolved "https://npm.suwis.com:443/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
+  integrity sha1-ZfCvOC9Xi83HQr2cKB6cstd2gyg=
+
+binary-extensions@^1.0.0:
+  version "1.13.1"
+  resolved "https://npm.suwis.com:443/binary-extensions/-/binary-extensions-1.13.1.tgz#598afe54755b2868a5330d2aff9d4ebb53209b65"
+  integrity sha1-WYr+VHVbKGilMw0q/51Ou1Mgm2U=
+
+bluebird@^3.1.1, bluebird@^3.5.0, bluebird@^3.5.5:
   version "3.5.5"
   resolved "https://npm.suwis.com:443/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
   integrity sha1-qNCv1zJR7/u9X+OEp31zADwXpx8=
+
+bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
+  version "4.11.8"
+  resolved "https://npm.suwis.com:443/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
+  integrity sha1-LN4J617jQfSEdGuwMJsyU7GxRC8=
+
+body-parser@1.19.0:
+  version "1.19.0"
+  resolved "https://npm.suwis.com:443/body-parser/-/body-parser-1.19.0.tgz#96b2709e57c9c4e09a6fd66a8fd979844f69f08a"
+  integrity sha1-lrJwnlfJxOCab9Zqj9l5hE9p8Io=
+  dependencies:
+    bytes "3.1.0"
+    content-type "~1.0.4"
+    debug "2.6.9"
+    depd "~1.1.2"
+    http-errors "1.7.2"
+    iconv-lite "0.4.24"
+    on-finished "~2.3.0"
+    qs "6.7.0"
+    raw-body "2.4.0"
+    type-is "~1.6.17"
+
+boolbase@~1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
+  integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -389,6 +738,86 @@ brace-expansion@^1.1.7:
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
+
+braces@^2.3.1, braces@^2.3.2:
+  version "2.3.2"
+  resolved "https://npm.suwis.com:443/braces/-/braces-2.3.2.tgz#5979fd3f14cd531565e5fa2df1abfff1dfaee729"
+  integrity sha1-WXn9PxTNUxVl5fot8av/8d+u5yk=
+  dependencies:
+    arr-flatten "^1.1.0"
+    array-unique "^0.3.2"
+    extend-shallow "^2.0.1"
+    fill-range "^4.0.0"
+    isobject "^3.0.1"
+    repeat-element "^1.1.2"
+    snapdragon "^0.8.1"
+    snapdragon-node "^2.0.1"
+    split-string "^3.0.2"
+    to-regex "^3.0.1"
+
+brorand@^1.0.1:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
+  integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
+
+browserify-aes@^1.0.0, browserify-aes@^1.0.4:
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/browserify-aes/-/browserify-aes-1.2.0.tgz#326734642f403dabc3003209853bb70ad428ef48"
+  integrity sha1-Mmc0ZC9APavDADIJhTu3CtQo70g=
+  dependencies:
+    buffer-xor "^1.0.3"
+    cipher-base "^1.0.0"
+    create-hash "^1.1.0"
+    evp_bytestokey "^1.0.3"
+    inherits "^2.0.1"
+    safe-buffer "^5.0.1"
+
+browserify-cipher@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/browserify-cipher/-/browserify-cipher-1.0.1.tgz#8d6474c1b870bfdabcd3bcfcc1934a10e94f15f0"
+  integrity sha1-jWR0wbhwv9q807z8wZNKEOlPFfA=
+  dependencies:
+    browserify-aes "^1.0.4"
+    browserify-des "^1.0.0"
+    evp_bytestokey "^1.0.0"
+
+browserify-des@^1.0.0:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/browserify-des/-/browserify-des-1.0.2.tgz#3af4f1f59839403572f1c66204375f7a7f703e9c"
+  integrity sha1-OvTx9Zg5QDVy8cZiBDdfen9wPpw=
+  dependencies:
+    cipher-base "^1.0.1"
+    des.js "^1.0.0"
+    inherits "^2.0.1"
+    safe-buffer "^5.1.2"
+
+browserify-rsa@^4.0.0:
+  version "4.0.1"
+  resolved "https://npm.suwis.com:443/browserify-rsa/-/browserify-rsa-4.0.1.tgz#21e0abfaf6f2029cf2fafb133567a701d4135524"
+  integrity sha1-IeCr+vbyApzy+vsTNWenAdQTVSQ=
+  dependencies:
+    bn.js "^4.1.0"
+    randombytes "^2.0.1"
+
+browserify-sign@^4.0.0:
+  version "4.0.4"
+  resolved "https://npm.suwis.com:443/browserify-sign/-/browserify-sign-4.0.4.tgz#aa4eb68e5d7b658baa6bf6a57e630cbd7a93d298"
+  integrity sha1-qk62jl17ZYuqa/alfmMMvXqT0pg=
+  dependencies:
+    bn.js "^4.1.1"
+    browserify-rsa "^4.0.0"
+    create-hash "^1.1.0"
+    create-hmac "^1.1.2"
+    elliptic "^6.0.0"
+    inherits "^2.0.1"
+    parse-asn1 "^5.0.0"
+
+browserify-zlib@^0.2.0:
+  version "0.2.0"
+  resolved "https://npm.suwis.com:443/browserify-zlib/-/browserify-zlib-0.2.0.tgz#2869459d9aa3be245fe8fe2ca1f46e2e7f54d73f"
+  integrity sha1-KGlFnZqjviRf6P4sofRuLn9U1z8=
+  dependencies:
+    pako "~1.0.5"
 
 buffer-alloc-unsafe@^1.1.0:
   version "1.1.0"
@@ -413,6 +842,66 @@ buffer-from@^1.0.0:
   resolved "https://npm.suwis.com:443/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha1-MnE7wCj3XAL9txDXx7zsHyxgcO8=
 
+buffer-xor@^1.0.3:
+  version "1.0.3"
+  resolved "https://npm.suwis.com:443/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
+  integrity sha1-JuYe0UIvtw3ULm42cp7VHYVf6Nk=
+
+buffer@^4.3.0:
+  version "4.9.1"
+  resolved "https://npm.suwis.com:443/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
+  integrity sha1-bRu2AbB6TvztlwlBMgkwJ8lbwpg=
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
+    isarray "^1.0.0"
+
+builtin-status-codes@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
+  integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
+
+bytes@3.1.0:
+  version "3.1.0"
+  resolved "https://npm.suwis.com:443/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
+  integrity sha1-9s95M6Ng4FiPqf3oVlHNx/gF0fY=
+
+cacache@^12.0.2:
+  version "12.0.3"
+  resolved "https://npm.suwis.com:443/cacache/-/cacache-12.0.3.tgz#be99abba4e1bf5df461cd5a2c1071fc432573390"
+  integrity sha1-vpmruk4b9d9GHNWiwQcfxDJXM5A=
+  dependencies:
+    bluebird "^3.5.5"
+    chownr "^1.1.1"
+    figgy-pudding "^3.5.1"
+    glob "^7.1.4"
+    graceful-fs "^4.1.15"
+    infer-owner "^1.0.3"
+    lru-cache "^5.1.1"
+    mississippi "^3.0.0"
+    mkdirp "^0.5.1"
+    move-concurrently "^1.0.1"
+    promise-inflight "^1.0.1"
+    rimraf "^2.6.3"
+    ssri "^6.0.1"
+    unique-filename "^1.1.1"
+    y18n "^4.0.0"
+
+cache-base@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/cache-base/-/cache-base-1.0.1.tgz#0a7f46416831c8b662ee36fe4e7c59d76f666ab2"
+  integrity sha1-Cn9GQWgxyLZi7jb+TnxZ129marI=
+  dependencies:
+    collection-visit "^1.0.0"
+    component-emitter "^1.2.1"
+    get-value "^2.0.6"
+    has-value "^1.0.0"
+    isobject "^3.0.1"
+    set-value "^2.0.0"
+    to-object-path "^0.3.0"
+    union-value "^1.0.0"
+    unset-value "^1.0.0"
+
 cacheable-request@^6.0.0:
   version "6.1.0"
   resolved "https://npm.suwis.com:443/cacheable-request/-/cacheable-request-6.1.0.tgz#20ffb8bd162ba4be11e9567d823db651052ca912"
@@ -425,6 +914,14 @@ cacheable-request@^6.0.0:
     lowercase-keys "^2.0.0"
     normalize-url "^4.1.0"
     responselike "^1.0.2"
+
+camel-case@3.0.x:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/camel-case/-/camel-case-3.0.0.tgz#ca3c3688a4e9cf3a4cda777dc4dcbc713249cf73"
+  integrity sha1-yjw2iKTpzzpM2nd9xNy8cTJJz3M=
+  dependencies:
+    no-case "^2.2.0"
+    upper-case "^1.1.1"
 
 camelcase-keys@^2.0.0:
   version "2.1.0"
@@ -439,7 +936,7 @@ camelcase@^2.0.0:
   resolved "https://npm.suwis.com:443/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
   integrity sha1-fB0W1nmhu+WcoCys7PsBHiAfWh8=
 
-camelcase@^5.0.0:
+camelcase@^5.0.0, camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://npm.suwis.com:443/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha1-48mzFWnhBoEd8kL3FXJaH0xJQyA=
@@ -463,15 +960,66 @@ chardet@^0.7.0:
   resolved "https://npm.suwis.com:443/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha1-kAlISfCTfy7twkJdDSip5fDLrZ4=
 
+chokidar@^2.0.2:
+  version "2.1.8"
+  resolved "https://npm.suwis.com:443/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
+  integrity sha1-gEs6e2qZNYw8XGHnHYco8EHP+Rc=
+  dependencies:
+    anymatch "^2.0.0"
+    async-each "^1.0.1"
+    braces "^2.3.2"
+    glob-parent "^3.1.0"
+    inherits "^2.0.3"
+    is-binary-path "^1.0.0"
+    is-glob "^4.0.0"
+    normalize-path "^3.0.0"
+    path-is-absolute "^1.0.0"
+    readdirp "^2.2.1"
+    upath "^1.1.1"
+  optionalDependencies:
+    fsevents "^1.2.7"
+
 chownr@^1.1.1:
   version "1.1.2"
   resolved "https://npm.suwis.com:443/chownr/-/chownr-1.1.2.tgz#a18f1e0b269c8a6a5d3c86eb298beb14c3dd7bf6"
   integrity sha1-oY8eCyacimpdPIbrKYvrFMPde/Y=
 
+chrome-trace-event@^1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/chrome-trace-event/-/chrome-trace-event-1.0.2.tgz#234090ee97c7d4ad1a2c4beae27505deffc608a4"
+  integrity sha1-I0CQ7pfH1K0aLEvq4nUF3v/GCKQ=
+  dependencies:
+    tslib "^1.9.0"
+
 chromium-pickle-js@^0.2.0:
   version "0.2.0"
   resolved "https://npm.suwis.com:443/chromium-pickle-js/-/chromium-pickle-js-0.2.0.tgz#04a106672c18b085ab774d983dfa3ea138f22205"
   integrity sha1-BKEGZywYsIWrd02YPfo+oTjyIgU=
+
+cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
+  version "1.0.4"
+  resolved "https://npm.suwis.com:443/cipher-base/-/cipher-base-1.0.4.tgz#8760e4ecc272f4c363532f926d874aae2c1397de"
+  integrity sha1-h2Dk7MJy9MNjUy+SbYdKriwTl94=
+  dependencies:
+    inherits "^2.0.1"
+    safe-buffer "^5.0.1"
+
+class-utils@^0.3.5:
+  version "0.3.6"
+  resolved "https://npm.suwis.com:443/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
+  integrity sha1-+TNprouafOAv1B+q0MqDAzGQxGM=
+  dependencies:
+    arr-union "^3.1.0"
+    define-property "^0.2.5"
+    isobject "^3.0.0"
+    static-extend "^0.1.1"
+
+clean-css@4.2.x:
+  version "4.2.1"
+  resolved "https://npm.suwis.com:443/clean-css/-/clean-css-4.2.1.tgz#2d411ef76b8569b6d0c84068dabe85b0aa5e5c17"
+  integrity sha1-LUEe92uFabbQyEBo2r6FsKpeXBc=
+  dependencies:
+    source-map "~0.6.0"
 
 cli-cursor@^2.1.0:
   version "2.1.0"
@@ -516,6 +1064,14 @@ code-point-at@^1.0.0:
   resolved "https://npm.suwis.com:443/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
+collection-visit@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
+  integrity sha1-S8A3PBZLwykbTTaMgpzxqApZ3KA=
+  dependencies:
+    map-visit "^1.0.0"
+    object-visit "^1.0.0"
+
 color-convert@^1.9.0:
   version "1.9.3"
   resolved "https://npm.suwis.com:443/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
@@ -540,6 +1096,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
+commander@2.17.x:
+  version "2.17.1"
+  resolved "https://npm.suwis.com:443/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
+  integrity sha1-vXerfebelCBc6sxy8XFtKfIKd78=
+
 commander@^2.20.0:
   version "2.20.0"
   resolved "https://npm.suwis.com:443/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
@@ -550,17 +1111,32 @@ commander@^3.0.0:
   resolved "https://npm.suwis.com:443/commander/-/commander-3.0.0.tgz#0641ea00838c7a964627f04cddc336a2deddd60a"
   integrity sha1-BkHqAIOMepZGJ/BM3cM2ot7d1go=
 
+commander@~2.19.0:
+  version "2.19.0"
+  resolved "https://npm.suwis.com:443/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
+  integrity sha1-9hmKqE5bg8RgVLlN3tv+1e6f8So=
+
+commondir@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
+  integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
+
 compare-version@^0.1.2:
   version "0.1.2"
   resolved "https://npm.suwis.com:443/compare-version/-/compare-version-0.1.2.tgz#0162ec2d9351f5ddd59a9202cba935366a725080"
   integrity sha1-AWLsLZNR9d3VmpICy6k1NmpyUIA=
+
+component-emitter@^1.2.1:
+  version "1.3.0"
+  resolved "https://npm.suwis.com:443/component-emitter/-/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
+  integrity sha1-FuQHD7qK4ptnnyIVhT7hgasuq8A=
 
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://npm.suwis.com:443/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-concat-stream@1.6.2:
+concat-stream@1.6.2, concat-stream@^1.5.0:
   version "1.6.2"
   resolved "https://npm.suwis.com:443/concat-stream/-/concat-stream-1.6.2.tgz#904bdf194cd3122fc675c77fc4ac3d4ff0fd1a34"
   integrity sha1-kEvfGUzTEi/Gdcd/xKw9T/D9GjQ=
@@ -570,15 +1146,97 @@ concat-stream@1.6.2:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+console-browserify@^1.1.0:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
+  integrity sha1-8CQcRXMKn8YyOyBtvzjtx0HQuxA=
+  dependencies:
+    date-now "^0.1.4"
+
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://npm.suwis.com:443/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
+constants-browserify@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
+  integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
+
+content-disposition@0.5.3:
+  version "0.5.3"
+  resolved "https://npm.suwis.com:443/content-disposition/-/content-disposition-0.5.3.tgz#e130caf7e7279087c5616c2007d0485698984fbd"
+  integrity sha1-4TDK9+cnkIfFYWwgB9BIVpiYT70=
+  dependencies:
+    safe-buffer "5.1.2"
+
+content-type@~1.0.4:
+  version "1.0.4"
+  resolved "https://npm.suwis.com:443/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
+  integrity sha1-4TjMdeBAxyexlm/l5fjJruJW/js=
+
+cookie-signature@1.0.6:
+  version "1.0.6"
+  resolved "https://npm.suwis.com:443/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
+  integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
+
+cookie@0.4.0:
+  version "0.4.0"
+  resolved "https://npm.suwis.com:443/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
+  integrity sha1-vrQ35wIrO21JAZ0IhmUwPr6cFLo=
+
+copy-concurrently@^1.0.0:
+  version "1.0.5"
+  resolved "https://npm.suwis.com:443/copy-concurrently/-/copy-concurrently-1.0.5.tgz#92297398cae34937fcafd6ec8139c18051f0b5e0"
+  integrity sha1-kilzmMrjSTf8r9bsgTnBgFHwteA=
+  dependencies:
+    aproba "^1.1.1"
+    fs-write-stream-atomic "^1.0.8"
+    iferr "^0.1.5"
+    mkdirp "^0.5.1"
+    rimraf "^2.5.4"
+    run-queue "^1.0.0"
+
+copy-descriptor@^0.1.0:
+  version "0.1.1"
+  resolved "https://npm.suwis.com:443/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
+  integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://npm.suwis.com:443/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+create-ecdh@^4.0.0:
+  version "4.0.3"
+  resolved "https://npm.suwis.com:443/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"
+  integrity sha1-yREbbzMEXEaX8UR4f5JUzcd8Rf8=
+  dependencies:
+    bn.js "^4.1.0"
+    elliptic "^6.0.0"
+
+create-hash@^1.1.0, create-hash@^1.1.2:
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/create-hash/-/create-hash-1.2.0.tgz#889078af11a63756bcfb59bd221996be3a9ef196"
+  integrity sha1-iJB4rxGmN1a8+1m9IhmWvjqe8ZY=
+  dependencies:
+    cipher-base "^1.0.1"
+    inherits "^2.0.1"
+    md5.js "^1.3.4"
+    ripemd160 "^2.0.1"
+    sha.js "^2.4.0"
+
+create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
+  version "1.1.7"
+  resolved "https://npm.suwis.com:443/create-hmac/-/create-hmac-1.1.7.tgz#69170c78b3ab957147b2b8b04572e47ead2243ff"
+  integrity sha1-aRcMeLOrlXFHsriwRXLkfq0iQ/8=
+  dependencies:
+    cipher-base "^1.0.3"
+    create-hash "^1.1.0"
+    inherits "^2.0.1"
+    ripemd160 "^2.0.0"
+    safe-buffer "^5.0.1"
+    sha.js "^2.4.8"
 
 cross-spawn-promise@^0.10.1:
   version "0.10.1"
@@ -614,6 +1272,61 @@ cross-zip@^2.1.5:
   dependencies:
     rimraf "^3.0.0"
 
+crypto-browserify@^3.11.0:
+  version "3.12.0"
+  resolved "https://npm.suwis.com:443/crypto-browserify/-/crypto-browserify-3.12.0.tgz#396cf9f3137f03e4b8e532c58f698254e00f80ec"
+  integrity sha1-OWz58xN/A+S45TLFj2mCVOAPgOw=
+  dependencies:
+    browserify-cipher "^1.0.0"
+    browserify-sign "^4.0.0"
+    create-ecdh "^4.0.0"
+    create-hash "^1.1.0"
+    create-hmac "^1.1.0"
+    diffie-hellman "^5.0.0"
+    inherits "^2.0.1"
+    pbkdf2 "^3.0.3"
+    public-encrypt "^4.0.0"
+    randombytes "^2.0.0"
+    randomfill "^1.0.3"
+
+css-loader@^3.0.0:
+  version "3.2.0"
+  resolved "https://npm.suwis.com:443/css-loader/-/css-loader-3.2.0.tgz#bb570d89c194f763627fcf1f80059c6832d009b2"
+  integrity sha1-u1cNicGU92Nif88fgAWcaDLQCbI=
+  dependencies:
+    camelcase "^5.3.1"
+    cssesc "^3.0.0"
+    icss-utils "^4.1.1"
+    loader-utils "^1.2.3"
+    normalize-path "^3.0.0"
+    postcss "^7.0.17"
+    postcss-modules-extract-imports "^2.0.0"
+    postcss-modules-local-by-default "^3.0.2"
+    postcss-modules-scope "^2.1.0"
+    postcss-modules-values "^3.0.0"
+    postcss-value-parser "^4.0.0"
+    schema-utils "^2.0.0"
+
+css-select@^1.1.0:
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858"
+  integrity sha1-KzoRBTnFNV8c2NMUYj6HCxIeyFg=
+  dependencies:
+    boolbase "~1.0.0"
+    css-what "2.1"
+    domutils "1.5.1"
+    nth-check "~1.0.1"
+
+css-what@2.1:
+  version "2.1.3"
+  resolved "https://npm.suwis.com:443/css-what/-/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2"
+  integrity sha1-ptdgRXM2X+dGhsPzEcVlE9iChfI=
+
+cssesc@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
+  integrity sha1-N3QZGZA7hoVl4cCep0dEXNGJg+4=
+
 cuint@^0.2.2:
   version "0.2.2"
   resolved "https://npm.suwis.com:443/cuint/-/cuint-0.2.2.tgz#408086d409550c2631155619e9fa7bcadc3b991b"
@@ -626,6 +1339,11 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
+cyclist@~0.2.2:
+  version "0.2.2"
+  resolved "https://npm.suwis.com:443/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
+  integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://npm.suwis.com:443/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -633,14 +1351,19 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2.6.9, debug@^2.1.3, debug@^2.2.0, debug@^2.5.1, debug@^2.6.8:
+date-now@^0.1.4:
+  version "0.1.4"
+  resolved "https://npm.suwis.com:443/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+  integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
+
+debug@2.6.9, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3, debug@^2.5.1, debug@^2.6.8:
   version "2.6.9"
   resolved "https://npm.suwis.com:443/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.0, debug@^3.1.0:
+debug@^3.0.0, debug@^3.1.0, debug@^3.2.6:
   version "3.2.6"
   resolved "https://npm.suwis.com:443/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha1-6D0X3hbYp++3cX7b5fsQE17uYps=
@@ -658,6 +1381,11 @@ decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://npm.suwis.com:443/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+
+decode-uri-component@^0.2.0:
+  version "0.2.0"
+  resolved "https://npm.suwis.com:443/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
+  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
 decompress-response@^3.3.0:
   version "3.3.0"
@@ -683,6 +1411,35 @@ defer-to-connect@^1.0.1:
   resolved "https://npm.suwis.com:443/defer-to-connect/-/defer-to-connect-1.0.2.tgz#4bae758a314b034ae33902b5aac25a8dd6a8633e"
   integrity sha1-S651ijFLA0rjOQK1qsJajdaoYz4=
 
+define-properties@^1.1.2:
+  version "1.1.3"
+  resolved "https://npm.suwis.com:443/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
+  integrity sha1-z4jabL7ib+bbcJT2HYcMvYTO6fE=
+  dependencies:
+    object-keys "^1.0.12"
+
+define-property@^0.2.5:
+  version "0.2.5"
+  resolved "https://npm.suwis.com:443/define-property/-/define-property-0.2.5.tgz#c35b1ef918ec3c990f9a5bc57be04aacec5c8116"
+  integrity sha1-w1se+RjsPJkPmlvFe+BKrOxcgRY=
+  dependencies:
+    is-descriptor "^0.1.0"
+
+define-property@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/define-property/-/define-property-1.0.0.tgz#769ebaaf3f4a63aad3af9e8d304c9bbe79bfb0e6"
+  integrity sha1-dp66rz9KY6rTr56NMEybvnm/sOY=
+  dependencies:
+    is-descriptor "^1.0.0"
+
+define-property@^2.0.2:
+  version "2.0.2"
+  resolved "https://npm.suwis.com:443/define-property/-/define-property-2.0.2.tgz#d459689e8d654ba77e02a817f8710d702cb16e9d"
+  integrity sha1-1Flono1lS6d+AqgX+HENcCyxbp0=
+  dependencies:
+    is-descriptor "^1.0.2"
+    isobject "^3.0.1"
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://npm.suwis.com:443/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
@@ -693,15 +1450,110 @@ delegates@^1.0.0:
   resolved "https://npm.suwis.com:443/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
-detect-libc@^1.0.3:
+depd@~1.1.2:
+  version "1.1.2"
+  resolved "https://npm.suwis.com:443/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
+  integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
+
+des.js@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/des.js/-/des.js-1.0.0.tgz#c074d2e2aa6a8a9a07dbd61f9a15c2cd83ec8ecc"
+  integrity sha1-wHTS4qpqipoH29YfmhXCzYPsjsw=
+  dependencies:
+    inherits "^2.0.1"
+    minimalistic-assert "^1.0.0"
+
+destroy@~1.0.4:
+  version "1.0.4"
+  resolved "https://npm.suwis.com:443/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
+  integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+
+detect-libc@^1.0.2, detect-libc@^1.0.3:
   version "1.0.3"
   resolved "https://npm.suwis.com:443/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+
+diffie-hellman@^5.0.0:
+  version "5.0.3"
+  resolved "https://npm.suwis.com:443/diffie-hellman/-/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
+  integrity sha1-QOjumPVaIUlgcUaSHGPhrl89KHU=
+  dependencies:
+    bn.js "^4.1.0"
+    miller-rabin "^4.0.0"
+    randombytes "^2.0.0"
+
+dom-converter@^0.2:
+  version "0.2.0"
+  resolved "https://npm.suwis.com:443/dom-converter/-/dom-converter-0.2.0.tgz#6721a9daee2e293682955b6afe416771627bb768"
+  integrity sha1-ZyGp2u4uKTaClVtq/kFncWJ7t2g=
+  dependencies:
+    utila "~0.4"
+
+dom-serializer@0:
+  version "0.2.1"
+  resolved "https://npm.suwis.com:443/dom-serializer/-/dom-serializer-0.2.1.tgz#13650c850daffea35d8b626a4cfc4d3a17643fdb"
+  integrity sha1-E2UMhQ2v/qNdi2JqTPxNOhdkP9s=
+  dependencies:
+    domelementtype "^2.0.1"
+    entities "^2.0.0"
+
+dom-walk@^0.1.0:
+  version "0.1.1"
+  resolved "https://npm.suwis.com:443/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
+  integrity sha1-ZyIm3HTI95mtNTB9+TaroRrNYBg=
+
+domain-browser@^1.1.1:
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
+  integrity sha1-PTH1AZGmdJ3RN1p/Ui6CPULlTto=
+
+domelementtype@1, domelementtype@^1.3.1:
+  version "1.3.1"
+  resolved "https://npm.suwis.com:443/domelementtype/-/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
+  integrity sha1-0EjESzew0Qp/Kj1f7j9DM9eQSB8=
+
+domelementtype@^2.0.1:
+  version "2.0.1"
+  resolved "https://npm.suwis.com:443/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
+  integrity sha1-H4vf6R9aeAYydOgDtL3O326U+U0=
+
+domhandler@^2.3.0:
+  version "2.4.2"
+  resolved "https://npm.suwis.com:443/domhandler/-/domhandler-2.4.2.tgz#8805097e933d65e85546f726d60f5eb88b44f803"
+  integrity sha1-iAUJfpM9ZehVRvcm1g9euItE+AM=
+  dependencies:
+    domelementtype "1"
+
+domutils@1.5.1:
+  version "1.5.1"
+  resolved "https://npm.suwis.com:443/domutils/-/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
+  integrity sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8=
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
+
+domutils@^1.5.1:
+  version "1.7.0"
+  resolved "https://npm.suwis.com:443/domutils/-/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
+  integrity sha1-Vuo0HoNOBuZ0ivehyyXaZ+qfjCo=
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
 
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://npm.suwis.com:443/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
+
+duplexify@^3.4.2, duplexify@^3.6.0:
+  version "3.7.1"
+  resolved "https://npm.suwis.com:443/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
+  integrity sha1-Kk31MX9sz9kfhtb9JdjYoQO4gwk=
+  dependencies:
+    end-of-stream "^1.0.0"
+    inherits "^2.0.1"
+    readable-stream "^2.0.0"
+    stream-shift "^1.0.0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -710,6 +1562,11 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
+
+ee-first@1.1.1:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
+  integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-download@^4.1.0:
   version "4.1.1"
@@ -851,17 +1708,59 @@ electron@6.0.4:
     electron-download "^4.1.0"
     extract-zip "^1.0.3"
 
+elliptic@^6.0.0:
+  version "6.5.0"
+  resolved "https://npm.suwis.com:443/elliptic/-/elliptic-6.5.0.tgz#2b8ed4c891b7de3200e14412a5b8248c7af505ca"
+  integrity sha1-K47UyJG33jIA4UQSpbgkjHr1Bco=
+  dependencies:
+    bn.js "^4.4.0"
+    brorand "^1.0.1"
+    hash.js "^1.0.0"
+    hmac-drbg "^1.0.0"
+    inherits "^2.0.1"
+    minimalistic-assert "^1.0.0"
+    minimalistic-crypto-utils "^1.0.0"
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://npm.suwis.com:443/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha1-kzoEBShgyF6DwSJHnEdIqOTHIVY=
 
-end-of-stream@^1.1.0:
+emojis-list@^2.0.0:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
+  integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
+
+encodeurl@~1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
+  integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+
+end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.1"
   resolved "https://npm.suwis.com:443/end-of-stream/-/end-of-stream-1.4.1.tgz#ed29634d19baba463b6ce6b80a37213eab71ec43"
   integrity sha1-7SljTRm6ukY7bOa4CjchPqtx7EM=
   dependencies:
     once "^1.4.0"
+
+enhanced-resolve@^4.1.0:
+  version "4.1.0"
+  resolved "https://npm.suwis.com:443/enhanced-resolve/-/enhanced-resolve-4.1.0.tgz#41c7e0bfdfe74ac1ffe1e57ad6a5c6c9f3742a7f"
+  integrity sha1-Qcfgv9/nSsH/4eV61qXGyfN0Kn8=
+  dependencies:
+    graceful-fs "^4.1.2"
+    memory-fs "^0.4.0"
+    tapable "^1.0.0"
+
+entities@^1.1.1:
+  version "1.1.2"
+  resolved "https://npm.suwis.com:443/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
+  integrity sha1-vfpzUplmTfr9NFKe1PhSKidf6lY=
+
+entities@^2.0.0:
+  version "2.0.0"
+  resolved "https://npm.suwis.com:443/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
+  integrity sha1-aNYITKsbB5dnVA2A5Wo5tCPkq/Q=
 
 env-paths@^1.0.0:
   version "1.0.0"
@@ -873,6 +1772,13 @@ env-paths@^2.2.0:
   resolved "https://npm.suwis.com:443/env-paths/-/env-paths-2.2.0.tgz#cdca557dc009152917d6166e2febe1f039685e43"
   integrity sha1-zcpVfcAJFSkX1hZuL+vh8DloXkM=
 
+errno@^0.1.3, errno@~0.1.7:
+  version "0.1.7"
+  resolved "https://npm.suwis.com:443/errno/-/errno-0.1.7.tgz#4684d71779ad39af177e3f007996f7c67c852618"
+  integrity sha1-RoTXF3mtOa8Xfj8AeZb3xnyFJhg=
+  dependencies:
+    prr "~1.0.1"
+
 error-ex@^1.2.0:
   version "1.3.2"
   resolved "https://npm.suwis.com:443/error-ex/-/error-ex-1.3.2.tgz#b4ac40648107fdcdcfae242f428bea8a14d4f1bf"
@@ -880,10 +1786,74 @@ error-ex@^1.2.0:
   dependencies:
     is-arrayish "^0.2.1"
 
+es-abstract@^1.5.1:
+  version "1.13.0"
+  resolved "https://npm.suwis.com:443/es-abstract/-/es-abstract-1.13.0.tgz#ac86145fdd5099d8dd49558ccba2eaf9b88e24e9"
+  integrity sha1-rIYUX91QmdjdSVWMy6Lq+biOJOk=
+  dependencies:
+    es-to-primitive "^1.2.0"
+    function-bind "^1.1.1"
+    has "^1.0.3"
+    is-callable "^1.1.4"
+    is-regex "^1.0.4"
+    object-keys "^1.0.12"
+
+es-to-primitive@^1.2.0:
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/es-to-primitive/-/es-to-primitive-1.2.0.tgz#edf72478033456e8dda8ef09e00ad9650707f377"
+  integrity sha1-7fckeAM0VujdqO8J4ArZZQcH83c=
+  dependencies:
+    is-callable "^1.1.4"
+    is-date-object "^1.0.1"
+    is-symbol "^1.0.2"
+
+escape-html@~1.0.3:
+  version "1.0.3"
+  resolved "https://npm.suwis.com:443/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
+  integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://npm.suwis.com:443/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+
+eslint-scope@^4.0.3:
+  version "4.0.3"
+  resolved "https://npm.suwis.com:443/eslint-scope/-/eslint-scope-4.0.3.tgz#ca03833310f6889a3264781aa82e63eb9cfe7848"
+  integrity sha1-ygODMxD2iJoyZHgaqC5j65z+eEg=
+  dependencies:
+    esrecurse "^4.1.0"
+    estraverse "^4.1.1"
+
+esrecurse@^4.1.0:
+  version "4.2.1"
+  resolved "https://npm.suwis.com:443/esrecurse/-/esrecurse-4.2.1.tgz#007a3b9fdbc2b3bb87e4879ea19c92fdbd3942cf"
+  integrity sha1-AHo7n9vCs7uH5IeeoZyS/b05Qs8=
+  dependencies:
+    estraverse "^4.1.0"
+
+estraverse@^4.1.0, estraverse@^4.1.1:
+  version "4.3.0"
+  resolved "https://npm.suwis.com:443/estraverse/-/estraverse-4.3.0.tgz#398ad3f3c5a24948be7725e83d11a7de28cdbd1d"
+  integrity sha1-OYrT88WiSUi+dyXoPRGn3ijNvR0=
+
+etag@~1.8.1:
+  version "1.8.1"
+  resolved "https://npm.suwis.com:443/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
+  integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
+
+events@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/events/-/events-3.0.0.tgz#9a0a0dfaf62893d92b875b8f2698ca4114973e88"
+  integrity sha1-mgoN+vYok9krh1uPJpjKQRSXPog=
+
+evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
+  version "1.0.3"
+  resolved "https://npm.suwis.com:443/evp_bytestokey/-/evp_bytestokey-1.0.3.tgz#7fcbdb198dc71959432efe13842684e0525acb02"
+  integrity sha1-f8vbGY3HGVlDLv4ThCaE4FJaywI=
+  dependencies:
+    md5.js "^1.3.4"
+    safe-buffer "^5.1.1"
 
 execa@^1.0.0:
   version "1.0.0"
@@ -898,12 +1868,83 @@ execa@^1.0.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
+expand-brackets@^2.1.4:
+  version "2.1.4"
+  resolved "https://npm.suwis.com:443/expand-brackets/-/expand-brackets-2.1.4.tgz#b77735e315ce30f6b6eff0f83b04151a22449622"
+  integrity sha1-t3c14xXOMPa27/D4OwQVGiJEliI=
+  dependencies:
+    debug "^2.3.3"
+    define-property "^0.2.5"
+    extend-shallow "^2.0.1"
+    posix-character-classes "^0.1.0"
+    regex-not "^1.0.0"
+    snapdragon "^0.8.1"
+    to-regex "^3.0.1"
+
 expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   version "2.0.2"
   resolved "https://npm.suwis.com:443/expand-tilde/-/expand-tilde-2.0.2.tgz#97e801aa052df02454de46b02bf621642cdc8502"
   integrity sha1-l+gBqgUt8CRU3kawK/YhZCzchQI=
   dependencies:
     homedir-polyfill "^1.0.1"
+
+express-ws@^4.0.0:
+  version "4.0.0"
+  resolved "https://npm.suwis.com:443/express-ws/-/express-ws-4.0.0.tgz#dabd8dc974516418902a41fe6e30ed949b4d36c4"
+  integrity sha1-2r2NyXRRZBiQKkH+bjDtlJtNNsQ=
+  dependencies:
+    ws "^5.2.0"
+
+express@^4.17.1:
+  version "4.17.1"
+  resolved "https://npm.suwis.com:443/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
+  integrity sha1-RJH8OGBc9R+GKdOcK10Cb5ikwTQ=
+  dependencies:
+    accepts "~1.3.7"
+    array-flatten "1.1.1"
+    body-parser "1.19.0"
+    content-disposition "0.5.3"
+    content-type "~1.0.4"
+    cookie "0.4.0"
+    cookie-signature "1.0.6"
+    debug "2.6.9"
+    depd "~1.1.2"
+    encodeurl "~1.0.2"
+    escape-html "~1.0.3"
+    etag "~1.8.1"
+    finalhandler "~1.1.2"
+    fresh "0.5.2"
+    merge-descriptors "1.0.1"
+    methods "~1.1.2"
+    on-finished "~2.3.0"
+    parseurl "~1.3.3"
+    path-to-regexp "0.1.7"
+    proxy-addr "~2.0.5"
+    qs "6.7.0"
+    range-parser "~1.2.1"
+    safe-buffer "5.1.2"
+    send "0.17.1"
+    serve-static "1.14.1"
+    setprototypeof "1.1.1"
+    statuses "~1.5.0"
+    type-is "~1.6.18"
+    utils-merge "1.0.1"
+    vary "~1.1.2"
+
+extend-shallow@^2.0.1:
+  version "2.0.1"
+  resolved "https://npm.suwis.com:443/extend-shallow/-/extend-shallow-2.0.1.tgz#51af7d614ad9a9f610ea1bafbb989d6b1c56890f"
+  integrity sha1-Ua99YUrZqfYQ6huvu5idaxxWiQ8=
+  dependencies:
+    is-extendable "^0.1.0"
+
+extend-shallow@^3.0.0, extend-shallow@^3.0.2:
+  version "3.0.2"
+  resolved "https://npm.suwis.com:443/extend-shallow/-/extend-shallow-3.0.2.tgz#26a71aaf073b39fb2127172746131c2704028db8"
+  integrity sha1-Jqcarwc7OfshJxcnRhMcJwQCjbg=
+  dependencies:
+    assign-symbols "^1.0.0"
+    is-extendable "^1.0.1"
 
 extend@~3.0.2:
   version "3.0.2"
@@ -918,6 +1959,20 @@ external-editor@^3.0.3:
     chardet "^0.7.0"
     iconv-lite "^0.4.24"
     tmp "^0.0.33"
+
+extglob@^2.0.4:
+  version "2.0.4"
+  resolved "https://npm.suwis.com:443/extglob/-/extglob-2.0.4.tgz#ad00fe4dc612a9232e8718711dc5cb5ab0285543"
+  integrity sha1-rQD+TcYSqSMuhxhxHcXLWrAoVUM=
+  dependencies:
+    array-unique "^0.3.2"
+    define-property "^1.0.0"
+    expand-brackets "^2.1.4"
+    extend-shallow "^2.0.1"
+    fragment-cache "^0.2.1"
+    regex-not "^1.0.0"
+    snapdragon "^0.8.1"
+    to-regex "^3.0.1"
 
 extract-zip@^1.0.3:
   version "1.6.7"
@@ -956,12 +2011,49 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
+figgy-pudding@^3.5.1:
+  version "3.5.1"
+  resolved "https://npm.suwis.com:443/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
+  integrity sha1-hiRwESkBxyeg5JWoB0S9W6odZ5A=
+
 figures@^2.0.0:
   version "2.0.0"
   resolved "https://npm.suwis.com:443/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
   integrity sha1-OrGi0qYsi/tDGgyUy3l6L84nyWI=
   dependencies:
     escape-string-regexp "^1.0.5"
+
+fill-range@^4.0.0:
+  version "4.0.0"
+  resolved "https://npm.suwis.com:443/fill-range/-/fill-range-4.0.0.tgz#d544811d428f98eb06a63dc402d2403c328c38f7"
+  integrity sha1-1USBHUKPmOsGpj3EAtJAPDKMOPc=
+  dependencies:
+    extend-shallow "^2.0.1"
+    is-number "^3.0.0"
+    repeat-string "^1.6.1"
+    to-regex-range "^2.1.0"
+
+finalhandler@~1.1.2:
+  version "1.1.2"
+  resolved "https://npm.suwis.com:443/finalhandler/-/finalhandler-1.1.2.tgz#b7e7d000ffd11938d0fdb053506f6ebabe9f587d"
+  integrity sha1-t+fQAP/RGTjQ/bBTUG9uur6fWH0=
+  dependencies:
+    debug "2.6.9"
+    encodeurl "~1.0.2"
+    escape-html "~1.0.3"
+    on-finished "~2.3.0"
+    parseurl "~1.3.3"
+    statuses "~1.5.0"
+    unpipe "~1.0.0"
+
+find-cache-dir@^2.1.0:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/find-cache-dir/-/find-cache-dir-2.1.0.tgz#8d0f94cd13fe43c6c7c261a0d86115ca918c05f7"
+  integrity sha1-jQ+UzRP+Q8bHwmGg2GEVypGMBfc=
+  dependencies:
+    commondir "^1.0.1"
+    make-dir "^2.0.0"
+    pkg-dir "^3.0.0"
 
 find-up@^1.0.0:
   version "1.1.2"
@@ -1001,6 +2093,19 @@ flora-colossus@^1.0.0:
     debug "^4.1.1"
     fs-extra "^7.0.0"
 
+flush-write-stream@^1.0.0:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"
+  integrity sha1-jdfYc6G6vCB9lOrQwuDkQnbr8ug=
+  dependencies:
+    inherits "^2.0.3"
+    readable-stream "^2.3.6"
+
+for-in@^1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
+  integrity sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=
+
 forever-agent@~0.6.1:
   version "0.6.1"
   resolved "https://npm.suwis.com:443/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
@@ -1014,6 +2119,31 @@ form-data@~2.3.2:
     asynckit "^0.4.0"
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
+
+forwarded@~0.1.2:
+  version "0.1.2"
+  resolved "https://npm.suwis.com:443/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
+  integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+
+fragment-cache@^0.2.1:
+  version "0.2.1"
+  resolved "https://npm.suwis.com:443/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
+  integrity sha1-QpD60n8T6Jvn8zeZxrxaCr//DRk=
+  dependencies:
+    map-cache "^0.2.2"
+
+fresh@0.5.2:
+  version "0.5.2"
+  resolved "https://npm.suwis.com:443/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
+  integrity sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
+
+from2@^2.1.0:
+  version "2.3.0"
+  resolved "https://npm.suwis.com:443/from2/-/from2-2.3.0.tgz#8bfb5502bde4a4d36cfdeea007fcca21d7e382af"
+  integrity sha1-i/tVAr3kpNNs/e6gB/zKIdfjgq8=
+  dependencies:
+    inherits "^2.0.1"
+    readable-stream "^2.0.0"
 
 fs-extra@^4.0.0, fs-extra@^4.0.1:
   version "4.0.3"
@@ -1049,10 +2179,33 @@ fs-minipass@^1.2.5:
   dependencies:
     minipass "^2.2.1"
 
+fs-write-stream-atomic@^1.0.8:
+  version "1.0.10"
+  resolved "https://npm.suwis.com:443/fs-write-stream-atomic/-/fs-write-stream-atomic-1.0.10.tgz#b47df53493ef911df75731e70a9ded0189db40c9"
+  integrity sha1-tH31NJPvkR33VzHnCp3tAYnbQMk=
+  dependencies:
+    graceful-fs "^4.1.2"
+    iferr "^0.1.5"
+    imurmurhash "^0.1.4"
+    readable-stream "1 || 2"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://npm.suwis.com:443/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+
+fsevents@^1.2.7:
+  version "1.2.9"
+  resolved "https://npm.suwis.com:443/fsevents/-/fsevents-1.2.9.tgz#3f5ed66583ccd6f400b5a00db6f7e861363e388f"
+  integrity sha1-P17WZYPM1vQAtaANtvfoYTY+OI8=
+  dependencies:
+    nan "^2.12.1"
+    node-pre-gyp "^0.12.0"
+
+function-bind@^1.1.1:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
+  integrity sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0=
 
 galactus@^0.2.1:
   version "0.2.1"
@@ -1131,12 +2284,25 @@ get-stream@^5.1.0:
   dependencies:
     pump "^3.0.0"
 
+get-value@^2.0.3, get-value@^2.0.6:
+  version "2.0.6"
+  resolved "https://npm.suwis.com:443/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
+  integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+
 getpass@^0.1.1:
   version "0.1.7"
   resolved "https://npm.suwis.com:443/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   integrity sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
   dependencies:
     assert-plus "^1.0.0"
+
+glob-parent@^3.1.0:
+  version "3.1.0"
+  resolved "https://npm.suwis.com:443/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
+  integrity sha1-nmr2KZ2NO9K9QEMIMr0RPfkGxa4=
+  dependencies:
+    is-glob "^3.1.0"
+    path-dirname "^1.0.0"
 
 glob@^7.0.3, glob@^7.1.3, glob@^7.1.4:
   version "7.1.4"
@@ -1170,6 +2336,14 @@ global-prefix@^1.0.1:
     is-windows "^1.0.1"
     which "^1.2.14"
 
+global@^4.3.2:
+  version "4.4.0"
+  resolved "https://npm.suwis.com:443/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
+  integrity sha1-PnsQUXkAajI+1xqvyj6cV6XMZAY=
+  dependencies:
+    min-document "^2.19.0"
+    process "^0.11.10"
+
 got@^9.6.0:
   version "9.6.0"
   resolved "https://npm.suwis.com:443/got/-/got-9.6.0.tgz#edf45e7d67f99545705de1f7bbeeeb121765ed85"
@@ -1187,7 +2361,7 @@ got@^9.6.0:
     to-readable-stream "^1.0.0"
     url-parse-lax "^3.0.0"
 
-graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
+graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.2"
   resolved "https://npm.suwis.com:443/graceful-fs/-/graceful-fs-4.2.2.tgz#6f0952605d0140c1cfdb138ed005775b92d67b02"
   integrity sha1-bwlSYF0BQMHP2xOO0AV3W5LWewI=
@@ -1210,10 +2384,83 @@ has-flag@^3.0.0:
   resolved "https://npm.suwis.com:443/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
   integrity sha1-tdRU3CGZriJWmfNGfloH87lVuv0=
 
+has-symbols@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/has-symbols/-/has-symbols-1.0.0.tgz#ba1a8f1af2a0fc39650f5c850367704122063b44"
+  integrity sha1-uhqPGvKg/DllD1yFA2dwQSIGO0Q=
+
 has-unicode@^2.0.0:
   version "2.0.1"
   resolved "https://npm.suwis.com:443/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
   integrity sha1-4Ob+aijPUROIVeCG0Wkedx3iqLk=
+
+has-value@^0.3.1:
+  version "0.3.1"
+  resolved "https://npm.suwis.com:443/has-value/-/has-value-0.3.1.tgz#7b1f58bada62ca827ec0a2078025654845995e1f"
+  integrity sha1-ex9YutpiyoJ+wKIHgCVlSEWZXh8=
+  dependencies:
+    get-value "^2.0.3"
+    has-values "^0.1.4"
+    isobject "^2.0.0"
+
+has-value@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/has-value/-/has-value-1.0.0.tgz#18b281da585b1c5c51def24c930ed29a0be6b177"
+  integrity sha1-GLKB2lhbHFxR3vJMkw7SmgvmsXc=
+  dependencies:
+    get-value "^2.0.6"
+    has-values "^1.0.0"
+    isobject "^3.0.0"
+
+has-values@^0.1.4:
+  version "0.1.4"
+  resolved "https://npm.suwis.com:443/has-values/-/has-values-0.1.4.tgz#6d61de95d91dfca9b9a02089ad384bff8f62b771"
+  integrity sha1-bWHeldkd/Km5oCCJrThL/49it3E=
+
+has-values@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/has-values/-/has-values-1.0.0.tgz#95b0b63fec2146619a6fe57fe75628d5a39efe4f"
+  integrity sha1-lbC2P+whRmGab+V/51Yo1aOe/k8=
+  dependencies:
+    is-number "^3.0.0"
+    kind-of "^4.0.0"
+
+has@^1.0.1, has@^1.0.3:
+  version "1.0.3"
+  resolved "https://npm.suwis.com:443/has/-/has-1.0.3.tgz#722d7cbfc1f6aa8241f16dd814e011e1f41e8796"
+  integrity sha1-ci18v8H2qoJB8W3YFOAR4fQeh5Y=
+  dependencies:
+    function-bind "^1.1.1"
+
+hash-base@^3.0.0:
+  version "3.0.4"
+  resolved "https://npm.suwis.com:443/hash-base/-/hash-base-3.0.4.tgz#5fc8686847ecd73499403319a6b0a3f3f6ae4918"
+  integrity sha1-X8hoaEfs1zSZQDMZprCj8/auSRg=
+  dependencies:
+    inherits "^2.0.1"
+    safe-buffer "^5.0.1"
+
+hash.js@^1.0.0, hash.js@^1.0.3:
+  version "1.1.7"
+  resolved "https://npm.suwis.com:443/hash.js/-/hash.js-1.1.7.tgz#0babca538e8d4ee4a0f8988d68866537a003cf42"
+  integrity sha1-C6vKU46NTuSg+JiNaIZlN6ADz0I=
+  dependencies:
+    inherits "^2.0.3"
+    minimalistic-assert "^1.0.1"
+
+he@1.2.x:
+  version "1.2.0"
+  resolved "https://npm.suwis.com:443/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
+  integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
+
+hmac-drbg@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
+  integrity sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=
+  dependencies:
+    hash.js "^1.0.3"
+    minimalistic-assert "^1.0.0"
+    minimalistic-crypto-utils "^1.0.1"
 
 homedir-polyfill@^1.0.1:
   version "1.0.3"
@@ -1227,10 +2474,75 @@ hosted-git-info@^2.1.4:
   resolved "https://npm.suwis.com:443/hosted-git-info/-/hosted-git-info-2.8.4.tgz#44119abaf4bc64692a16ace34700fed9c03e2546"
   integrity sha1-RBGauvS8ZGkqFqzjRwD+2cA+JUY=
 
+html-entities@^1.2.0:
+  version "1.2.1"
+  resolved "https://npm.suwis.com:443/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
+  integrity sha1-DfKTUfByEWNRXfueVUPl9u7VFi8=
+
+html-minifier@^3.2.3:
+  version "3.5.21"
+  resolved "https://npm.suwis.com:443/html-minifier/-/html-minifier-3.5.21.tgz#d0040e054730e354db008463593194015212d20c"
+  integrity sha1-0AQOBUcw41TbAIRjWTGUAVIS0gw=
+  dependencies:
+    camel-case "3.0.x"
+    clean-css "4.2.x"
+    commander "2.17.x"
+    he "1.2.x"
+    param-case "2.1.x"
+    relateurl "0.2.x"
+    uglify-js "3.4.x"
+
+html-webpack-plugin@^3.2.0:
+  version "3.2.0"
+  resolved "https://npm.suwis.com:443/html-webpack-plugin/-/html-webpack-plugin-3.2.0.tgz#b01abbd723acaaa7b37b6af4492ebda03d9dd37b"
+  integrity sha1-sBq71yOsqqeze2r0SS69oD2d03s=
+  dependencies:
+    html-minifier "^3.2.3"
+    loader-utils "^0.2.16"
+    lodash "^4.17.3"
+    pretty-error "^2.0.2"
+    tapable "^1.0.0"
+    toposort "^1.0.0"
+    util.promisify "1.0.0"
+
+htmlparser2@^3.3.0:
+  version "3.10.1"
+  resolved "https://npm.suwis.com:443/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
+  integrity sha1-vWedw/WYl7ajS7EHSchVu1OpOS8=
+  dependencies:
+    domelementtype "^1.3.1"
+    domhandler "^2.3.0"
+    domutils "^1.5.1"
+    entities "^1.1.1"
+    inherits "^2.0.1"
+    readable-stream "^3.1.1"
+
 http-cache-semantics@^4.0.0:
   version "4.0.3"
   resolved "https://npm.suwis.com:443/http-cache-semantics/-/http-cache-semantics-4.0.3.tgz#495704773277eeef6e43f9ab2c2c7d259dda25c5"
   integrity sha1-SVcEdzJ37u9uQ/mrLCx9JZ3aJcU=
+
+http-errors@1.7.2:
+  version "1.7.2"
+  resolved "https://npm.suwis.com:443/http-errors/-/http-errors-1.7.2.tgz#4f5029cf13239f31036e5b2e55292bcfbcc85c8f"
+  integrity sha1-T1ApzxMjnzEDblsuVSkrz7zIXI8=
+  dependencies:
+    depd "~1.1.2"
+    inherits "2.0.3"
+    setprototypeof "1.1.1"
+    statuses ">= 1.5.0 < 2"
+    toidentifier "1.0.0"
+
+http-errors@~1.7.2:
+  version "1.7.3"
+  resolved "https://npm.suwis.com:443/http-errors/-/http-errors-1.7.3.tgz#6c619e4f9c60308c38519498c14fbb10aacebb06"
+  integrity sha1-bGGeT5xgMIw4UZSYwU+7EKrOuwY=
+  dependencies:
+    depd "~1.1.2"
+    inherits "2.0.4"
+    setprototypeof "1.1.1"
+    statuses ">= 1.5.0 < 2"
+    toidentifier "1.0.0"
 
 http-signature@~1.2.0:
   version "1.2.0"
@@ -1241,12 +2553,46 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-iconv-lite@^0.4.24:
+https-browserify@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
+  integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4:
   version "0.4.24"
   resolved "https://npm.suwis.com:443/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   integrity sha1-ICK0sl+93CHS9SSXSkdKr+czkIs=
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
+
+icss-utils@^4.0.0, icss-utils@^4.1.1:
+  version "4.1.1"
+  resolved "https://npm.suwis.com:443/icss-utils/-/icss-utils-4.1.1.tgz#21170b53789ee27447c2f47dd683081403f9a467"
+  integrity sha1-IRcLU3ie4nRHwvR91oMIFAP5pGc=
+  dependencies:
+    postcss "^7.0.14"
+
+ieee754@^1.1.4:
+  version "1.1.13"
+  resolved "https://npm.suwis.com:443/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
+  integrity sha1-7BaFWOlaoYH9h9N/VcMrvLZwi4Q=
+
+iferr@^0.1.5:
+  version "0.1.5"
+  resolved "https://npm.suwis.com:443/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
+  integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
+
+ignore-walk@^3.0.1:
+  version "3.0.1"
+  resolved "https://npm.suwis.com:443/ignore-walk/-/ignore-walk-3.0.1.tgz#a83e62e7d272ac0e3b551aaa82831a19b69f82f8"
+  integrity sha1-qD5i59JyrA47VRqqgoMaGbafgvg=
+  dependencies:
+    minimatch "^3.0.4"
+
+imurmurhash@^0.1.4:
+  version "0.1.4"
+  resolved "https://npm.suwis.com:443/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
+  integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
 
 indent-string@^2.1.0:
   version "2.1.0"
@@ -1254,6 +2600,16 @@ indent-string@^2.1.0:
   integrity sha1-ji1INIdCEhtKghi3oTfppSBJ3IA=
   dependencies:
     repeating "^2.0.0"
+
+indexes-of@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
+  integrity sha1-8w9xbI4r00bHtn0985FVZqfAVgc=
+
+infer-owner@^1.0.3:
+  version "1.0.4"
+  resolved "https://npm.suwis.com:443/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
+  integrity sha1-xM78qo5RBRwqQLos6KPScpWvlGc=
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -1263,10 +2619,20 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
+inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.4"
   resolved "https://npm.suwis.com:443/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
+
+inherits@2.0.1:
+  version "2.0.1"
+  resolved "https://npm.suwis.com:443/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
+  integrity sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
+
+inherits@2.0.3:
+  version "2.0.3"
+  resolved "https://npm.suwis.com:443/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
+  integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
 
 ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
@@ -1292,10 +2658,100 @@ inquirer@^6.5.1:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
+ipaddr.js@1.9.0:
+  version "1.9.0"
+  resolved "https://npm.suwis.com:443/ipaddr.js/-/ipaddr.js-1.9.0.tgz#37df74e430a0e47550fe54a2defe30d8acd95f65"
+  integrity sha1-N9905DCg5HVQ/lSi3v4w2KzZX2U=
+
+is-accessor-descriptor@^0.1.6:
+  version "0.1.6"
+  resolved "https://npm.suwis.com:443/is-accessor-descriptor/-/is-accessor-descriptor-0.1.6.tgz#a9e12cb3ae8d876727eeef3843f8a0897b5c98d6"
+  integrity sha1-qeEss66Nh2cn7u84Q/igiXtcmNY=
+  dependencies:
+    kind-of "^3.0.2"
+
+is-accessor-descriptor@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/is-accessor-descriptor/-/is-accessor-descriptor-1.0.0.tgz#169c2f6d3df1f992618072365c9b0ea1f6878656"
+  integrity sha1-FpwvbT3x+ZJhgHI2XJsOofaHhlY=
+  dependencies:
+    kind-of "^6.0.0"
+
 is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://npm.suwis.com:443/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
   integrity sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+
+is-binary-path@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/is-binary-path/-/is-binary-path-1.0.1.tgz#75f16642b480f187a711c814161fd3a4a7655898"
+  integrity sha1-dfFmQrSA8YenEcgUFh/TpKdlWJg=
+  dependencies:
+    binary-extensions "^1.0.0"
+
+is-buffer@^1.1.5:
+  version "1.1.6"
+  resolved "https://npm.suwis.com:443/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+  integrity sha1-76ouqdqg16suoTqXsritUf776L4=
+
+is-callable@^1.1.4:
+  version "1.1.4"
+  resolved "https://npm.suwis.com:443/is-callable/-/is-callable-1.1.4.tgz#1e1adf219e1eeb684d691f9d6a05ff0d30a24d75"
+  integrity sha1-HhrfIZ4e62hNaR+dagX/DTCiTXU=
+
+is-data-descriptor@^0.1.4:
+  version "0.1.4"
+  resolved "https://npm.suwis.com:443/is-data-descriptor/-/is-data-descriptor-0.1.4.tgz#0b5ee648388e2c860282e793f1856fec3f301b56"
+  integrity sha1-C17mSDiOLIYCgueT8YVv7D8wG1Y=
+  dependencies:
+    kind-of "^3.0.2"
+
+is-data-descriptor@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/is-data-descriptor/-/is-data-descriptor-1.0.0.tgz#d84876321d0e7add03990406abbbbd36ba9268c7"
+  integrity sha1-2Eh2Mh0Oet0DmQQGq7u9NrqSaMc=
+  dependencies:
+    kind-of "^6.0.0"
+
+is-date-object@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/is-date-object/-/is-date-object-1.0.1.tgz#9aa20eb6aeebbff77fbd33e74ca01b33581d3a16"
+  integrity sha1-mqIOtq7rv/d/vTPnTKAbM1gdOhY=
+
+is-descriptor@^0.1.0:
+  version "0.1.6"
+  resolved "https://npm.suwis.com:443/is-descriptor/-/is-descriptor-0.1.6.tgz#366d8240dde487ca51823b1ab9f07a10a78251ca"
+  integrity sha1-Nm2CQN3kh8pRgjsaufB6EKeCUco=
+  dependencies:
+    is-accessor-descriptor "^0.1.6"
+    is-data-descriptor "^0.1.4"
+    kind-of "^5.0.0"
+
+is-descriptor@^1.0.0, is-descriptor@^1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/is-descriptor/-/is-descriptor-1.0.2.tgz#3b159746a66604b04f8c81524ba365c5f14d86ec"
+  integrity sha1-OxWXRqZmBLBPjIFSS6NlxfFNhuw=
+  dependencies:
+    is-accessor-descriptor "^1.0.0"
+    is-data-descriptor "^1.0.0"
+    kind-of "^6.0.2"
+
+is-extendable@^0.1.0, is-extendable@^0.1.1:
+  version "0.1.1"
+  resolved "https://npm.suwis.com:443/is-extendable/-/is-extendable-0.1.1.tgz#62b110e289a471418e3ec36a617d472e301dfc89"
+  integrity sha1-YrEQ4omkcUGOPsNqYX1HLjAd/Ik=
+
+is-extendable@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/is-extendable/-/is-extendable-1.0.1.tgz#a7470f9e426733d81bd81e1155264e3a3507cab4"
+  integrity sha1-p0cPnkJnM9gb2B4RVSZOOjUHyrQ=
+  dependencies:
+    is-plain-object "^2.0.4"
+
+is-extglob@^2.1.0, is-extglob@^2.1.1:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/is-extglob/-/is-extglob-2.1.1.tgz#a88c02535791f02ed37c76a1b9ea9773c833f8c2"
+  integrity sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=
 
 is-finite@^1.0.0:
   version "1.0.2"
@@ -1316,15 +2772,57 @@ is-fullwidth-code-point@^2.0.0:
   resolved "https://npm.suwis.com:443/is-fullwidth-code-point/-/is-fullwidth-code-point-2.0.0.tgz#a3b30a5c4f199183167aaab93beefae3ddfb654f"
   integrity sha1-o7MKXE8ZkYMWeqq5O+764937ZU8=
 
+is-glob@^3.1.0:
+  version "3.1.0"
+  resolved "https://npm.suwis.com:443/is-glob/-/is-glob-3.1.0.tgz#7ba5ae24217804ac70707b96922567486cc3e84a"
+  integrity sha1-e6WuJCF4BKxwcHuWkiVnSGzD6Eo=
+  dependencies:
+    is-extglob "^2.1.0"
+
+is-glob@^4.0.0:
+  version "4.0.1"
+  resolved "https://npm.suwis.com:443/is-glob/-/is-glob-4.0.1.tgz#7567dbe9f2f5e2467bc77ab83c4a29482407a5dc"
+  integrity sha1-dWfb6fL14kZ7x3q4PEopSCQHpdw=
+  dependencies:
+    is-extglob "^2.1.1"
+
+is-number@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
+  integrity sha1-JP1iAaR4LPUFYcgQJ2r8fRLXEZU=
+  dependencies:
+    kind-of "^3.0.2"
+
+is-plain-object@^2.0.3, is-plain-object@^2.0.4:
+  version "2.0.4"
+  resolved "https://npm.suwis.com:443/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
+  integrity sha1-LBY7P6+xtgbZ0Xko8FwqHDjgdnc=
+  dependencies:
+    isobject "^3.0.1"
+
 is-promise@^2.1.0:
   version "2.1.0"
   resolved "https://npm.suwis.com:443/is-promise/-/is-promise-2.1.0.tgz#79a2a9ece7f096e80f36d2b2f3bc16c1ff4bf3fa"
   integrity sha1-eaKp7OfwlugPNtKy87wWwf9L8/o=
 
+is-regex@^1.0.4:
+  version "1.0.4"
+  resolved "https://npm.suwis.com:443/is-regex/-/is-regex-1.0.4.tgz#5517489b547091b0930e095654ced25ee97e9491"
+  integrity sha1-VRdIm1RwkbCTDglWVM7SXul+lJE=
+  dependencies:
+    has "^1.0.1"
+
 is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://npm.suwis.com:443/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
   integrity sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
+
+is-symbol@^1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/is-symbol/-/is-symbol-1.0.2.tgz#a055f6ae57192caee329e7a860118b497a950f38"
+  integrity sha1-oFX2rlcZLK7jKeeoYBGLSXqVDzg=
+  dependencies:
+    has-symbols "^1.0.0"
 
 is-typedarray@~1.0.0:
   version "1.0.0"
@@ -1336,7 +2834,7 @@ is-utf8@^0.2.0:
   resolved "https://npm.suwis.com:443/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
-is-windows@^1.0.1:
+is-windows@^1.0.1, is-windows@^1.0.2:
   version "1.0.2"
   resolved "https://npm.suwis.com:443/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha1-0YUOuXkezRjmGCzhKjDzlmNLsZ0=
@@ -1351,7 +2849,7 @@ isarray@0.0.1:
   resolved "https://npm.suwis.com:443/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
   integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
-isarray@~1.0.0:
+isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://npm.suwis.com:443/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
@@ -1368,6 +2866,18 @@ isexe@^2.0.0:
   resolved "https://npm.suwis.com:443/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+isobject@^2.0.0:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
+  integrity sha1-8GVWEJaj8dou9GJy+BXIQNh+DIk=
+  dependencies:
+    isarray "1.0.0"
+
+isobject@^3.0.0, isobject@^3.0.1:
+  version "3.0.1"
+  resolved "https://npm.suwis.com:443/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
+  integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://npm.suwis.com:443/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -1383,6 +2893,11 @@ json-buffer@3.0.0:
   resolved "https://npm.suwis.com:443/json-buffer/-/json-buffer-3.0.0.tgz#5b1f397afc75d677bde8bcfc0e47e1f9a3d9a898"
   integrity sha1-Wx85evx11ne96Lz8Dkfh+aPZqJg=
 
+json-parse-better-errors@^1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
+  integrity sha1-u4Z8+zRQ5pEHwTHRxRS6s9yLyqk=
+
 json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "https://npm.suwis.com:443/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
@@ -1397,6 +2912,18 @@ json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://npm.suwis.com:443/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
+
+json5@^0.5.0:
+  version "0.5.1"
+  resolved "https://npm.suwis.com:443/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
+  integrity sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE=
+
+json5@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
+  integrity sha1-d5+wAYYE+oVOrL9iUhgNg1Q+Pb4=
+  dependencies:
+    minimist "^1.2.0"
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -1427,6 +2954,30 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
+kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
+  version "3.2.2"
+  resolved "https://npm.suwis.com:443/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
+  integrity sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ=
+  dependencies:
+    is-buffer "^1.1.5"
+
+kind-of@^4.0.0:
+  version "4.0.0"
+  resolved "https://npm.suwis.com:443/kind-of/-/kind-of-4.0.0.tgz#20813df3d712928b207378691a45066fae72dd57"
+  integrity sha1-IIE989cSkosgc3hpGkUGb65y3Vc=
+  dependencies:
+    is-buffer "^1.1.5"
+
+kind-of@^5.0.0:
+  version "5.1.0"
+  resolved "https://npm.suwis.com:443/kind-of/-/kind-of-5.1.0.tgz#729c91e2d857b7a419a1f9aa65685c4c33f5845d"
+  integrity sha1-cpyR4thXt6QZofmqZWhcTDP1hF0=
+
+kind-of@^6.0.0, kind-of@^6.0.2:
+  version "6.0.2"
+  resolved "https://npm.suwis.com:443/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
+  integrity sha1-ARRrNqYhjmTljzqNZt5df8b20FE=
+
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://npm.suwis.com:443/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
@@ -1447,6 +2998,30 @@ load-json-file@^2.0.0:
     parse-json "^2.2.0"
     pify "^2.0.0"
     strip-bom "^3.0.0"
+
+loader-runner@^2.4.0:
+  version "2.4.0"
+  resolved "https://npm.suwis.com:443/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
+  integrity sha1-7UcGa/5TTX6ExMe5mYwqdWB9k1c=
+
+loader-utils@^0.2.16:
+  version "0.2.17"
+  resolved "https://npm.suwis.com:443/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
+  integrity sha1-+G5jdNQyBabmxg6RlvF8Apm/s0g=
+  dependencies:
+    big.js "^3.1.3"
+    emojis-list "^2.0.0"
+    json5 "^0.5.0"
+    object-assign "^4.0.1"
+
+loader-utils@^1.1.0, loader-utils@^1.2.3:
+  version "1.2.3"
+  resolved "https://npm.suwis.com:443/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
+  integrity sha1-H/XcaRHJ8KBiUxpMBLYJQGEIwsc=
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^2.0.0"
+    json5 "^1.0.1"
 
 locate-path@^2.0.0:
   version "2.0.0"
@@ -1506,7 +3081,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.4:
+lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://npm.suwis.com:443/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
@@ -1533,6 +3108,11 @@ loud-rejection@^1.0.0:
     currently-unhandled "^0.4.1"
     signal-exit "^3.0.0"
 
+lower-case@^1.1.1:
+  version "1.1.4"
+  resolved "https://npm.suwis.com:443/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
+  integrity sha1-miyr0bno4K6ZOkv31YdcOcQujqw=
+
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
   resolved "https://npm.suwis.com:443/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
@@ -1551,6 +3131,26 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+lru-cache@^5.1.1:
+  version "5.1.1"
+  resolved "https://npm.suwis.com:443/lru-cache/-/lru-cache-5.1.1.tgz#1da27e6710271947695daf6848e847f01d84b920"
+  integrity sha1-HaJ+ZxAnGUdpXa9oSOhH8B2EuSA=
+  dependencies:
+    yallist "^3.0.2"
+
+make-dir@^2.0.0:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
+  integrity sha1-XwMQ4YuL6JjMBwCSlaMK5B6R5vU=
+  dependencies:
+    pify "^4.0.1"
+    semver "^5.6.0"
+
+mamacro@^0.0.3:
+  version "0.0.3"
+  resolved "https://npm.suwis.com:443/mamacro/-/mamacro-0.0.3.tgz#ad2c9576197c9f1abf308d0787865bd975a3f3e4"
+  integrity sha1-rSyVdhl8nxq/MI0Hh4Zb2XWj8+Q=
+
 map-age-cleaner@^0.1.1:
   version "0.1.3"
   resolved "https://npm.suwis.com:443/map-age-cleaner/-/map-age-cleaner-0.1.3.tgz#7d583a7306434c055fe474b0f45078e6e1b4b92a"
@@ -1558,10 +3158,36 @@ map-age-cleaner@^0.1.1:
   dependencies:
     p-defer "^1.0.0"
 
+map-cache@^0.2.2:
+  version "0.2.2"
+  resolved "https://npm.suwis.com:443/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
+  integrity sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8=
+
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://npm.suwis.com:443/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
   integrity sha1-2TPOuSBdgr3PSIb2dCvcK03qFG0=
+
+map-visit@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
+  integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
+  dependencies:
+    object-visit "^1.0.0"
+
+md5.js@^1.3.4:
+  version "1.3.5"
+  resolved "https://npm.suwis.com:443/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
+  integrity sha1-tdB7jjIW4+J81yjXL3DR5qNCAF8=
+  dependencies:
+    hash-base "^3.0.0"
+    inherits "^2.0.1"
+    safe-buffer "^5.1.2"
+
+media-typer@0.3.0:
+  version "0.3.0"
+  resolved "https://npm.suwis.com:443/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
+  integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
 mem@^4.3.0:
   version "4.3.0"
@@ -1571,6 +3197,14 @@ mem@^4.3.0:
     map-age-cleaner "^0.1.1"
     mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
+
+memory-fs@^0.4.0, memory-fs@^0.4.1:
+  version "0.4.1"
+  resolved "https://npm.suwis.com:443/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
+  integrity sha1-OpoguEYlI+RHz7x+i7gO1me/xVI=
+  dependencies:
+    errno "^0.1.3"
+    readable-stream "^2.0.1"
 
 meow@^3.1.0:
   version "3.7.0"
@@ -1588,17 +3222,64 @@ meow@^3.1.0:
     redent "^1.0.0"
     trim-newlines "^1.0.0"
 
+merge-descriptors@1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
+  integrity sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=
+
+methods@~1.1.2:
+  version "1.1.2"
+  resolved "https://npm.suwis.com:443/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
+  integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
+
+micromatch@^3.1.10, micromatch@^3.1.4:
+  version "3.1.10"
+  resolved "https://npm.suwis.com:443/micromatch/-/micromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"
+  integrity sha1-cIWbyVyYQJUvNZoGij/En57PrCM=
+  dependencies:
+    arr-diff "^4.0.0"
+    array-unique "^0.3.2"
+    braces "^2.3.1"
+    define-property "^2.0.2"
+    extend-shallow "^3.0.2"
+    extglob "^2.0.4"
+    fragment-cache "^0.2.1"
+    kind-of "^6.0.2"
+    nanomatch "^1.2.9"
+    object.pick "^1.3.0"
+    regex-not "^1.0.0"
+    snapdragon "^0.8.1"
+    to-regex "^3.0.2"
+
+miller-rabin@^4.0.0:
+  version "4.0.1"
+  resolved "https://npm.suwis.com:443/miller-rabin/-/miller-rabin-4.0.1.tgz#f080351c865b0dc562a8462966daa53543c78a4d"
+  integrity sha1-8IA1HIZbDcViqEYpZtqlNUPHik0=
+  dependencies:
+    bn.js "^4.0.0"
+    brorand "^1.0.1"
+
 mime-db@1.40.0:
   version "1.40.0"
   resolved "https://npm.suwis.com:443/mime-db/-/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
   integrity sha1-plBX6ZjbCQ9zKmj2wnbTh9QSbDI=
 
-mime-types@^2.1.12, mime-types@~2.1.19:
+mime-types@^2.1.12, mime-types@~2.1.19, mime-types@~2.1.24:
   version "2.1.24"
   resolved "https://npm.suwis.com:443/mime-types/-/mime-types-2.1.24.tgz#b6f8d0b3e951efb77dedeca194cff6d16f676f81"
   integrity sha1-tvjQs+lR77d97eyhlM/20W9nb4E=
   dependencies:
     mime-db "1.40.0"
+
+mime@1.6.0:
+  version "1.6.0"
+  resolved "https://npm.suwis.com:443/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+  integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
+
+mime@^2.4.2:
+  version "2.4.4"
+  resolved "https://npm.suwis.com:443/mime/-/mime-2.4.4.tgz#bd7b91135fc6b01cde3e9bae33d659b63d8857e5"
+  integrity sha1-vXuRE1/GsBzePpuuM9ZZtj2IV+U=
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -1614,6 +3295,23 @@ mimic-response@^1.0.0, mimic-response@^1.0.1:
   version "1.0.1"
   resolved "https://npm.suwis.com:443/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
   integrity sha1-SSNTiHju9CBjy4o+OweYeBSHqxs=
+
+min-document@^2.19.0:
+  version "2.19.0"
+  resolved "https://npm.suwis.com:443/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
+  integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
+  dependencies:
+    dom-walk "^0.1.0"
+
+minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
+  integrity sha1-LhlN4ERibUoQ5/f7wAznPoPk1cc=
+
+minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
+  integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
 minimatch@^3.0.4:
   version "3.0.4"
@@ -1647,6 +3345,30 @@ minizlib@^1.2.1:
   dependencies:
     minipass "^2.2.1"
 
+mississippi@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/mississippi/-/mississippi-3.0.0.tgz#ea0a3291f97e0b5e8776b363d5f0a12d94c67022"
+  integrity sha1-6goykfl+C16HdrNj1fChLZTGcCI=
+  dependencies:
+    concat-stream "^1.5.0"
+    duplexify "^3.4.2"
+    end-of-stream "^1.1.0"
+    flush-write-stream "^1.0.0"
+    from2 "^2.1.0"
+    parallel-transform "^1.1.0"
+    pump "^3.0.0"
+    pumpify "^1.3.3"
+    stream-each "^1.1.0"
+    through2 "^2.0.0"
+
+mixin-deep@^1.2.0:
+  version "1.3.2"
+  resolved "https://npm.suwis.com:443/mixin-deep/-/mixin-deep-1.3.2.tgz#1120b43dc359a785dce65b55b82e257ccf479566"
+  integrity sha1-ESC0PcNZp4Xc5ltVuC4lfM9HlWY=
+  dependencies:
+    for-in "^1.0.2"
+    is-extendable "^1.0.1"
+
 mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   version "0.5.1"
   resolved "https://npm.suwis.com:443/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
@@ -1654,10 +3376,27 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+move-concurrently@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
+  integrity sha1-viwAX9oy4LKa8fBdfEszIUxwH5I=
+  dependencies:
+    aproba "^1.1.1"
+    copy-concurrently "^1.0.0"
+    fs-write-stream-atomic "^1.0.8"
+    mkdirp "^0.5.1"
+    rimraf "^2.5.4"
+    run-queue "^1.0.3"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://npm.suwis.com:443/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
+
+ms@2.1.1:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
+  integrity sha1-MKWGTrPrsKZvLr5tcnrwagnYbgo=
 
 ms@^2.1.1:
   version "2.1.2"
@@ -1669,10 +3408,58 @@ mute-stream@0.0.7:
   resolved "https://npm.suwis.com:443/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
+nan@^2.12.1:
+  version "2.14.0"
+  resolved "https://npm.suwis.com:443/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
+  integrity sha1-eBj3IgJ7JFmobwKV1DTR/CM2xSw=
+
+nanomatch@^1.2.9:
+  version "1.2.13"
+  resolved "https://npm.suwis.com:443/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
+  integrity sha1-uHqKpPwN6P5r6IiVs4mD/yZb0Rk=
+  dependencies:
+    arr-diff "^4.0.0"
+    array-unique "^0.3.2"
+    define-property "^2.0.2"
+    extend-shallow "^3.0.2"
+    fragment-cache "^0.2.1"
+    is-windows "^1.0.2"
+    kind-of "^6.0.2"
+    object.pick "^1.3.0"
+    regex-not "^1.0.0"
+    snapdragon "^0.8.1"
+    to-regex "^3.0.1"
+
+needle@^2.2.1:
+  version "2.4.0"
+  resolved "https://npm.suwis.com:443/needle/-/needle-2.4.0.tgz#6833e74975c444642590e15a750288c5f939b57c"
+  integrity sha1-aDPnSXXERGQlkOFadQKIxfk5tXw=
+  dependencies:
+    debug "^3.2.6"
+    iconv-lite "^0.4.4"
+    sax "^1.2.4"
+
+negotiator@0.6.2:
+  version "0.6.2"
+  resolved "https://npm.suwis.com:443/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
+  integrity sha1-/qz3zPUlp3rpY0Q2pkiD/+yjRvs=
+
+neo-async@^2.5.0, neo-async@^2.6.1:
+  version "2.6.1"
+  resolved "https://npm.suwis.com:443/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
+  integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://npm.suwis.com:443/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha1-ozeKdpbOfSI+iPybdkvX7xCJ42Y=
+
+no-case@^2.2.0:
+  version "2.3.2"
+  resolved "https://npm.suwis.com:443/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
+  integrity sha1-YLgTOWvjmz8SiKTB7V0efSi0ZKw=
+  dependencies:
+    lower-case "^1.1.1"
 
 node-abi@^2.9.0:
   version "2.11.0"
@@ -1703,12 +3490,70 @@ node-gyp@^5.0.1:
     tar "^4.4.8"
     which "1"
 
+node-libs-browser@^2.2.1:
+  version "2.2.1"
+  resolved "https://npm.suwis.com:443/node-libs-browser/-/node-libs-browser-2.2.1.tgz#b64f513d18338625f90346d27b0d235e631f6425"
+  integrity sha1-tk9RPRgzhiX5A0bSew0jXmMfZCU=
+  dependencies:
+    assert "^1.1.1"
+    browserify-zlib "^0.2.0"
+    buffer "^4.3.0"
+    console-browserify "^1.1.0"
+    constants-browserify "^1.0.0"
+    crypto-browserify "^3.11.0"
+    domain-browser "^1.1.1"
+    events "^3.0.0"
+    https-browserify "^1.0.0"
+    os-browserify "^0.3.0"
+    path-browserify "0.0.1"
+    process "^0.11.10"
+    punycode "^1.2.4"
+    querystring-es3 "^0.2.0"
+    readable-stream "^2.3.3"
+    stream-browserify "^2.0.1"
+    stream-http "^2.7.2"
+    string_decoder "^1.0.0"
+    timers-browserify "^2.0.4"
+    tty-browserify "0.0.0"
+    url "^0.11.0"
+    util "^0.11.0"
+    vm-browserify "^1.0.1"
+
+node-loader@^0.6.0:
+  version "0.6.0"
+  resolved "https://npm.suwis.com:443/node-loader/-/node-loader-0.6.0.tgz#c797ef51095ed5859902b157f6384f6361e05ae8"
+  integrity sha1-x5fvUQle1YWZArFX9jhPY2HgWug=
+
+node-pre-gyp@^0.12.0:
+  version "0.12.0"
+  resolved "https://npm.suwis.com:443/node-pre-gyp/-/node-pre-gyp-0.12.0.tgz#39ba4bb1439da030295f899e3b520b7785766149"
+  integrity sha1-ObpLsUOdoDApX4meO1ILd4V2YUk=
+  dependencies:
+    detect-libc "^1.0.2"
+    mkdirp "^0.5.1"
+    needle "^2.2.1"
+    nopt "^4.0.1"
+    npm-packlist "^1.1.6"
+    npmlog "^4.0.2"
+    rc "^1.2.7"
+    rimraf "^2.6.1"
+    semver "^5.3.0"
+    tar "^4"
+
 "nopt@2 || 3":
   version "3.0.6"
   resolved "https://npm.suwis.com:443/nopt/-/nopt-3.0.6.tgz#c6465dbf08abcd4db359317f79ac68a646b28ff9"
   integrity sha1-xkZdvwirzU2zWTF/eaxopkayj/k=
   dependencies:
     abbrev "1"
+
+nopt@^4.0.1:
+  version "4.0.1"
+  resolved "https://npm.suwis.com:443/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
+  integrity sha1-0NRoWv1UFRk8jHUFYC0NF81kR00=
+  dependencies:
+    abbrev "1"
+    osenv "^0.1.4"
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
   version "2.5.0"
@@ -1720,10 +3565,35 @@ normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
+normalize-path@^2.1.1:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
+  integrity sha1-GrKLVW4Zg2Oowab35vogE3/mrtk=
+  dependencies:
+    remove-trailing-separator "^1.0.1"
+
+normalize-path@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
+  integrity sha1-Dc1p/yOhybEf0JeDFmRKA4ghamU=
+
 normalize-url@^4.1.0:
   version "4.3.0"
   resolved "https://npm.suwis.com:443/normalize-url/-/normalize-url-4.3.0.tgz#9c49e10fc1876aeb76dba88bf1b2b5d9fa57b2ee"
   integrity sha1-nEnhD8GHaut226iL8bK12fpXsu4=
+
+npm-bundled@^1.0.1:
+  version "1.0.6"
+  resolved "https://npm.suwis.com:443/npm-bundled/-/npm-bundled-1.0.6.tgz#e7ba9aadcef962bb61248f91721cd932b3fe6bdd"
+  integrity sha1-57qarc75YrthJI+RchzZMrP+a90=
+
+npm-packlist@^1.1.6:
+  version "1.4.4"
+  resolved "https://npm.suwis.com:443/npm-packlist/-/npm-packlist-1.4.4.tgz#866224233850ac534b63d1a6e76050092b5d2f44"
+  integrity sha1-hmIkIzhQrFNLY9Gm52BQCStdL0Q=
+  dependencies:
+    ignore-walk "^3.0.1"
+    npm-bundled "^1.0.1"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -1732,7 +3602,7 @@ npm-run-path@^2.0.0:
   dependencies:
     path-key "^2.0.0"
 
-"npmlog@0 || 1 || 2 || 3 || 4":
+"npmlog@0 || 1 || 2 || 3 || 4", npmlog@^4.0.2:
   version "4.1.2"
   resolved "https://npm.suwis.com:443/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"
   integrity sha1-CKfyqL9zRgR3mp76StXMcXq7lUs=
@@ -1741,6 +3611,13 @@ npm-run-path@^2.0.0:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nth-check@~1.0.1:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
+  integrity sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw=
+  dependencies:
+    boolbase "~1.0.0"
 
 nugget@^2.0.1:
   version "2.0.1"
@@ -1765,15 +3642,58 @@ oauth-sign@~0.9.0:
   resolved "https://npm.suwis.com:443/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha1-R6ewFrqmi1+g7PPe4IqFxnmsZFU=
 
-object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://npm.suwis.com:443/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
+object-copy@^0.1.0:
+  version "0.1.0"
+  resolved "https://npm.suwis.com:443/object-copy/-/object-copy-0.1.0.tgz#7e7d858b781bd7c991a41ba975ed3812754e998c"
+  integrity sha1-fn2Fi3gb18mRpBupde04EnVOmYw=
+  dependencies:
+    copy-descriptor "^0.1.0"
+    define-property "^0.2.5"
+    kind-of "^3.0.3"
+
+object-keys@^1.0.12:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
+  integrity sha1-HEfyct8nfzsdrwYWd9nILiMixg4=
 
 object-keys@~0.4.0:
   version "0.4.0"
   resolved "https://npm.suwis.com:443/object-keys/-/object-keys-0.4.0.tgz#28a6aae7428dd2c3a92f3d95f21335dd204e0336"
   integrity sha1-KKaq50KN0sOpLz2V8hM13SBOAzY=
+
+object-visit@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/object-visit/-/object-visit-1.0.1.tgz#f79c4493af0c5377b59fe39d395e41042dd045bb"
+  integrity sha1-95xEk68MU3e1n+OdOV5BBC3QRbs=
+  dependencies:
+    isobject "^3.0.0"
+
+object.getownpropertydescriptors@^2.0.3:
+  version "2.0.3"
+  resolved "https://npm.suwis.com:443/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.0.3.tgz#8758c846f5b407adab0f236e0986f14b051caa16"
+  integrity sha1-h1jIRvW0B62rDyNuCYbxSwUcqhY=
+  dependencies:
+    define-properties "^1.1.2"
+    es-abstract "^1.5.1"
+
+object.pick@^1.3.0:
+  version "1.3.0"
+  resolved "https://npm.suwis.com:443/object.pick/-/object.pick-1.3.0.tgz#87a10ac4c1694bd2e1cbf53591a66141fb5dd747"
+  integrity sha1-h6EKxMFpS9Lhy/U1kaZhQftd10c=
+  dependencies:
+    isobject "^3.0.1"
+
+on-finished@~2.3.0:
+  version "2.3.0"
+  resolved "https://npm.suwis.com:443/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
+  integrity sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
+  dependencies:
+    ee-first "1.1.1"
 
 once@^1.3.0, once@^1.3.1, once@^1.4.0:
   version "1.4.0"
@@ -1808,10 +3728,28 @@ ora@^3.0.0, ora@^3.4.0:
     strip-ansi "^5.2.0"
     wcwidth "^1.0.1"
 
-os-tmpdir@~1.0.2:
+os-browserify@^0.3.0:
+  version "0.3.0"
+  resolved "https://npm.suwis.com:443/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
+  integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
+
+os-homedir@^1.0.0:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+  integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
+
+os-tmpdir@^1.0.0, os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://npm.suwis.com:443/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
+
+osenv@^0.1.4:
+  version "0.1.5"
+  resolved "https://npm.suwis.com:443/osenv/-/osenv-0.1.5.tgz#85cdfafaeb28e8677f416e287592b5f3f49ea410"
+  integrity sha1-hc36+uso6Gd/QW4odZK18/SepBA=
+  dependencies:
+    os-homedir "^1.0.0"
+    os-tmpdir "^1.0.0"
 
 p-cancelable@^1.0.0:
   version "1.1.0"
@@ -1878,6 +3816,39 @@ p-try@^2.0.0:
   resolved "https://npm.suwis.com:443/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha1-yyhoVA4xPWHeWPr741zpAE1VQOY=
 
+pako@~1.0.5:
+  version "1.0.10"
+  resolved "https://npm.suwis.com:443/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
+  integrity sha1-Qyi621CGpCaqkPVBl31JVdpclzI=
+
+parallel-transform@^1.1.0:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/parallel-transform/-/parallel-transform-1.1.0.tgz#d410f065b05da23081fcd10f28854c29bda33b06"
+  integrity sha1-1BDwZbBdojCB/NEPKIVMKb2jOwY=
+  dependencies:
+    cyclist "~0.2.2"
+    inherits "^2.0.3"
+    readable-stream "^2.1.5"
+
+param-case@2.1.x:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/param-case/-/param-case-2.1.1.tgz#df94fd8cf6531ecf75e6bef9a0858fbc72be2247"
+  integrity sha1-35T9jPZTHs915r75oIWPvHK+Ikc=
+  dependencies:
+    no-case "^2.2.0"
+
+parse-asn1@^5.0.0:
+  version "5.1.4"
+  resolved "https://npm.suwis.com:443/parse-asn1/-/parse-asn1-5.1.4.tgz#37f6628f823fbdeb2273b4d540434a22f3ef1fcc"
+  integrity sha1-N/Zij4I/vesic7TVQENKIvPvH8w=
+  dependencies:
+    asn1.js "^4.0.0"
+    browserify-aes "^1.0.0"
+    create-hash "^1.1.0"
+    evp_bytestokey "^1.0.0"
+    pbkdf2 "^3.0.3"
+    safe-buffer "^5.1.1"
+
 parse-author@^2.0.0:
   version "2.0.0"
   resolved "https://npm.suwis.com:443/parse-author/-/parse-author-2.0.0.tgz#d3460bf1ddd0dfaeed42da754242e65fb684a81f"
@@ -1901,6 +3872,26 @@ parse-passwd@^1.0.0:
   version "1.0.0"
   resolved "https://npm.suwis.com:443/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
   integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
+
+parseurl@~1.3.3:
+  version "1.3.3"
+  resolved "https://npm.suwis.com:443/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
+  integrity sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=
+
+pascalcase@^0.1.1:
+  version "0.1.1"
+  resolved "https://npm.suwis.com:443/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
+  integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
+
+path-browserify@0.0.1:
+  version "0.0.1"
+  resolved "https://npm.suwis.com:443/path-browserify/-/path-browserify-0.0.1.tgz#e6c4ddd7ed3aa27c68a20cc4e50e1a4ee83bbc4a"
+  integrity sha1-5sTd1+06onxoogzE5Q4aTug7vEo=
+
+path-dirname@^1.0.0:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/path-dirname/-/path-dirname-1.0.2.tgz#cc33d24d525e099a5388c0336c6e32b9160609e0"
+  integrity sha1-zDPSTVJeCZpTiMAzbG4yuRYGCeA=
 
 path-exists@^2.0.0:
   version "2.1.0"
@@ -1934,6 +3925,11 @@ path-parse@^1.0.6:
   resolved "https://npm.suwis.com:443/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha1-1i27VnlAXXLEc37FhgDp3c8G0kw=
 
+path-to-regexp@0.1.7:
+  version "0.1.7"
+  resolved "https://npm.suwis.com:443/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
+  integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+
 path-type@^1.0.0:
   version "1.1.0"
   resolved "https://npm.suwis.com:443/path-type/-/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
@@ -1950,6 +3946,17 @@ path-type@^2.0.0:
   dependencies:
     pify "^2.0.0"
 
+pbkdf2@^3.0.3:
+  version "3.0.17"
+  resolved "https://npm.suwis.com:443/pbkdf2/-/pbkdf2-3.0.17.tgz#976c206530617b14ebb32114239f7b09336e93a6"
+  integrity sha1-l2wgZTBhexTrsyEUI597CTNuk6Y=
+  dependencies:
+    create-hash "^1.1.2"
+    create-hmac "^1.1.4"
+    ripemd160 "^2.0.1"
+    safe-buffer "^5.0.1"
+    sha.js "^2.4.8"
+
 pend@~1.2.0:
   version "1.2.0"
   resolved "https://npm.suwis.com:443/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
@@ -1965,6 +3972,11 @@ pify@^2.0.0:
   resolved "https://npm.suwis.com:443/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
 
+pify@^4.0.1:
+  version "4.0.1"
+  resolved "https://npm.suwis.com:443/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
+  integrity sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=
+
 pinkie-promise@^2.0.0:
   version "2.0.1"
   resolved "https://npm.suwis.com:443/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
@@ -1976,6 +3988,13 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://npm.suwis.com:443/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
+
+pkg-dir@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/pkg-dir/-/pkg-dir-3.0.0.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
+  integrity sha1-J0kCDyOe2ZCIGx9xIQ1R62UjvqM=
+  dependencies:
+    find-up "^3.0.0"
 
 pkg-dir@^4.2.0:
   version "4.2.0"
@@ -1993,6 +4012,67 @@ plist@^3.0.0, plist@^3.0.1:
     xmlbuilder "^9.0.7"
     xmldom "0.1.x"
 
+posix-character-classes@^0.1.0:
+  version "0.1.1"
+  resolved "https://npm.suwis.com:443/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
+  integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
+
+postcss-modules-extract-imports@^2.0.0:
+  version "2.0.0"
+  resolved "https://npm.suwis.com:443/postcss-modules-extract-imports/-/postcss-modules-extract-imports-2.0.0.tgz#818719a1ae1da325f9832446b01136eeb493cd7e"
+  integrity sha1-gYcZoa4doyX5gyRGsBE27rSTzX4=
+  dependencies:
+    postcss "^7.0.5"
+
+postcss-modules-local-by-default@^3.0.2:
+  version "3.0.2"
+  resolved "https://npm.suwis.com:443/postcss-modules-local-by-default/-/postcss-modules-local-by-default-3.0.2.tgz#e8a6561be914aaf3c052876377524ca90dbb7915"
+  integrity sha1-6KZWG+kUqvPAUodjd1JMqQ27eRU=
+  dependencies:
+    icss-utils "^4.1.1"
+    postcss "^7.0.16"
+    postcss-selector-parser "^6.0.2"
+    postcss-value-parser "^4.0.0"
+
+postcss-modules-scope@^2.1.0:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/postcss-modules-scope/-/postcss-modules-scope-2.1.0.tgz#ad3f5bf7856114f6fcab901b0502e2a2bc39d4eb"
+  integrity sha1-rT9b94VhFPb8q5AbBQLiorw51Os=
+  dependencies:
+    postcss "^7.0.6"
+    postcss-selector-parser "^6.0.0"
+
+postcss-modules-values@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.suwis.com:443/postcss-modules-values/-/postcss-modules-values-3.0.0.tgz#5b5000d6ebae29b4255301b4a3a54574423e7f10"
+  integrity sha1-W1AA1uuuKbQlUwG0o6VFdEI+fxA=
+  dependencies:
+    icss-utils "^4.0.0"
+    postcss "^7.0.6"
+
+postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
+  version "6.0.2"
+  resolved "https://npm.suwis.com:443/postcss-selector-parser/-/postcss-selector-parser-6.0.2.tgz#934cf799d016c83411859e09dcecade01286ec5c"
+  integrity sha1-k0z3mdAWyDQRhZ4J3Oyt4BKG7Fw=
+  dependencies:
+    cssesc "^3.0.0"
+    indexes-of "^1.0.1"
+    uniq "^1.0.1"
+
+postcss-value-parser@^4.0.0:
+  version "4.0.2"
+  resolved "https://npm.suwis.com:443/postcss-value-parser/-/postcss-value-parser-4.0.2.tgz#482282c09a42706d1fc9a069b73f44ec08391dc9"
+  integrity sha1-SCKCwJpCcG0fyaBptz9E7Ag5Hck=
+
+postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.17, postcss@^7.0.5, postcss@^7.0.6:
+  version "7.0.17"
+  resolved "https://npm.suwis.com:443/postcss/-/postcss-7.0.17.tgz#4da1bdff5322d4a0acaab4d87f3e782436bad31f"
+  integrity sha1-TaG9/1Mi1KCsqrTYfz54JDa60x8=
+  dependencies:
+    chalk "^2.4.2"
+    source-map "^0.6.1"
+    supports-color "^6.1.0"
+
 prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://npm.suwis.com:443/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
@@ -2006,6 +4086,14 @@ pretty-bytes@^1.0.2:
     get-stdin "^4.0.1"
     meow "^3.1.0"
 
+pretty-error@^2.0.2:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/pretty-error/-/pretty-error-2.1.1.tgz#5f4f87c8f91e5ae3f3ba87ab4cf5e03b1a17f1a3"
+  integrity sha1-X0+HyPkeWuPzuoerTPXgOxoX8aM=
+  dependencies:
+    renderkid "^2.0.1"
+    utila "~0.4"
+
 pretty-ms@^5.0.0:
   version "5.0.0"
   resolved "https://npm.suwis.com:443/pretty-ms/-/pretty-ms-5.0.0.tgz#6133a8f55804b208e4728f6aa7bf01085e951e24"
@@ -2018,6 +4106,11 @@ process-nextick-args@~2.0.0:
   resolved "https://npm.suwis.com:443/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha1-eCDZsWEgzFXKmud5JoCufbptf+I=
 
+process@^0.11.10:
+  version "0.11.10"
+  resolved "https://npm.suwis.com:443/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
+  integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
+
 progress-stream@^1.1.0:
   version "1.2.0"
   resolved "https://npm.suwis.com:443/progress-stream/-/progress-stream-1.2.0.tgz#2cd3cfea33ba3a89c9c121ec3347abe9ab125f77"
@@ -2025,6 +4118,24 @@ progress-stream@^1.1.0:
   dependencies:
     speedometer "~0.1.2"
     through2 "~0.2.3"
+
+promise-inflight@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
+  integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+proxy-addr@~2.0.5:
+  version "2.0.5"
+  resolved "https://npm.suwis.com:443/proxy-addr/-/proxy-addr-2.0.5.tgz#34cbd64a2d81f4b1fd21e76f9f06c8a45299ee34"
+  integrity sha1-NMvWSi2B9LH9IedvnwbIpFKZ7jQ=
+  dependencies:
+    forwarded "~0.1.2"
+    ipaddr.js "1.9.0"
+
+prr@~1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
+  integrity sha1-0/wRS6BplaRexok/SEzrHXj19HY=
 
 pseudomap@^1.0.2:
   version "1.0.2"
@@ -2036,6 +4147,26 @@ psl@^1.1.24:
   resolved "https://npm.suwis.com:443/psl/-/psl-1.3.0.tgz#e1ebf6a3b5564fa8376f3da2275da76d875ca1bd"
   integrity sha1-4ev2o7VWT6g3bz2iJ12nbYdcob0=
 
+public-encrypt@^4.0.0:
+  version "4.0.3"
+  resolved "https://npm.suwis.com:443/public-encrypt/-/public-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"
+  integrity sha1-T8ydd6B+SLp1J+fL4N4z0HATMeA=
+  dependencies:
+    bn.js "^4.1.0"
+    browserify-rsa "^4.0.0"
+    create-hash "^1.1.0"
+    parse-asn1 "^5.0.0"
+    randombytes "^2.0.1"
+    safe-buffer "^5.1.2"
+
+pump@^2.0.0:
+  version "2.0.1"
+  resolved "https://npm.suwis.com:443/pump/-/pump-2.0.1.tgz#12399add6e4cf7526d973cbc8b5ce2e2908b3909"
+  integrity sha1-Ejma3W5M91Jtlzy8i1zi4pCLOQk=
+  dependencies:
+    end-of-stream "^1.1.0"
+    once "^1.3.1"
+
 pump@^3.0.0:
   version "3.0.0"
   resolved "https://npm.suwis.com:443/pump/-/pump-3.0.0.tgz#b4a2116815bde2f4e1ea602354e8c75565107a64"
@@ -2044,7 +4175,21 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-punycode@^1.4.1:
+pumpify@^1.3.3:
+  version "1.5.1"
+  resolved "https://npm.suwis.com:443/pumpify/-/pumpify-1.5.1.tgz#36513be246ab27570b1a374a5ce278bfd74370ce"
+  integrity sha1-NlE74karJ1cLGjdKXOJ4v9dDcM4=
+  dependencies:
+    duplexify "^3.6.0"
+    inherits "^2.0.3"
+    pump "^2.0.0"
+
+punycode@1.3.2:
+  version "1.3.2"
+  resolved "https://npm.suwis.com:443/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
+  integrity sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=
+
+punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
   resolved "https://npm.suwis.com:443/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
   integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
@@ -2054,12 +4199,57 @@ punycode@^2.1.0:
   resolved "https://npm.suwis.com:443/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
 
+qs@6.7.0:
+  version "6.7.0"
+  resolved "https://npm.suwis.com:443/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
+  integrity sha1-QdwaAV49WB8WIXdr4xr7KHapsbw=
+
 qs@~6.5.2:
   version "6.5.2"
   resolved "https://npm.suwis.com:443/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha1-yzroBuh0BERYTvFUzo7pjUA/PjY=
 
-rc@^1.2.1:
+querystring-es3@^0.2.0:
+  version "0.2.1"
+  resolved "https://npm.suwis.com:443/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
+  integrity sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM=
+
+querystring@0.2.0, querystring@^0.2.0:
+  version "0.2.0"
+  resolved "https://npm.suwis.com:443/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
+  integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
+
+randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
+  integrity sha1-32+ENy8CcNxlzfYpE0mrekc9Tyo=
+  dependencies:
+    safe-buffer "^5.1.0"
+
+randomfill@^1.0.3:
+  version "1.0.4"
+  resolved "https://npm.suwis.com:443/randomfill/-/randomfill-1.0.4.tgz#c92196fc86ab42be983f1bf31778224931d61458"
+  integrity sha1-ySGW/IarQr6YPxvzF3giSTHWFFg=
+  dependencies:
+    randombytes "^2.0.5"
+    safe-buffer "^5.1.0"
+
+range-parser@^1.2.1, range-parser@~1.2.1:
+  version "1.2.1"
+  resolved "https://npm.suwis.com:443/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
+  integrity sha1-PPNwI9GZ4cJNGlW4SADC8+ZGgDE=
+
+raw-body@2.4.0:
+  version "2.4.0"
+  resolved "https://npm.suwis.com:443/raw-body/-/raw-body-2.4.0.tgz#a1ce6fb9c9bc356ca52e89256ab59059e13d0332"
+  integrity sha1-oc5vucm8NWylLoklarWQWeE9AzI=
+  dependencies:
+    bytes "3.1.0"
+    http-errors "1.7.2"
+    iconv-lite "0.4.24"
+    unpipe "1.0.0"
+
+rc@^1.2.1, rc@^1.2.7:
   version "1.2.8"
   resolved "https://npm.suwis.com:443/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
   integrity sha1-zZJL9SAKB1uDwYjNa54hG3/A0+0=
@@ -2108,7 +4298,7 @@ read-pkg@^2.0.0:
     normalize-package-data "^2.3.2"
     path-type "^2.0.0"
 
-readable-stream@^2.0.6, readable-stream@^2.2.2:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
   resolved "https://npm.suwis.com:443/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha1-sRwn2IuP8fvgcGQ8+UsMea4bCq8=
@@ -2121,6 +4311,15 @@ readable-stream@^2.0.6, readable-stream@^2.2.2:
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
+readable-stream@^3.1.1:
+  version "3.4.0"
+  resolved "https://npm.suwis.com:443/readable-stream/-/readable-stream-3.4.0.tgz#a51c26754658e0a3c21dbf59163bd45ba6f447fc"
+  integrity sha1-pRwmdUZY4KPCHb9ZFjvUW6b0R/w=
+  dependencies:
+    inherits "^2.0.3"
+    string_decoder "^1.1.1"
+    util-deprecate "^1.0.1"
+
 readable-stream@~1.1.9:
   version "1.1.14"
   resolved "https://npm.suwis.com:443/readable-stream/-/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
@@ -2131,6 +4330,15 @@ readable-stream@~1.1.9:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
+readdirp@^2.2.1:
+  version "2.2.1"
+  resolved "https://npm.suwis.com:443/readdirp/-/readdirp-2.2.1.tgz#0e87622a3325aa33e892285caf8b4e846529a525"
+  integrity sha1-DodiKjMlqjPokihcr4tOhGUppSU=
+  dependencies:
+    graceful-fs "^4.1.11"
+    micromatch "^3.1.10"
+    readable-stream "^2.0.2"
+
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://npm.suwis.com:443/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
@@ -2138,6 +4346,45 @@ redent@^1.0.0:
   dependencies:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
+
+regex-not@^1.0.0, regex-not@^1.0.2:
+  version "1.0.2"
+  resolved "https://npm.suwis.com:443/regex-not/-/regex-not-1.0.2.tgz#1f4ece27e00b0b65e0247a6810e6a85d83a5752c"
+  integrity sha1-H07OJ+ALC2XgJHpoEOaoXYOldSw=
+  dependencies:
+    extend-shallow "^3.0.2"
+    safe-regex "^1.1.0"
+
+relateurl@0.2.x:
+  version "0.2.7"
+  resolved "https://npm.suwis.com:443/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
+  integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+remove-trailing-separator@^1.0.1:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
+  integrity sha1-wkvOKig62tW8P1jg1IJJuSN52O8=
+
+renderkid@^2.0.1:
+  version "2.0.3"
+  resolved "https://npm.suwis.com:443/renderkid/-/renderkid-2.0.3.tgz#380179c2ff5ae1365c522bf2fcfcff01c5b74149"
+  integrity sha1-OAF5wv9a4TZcUivy/Pz/AcW3QUk=
+  dependencies:
+    css-select "^1.1.0"
+    dom-converter "^0.2"
+    htmlparser2 "^3.3.0"
+    strip-ansi "^3.0.0"
+    utila "^0.4.0"
+
+repeat-element@^1.1.2:
+  version "1.1.3"
+  resolved "https://npm.suwis.com:443/repeat-element/-/repeat-element-1.1.3.tgz#782e0d825c0c5a3bb39731f84efee6b742e6b1ce"
+  integrity sha1-eC4NglwMWjuzlzH4Tv7mt0Lmsc4=
+
+repeat-string@^1.6.1:
+  version "1.6.1"
+  resolved "https://npm.suwis.com:443/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
+  integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
 
 repeating@^2.0.0:
   version "2.0.1"
@@ -2197,6 +4444,11 @@ resolve-package@^1.0.1:
   dependencies:
     get-installed-path "^2.0.3"
 
+resolve-url@^0.2.1:
+  version "0.2.1"
+  resolved "https://npm.suwis.com:443/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
+  integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
+
 resolve@^1.1.6, resolve@^1.10.0:
   version "1.12.0"
   resolved "https://npm.suwis.com:443/resolve/-/resolve-1.12.0.tgz#3fc644a35c84a48554609ff26ec52b66fa577df6"
@@ -2219,7 +4471,12 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-rimraf@2, rimraf@^2.6.3:
+ret@~0.1.10:
+  version "0.1.15"
+  resolved "https://npm.suwis.com:443/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
+  integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
+
+rimraf@2, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.3:
   version "2.7.1"
   resolved "https://npm.suwis.com:443/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
   integrity sha1-NXl/E6f9rcVmFCwp1PB8ytSD4+w=
@@ -2240,12 +4497,27 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
+ripemd160@^2.0.0, ripemd160@^2.0.1:
+  version "2.0.2"
+  resolved "https://npm.suwis.com:443/ripemd160/-/ripemd160-2.0.2.tgz#a1c1a6f624751577ba5d07914cbc92850585890c"
+  integrity sha1-ocGm9iR1FXe6XQeRTLyShQWFiQw=
+  dependencies:
+    hash-base "^3.0.0"
+    inherits "^2.0.1"
+
 run-async@^2.2.0:
   version "2.3.0"
   resolved "https://npm.suwis.com:443/run-async/-/run-async-2.3.0.tgz#0371ab4ae0bdd720d4166d7dfda64ff7a445a6c0"
   integrity sha1-A3GrSuC91yDUFm19/aZP96RFpsA=
   dependencies:
     is-promise "^2.1.0"
+
+run-queue@^1.0.0, run-queue@^1.0.3:
+  version "1.0.3"
+  resolved "https://npm.suwis.com:443/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"
+  integrity sha1-6Eg5bwV9Ij8kOGkkYY4laUFh7Ec=
+  dependencies:
+    aproba "^1.1.1"
 
 rxjs@^6.3.1, rxjs@^6.4.0:
   version "6.5.2"
@@ -2254,15 +4526,22 @@ rxjs@^6.3.1, rxjs@^6.4.0:
   dependencies:
     tslib "^1.9.0"
 
-safe-buffer@^5.0.1, safe-buffer@^5.1.2:
+safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+  version "5.1.2"
+  resolved "https://npm.suwis.com:443/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
+  integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+
+safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.2.0:
   version "5.2.0"
   resolved "https://npm.suwis.com:443/safe-buffer/-/safe-buffer-5.2.0.tgz#b74daec49b1148f88c64b68d49b1e815c1f2f519"
   integrity sha1-t02uxJsRSPiMZLaNSbHoFcHy9Rk=
 
-safe-buffer@~5.1.0, safe-buffer@~5.1.1:
-  version "5.1.2"
-  resolved "https://npm.suwis.com:443/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
-  integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+safe-regex@^1.1.0:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
+  integrity sha1-QKNmnzsHfR6UPURinhV91IAjvy4=
+  dependencies:
+    ret "~0.1.10"
 
 "safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
@@ -2276,7 +4555,29 @@ sanitize-filename@^1.6.0:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.4.1, semver@^5.5.0:
+sax@^1.2.4:
+  version "1.2.4"
+  resolved "https://npm.suwis.com:443/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+  integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
+
+schema-utils@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/schema-utils/-/schema-utils-1.0.0.tgz#0b79a93204d7b600d4b2850d1f66c2a34951c770"
+  integrity sha1-C3mpMgTXtgDUsoUNH2bCo0lRx3A=
+  dependencies:
+    ajv "^6.1.0"
+    ajv-errors "^1.0.0"
+    ajv-keywords "^3.1.0"
+
+schema-utils@^2.0.0:
+  version "2.1.0"
+  resolved "https://npm.suwis.com:443/schema-utils/-/schema-utils-2.1.0.tgz#940363b6b1ec407800a22951bdcc23363c039393"
+  integrity sha1-lANjtrHsQHgAoilRvcwjNjwDk5M=
+  dependencies:
+    ajv "^6.1.0"
+    ajv-keywords "^3.1.0"
+
+"semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
   version "5.7.1"
   resolved "https://npm.suwis.com:443/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha1-qVT5Ma66UI0we78Gnv8MAclhFvc=
@@ -2291,10 +4592,72 @@ semver@~5.3.0:
   resolved "https://npm.suwis.com:443/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
   integrity sha1-myzl094C0XxgEq0yaqa00M9U+U8=
 
+send@0.17.1:
+  version "0.17.1"
+  resolved "https://npm.suwis.com:443/send/-/send-0.17.1.tgz#c1d8b059f7900f7466dd4938bdc44e11ddb376c8"
+  integrity sha1-wdiwWfeQD3Rm3Uk4vcROEd2zdsg=
+  dependencies:
+    debug "2.6.9"
+    depd "~1.1.2"
+    destroy "~1.0.4"
+    encodeurl "~1.0.2"
+    escape-html "~1.0.3"
+    etag "~1.8.1"
+    fresh "0.5.2"
+    http-errors "~1.7.2"
+    mime "1.6.0"
+    ms "2.1.1"
+    on-finished "~2.3.0"
+    range-parser "~1.2.1"
+    statuses "~1.5.0"
+
+serialize-javascript@^1.7.0:
+  version "1.8.0"
+  resolved "https://npm.suwis.com:443/serialize-javascript/-/serialize-javascript-1.8.0.tgz#9515fc687232e2321aea1ca7a529476eb34bb480"
+  integrity sha1-lRX8aHIy4jIa6hynpSlHbrNLtIA=
+
+serve-static@1.14.1:
+  version "1.14.1"
+  resolved "https://npm.suwis.com:443/serve-static/-/serve-static-1.14.1.tgz#666e636dc4f010f7ef29970a88a674320898b2f9"
+  integrity sha1-Zm5jbcTwEPfvKZcKiKZ0MgiYsvk=
+  dependencies:
+    encodeurl "~1.0.2"
+    escape-html "~1.0.3"
+    parseurl "~1.3.3"
+    send "0.17.1"
+
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "https://npm.suwis.com:443/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
+
+set-value@^2.0.0, set-value@^2.0.1:
+  version "2.0.1"
+  resolved "https://npm.suwis.com:443/set-value/-/set-value-2.0.1.tgz#a18d40530e6f07de4228c7defe4227af8cad005b"
+  integrity sha1-oY1AUw5vB95CKMfe/kInr4ytAFs=
+  dependencies:
+    extend-shallow "^2.0.1"
+    is-extendable "^0.1.1"
+    is-plain-object "^2.0.3"
+    split-string "^3.0.1"
+
+setimmediate@^1.0.4:
+  version "1.0.5"
+  resolved "https://npm.suwis.com:443/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
+  integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
+
+setprototypeof@1.1.1:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/setprototypeof/-/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
+  integrity sha1-fpWsskqpL1iF4KvvW6ExMw1K5oM=
+
+sha.js@^2.4.0, sha.js@^2.4.8:
+  version "2.4.11"
+  resolved "https://npm.suwis.com:443/sha.js/-/sha.js-2.4.11.tgz#37a5cf0b81ecbc6943de109ba2960d1b26584ae7"
+  integrity sha1-N6XPC4HsvGlD3hCbopYNGyZYSuc=
+  dependencies:
+    inherits "^2.0.1"
+    safe-buffer "^5.0.1"
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -2320,7 +4683,53 @@ single-line-log@^1.1.2:
   dependencies:
     string-width "^1.0.1"
 
-source-map-support@^0.5.13:
+snapdragon-node@^2.0.1:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
+  integrity sha1-bBdfhv8UvbByRWPo88GwIaKGhTs=
+  dependencies:
+    define-property "^1.0.0"
+    isobject "^3.0.0"
+    snapdragon-util "^3.0.1"
+
+snapdragon-util@^3.0.1:
+  version "3.0.1"
+  resolved "https://npm.suwis.com:443/snapdragon-util/-/snapdragon-util-3.0.1.tgz#f956479486f2acd79700693f6f7b805e45ab56e2"
+  integrity sha1-+VZHlIbyrNeXAGk/b3uAXkWrVuI=
+  dependencies:
+    kind-of "^3.2.0"
+
+snapdragon@^0.8.1:
+  version "0.8.2"
+  resolved "https://npm.suwis.com:443/snapdragon/-/snapdragon-0.8.2.tgz#64922e7c565b0e14204ba1aa7d6964278d25182d"
+  integrity sha1-ZJIufFZbDhQgS6GqfWlkJ40lGC0=
+  dependencies:
+    base "^0.11.1"
+    debug "^2.2.0"
+    define-property "^0.2.5"
+    extend-shallow "^2.0.1"
+    map-cache "^0.2.2"
+    source-map "^0.5.6"
+    source-map-resolve "^0.5.0"
+    use "^3.1.0"
+
+source-list-map@^2.0.0:
+  version "2.0.1"
+  resolved "https://npm.suwis.com:443/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
+  integrity sha1-OZO9hzv8SEecyp6jpUeDXHwVSzQ=
+
+source-map-resolve@^0.5.0:
+  version "0.5.2"
+  resolved "https://npm.suwis.com:443/source-map-resolve/-/source-map-resolve-0.5.2.tgz#72e2cc34095543e43b2c62b2c4c10d4a9054f259"
+  integrity sha1-cuLMNAlVQ+Q7LGKyxMENSpBU8lk=
+  dependencies:
+    atob "^2.1.1"
+    decode-uri-component "^0.2.0"
+    resolve-url "^0.2.1"
+    source-map-url "^0.4.0"
+    urix "^0.1.0"
+
+source-map-support@^0.5.13, source-map-support@~0.5.12:
   version "0.5.13"
   resolved "https://npm.suwis.com:443/source-map-support/-/source-map-support-0.5.13.tgz#31b24a9c2e73c2de85066c0feb7d44767ed52932"
   integrity sha1-MbJKnC5zwt6FBmwP631Edn7VKTI=
@@ -2328,10 +4737,25 @@ source-map-support@^0.5.13:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
 
-source-map@^0.6.0:
+source-map-url@^0.4.0:
+  version "0.4.0"
+  resolved "https://npm.suwis.com:443/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
+  integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
+
+source-map@^0.5.6:
+  version "0.5.7"
+  resolved "https://npm.suwis.com:443/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
+  integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
+
+source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://npm.suwis.com:443/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+
+sourcemap-codec@^1.4.4:
+  version "1.4.6"
+  resolved "https://npm.suwis.com:443/sourcemap-codec/-/sourcemap-codec-1.4.6.tgz#e30a74f0402bad09807640d39e971090a08ce1e9"
+  integrity sha1-4wp08EArrQmAdkDTnpcQkKCM4ek=
 
 spawn-rx@^3.0.0:
   version "3.0.0"
@@ -2373,6 +4797,13 @@ speedometer@~0.1.2:
   resolved "https://npm.suwis.com:443/speedometer/-/speedometer-0.1.4.tgz#9876dbd2a169d3115402d48e6ea6329c8816a50d"
   integrity sha1-mHbb0qFp0xFUAtSObqYynIgWpQ0=
 
+split-string@^3.0.1, split-string@^3.0.2:
+  version "3.1.0"
+  resolved "https://npm.suwis.com:443/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
+  integrity sha1-fLCd2jqGWFcFxks5pkZgOGguj+I=
+  dependencies:
+    extend-shallow "^3.0.0"
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "https://npm.suwis.com:443/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -2387,6 +4818,58 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
+
+ssri@^6.0.1:
+  version "6.0.1"
+  resolved "https://npm.suwis.com:443/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
+  integrity sha1-KjxBso3UW2K2Nnbst0ABJlrp7dg=
+  dependencies:
+    figgy-pudding "^3.5.1"
+
+static-extend@^0.1.1:
+  version "0.1.2"
+  resolved "https://npm.suwis.com:443/static-extend/-/static-extend-0.1.2.tgz#60809c39cbff55337226fd5e0b520f341f1fb5c6"
+  integrity sha1-YICcOcv/VTNyJv1eC1IPNB8ftcY=
+  dependencies:
+    define-property "^0.2.5"
+    object-copy "^0.1.0"
+
+"statuses@>= 1.5.0 < 2", statuses@~1.5.0:
+  version "1.5.0"
+  resolved "https://npm.suwis.com:443/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
+  integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+
+stream-browserify@^2.0.1:
+  version "2.0.2"
+  resolved "https://npm.suwis.com:443/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
+  integrity sha1-h1IdOKRKp+6RzhzSpH3wy0ndZgs=
+  dependencies:
+    inherits "~2.0.1"
+    readable-stream "^2.0.2"
+
+stream-each@^1.1.0:
+  version "1.2.3"
+  resolved "https://npm.suwis.com:443/stream-each/-/stream-each-1.2.3.tgz#ebe27a0c389b04fbcc233642952e10731afa9bae"
+  integrity sha1-6+J6DDibBPvMIzZClS4Qcxr6m64=
+  dependencies:
+    end-of-stream "^1.1.0"
+    stream-shift "^1.0.0"
+
+stream-http@^2.7.2:
+  version "2.8.3"
+  resolved "https://npm.suwis.com:443/stream-http/-/stream-http-2.8.3.tgz#b2d242469288a5a27ec4fe8933acf623de6514fc"
+  integrity sha1-stJCRpKIpaJ+xP6JM6z2I95lFPw=
+  dependencies:
+    builtin-status-codes "^3.0.0"
+    inherits "^2.0.1"
+    readable-stream "^2.3.6"
+    to-arraybuffer "^1.0.0"
+    xtend "^4.0.0"
+
+stream-shift@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/stream-shift/-/stream-shift-1.0.0.tgz#d5c752825e5367e786f78e18e445ea223a155952"
+  integrity sha1-1cdSgl5TZ+eG944Y5EXqIjoVWVI=
 
 string-width@^1.0.1:
   version "1.0.2"
@@ -2413,6 +4896,13 @@ string-width@^3.0.0, string-width@^3.1.0:
     emoji-regex "^7.0.1"
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
+
+string_decoder@^1.0.0, string_decoder@^1.1.1:
+  version "1.3.0"
+  resolved "https://npm.suwis.com:443/string_decoder/-/string_decoder-1.3.0.tgz#42f114594a46cf1a8e30b0a84f56c78c3edac21e"
+  integrity sha1-QvEUWUpGzxqOMLCoT1bHjD7awh4=
+  dependencies:
+    safe-buffer "~5.2.0"
 
 string_decoder@~0.10.x:
   version "0.10.31"
@@ -2476,6 +4966,14 @@ strip-json-comments@~2.0.1:
   resolved "https://npm.suwis.com:443/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
+style-loader@^0.23.1:
+  version "0.23.1"
+  resolved "https://npm.suwis.com:443/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
+  integrity sha1-y5FUYG8+dxq2xKtjcCahBJF02SU=
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^1.0.0"
+
 sudo-prompt@^9.0.0:
   version "9.0.0"
   resolved "https://npm.suwis.com:443/sudo-prompt/-/sudo-prompt-9.0.0.tgz#eebedeee9fcd6f661324e6bb46335e3288e8dc8a"
@@ -2502,7 +5000,19 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-tar@^4.4.8:
+supports-color@^6.1.0:
+  version "6.1.0"
+  resolved "https://npm.suwis.com:443/supports-color/-/supports-color-6.1.0.tgz#0764abc69c63d5ac842dd4867e8d025e880df8f3"
+  integrity sha1-B2Srxpxj1ayELdSGfo0CXogN+PM=
+  dependencies:
+    has-flag "^3.0.0"
+
+tapable@^1.0.0, tapable@^1.1.3:
+  version "1.1.3"
+  resolved "https://npm.suwis.com:443/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
+  integrity sha1-ofzMBrWNth/XpF2i2kT186Pme6I=
+
+tar@^4, tar@^4.4.8:
   version "4.4.10"
   resolved "https://npm.suwis.com:443/tar/-/tar-4.4.10.tgz#946b2810b9a5e0b26140cf78bea6b0b0d689eba1"
   integrity sha1-lGsoELml4LJhQM94vqawsNaJ66E=
@@ -2522,10 +5032,42 @@ temp@^0.9.0:
   dependencies:
     rimraf "~2.6.2"
 
+terser-webpack-plugin@^1.4.1:
+  version "1.4.1"
+  resolved "https://npm.suwis.com:443/terser-webpack-plugin/-/terser-webpack-plugin-1.4.1.tgz#61b18e40eaee5be97e771cdbb10ed1280888c2b4"
+  integrity sha1-YbGOQOruW+l+dxzbsQ7RKAiIwrQ=
+  dependencies:
+    cacache "^12.0.2"
+    find-cache-dir "^2.1.0"
+    is-wsl "^1.1.0"
+    schema-utils "^1.0.0"
+    serialize-javascript "^1.7.0"
+    source-map "^0.6.1"
+    terser "^4.1.2"
+    webpack-sources "^1.4.0"
+    worker-farm "^1.7.0"
+
+terser@^4.1.2:
+  version "4.2.1"
+  resolved "https://npm.suwis.com:443/terser/-/terser-4.2.1.tgz#1052cfe17576c66e7bc70fcc7119f22b155bdac1"
+  integrity sha1-EFLP4XV2xm57xw/McRnyKxVb2sE=
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.6.1"
+    source-map-support "~0.5.12"
+
 throttleit@0.0.2:
   version "0.0.2"
   resolved "https://npm.suwis.com:443/throttleit/-/throttleit-0.0.2.tgz#cfedf88e60c00dd9697b61fdd2a8343a9b680eaf"
   integrity sha1-z+34jmDADdlpe2H90qg0OptoDq8=
+
+through2@^2.0.0:
+  version "2.0.5"
+  resolved "https://npm.suwis.com:443/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
+  integrity sha1-AcHjnrMdB8t9A6lqcIIyYLIxMs0=
+  dependencies:
+    readable-stream "~2.3.6"
+    xtend "~4.0.1"
 
 through2@~0.2.3:
   version "0.2.3"
@@ -2539,6 +5081,13 @@ through@^2.3.6:
   version "2.3.8"
   resolved "https://npm.suwis.com:443/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+
+timers-browserify@^2.0.4:
+  version "2.0.11"
+  resolved "https://npm.suwis.com:443/timers-browserify/-/timers-browserify-2.0.11.tgz#800b1f3eee272e5bc53ee465a04d0e804c31211f"
+  integrity sha1-gAsfPu4nLlvFPuRloE0OgEwxIR8=
+  dependencies:
+    setimmediate "^1.0.4"
 
 tiny-each-async@2.0.3:
   version "2.0.3"
@@ -2574,10 +5123,50 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
+to-arraybuffer@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
+  integrity sha1-fSKbH8xjfkZsoIEYCDanqr/4P0M=
+
+to-object-path@^0.3.0:
+  version "0.3.0"
+  resolved "https://npm.suwis.com:443/to-object-path/-/to-object-path-0.3.0.tgz#297588b7b0e7e0ac08e04e672f85c1f4999e17af"
+  integrity sha1-KXWIt7Dn4KwI4E5nL4XB9JmeF68=
+  dependencies:
+    kind-of "^3.0.2"
+
 to-readable-stream@^1.0.0:
   version "1.0.0"
   resolved "https://npm.suwis.com:443/to-readable-stream/-/to-readable-stream-1.0.0.tgz#ce0aa0c2f3df6adf852efb404a783e77c0475771"
   integrity sha1-zgqgwvPfat+FLvtASng+d8BHV3E=
+
+to-regex-range@^2.1.0:
+  version "2.1.1"
+  resolved "https://npm.suwis.com:443/to-regex-range/-/to-regex-range-2.1.1.tgz#7c80c17b9dfebe599e27367e0d4dd5590141db38"
+  integrity sha1-fIDBe53+vlmeJzZ+DU3VWQFB2zg=
+  dependencies:
+    is-number "^3.0.0"
+    repeat-string "^1.6.1"
+
+to-regex@^3.0.1, to-regex@^3.0.2:
+  version "3.0.2"
+  resolved "https://npm.suwis.com:443/to-regex/-/to-regex-3.0.2.tgz#13cfdd9b336552f30b51f33a8ae1b42a7a7599ce"
+  integrity sha1-E8/dmzNlUvMLUfM6iuG0Knp1mc4=
+  dependencies:
+    define-property "^2.0.2"
+    extend-shallow "^3.0.2"
+    regex-not "^1.0.2"
+    safe-regex "^1.1.0"
+
+toidentifier@1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
+  integrity sha1-fhvjRw8ed5SLxD2Uo8j013UrpVM=
+
+toposort@^1.0.0:
+  version "1.0.7"
+  resolved "https://npm.suwis.com:443/toposort/-/toposort-1.0.7.tgz#2e68442d9f64ec720b8cc89e6443ac6caa950029"
+  integrity sha1-LmhELZ9k7HILjMieZEOsbKqVACk=
 
 tough-cookie@~2.4.3:
   version "2.4.3"
@@ -2604,6 +5193,11 @@ tslib@^1.9.0:
   resolved "https://npm.suwis.com:443/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha1-w8GflZc/sKYpc/sJ2Q2WHuQ+XIo=
 
+tty-browserify@0.0.0:
+  version "0.0.0"
+  resolved "https://npm.suwis.com:443/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
+  integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
+
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://npm.suwis.com:443/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -2616,15 +5210,83 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://npm.suwis.com:443/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
+type-is@~1.6.17, type-is@~1.6.18:
+  version "1.6.18"
+  resolved "https://npm.suwis.com:443/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
+  integrity sha1-TlUs0F3wlGfcvE73Od6J8s83wTE=
+  dependencies:
+    media-typer "0.3.0"
+    mime-types "~2.1.24"
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://npm.suwis.com:443/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+uglify-js@3.4.x:
+  version "3.4.10"
+  resolved "https://npm.suwis.com:443/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
+  integrity sha1-mtlWPY6zrN+404WX0q8dgV9qdV8=
+  dependencies:
+    commander "~2.19.0"
+    source-map "~0.6.1"
+
+union-value@^1.0.0:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/union-value/-/union-value-1.0.1.tgz#0b6fe7b835aecda61c6ea4d4f02c14221e109847"
+  integrity sha1-C2/nuDWuzaYcbqTU8CwUIh4QmEc=
+  dependencies:
+    arr-union "^3.1.0"
+    get-value "^2.0.6"
+    is-extendable "^0.1.1"
+    set-value "^2.0.1"
+
+uniq@^1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/uniq/-/uniq-1.0.1.tgz#b31c5ae8254844a3a8281541ce2b04b865a734ff"
+  integrity sha1-sxxa6CVIRKOoKBVBzisEuGWnNP8=
+
+unique-filename@^1.1.1:
+  version "1.1.1"
+  resolved "https://npm.suwis.com:443/unique-filename/-/unique-filename-1.1.1.tgz#1d69769369ada0583103a1e6ae87681b56573230"
+  integrity sha1-HWl2k2mtoFgxA6HmrodoG1ZXMjA=
+  dependencies:
+    unique-slug "^2.0.0"
+
+unique-slug@^2.0.0:
+  version "2.0.2"
+  resolved "https://npm.suwis.com:443/unique-slug/-/unique-slug-2.0.2.tgz#baabce91083fc64e945b0f3ad613e264f7cd4e6c"
+  integrity sha1-uqvOkQg/xk6UWw861hPiZPfNTmw=
+  dependencies:
+    imurmurhash "^0.1.4"
+
 universalify@^0.1.0:
   version "0.1.2"
   resolved "https://npm.suwis.com:443/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha1-tkb2m+OULavOzJ1mOcgNwQXvqmY=
+
+unpipe@1.0.0, unpipe@~1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
+  integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
+
+unset-value@^1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/unset-value/-/unset-value-1.0.0.tgz#8376873f7d2335179ffb1e6fc3a8ed0dfc8ab559"
+  integrity sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=
+  dependencies:
+    has-value "^0.3.1"
+    isobject "^3.0.0"
+
+upath@^1.1.1:
+  version "1.1.2"
+  resolved "https://npm.suwis.com:443/upath/-/upath-1.1.2.tgz#3db658600edaeeccbe6db5e684d67ee8c2acd068"
+  integrity sha1-PbZYYA7a7sy+bbXmhNZ+6MKs0Gg=
+
+upper-case@^1.1.1:
+  version "1.1.3"
+  resolved "https://npm.suwis.com:443/upper-case/-/upper-case-1.1.3.tgz#f6b4501c2ec4cdd26ba78be7222961de77621598"
+  integrity sha1-9rRQHC7EzdJrp4vnIilh3ndiFZg=
 
 uri-js@^4.2.2:
   version "4.2.2"
@@ -2633,12 +5295,30 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+urix@^0.1.0:
+  version "0.1.0"
+  resolved "https://npm.suwis.com:443/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
+  integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+
 url-parse-lax@^3.0.0:
   version "3.0.0"
   resolved "https://npm.suwis.com:443/url-parse-lax/-/url-parse-lax-3.0.0.tgz#16b5cafc07dbe3676c1b1999177823d6503acb0c"
   integrity sha1-FrXK/Afb42dsGxmZF3gj1lA6yww=
   dependencies:
     prepend-http "^2.0.0"
+
+url@^0.11.0:
+  version "0.11.0"
+  resolved "https://npm.suwis.com:443/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
+  integrity sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE=
+  dependencies:
+    punycode "1.3.2"
+    querystring "0.2.0"
+
+use@^3.1.0:
+  version "3.1.1"
+  resolved "https://npm.suwis.com:443/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
+  integrity sha1-1QyMrHmhn7wg8pEfVuuXP04QBw8=
 
 username@^5.1.0:
   version "5.1.0"
@@ -2653,10 +5333,42 @@ utf8-byte-length@^1.0.1:
   resolved "https://npm.suwis.com:443/utf8-byte-length/-/utf8-byte-length-1.0.4.tgz#f45f150c4c66eee968186505ab93fcbb8ad6bf61"
   integrity sha1-9F8VDExm7uloGGUFq5P8u4rWv2E=
 
-util-deprecate@~1.0.1:
+util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://npm.suwis.com:443/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
+
+util.promisify@1.0.0:
+  version "1.0.0"
+  resolved "https://npm.suwis.com:443/util.promisify/-/util.promisify-1.0.0.tgz#440f7165a459c9a16dc145eb8e72f35687097030"
+  integrity sha1-RA9xZaRZyaFtwUXrjnLzVocJcDA=
+  dependencies:
+    define-properties "^1.1.2"
+    object.getownpropertydescriptors "^2.0.3"
+
+util@0.10.3:
+  version "0.10.3"
+  resolved "https://npm.suwis.com:443/util/-/util-0.10.3.tgz#7afb1afe50805246489e3db7fe0ed379336ac0f9"
+  integrity sha1-evsa/lCAUkZInj23/g7TeTNqwPk=
+  dependencies:
+    inherits "2.0.1"
+
+util@^0.11.0:
+  version "0.11.1"
+  resolved "https://npm.suwis.com:443/util/-/util-0.11.1.tgz#3236733720ec64bb27f6e26f421aaa2e1b588d61"
+  integrity sha1-MjZzNyDsZLsn9uJvQhqqLhtYjWE=
+  dependencies:
+    inherits "2.0.3"
+
+utila@^0.4.0, utila@~0.4:
+  version "0.4.0"
+  resolved "https://npm.suwis.com:443/utila/-/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
+  integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
+
+utils-merge@1.0.1:
+  version "1.0.1"
+  resolved "https://npm.suwis.com:443/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
+  integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
 uuid@^3.3.2:
   version "3.3.3"
@@ -2671,6 +5383,11 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+vary@~1.1.2:
+  version "1.1.2"
+  resolved "https://npm.suwis.com:443/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
+  integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
 verror@1.10.0:
   version "1.10.0"
   resolved "https://npm.suwis.com:443/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
@@ -2680,12 +5397,98 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vm-browserify@^1.0.1:
+  version "1.1.0"
+  resolved "https://npm.suwis.com:443/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
+  integrity sha1-vXbWojMj4sqP+hICjcBFWcdfkBk=
+
+watchpack@^1.6.0:
+  version "1.6.0"
+  resolved "https://npm.suwis.com:443/watchpack/-/watchpack-1.6.0.tgz#4bc12c2ebe8aa277a71f1d3f14d685c7b446cd00"
+  integrity sha1-S8EsLr6KonenHx0/FNaFx7RGzQA=
+  dependencies:
+    chokidar "^2.0.2"
+    graceful-fs "^4.1.2"
+    neo-async "^2.5.0"
+
 wcwidth@^1.0.1:
   version "1.0.1"
   resolved "https://npm.suwis.com:443/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
+
+webpack-dev-middleware@^3.7.0:
+  version "3.7.0"
+  resolved "https://npm.suwis.com:443/webpack-dev-middleware/-/webpack-dev-middleware-3.7.0.tgz#ef751d25f4e9a5c8a35da600c5fda3582b5c6cff"
+  integrity sha1-73UdJfTppcijXaYAxf2jWCtcbP8=
+  dependencies:
+    memory-fs "^0.4.1"
+    mime "^2.4.2"
+    range-parser "^1.2.1"
+    webpack-log "^2.0.0"
+
+webpack-hot-middleware@^2.25.0:
+  version "2.25.0"
+  resolved "https://npm.suwis.com:443/webpack-hot-middleware/-/webpack-hot-middleware-2.25.0.tgz#4528a0a63ec37f8f8ef565cf9e534d57d09fe706"
+  integrity sha1-RSigpj7Df4+O9WXPnlNNV9Cf5wY=
+  dependencies:
+    ansi-html "0.0.7"
+    html-entities "^1.2.0"
+    querystring "^0.2.0"
+    strip-ansi "^3.0.0"
+
+webpack-log@^2.0.0:
+  version "2.0.0"
+  resolved "https://npm.suwis.com:443/webpack-log/-/webpack-log-2.0.0.tgz#5b7928e0637593f119d32f6227c1e0ac31e1b47f"
+  integrity sha1-W3ko4GN1k/EZ0y9iJ8HgrDHhtH8=
+  dependencies:
+    ansi-colors "^3.0.0"
+    uuid "^3.3.2"
+
+webpack-merge@^4.1.1:
+  version "4.2.1"
+  resolved "https://npm.suwis.com:443/webpack-merge/-/webpack-merge-4.2.1.tgz#5e923cf802ea2ace4fd5af1d3247368a633489b4"
+  integrity sha1-XpI8+ALqKs5P1a8dMkc2imM0ibQ=
+  dependencies:
+    lodash "^4.17.5"
+
+webpack-sources@^1.4.0, webpack-sources@^1.4.1:
+  version "1.4.3"
+  resolved "https://npm.suwis.com:443/webpack-sources/-/webpack-sources-1.4.3.tgz#eedd8ec0b928fbf1cbfe994e22d2d890f330a933"
+  integrity sha1-7t2OwLko+/HL/plOItLYkPMwqTM=
+  dependencies:
+    source-list-map "^2.0.0"
+    source-map "~0.6.1"
+
+webpack@^4.39.1:
+  version "4.39.2"
+  resolved "https://npm.suwis.com:443/webpack/-/webpack-4.39.2.tgz#c9aa5c1776d7c309d1b3911764f0288c8c2816aa"
+  integrity sha1-yapcF3bXwwnRs5EXZPAojIwoFqo=
+  dependencies:
+    "@webassemblyjs/ast" "1.8.5"
+    "@webassemblyjs/helper-module-context" "1.8.5"
+    "@webassemblyjs/wasm-edit" "1.8.5"
+    "@webassemblyjs/wasm-parser" "1.8.5"
+    acorn "^6.2.1"
+    ajv "^6.10.2"
+    ajv-keywords "^3.4.1"
+    chrome-trace-event "^1.0.2"
+    enhanced-resolve "^4.1.0"
+    eslint-scope "^4.0.3"
+    json-parse-better-errors "^1.0.2"
+    loader-runner "^2.4.0"
+    loader-utils "^1.2.3"
+    memory-fs "^0.4.1"
+    micromatch "^3.1.10"
+    mkdirp "^0.5.1"
+    neo-async "^2.6.1"
+    node-libs-browser "^2.2.1"
+    schema-utils "^1.0.0"
+    tapable "^1.1.3"
+    terser-webpack-plugin "^1.4.1"
+    watchpack "^1.6.0"
+    webpack-sources "^1.4.1"
 
 which-module@^2.0.0:
   version "2.0.0"
@@ -2711,6 +5514,13 @@ word-wrap@^1.2.3:
   resolved "https://npm.suwis.com:443/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha1-YQY29rH3A4kb00dxzLF/uTtHB5w=
 
+worker-farm@^1.7.0:
+  version "1.7.0"
+  resolved "https://npm.suwis.com:443/worker-farm/-/worker-farm-1.7.0.tgz#26a94c5391bbca926152002f69b84a4bf772e5a8"
+  integrity sha1-JqlMU5G7ypJhUgAvabhKS/dy5ag=
+  dependencies:
+    errno "~0.1.7"
+
 wrap-ansi@^5.1.0:
   version "5.1.0"
   resolved "https://npm.suwis.com:443/wrap-ansi/-/wrap-ansi-5.1.0.tgz#1fd1f67235d5b6d0fee781056001bfb694c03b09"
@@ -2725,6 +5535,13 @@ wrappy@1:
   resolved "https://npm.suwis.com:443/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
+ws@^5.2.0:
+  version "5.2.2"
+  resolved "https://npm.suwis.com:443/ws/-/ws-5.2.2.tgz#dffef14866b8e8dc9133582514d1befaf96e980f"
+  integrity sha1-3/7xSGa46NyRM1glFNG++vlumA8=
+  dependencies:
+    async-limiter "~1.0.0"
+
 xmlbuilder@^9.0.7:
   version "9.0.7"
   resolved "https://npm.suwis.com:443/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
@@ -2735,12 +5552,22 @@ xmldom@0.1.x:
   resolved "https://npm.suwis.com:443/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
   integrity sha1-1QH5ezvbQDr4757MIFcxh6rawOk=
 
+xtend@^4.0.0, xtend@~4.0.1:
+  version "4.0.2"
+  resolved "https://npm.suwis.com:443/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
+  integrity sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q=
+
 xtend@~2.1.1:
   version "2.1.2"
   resolved "https://npm.suwis.com:443/xtend/-/xtend-2.1.2.tgz#6efecc2a4dad8e6962c4901b337ce7ba87b5d28b"
   integrity sha1-bv7MKk2tjmlixJAbM3znuoe10os=
   dependencies:
     object-keys "~0.4.0"
+
+xterm@^3.14.5:
+  version "3.14.5"
+  resolved "https://npm.suwis.com:443/xterm/-/xterm-3.14.5.tgz#c9d14e48be6873aa46fb429f22f2165557fd2dea"
+  integrity sha1-ydFOSL5oc6pG+0KfIvIWVVf9Leo=
 
 y18n@^4.0.0:
   version "4.0.0"
@@ -2752,7 +5579,7 @@ yallist@^2.1.2:
   resolved "https://npm.suwis.com:443/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
   integrity sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
 
-yallist@^3.0.0, yallist@^3.0.3:
+yallist@^3.0.0, yallist@^3.0.2, yallist@^3.0.3:
   version "3.0.3"
   resolved "https://npm.suwis.com:443/yallist/-/yallist-3.0.3.tgz#b4b049e314be545e3ce802236d6cd22cd91c3de9"
   integrity sha1-tLBJ4xS+VF486AIjbWzSLNkcPek=

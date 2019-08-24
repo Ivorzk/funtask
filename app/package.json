@@ -3,7 +3,7 @@
   "productName": "app",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": "src/index.js",
+  "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -20,8 +20,7 @@
   "config": {
     "forge": {
       "packagerConfig": {},
-      "makers": [
-        {
+      "makers": [{
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "app"
@@ -41,6 +40,22 @@
           "name": "@electron-forge/maker-rpm",
           "config": {}
         }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [{
+                "html": "./src/index.html",
+                "js": "./src/renderer.js",
+                "name": "main_window"
+              }]
+            }
+          }
+        ]
       ]
     }
   },
@@ -53,6 +68,11 @@
     "@electron-forge/maker-rpm": "6.0.0-beta.44",
     "@electron-forge/maker-squirrel": "6.0.0-beta.44",
     "@electron-forge/maker-zip": "6.0.0-beta.44",
-    "electron": "6.0.4"
+    "@electron-forge/plugin-webpack": "6.0.0-beta.44",
+    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "css-loader": "^3.0.0",
+    "electron": "6.0.4",
+    "node-loader": "^0.6.0",
+    "style-loader": "^0.23.1"
   }
 }
