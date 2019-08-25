@@ -29,6 +29,7 @@ export default {
   methods: {
     // 切换菜单
     toggle() {
+      alert('切换')
       console.log('切换')
     }
   }
