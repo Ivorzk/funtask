@@ -5,9 +5,7 @@
 </template>
 
 <script>
-// const {
-//   BrowserWindow
-// } = require('electron')
+
 export default {
   data() {
     return {
@@ -16,15 +14,7 @@ export default {
     }
   },
   mounted() {
-    // this.control = new BrowserWindow({
-    //   width: 600,
-    //   height: 399,
-    //   frame: false
-    // })
-    // this.control.on('closed', () => {
-    //   this.control = null
-    // })
-    // this.control.loadURL('https://github.com')
+
   },
   methods: {
     // 切换菜单
