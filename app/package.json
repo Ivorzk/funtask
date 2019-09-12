@@ -21,7 +21,8 @@
   "config": {
     "forge": {
       "packagerConfig": {},
-      "makers": [{
+      "makers": [
+        {
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "app"
@@ -49,11 +50,13 @@
             "mainConfig": "./webpack.main.config.js",
             "renderer": {
               "config": "./webpack.renderer.config.js",
-              "entryPoints": [{
-                "html": "./src/index.html",
-                "js": "./src/renderer.js",
-                "name": "main_window"
-              }]
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.js",
+                  "name": "main_window"
+                }
+              ]
             }
           }
         ]
@@ -61,10 +64,11 @@
     }
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
     "axios": "^0.19.0",
     "babel-plugin-import": "^1.12.0",
     "core-js": "^2.6.5",
+    "electron-drag": "^1.2.2",
+    "electron-squirrel-startup": "^1.0.0",
     "moment": "^2.24.0",
     "qs": "^6.7.0",
     "suwis-vuex-sync": "^1.0.2",
@@ -81,19 +85,19 @@
     "@electron-forge/maker-zip": "6.0.0-beta.44",
     "@electron-forge/plugin-webpack": "6.0.0-beta.44",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
-    "css-loader": "^3.0.0",
-    "electron": "6.0.4",
-    "node-loader": "^0.6.0",
-    "style-loader": "^0.23.1",
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "css-loader": "^3.0.0",
+    "electron": "6.0.4",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "node-loader": "^0.6.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "vue-template-compiler": "^2.6.10"
   }
 }
