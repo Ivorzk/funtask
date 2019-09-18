@@ -12,5 +12,5 @@ features:
   details: 让工作就像玩电脑、刷手机一样快乐有趣
 - title: 人性化
   details: 想人之所想，急人之所急，以你为中心，一切由你操控
-footer: MIT Licensed | Copyright © 2018 - CTI - Technology Group
+footer: MIT Licensed | Copyright © 2019 - CTI - Technology Group
 ---
