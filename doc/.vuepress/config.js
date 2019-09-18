@@ -1,13 +1,13 @@
 module.exports = {
-  title: '丰潮极速大作战2.0',
-  description: '丰潮极速大作战2.0',
-  base: '/1909_fcgame/docs/.vuepress/dist/',
+  title: '桌面悬浮球',
+  description: '桌面悬浮球',
+  base: '/desktop-ball/doc/.vuepress/dist/',
   themeConfig: {
     // 搜索
     search: true,
     searchMaxSuggestions: 10,
     // 最后一次更新
-    lastUpdated: '上次更新:',
+    lastUpdated: '上次更新',
     nav: [{
       text: '主页',
       link: '/'
@@ -44,6 +44,7 @@ module.exports = {
       title: '全局',
       collapsable: false,
       children: [
+        ['/framework.md', '架构概览'],
         ['/dir.md', '目录结构'],
         ['/principal.md', '各模块负责人']
       ]
