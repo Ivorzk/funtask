@@ -49,19 +49,15 @@ module.exports = {
         ['/principal.md', '各模块负责人']
       ]
     }, {
-      title: '第三工具',
+      title: 'API',
+      collapsable: false,
+      children: []
+    }, {
+      title: '插件',
       collapsable: false,
       children: [
-        ['http://momentjs.cn/', 'momentjs']
+        ['/zh/plugin-dev.md', '插件开发指南']
       ]
-    }, {
-      title: '内部组件',
-      collapsable: false,
-      children: []
-    }, {
-      title: '第三方组件',
-      collapsable: false,
-      children: []
     }]
   }
 }
