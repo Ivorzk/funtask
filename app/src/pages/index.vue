@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import ipcRenderer from 'electron'
 export default {
   data() {
     return {
@@ -18,13 +19,16 @@ export default {
   methods: {
     // 切换菜单
     toggle() {
-      alert('切换')
-      console.log('切换')
+      // 通知主进程创建一个窗体
+      ipcRenderer.send('open-menus', {
+        current: {
+          name: 'IZOA'
+        }
+      })
     }
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .suwis-index {
     position: fixed;
@@ -45,11 +49,12 @@ export default {
     user-select: none;
 
     img {
-        width: 60%;
-        height: 60%;
+        width: 58%;
+        height: 58%;
         border-radius: 100%;
         object-fit: cover;
         background: #fff;
+        -webkit-app-region: no-drag;
     }
 }
 </style>

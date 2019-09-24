@@ -2,7 +2,8 @@ const {
   app,
   BrowserWindow,
   Menu,
-  Tray
+  Tray,
+  ipcMain
 } = require('electron')
 var path = require('path')
 // 系统托盘
@@ -31,7 +32,7 @@ const createWindow = () => {
     fullscreenable: false,
     hasShadow: false,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: false
     }
   })
 
@@ -41,7 +42,7 @@ const createWindow = () => {
   mainWindow.loadURL("http://localhost:8080")
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools({ mode: 'detach' })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -84,3 +85,8 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+// 监听窗口改变
+ipcMain.on('open-menus', (evt) => {
+  console.log(evt, 'evt')
+})
