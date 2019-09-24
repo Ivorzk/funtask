@@ -32,17 +32,20 @@ const createWindow = () => {
     fullscreenable: false,
     hasShadow: false,
     webPreferences: {
-      nodeIntegration: false
+      nodeIntegration: false,
+      webSecurity: true
     }
   })
 
   // and load the index.html of the app.
   // mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
-  mainWindow.loadURL("http://localhost:8080")
+  mainWindow.loadURL("http://localhost:8080/")
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools({ mode: 'detach' })
+  mainWindow.webContents.openDevTools({
+    mode: 'detach'
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

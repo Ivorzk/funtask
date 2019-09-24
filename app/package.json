@@ -6,6 +6,7 @@
   "main": ".webpack/main",
   "scripts": {
     "serve": "concurrently \"vue-cli-service serve\" \"electron-forge start\"",
+    "build": "vue-cli-service build",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
@@ -21,8 +22,7 @@
   "config": {
     "forge": {
       "packagerConfig": {},
-      "makers": [
-        {
+      "makers": [{
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "app"
@@ -50,13 +50,11 @@
             "mainConfig": "./webpack.main.config.js",
             "renderer": {
               "config": "./webpack.renderer.config.js",
-              "entryPoints": [
-                {
-                  "html": "./src/index.html",
-                  "js": "./src/renderer.js",
-                  "name": "main_window"
-                }
-              ]
+              "entryPoints": [{
+                "html": "./src/index.html",
+                "js": "./src/renderer.js",
+                "name": "main_window"
+              }]
             }
           }
         ]

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ipcRenderer from 'electron'
+// import ipcRenderer from 'electron'
 export default {
   data() {
     return {
@@ -20,11 +20,11 @@ export default {
     // 切换菜单
     toggle() {
       // 通知主进程创建一个窗体
-      ipcRenderer.send('open-menus', {
-        current: {
-          name: 'IZOA'
-        }
-      })
+      // ipcRenderer.send('open-menus', {
+      //   current: {
+      //     name: 'IZOA'
+      //   }
+      // })
     }
   }
 }
