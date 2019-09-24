@@ -1,7 +1,12 @@
 const {
   app,
-  BrowserWindow
+  BrowserWindow,
+  Menu,
+  Tray
 } = require('electron')
+var path = require('path')
+// 系统托盘
+let tray = null
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -45,6 +50,14 @@ const createWindow = () => {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  tray = new Tray(path.resolve('./src/assets/logo.jpg'))
+  const contextMenu = Menu.buildFromTemplate([{
+    label: '退出',
+    // type: 'radio'
+  }])
+  tray.setToolTip('桌面悬浮球')
+  tray.setContextMenu(contextMenu)
 }
 
 // This method will be called when Electron has finished
