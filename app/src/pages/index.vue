@@ -5,7 +5,8 @@
 </template>
 
 <script>
-// import ipcRenderer from 'electron'
+import ipcRenderer from 'electron'
+console.log(ipcRenderer, 'ipcRenderer')
 export default {
   data() {
     return {
@@ -55,6 +56,7 @@ export default {
         object-fit: cover;
         background: #fff;
         -webkit-app-region: no-drag;
+        user-select: none;
     }
 }
 </style>
