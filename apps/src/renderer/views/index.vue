@@ -1,6 +1,10 @@
 <template>
-<div id="ball" class="suwis-index" @click="toggle">
-  <img class="icon" src="@/assets/logo.jpg" alt="">
+<div id="ball"
+  class="suwis-index"
+  @click="toggle">
+  <img class="icon"
+    src="@/assets/logo.jpg"
+    alt="">
 </div>
 </template>
 
@@ -24,7 +28,7 @@ export default {
   },
   watch: {
     'menus.visible'(val) {
-      this.menus.win[val ? 'show' : 'hide']()
+      this.menus.win.setOpacity(val ? 1 : 0)
     }
   },
   methods: {
@@ -40,13 +44,15 @@ export default {
         minimizable: false,
         alwaysOnTop: true,
         fullscreenable: false,
-        hasShadow: false
+        hasShadow: false,
+        skipTaskbar: true,
+        opacity: 0
       })
       this.menus.win.on('close', () => {
         this.menus.win = null
       })
       this.menus.win.loadURL('http://localhost:9080/#/control')
-      this.menus.win.hide()
+      // this.menus.win.hide()
     },
     // 切换菜单
     toggle() {

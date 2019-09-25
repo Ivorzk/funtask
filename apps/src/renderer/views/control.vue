@@ -22,7 +22,8 @@ export default {}
     height: 100vh;
     background: rgba(0,0,0,0.8);
     border-radius: 10px;
-
+    overflow: hidden;
+    
     .fun-list {
         ul {
             display: flex;

@@ -30,7 +30,8 @@ function createWindow () {
     alwaysOnTop: true,
     fullscreenable: false,
     hasShadow: false,
-    useContentSize: true
+    useContentSize: true,
+    skipTaskbar: true
   })
 
   mainWindow.loadURL(winURL)
