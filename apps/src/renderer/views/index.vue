@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted() {
-    this.initMneus()
+    // this.initMneus()
   },
   watch: {
     'menus.visible'(val) {

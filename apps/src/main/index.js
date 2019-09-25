@@ -1,6 +1,9 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import {
+  app,
+  BrowserWindow
+} from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -11,11 +14,11 @@ if (process.env.NODE_ENV !== 'development') {
 }
 
 let mainWindow
-const winURL = process.env.NODE_ENV === 'development'
-  ? `http://localhost:9080`
-  : `file://${__dirname}/index.html`
+let menuWindow
 
-function createWindow () {
+const winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
+
+function createWindow() {
   /**
    * Initial window options
    */
@@ -39,6 +42,27 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  menuWindow = new BrowserWindow({
+    x: 0,
+    y: 0,
+    width: 600,
+    height: 300,
+    frame: false,
+    transparent: true,
+    resizable: false,
+    maximizable: false,
+    minimizable: false,
+    alwaysOnTop: true,
+    fullscreenable: false,
+    hasShadow: false,
+    skipTaskbar: true,
+    opacity: 1
+  })
+  menuWindow.on('close', () => {
+    menuWindow = null
+  })
+  menuWindow.loadURL('http://localhost:9080/#/control')
 }
 
 app.on('ready', createWindow)
