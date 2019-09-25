@@ -13,16 +13,20 @@ if (process.env.NODE_ENV !== 'development') {
   global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
 }
 
-let mainWindow
-let menuWindow
+// 小球
+let ballwin
+// 菜单窗口
+let menuwin
 
+// 入口页面
 const winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
 
+// 创建窗体
 function createWindow() {
   /**
    * Initial window options
    */
-  mainWindow = new BrowserWindow({
+  ballwin = new BrowserWindow({
     width: 88,
     height: 88,
     frame: false,
@@ -37,15 +41,16 @@ function createWindow() {
     skipTaskbar: true
   })
 
-  mainWindow.loadURL(winURL)
+  ballwin.loadURL(winURL)
 
-  mainWindow.on('closed', () => {
-    mainWindow = null
+  ballwin.on('closed', () => {
+    ballwin = null
   })
 
-  menuWindow = new BrowserWindow({
-    x: 0,
-    y: 0,
+  // 初始化菜单
+  menuwin = new BrowserWindow({
+    x: 100,
+    y: 100,
     width: 600,
     height: 300,
     frame: false,
@@ -57,12 +62,22 @@ function createWindow() {
     fullscreenable: false,
     hasShadow: false,
     skipTaskbar: true,
-    opacity: 1
+    opacity: 0
   })
-  menuWindow.on('close', () => {
-    menuWindow = null
+
+  menuwin.on('close', () => {
+    menuwin = null
   })
-  menuWindow.loadURL('http://localhost:9080/#/control')
+
+  menuwin.loadURL(`${winURL}/#/control`)
+
+  // 小球和菜单联动
+  ballwin.on('move', (evt) => {
+    // TODO:
+    let pos = ballwin.getPosition()
+    let menuBounds = menuwin.getBounds()
+    menuwin.setPosition(pos[0] - menuBounds.width, pos[1] - menuBounds.height)
+  })
 }
 
 app.on('ready', createWindow)
@@ -74,7 +89,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  if (mainWindow === null) {
+  if (ballwin === null) {
     createWindow()
   }
 })
