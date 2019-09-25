@@ -11040,6 +11040,11 @@ void-elements@^2.0.0:
   resolved "https://r.cnpmjs.org/void-elements/download/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
+vue-cli-plugin-app-config@^1.0.5:
+  version "1.0.5"
+  resolved "https://r.cnpmjs.org/vue-cli-plugin-app-config/download/vue-cli-plugin-app-config-1.0.5.tgz#fa5569e2b268ccfacfc143a71ea7c383d8d22a75"
+  integrity sha1-+lVp4rJozPrPwUOnHqfDg9jSKnU=
+
 vue-electron@^1.0.6:
   version "1.0.6"
   resolved "https://r.cnpmjs.org/vue-electron/download/vue-electron-1.0.6.tgz#e798e03180b8933539defe31f92e53b9242b9406"
@@ -11085,7 +11090,7 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.16:
+vue-template-compiler@^2.6.10:
   version "2.6.10"
   resolved "https://r.cnpmjs.org/vue-template-compiler/download/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
   integrity sha1-MjtPNJXwT6o1AzN6gvXWUHeZycw=

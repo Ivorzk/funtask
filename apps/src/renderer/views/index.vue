@@ -22,17 +22,31 @@ export default {
   mounted() {
     this.initMneus()
   },
+  watch: {
+    'menus.visible'(val) {
+      this.menus.win[val ? 'show' : 'hide']()
+    }
+  },
   methods: {
     // 初始化菜单
     initMneus() {
       this.menus.win = new BrowserWindow({
-        frame: false
+        width: 600,
+        height: 300,
+        frame: false,
+        transparent: true,
+        resizable: false,
+        maximizable: false,
+        minimizable: false,
+        alwaysOnTop: true,
+        fullscreenable: false,
+        hasShadow: false
       })
       this.menus.win.on('close', () => {
         this.menus.win = null
       })
-      this.menus.win.loadURL('https://qie.suwis.com')
-      this.menus.win.show()
+      this.menus.win.loadURL('http://localhost:9080/#/control')
+      this.menus.win.hide()
     },
     // 切换菜单
     toggle() {
@@ -62,8 +76,8 @@ export default {
     user-select: none;
 
     img {
-        width: 58%;
-        height: 58%;
+        width: 60%;
+        height: 60%;
         border-radius: 100%;
         object-fit: cover;
         background: #fff;
