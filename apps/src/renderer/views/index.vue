@@ -5,9 +5,39 @@
 </template>
 
 <script>
+const {
+  BrowserWindow
+} = require('electron').remote
 export default {
   data() {
-    return {}
+    return {
+      menus: {
+        // 窗口实例
+        win: null,
+        // 是否显示
+        visible: false
+      }
+    }
+  },
+  mounted() {
+    this.initMneus()
+  },
+  methods: {
+    // 初始化菜单
+    initMneus() {
+      this.menus.win = new BrowserWindow({
+        frame: false
+      })
+      this.menus.win.on('close', () => {
+        this.menus.win = null
+      })
+      this.menus.win.loadURL('https://qie.suwis.com')
+      this.menus.win.show()
+    },
+    // 切换菜单
+    toggle() {
+      this.menus.visible = !this.menus.visible
+    }
   }
 }
 </script>
