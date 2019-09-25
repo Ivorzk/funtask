@@ -7,8 +7,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: () => import('@/views/index.vue')
+      name: 'landing-page',
+      component: require('@/components/LandingPage').default
     },
     {
       path: '*',

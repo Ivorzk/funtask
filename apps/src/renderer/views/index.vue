@@ -1,35 +1,17 @@
-<template lang="html">
-  <div id="ball" class="suwis-index" @click="toggle">
-    <img class="icon" src="@/assets/logo.jpg" alt="">
-  </div>
+<template>
+<div id="ball" class="suwis-index" @click="toggle">
+  <img class="icon" src="@/assets/logo.jpg" alt="">
+</div>
 </template>
 
 <script>
-// import ipcRenderer from 'electron'
-// console.log(ipcRenderer, 'ipcRenderer')
 export default {
   data() {
-    return {
-      // 控制面板
-      control: {}
-    }
-  },
-  mounted() {
-
-  },
-  methods: {
-    // 切换菜单
-    toggle() {
-      // 通知主进程创建一个窗体
-      // ipcRenderer.send('open-menus', {
-      //   current: {
-      //     name: 'IZOA'
-      //   }
-      // })
-    }
+    return {}
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .suwis-index {
     position: fixed;
