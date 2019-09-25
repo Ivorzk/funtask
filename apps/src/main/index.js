@@ -2,7 +2,8 @@
 
 import {
   app,
-  BrowserWindow
+  BrowserWindow,
+  ipcMain
 } from 'electron'
 
 /**
@@ -72,12 +73,14 @@ function createWindow() {
   menuwin.loadURL(`${winURL}/#/control`)
 
   // 小球和菜单联动
-  ballwin.on('move', (evt) => {
-    // TODO:
-    let pos = ballwin.getPosition()
-    let menuBounds = menuwin.getBounds()
-    menuwin.setPosition(pos[0] - menuBounds.width, pos[1] - menuBounds.height)
-  })
+  ballwin.on('move', syncMenuPosition)
+}
+
+// 同步菜单位置
+function syncMenuPosition() {
+  let pos = ballwin.getPosition()
+  let menuBounds = menuwin.getBounds()
+  menuwin.setPosition(pos[0] - menuBounds.width, pos[1] - menuBounds.height)
 }
 
 app.on('ready', createWindow)
@@ -92,6 +95,15 @@ app.on('activate', () => {
   if (ballwin === null) {
     createWindow()
   }
+})
+
+// 监听菜单状态改变
+ipcMain.on('menu-toggle', (evt, args) => {
+  console.log(evt, args)
+  // 同步菜单位置
+  syncMenuPosition()
+  // 设置显示和隐藏
+  menuwin.setOpacity(menuwin.getOpacity() === 0 ? 1 : 0)
 })
 
 /**

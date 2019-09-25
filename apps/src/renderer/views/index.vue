@@ -9,54 +9,24 @@
 </template>
 
 <script>
-const {
-  BrowserWindow
-} = require('electron').remote
+import {
+  ipcRenderer
+} from 'electron'
+
 export default {
   data() {
-    return {
-      menus: {
-        // 窗口实例
-        win: null,
-        // 是否显示
-        visible: false
-      }
-    }
+    return {}
   },
   mounted() {
-    // this.initMneus()
+    // ipcRenderer.on('asynchronous-reply', (event, arg) => {
+    //   console.log(arg) // prints "pong"
+    // })
   },
-  watch: {
-    'menus.visible'(val) {
-      this.menus.win.setOpacity(val ? 1 : 0)
-    }
-  },
+  watch: {},
   methods: {
-    // 初始化菜单
-    initMneus() {
-      this.menus.win = new BrowserWindow({
-        width: 600,
-        height: 300,
-        frame: false,
-        transparent: true,
-        resizable: false,
-        maximizable: false,
-        minimizable: false,
-        alwaysOnTop: true,
-        fullscreenable: false,
-        hasShadow: false,
-        skipTaskbar: true,
-        opacity: 0
-      })
-      this.menus.win.on('close', () => {
-        this.menus.win = null
-      })
-      this.menus.win.loadURL('http://localhost:9080/#/control')
-      // this.menus.win.hide()
-    },
     // 切换菜单
     toggle() {
-      this.menus.visible = !this.menus.visible
+      ipcRenderer.send('menu-toggle', {})
     }
   }
 }
