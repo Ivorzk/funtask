@@ -26,7 +26,7 @@ export default {
   methods: {
     // 切换菜单
     toggle() {
-      ipcRenderer.send('menu-toggle', {})
+      ipcRenderer.send('control-toggle', {})
     }
   }
 }
@@ -47,7 +47,6 @@ export default {
     align-items: center;
     -webkit-app-region: drag;
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
-    color: red;
     font-size: 18px;
     user-select: none;
 

@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'development') {
 // 小球
 let ballwin
 // 菜单窗口
-let menuwin
+let controlwin
 
 // 入口页面
 const winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
@@ -49,7 +49,7 @@ function createWindow() {
   })
 
   // 初始化菜单
-  menuwin = new BrowserWindow({
+  controlwin = new BrowserWindow({
     x: 0,
     y: 0,
     width: 618,
@@ -66,11 +66,11 @@ function createWindow() {
     opacity: 0
   })
 
-  menuwin.on('close', () => {
-    menuwin = null
+  controlwin.on('close', () => {
+    controlwin = null
   })
 
-  menuwin.loadURL(`${winURL}/#/control`)
+  controlwin.loadURL(`${winURL}/#/control`)
 
   // 小球和菜单联动
   ballwin.on('move', syncMenuPosition)
@@ -79,8 +79,9 @@ function createWindow() {
 // 同步菜单位置
 function syncMenuPosition() {
   let pos = ballwin.getPosition()
-  let menuBounds = menuwin.getBounds()
-  menuwin.setPosition(pos[0] - menuBounds.width, pos[1] - menuBounds.height)
+
+  let controlBounds = controlwin.getBounds()
+  controlwin.setPosition(pos[0] - controlBounds.width + 75, pos[1] - controlBounds.height + 75)
 }
 
 app.on('ready', createWindow)
@@ -98,12 +99,12 @@ app.on('activate', () => {
 })
 
 // 监听菜单状态改变
-ipcMain.on('menu-toggle', (evt, args) => {
+ipcMain.on('control-toggle', (evt, args) => {
   console.log(evt, args)
   // 同步菜单位置
   syncMenuPosition()
   // 设置显示和隐藏
-  menuwin.setOpacity(menuwin.getOpacity() === 0 ? 1 : 0)
+  controlwin.setOpacity(controlwin.getOpacity() === 0 ? 1 : 0)
 })
 
 /**

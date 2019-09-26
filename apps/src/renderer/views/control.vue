@@ -2,6 +2,7 @@
 <div class="suwis-control">
   <div class="bg"></div>
   <div class="wrapper">
+    <div class="header"></div>
     <!--  -->
     <span class="btn-toggle iconfont">&#xe67c;</span>
     <!--  -->
@@ -55,10 +56,15 @@ export default {}
         z-index: 99;
     }
 
+    .header {
+        height: 36px;
+        -webkit-app-region: drag;
+    }
+
     .btn-toggle {
         position: absolute;
-        right: 15px;
-        top: 10px;
+        right: 12px;
+        top: 6px;
         color: rgba(255, 255, 255, 0.8);
         font-size: 23px;
         cursor: pointer;
