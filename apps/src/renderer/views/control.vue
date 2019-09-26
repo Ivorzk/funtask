@@ -1,9 +1,7 @@
 <template>
 <div class="suwis-control">
   <div class="search-bar">
-    <input type="text"
-      name=""
-      value="">
+    <input type="text" name="" value="">
   </div>
   <div class="fun-list">
     <ul>
@@ -27,9 +25,10 @@ export default {}
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.68);
-    border-radius: 10px;
+    background: rgba(0,0,0,0.39);
+    // border-radius: 10px;
     overflow: hidden;
+    user-select: none;
 
     .search-bar {
         padding: 15px;
@@ -38,7 +37,7 @@ export default {}
             width: 100%;
             padding: 9px;
             border: none;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,1);
             border-radius: 3px;
             font-size: 12px;
         }
@@ -57,7 +56,7 @@ export default {}
         li {
             max-width: 20%;
             min-width: 20%;
-            color: rgb(70, 15, 251);
+            color: #fff;
             text-align: center;
             height: 33.33%;
             display: flex;
