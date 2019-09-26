@@ -4,7 +4,7 @@
   <div class="wrapper">
     <div class="header"></div>
     <!--  -->
-    <span class="btn-toggle iconfont">&#xe67c;</span>
+    <span @click="toggle" class="btn-toggle iconfont">&#xe67c;</span>
     <!--  -->
     <!-- <div class="search-bar">
         <input type="text" name="" value="">
@@ -24,7 +24,16 @@
 </template>
 
 <script>
-export default {}
+import {
+  ipcRenderer
+} from 'electron'
+export default {
+  methods: {
+    toggle() {
+      ipcRenderer.send('control-toggle', true)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -59,6 +68,7 @@ export default {}
     .header {
         height: 36px;
         -webkit-app-region: drag;
+        width: calc(100% - 45px);
     }
 
     .btn-toggle {
@@ -69,6 +79,7 @@ export default {}
         font-size: 23px;
         cursor: pointer;
         opacity: 0.6;
+        z-index: 99;
 
         &:hover {
             opacity: 1;

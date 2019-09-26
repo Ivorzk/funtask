@@ -15,18 +15,23 @@ import {
 
 export default {
   data() {
-    return {}
+    return {
+      control: {
+        visible: false
+      }
+    }
   },
   mounted() {
-    // ipcRenderer.on('asynchronous-reply', (event, arg) => {
-    //   console.log(arg) // prints "pong"
-    // })
+    ipcRenderer.on('asynchronous-reply', (event, arg) => {
+      console.log(arg) // prints "pong"
+    })
   },
   watch: {},
   methods: {
     // 切换菜单
     toggle() {
-      ipcRenderer.send('control-toggle', {})
+      this.control.visible = !this.control.visible
+      ipcRenderer.send('control-toggle', this.control.visible)
     }
   }
 }

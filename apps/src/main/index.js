@@ -79,7 +79,6 @@ function createWindow() {
 // 同步菜单位置
 function syncMenuPosition() {
   let pos = ballwin.getPosition()
-
   let controlBounds = controlwin.getBounds()
   controlwin.setPosition(pos[0] - controlBounds.width + 75, pos[1] - controlBounds.height + 75)
 }
@@ -100,11 +99,11 @@ app.on('activate', () => {
 
 // 监听菜单状态改变
 ipcMain.on('control-toggle', (evt, args) => {
-  console.log(evt, args)
   // 同步菜单位置
   syncMenuPosition()
   // 设置显示和隐藏
   controlwin.setOpacity(controlwin.getOpacity() === 0 ? 1 : 0)
+  ballwin.setOpacity(ballwin.getOpacity() === 0 ? 1 : 0)
 })
 
 /**
