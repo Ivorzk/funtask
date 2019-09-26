@@ -50,10 +50,10 @@ function createWindow() {
 
   // 初始化菜单
   menuwin = new BrowserWindow({
-    x: 100,
-    y: 100,
-    width: 600,
-    height: 300,
+    x: 0,
+    y: 0,
+    width: 618,
+    height: 380,
     frame: false,
     transparent: true,
     resizable: false,
@@ -61,7 +61,7 @@ function createWindow() {
     minimizable: false,
     alwaysOnTop: true,
     fullscreenable: false,
-    hasShadow: false,
+    hasShadow: true,
     skipTaskbar: true,
     opacity: 0
   })

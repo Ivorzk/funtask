@@ -1,7 +1,10 @@
 <template>
 <div class="suwis-control">
+  <div class="bg"></div>
   <div class="search-bar">
-    <input type="text" name="" value="">
+    <input type="text"
+      name=""
+      value="">
   </div>
   <div class="fun-list">
     <ul>
@@ -25,16 +28,32 @@ export default {}
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.39);
-    // border-radius: 10px;
     overflow: hidden;
     user-select: none;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.7);
+
+    .bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        margin: 0 auto;
+        background: rgba(0,0,0,1) url("./../assets/control_bg.jpg") no-repeat center/cover;
+        overflow: hidden;
+        filter: blur(39px);
+        opacity: 0.39;
+    }
 
     .search-bar {
-        padding: 15px;
+        padding: 20px;
+        position: relative;
+        z-index: 10;
         input {
             box-sizing: border-box;
             width: 100%;
+            height: 100%;
             padding: 9px;
             border: none;
             background: rgba(255,255,255,1);
@@ -44,6 +63,8 @@ export default {}
     }
 
     .fun-list {
+        position: relative;
+        z-index: 10;
         ul {
             display: flex;
             flex-wrap: wrap;

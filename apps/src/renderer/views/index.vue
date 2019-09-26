@@ -51,6 +51,17 @@ export default {
     font-size: 18px;
     user-select: none;
 
+    &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 399;
+    }
+
     img {
         width: 60%;
         height: 60%;
@@ -58,7 +69,6 @@ export default {
         object-fit: cover;
         background: #fff;
         -webkit-app-region: no-drag;
-        user-select: none;
     }
 }
 </style>
