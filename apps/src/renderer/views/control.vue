@@ -61,11 +61,14 @@ export default {
     user-select: none;
     // border-radius: 6px;
     background: rgba(0, 0, 0, 0.69);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     opacity: 0;
+    transform: scale(0);
+    transform-origin: right bottom;
 
     &.show {
         opacity: 1;
+        transform: scale(1);
     }
 
     .bg {

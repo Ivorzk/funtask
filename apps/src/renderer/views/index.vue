@@ -44,11 +44,12 @@ export default {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    // transform: translate(-50%,-50%);
     background: rgba(0,0,0,0.68);
     width: 60px;
     height: 60px;
-    border-radius: 100%;
+    margin-left: -30px;
+    margin-top: -30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,11 +57,15 @@ export default {
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
     font-size: 18px;
     user-select: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     opacity: 0;
+    border-radius: 0;
+    transform: scale(0);
 
     &.show {
         opacity: 1;
+        border-radius: 100%;
+        transform: scale(1);
     }
 
     &::before {
