@@ -71,16 +71,21 @@ function createWindow() {
   })
 
   controlwin.loadURL(`${winURL}/#/control`)
-
-  // 小球和菜单联动
-  ballwin.on('move', syncMenuPosition)
 }
 
 // 同步菜单位置
-function syncMenuPosition() {
-  let pos = ballwin.getPosition()
+function syncPosition(flag) {
+  console.log(flag, 'flag')
+  // 小球位置
+  let ballpos = ballwin.getPosition()
+  // 窗体位置
+  let controlpos = controlwin.getPosition()
   let controlBounds = controlwin.getBounds()
-  controlwin.setPosition(pos[0] - controlBounds.width + 75, pos[1] - controlBounds.height + 75)
+  if (flag === 'control') {
+    controlwin.setPosition(ballpos[0] - controlBounds.width + 75, ballpos[1] - controlBounds.height + 75)
+  } else {
+    ballwin.setPosition(controlpos[0] + controlBounds.width - 75, controlpos[1] + controlBounds.height - 75)
+  }
 }
 
 app.on('ready', createWindow)
@@ -100,7 +105,7 @@ app.on('activate', () => {
 // 监听菜单状态改变
 ipcMain.on('control-toggle', (evt, args) => {
   // 同步菜单位置
-  syncMenuPosition()
+  syncPosition(controlwin.getOpacity() === 0 ? 'control' : 'ball')
   // 设置显示和隐藏
   controlwin.setOpacity(controlwin.getOpacity() === 0 ? 1 : 0)
   ballwin.setOpacity(ballwin.getOpacity() === 0 ? 1 : 0)
