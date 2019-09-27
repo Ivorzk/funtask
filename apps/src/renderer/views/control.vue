@@ -7,18 +7,18 @@
     <span @click="toggle" class="btn-toggle iconfont">&#xe67c;</span>
     <!--  -->
     <!-- <div class="search-bar">
-        <input type="text" name="" value="">
-      </div>
-      <div class="fun-list">
-        <ul>
-          <li v-for="item in 15">
-            <span>
-              <i class="iconfont">&#xe610;</i>
-              功能
-            </span>
-          </li>
-        </ul>
-      </div> -->
+      <input type="text" name="" value="">
+    </div> -->
+    <div class="fun-list">
+      <ul>
+        <li v-for="item in 15">
+          <span>
+            <i class="iconfont">&#xe610;</i>
+            功能
+          </span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 </template>
@@ -74,9 +74,9 @@ export default {
     .btn-toggle {
         position: absolute;
         right: 12px;
-        top: 6px;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 23px;
+        top: 5px;
+        color: #1f85ff;
+        font-size: 24px;
         cursor: pointer;
         opacity: 0.6;
         z-index: 99;
@@ -128,6 +128,7 @@ export default {
             flex-wrap: wrap;
             font-size: 12px;
             line-height: 28px;
+            cursor: pointer;
 
             i {
                 display: block;
