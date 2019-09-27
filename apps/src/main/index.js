@@ -75,7 +75,7 @@ function createWindow() {
 
 // 同步菜单位置
 function syncPosition(flag) {
-  console.log(flag, 'flag')
+  // console.log(flag, 'flag')
   // 小球位置
   let ballpos = ballwin.getPosition()
   // 窗体位置
@@ -104,11 +104,23 @@ app.on('activate', () => {
 
 // 监听菜单状态改变
 ipcMain.on('control-toggle', (evt, args) => {
+  console.log(evt.sender.webContents.id, 'evt')
+  // 切换窗体类型
+  let wintype = controlwin.getOpacity() === 0 ? 'control' : 'ball'
   // 同步菜单位置
-  syncPosition(controlwin.getOpacity() === 0 ? 'control' : 'ball')
-  // 设置显示和隐藏
-  controlwin.setOpacity(controlwin.getOpacity() === 0 ? 1 : 0)
-  ballwin.setOpacity(ballwin.getOpacity() === 0 ? 1 : 0)
+  syncPosition(wintype)
+  // 设置显示和隐藏 间隔300毫秒，等待动画执行完成
+  if (wintype === 'control') {
+    controlwin.setOpacity(wintype === 'control' ? 1 : 0)
+    setTimeout(() => {
+      ballwin.setOpacity(wintype === 'ball' ? 1 : 0)
+    }, 300)
+  } else {
+    ballwin.setOpacity(wintype === 'ball' ? 1 : 0)
+    setTimeout(() => {
+      controlwin.setOpacity(wintype === 'control' ? 1 : 0)
+    }, 300)
+  }
 })
 
 /**

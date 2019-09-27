@@ -1,6 +1,7 @@
 <template>
 <div id="ball"
   class="suwis-index"
+  :class="{show:!control.visible}"
   @click="toggle">
   <img class="icon"
     src="@/assets/logo.jpg"
@@ -22,8 +23,8 @@ export default {
     }
   },
   mounted() {
-    ipcRenderer.on('asynchronous-reply', (event, arg) => {
-      console.log(arg) // prints "pong"
+    ipcRenderer.on('control-reply', (event, args) => {
+      this.control.visible = args
     })
   },
   watch: {},
@@ -32,6 +33,7 @@ export default {
     toggle() {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
+      ipcRenderer.sendTo(2, 'control-reply', !this.control.visible)
     }
   }
 }
@@ -54,6 +56,12 @@ export default {
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
     font-size: 18px;
     user-select: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+
+    &.show {
+        opacity: 1;
+    }
 
     &::before {
         position: absolute;

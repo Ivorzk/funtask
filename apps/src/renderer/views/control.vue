@@ -1,10 +1,12 @@
 <template>
-<div class="suwis-control">
+<div class="suwis-control"
+  :class="{show:!control.visible}">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="header"></div>
     <!--  -->
-    <span @click="toggle" class="btn-toggle iconfont">&#xe67c;</span>
+    <span @click="toggle"
+      class="btn-toggle iconfont">&#xe67c;</span>
     <!--  -->
     <!-- <div class="search-bar">
       <input type="text" name="" value="">
@@ -28,9 +30,23 @@ import {
   ipcRenderer
 } from 'electron'
 export default {
+  data() {
+    return {
+      control: {
+        visible: false
+      }
+    }
+  },
+  mounted() {
+    ipcRenderer.on('control-reply', (event, args) => {
+      this.control.visible = args
+    })
+  },
   methods: {
     toggle() {
-      ipcRenderer.send('control-toggle', true)
+      this.control.visible = !this.control.visible
+      ipcRenderer.send('control-toggle', this.control.visible)
+      ipcRenderer.sendTo(1, 'control-reply', !this.control.visible)
     }
   }
 }
@@ -45,6 +61,12 @@ export default {
     user-select: none;
     // border-radius: 6px;
     background: rgba(0, 0, 0, 0.69);
+    transition: all 0.3s ease;
+    opacity: 0;
+
+    &.show {
+        opacity: 1;
+    }
 
     .bg {
         position: absolute;
