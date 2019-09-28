@@ -6,13 +6,6 @@ import {
   ipcMain
 } from 'electron'
 
-// 鼠标模块
-// import ioHook from 'iohook'
-//
-// ioHook.on('mousemove', event => {
-//   console.log(event) // { type: 'mousemove', x: 700, y: 400 }
-// })
-
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -35,8 +28,8 @@ function createWindow() {
    * Initial window options
    */
   ballwin = new BrowserWindow({
-    width: 300,
-    height: 300,
+    width: 88,
+    height: 88,
     frame: false,
     transparent: true,
     resizable: false,
@@ -77,11 +70,11 @@ function createWindow() {
     opacity: 0
   })
 
-  controlwin.on('close', () => {
+  controlwin.loadURL(`${winURL}/#/control`)
+
+  controlwin.on('closed', () => {
     controlwin = null
   })
-
-  controlwin.loadURL(`${winURL}/#/control`)
 }
 
 // 同步菜单位置
@@ -119,6 +112,9 @@ ipcMain.on('control-toggle', (evt, args) => {
   let wintype = controlwin.getOpacity() === 0 ? 'control' : 'ball'
   // 同步菜单位置
   syncPosition(wintype)
+  console.log(controlwin.webContents.send, 'controlwin')
+  ballwin.webContents.send('control-reply', wintype === 'ball')
+  controlwin.webContents.send('control-reply', wintype === 'control')
   // 设置显示和隐藏 间隔300毫秒，等待动画执行完成
   if (wintype === 'control') {
     controlwin.setOpacity(wintype === 'control' ? 1 : 0)

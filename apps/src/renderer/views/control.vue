@@ -39,6 +39,7 @@ export default {
   },
   mounted() {
     ipcRenderer.on('control-reply', (event, args) => {
+      alert(args)
       this.control.visible = args
     })
   },
@@ -46,7 +47,6 @@ export default {
     toggle() {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
-      ipcRenderer.sendTo(1, 'control-reply', !this.control.visible)
     }
   }
 }

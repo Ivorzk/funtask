@@ -14,10 +14,6 @@
 import {
   ipcRenderer
 } from 'electron'
-const {
-  BrowserWindow
-} = require('electron').remote
-
 export default {
   data() {
     return {
@@ -38,8 +34,6 @@ export default {
     toggle() {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
-      ipcRenderer.sendTo(2, 'control-reply', !this.control.visible)
-      console.log(BrowserWindow.getAllWindows())
     }
   }
 }
