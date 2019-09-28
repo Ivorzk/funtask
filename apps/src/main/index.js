@@ -35,8 +35,8 @@ function createWindow() {
    * Initial window options
    */
   ballwin = new BrowserWindow({
-    width: 88,
-    height: 88,
+    width: 300,
+    height: 300,
     frame: false,
     transparent: true,
     resizable: false,

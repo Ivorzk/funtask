@@ -2,8 +2,7 @@
 <div id="ball"
   class="suwis-index"
   ref="ball"
-  :class="{show: control.visible}"
-  @mousedown="mousedown">
+  :class="{show: control.visible}">
   <img @click="toggle"
     class="icon"
     src="@/assets/logo.jpg"
@@ -15,6 +14,9 @@
 import {
   ipcRenderer
 } from 'electron'
+const {
+  BrowserWindow
+} = require('electron').remote
 
 export default {
   data() {
@@ -37,16 +39,7 @@ export default {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
       ipcRenderer.sendTo(2, 'control-reply', !this.control.visible)
-    },
-    mousedown() {
-      console.log('mousedown')
-      this.$refs.ball.onmousemove = () => {
-        this.maskvisible = true
-      }
-      this.$refs.ball.onmouseleave = () => {
-        this.$refs.ball.onmousemove = null
-        this.maskvisible = false
-      }
+      console.log(BrowserWindow.getAllWindows())
     }
   }
 }
