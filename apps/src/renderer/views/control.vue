@@ -39,7 +39,6 @@ export default {
   },
   mounted() {
     ipcRenderer.on('control-reply', (event, args) => {
-      alert(args)
       this.control.visible = args
     })
   },

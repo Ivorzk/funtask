@@ -67,7 +67,11 @@ function createWindow() {
     fullscreenable: false,
     hasShadow: true,
     skipTaskbar: true,
-    opacity: 0
+    opacity: 0,
+    webPreferences: {
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true
+    }
   })
 
   controlwin.loadURL(`${winURL}/#/control`)
