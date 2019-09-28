@@ -104,7 +104,6 @@ app.on('activate', () => {
 
 // 监听菜单状态改变
 ipcMain.on('control-toggle', (evt, args) => {
-  console.log(evt.sender.webContents.id, 'evt')
   // 切换窗体类型
   let wintype = controlwin.getOpacity() === 0 ? 'control' : 'ball'
   // 同步菜单位置

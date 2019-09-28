@@ -1,7 +1,7 @@
 <template>
 <div id="ball"
   class="suwis-index"
-  :class="{show:!control.visible}"
+  :class="{show: control.visible}"
   @click="toggle">
   <img class="icon"
     src="@/assets/logo.jpg"
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       control: {
-        visible: false
+        visible: true
       }
     }
   },

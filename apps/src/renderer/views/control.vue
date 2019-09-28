@@ -1,6 +1,6 @@
 <template>
 <div class="suwis-control"
-  :class="{show:!control.visible}">
+  :class="{show: control.visible}">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="header"></div>
