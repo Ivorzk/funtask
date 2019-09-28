@@ -6,6 +6,13 @@ import {
   ipcMain
 } from 'electron'
 
+// 鼠标模块
+// import ioHook from 'iohook'
+//
+// ioHook.on('mousemove', event => {
+//   console.log(event) // { type: 'mousemove', x: 700, y: 400 }
+// })
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -39,7 +46,11 @@ function createWindow() {
     fullscreenable: false,
     hasShadow: false,
     useContentSize: true,
-    skipTaskbar: true
+    skipTaskbar: true,
+    webPreferences: {
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true
+    }
   })
 
   ballwin.loadURL(winURL)

@@ -1,9 +1,11 @@
 <template>
 <div id="ball"
   class="suwis-index"
+  ref="ball"
   :class="{show: control.visible}"
-  @click="toggle">
-  <img class="icon"
+  @mousedown="mousedown">
+  <img @click="toggle"
+    class="icon"
     src="@/assets/logo.jpg"
     alt="">
 </div>
@@ -17,6 +19,7 @@ import {
 export default {
   data() {
     return {
+      maskvisible: false,
       control: {
         visible: true
       }
@@ -34,6 +37,16 @@ export default {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
       ipcRenderer.sendTo(2, 'control-reply', !this.control.visible)
+    },
+    mousedown() {
+      console.log('mousedown')
+      this.$refs.ball.onmousemove = () => {
+        this.maskvisible = true
+      }
+      this.$refs.ball.onmouseleave = () => {
+        this.$refs.ball.onmousemove = null
+        this.maskvisible = false
+      }
     }
   }
 }
@@ -44,7 +57,6 @@ export default {
     position: fixed;
     top: 50%;
     left: 50%;
-    // transform: translate(-50%,-50%);
     background: rgba(0,0,0,0.68);
     width: 60px;
     height: 60px;
@@ -53,7 +65,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-app-region: drag;
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
     font-size: 18px;
     user-select: none;
@@ -61,22 +72,12 @@ export default {
     opacity: 0;
     border-radius: 0;
     transform: scale(0);
+    -webkit-app-region: drag;
 
     &.show {
         opacity: 1;
         border-radius: 100%;
         transform: scale(1);
-    }
-
-    &::before {
-        position: absolute;
-        content: '';
-        display: block;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 399;
     }
 
     img {
