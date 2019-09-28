@@ -11,7 +11,7 @@
     <!-- <div class="search-bar">
       <input type="text" name="" value="">
     </div> -->
-    <div class="fun-list">
+    <!-- <div class="fun-list">
       <ul>
         <li v-for="item in 15">
           <span>
@@ -20,7 +20,7 @@
           </span>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
 </template>
@@ -68,7 +68,7 @@ export default {
 
     &.show {
         opacity: 1;
-        transform: scale(1);
+        transform: none;
     }
 
     .bg {
