@@ -116,7 +116,6 @@ ipcMain.on('control-toggle', (evt, args) => {
   let wintype = controlwin.getOpacity() === 0 ? 'control' : 'ball'
   // 同步菜单位置
   syncPosition(wintype)
-  console.log(controlwin.webContents.send, 'controlwin')
   ballwin.webContents.send('control-reply', wintype === 'ball')
   controlwin.webContents.send('control-reply', wintype === 'control')
   // 设置显示和隐藏 间隔300毫秒，等待动画执行完成
