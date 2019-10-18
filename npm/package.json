@@ -1,0 +1,15 @@
+{
+  "name": "flybox",
+  "version": "1.0.0",
+  "description": "你的专属控制台",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "suwis",
+    "flybox"
+  ],
+  "author": "ivorzk@qq.com",
+  "license": "MIT"
+}
