@@ -90,47 +90,7 @@ program
     require('../lib/add')(plugin, minimist(process.argv.slice(3)))
   })
 
-program
-  .command('invoke <plugin> [pluginOptions]')
-  .description('invoke the generator of a plugin in an already created project')
-  .option('--registry <url>', 'Use specified npm registry when installing dependencies (only for npm)')
-  .allowUnknownOption()
-  .action((plugin) => {
-    require('../lib/invoke')(plugin, minimist(process.argv.slice(3)))
-  })
 
-program
-  .command('inspect [paths...]')
-  .description('inspect the webpack config in a project with vue-cli-service')
-  .option('--mode <mode>')
-  .option('--rule <ruleName>', 'inspect a specific module rule')
-  .option('--plugin <pluginName>', 'inspect a specific plugin')
-  .option('--rules', 'list all module rule names')
-  .option('--plugins', 'list all plugin names')
-  .option('-v --verbose', 'Show full function definitions in output')
-  .action((paths, cmd) => {
-    require('../lib/inspect')(paths, cleanArgs(cmd))
-  })
-
-program
-  .command('serve [entry]')
-  .description('serve a .js or .vue file in development mode with zero config')
-  .option('-o, --open', 'Open browser')
-  .option('-c, --copy', 'Copy local url to clipboard')
-  .option('-p, --port <port>', 'Port used by the server (default: 8080 or next available port)')
-  .action((entry, cmd) => {
-    loadCommand('serve', '@vue/cli-service-global').serve(entry, cleanArgs(cmd))
-  })
-
-program
-  .command('build [entry]')
-  .description('build a .js or .vue file in production mode with zero config')
-  .option('-t, --target <target>', 'Build target (app | lib | wc | wc-async, default: app)')
-  .option('-n, --name <name>', 'name for lib or web-component mode (default: entry filename)')
-  .option('-d, --dest <dir>', 'output directory (default: dist)')
-  .action((entry, cmd) => {
-    loadCommand('build', '@vue/cli-service-global').build(entry, cleanArgs(cmd))
-  })
 
 program
   .command('ui')
@@ -152,46 +112,6 @@ program
   .option('--offline', 'Use cached template')
   .action(() => {
     loadCommand('init', '@vue/cli-init')
-  })
-
-program
-  .command('config [value]')
-  .description('inspect and modify the config')
-  .option('-g, --get <path>', 'get value from option')
-  .option('-s, --set <path> <value>', 'set option value')
-  .option('-d, --delete <path>', 'delete option from config')
-  .option('-e, --edit', 'open config with default editor')
-  .option('--json', 'outputs JSON result only')
-  .action((value, cmd) => {
-    require('../lib/config')(value, cleanArgs(cmd))
-  })
-
-program
-  .command('upgrade [semverLevel]')
-  .description('upgrade vue cli service / plugins (default semverLevel: minor)')
-  .action((semverLevel, cmd) => {
-    loadCommand('upgrade', '@vue/cli-upgrade')(semverLevel, cleanArgs(cmd))
-  })
-
-program
-  .command('info')
-  .description('print debugging information about your environment')
-  .action((cmd) => {
-    console.log(chalk.bold('\nEnvironment Info:'))
-    require('envinfo').run(
-      {
-        System: ['OS', 'CPU'],
-        Binaries: ['Node', 'Yarn', 'npm'],
-        Browsers: ['Chrome', 'Edge', 'Firefox', 'Safari'],
-        npmPackages: '/**/{typescript,*vue*,@vue/*/}',
-        npmGlobalPackages: ['@vue/cli']
-      },
-      {
-        showNotFound: true,
-        duplicates: true,
-        fullTree: true
-      }
-    ).then(console.log)
   })
 
 // output help information on unknown commands
