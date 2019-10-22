@@ -1,5 +1,5 @@
 {
-  "name": "flybox",
+  "name": "@suwis/funtask",
   "version": "1.0.0",
   "description": "你的专属控制台",
   "main": "bin/index.js",
@@ -7,8 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "suwis",
-    "flybox"
+    "work",
+    "console",
+    "control",
+    "assistant",
+    "electron",
+    "club",
+    "funtask",
+    "suwis"
   ],
   "author": "ivorzk@qq.com",
   "license": "MIT",
