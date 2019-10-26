@@ -4,6 +4,9 @@
 const chalk = require('chalk')
 
 const program = require('commander')
+
+const minimist = require('minimist')
+
 program
   .version(require('../package').version)
   .usage('<command> [options]')
@@ -19,10 +22,12 @@ program
     if (minimist(process.argv.slice(3))._.length > 1) {
       console.log(chalk.yellow('\n Info: You provided more than one argument. The first one will be used as the app\'s name, the rest are ignored.'))
     }
+    
     // 引入构建器
     require('../lib/generate')(name, options)
   })
 
+// ui 界面
 program
   .command('ui')
   .description('start and open the vue-cli ui')
@@ -32,7 +37,7 @@ program
   .option('--quiet', `Don't output starting messages`)
   .option('--headless', `Don't open browser on start and output port`)
   .action((cmd) => {
-    checkNodeVersion('>=8.6', 'vue ui')
+    checkNodeVersion('>=8.6', 'funtask ui')
     require('../lib/ui')(cleanArgs(cmd))
   })
 
