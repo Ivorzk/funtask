@@ -1,18 +1,16 @@
 {
-  "name": "plugin-tpl",
+  "name": "${appname}",
   "main": "./index.js",
-  "version": "0.0.0",
-  "description": "A short description of your package",
-  "keywords": [
-  ],
+  "version": "1.0.0",
+  "description": "${description}",
+  "keywords": "${keywords}",
   "activationCommands": {
     "atom-workspace": "my-package:toggle"
   },
-  "repository": "https://github.com/atom/my-package",
+  "repository": "${repository}",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "funtask": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
