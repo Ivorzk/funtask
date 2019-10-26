@@ -1,11 +1,11 @@
 {
-  "name": "${appname}",
+  "name": "${name}",
   "main": "./index.js",
   "version": "1.0.0",
   "description": "${description}",
   "keywords": "${keywords}",
   "activationCommands": {
-    "atom-workspace": "my-package:toggle"
+    "funtask-workspace": "${name}:toggle"
   },
   "repository": "${repository}",
   "license": "MIT",
