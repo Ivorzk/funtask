@@ -1,7 +1,21 @@
 module.exports = {
-  title: '桌面悬浮球',
-  description: '桌面悬浮球',
-  base: '/desktop-ball/doc/.vuepress/dist/',
+  base: '/',
+  locales: {
+    // 键名是该语言所属的子路径
+    // 作为特例，默认语言可以使用 '/' 作为其路径。
+    '/': {
+      selectText: '选择语言',
+      lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
+      title: 'funtask',
+      description: '高效、快乐、人性化的工作方式'
+    },
+    '/en/': {
+      selectText: 'Languages',
+      lang: 'en-US',
+      title: 'funtask',
+      description: 'Efficient, happy, humane way of working'
+    }
+  },
   themeConfig: {
     // 搜索
     search: true,
@@ -20,27 +34,8 @@ module.exports = {
     }, {
       text: '更新日志',
       link: '/change-log'
-    }, {
-      text: 'markdown',
-      link: 'http://www.markdown.cn/'
-    }, {
-      text: 'VuePress',
-      link: 'https://vuepress.vuejs.org/zh/'
-    }, {
-      text: 'NPM',
-      link: 'https://npm.suwis.com/'
-    }, {
-      text: 'PMS',
-      link: 'http://svn.cloud-top.com.cn:82/index.php?c=login'
-    }, {
-      text: 'CTI',
-      link: 'http://www.cloud-top.com.cn/'
     }],
     sidebar: [{
-      title: '运维',
-      collapsable: false,
-      children: []
-    }, {
       title: '全局',
       collapsable: false,
       children: [
