@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: http://localhost:8080/assets/funtask.jpg
+heroImage: $withBase('/funtask.jpg')
 heroText:
 tagline: 高效、快乐、人性化的工作方式
 actionText: 开始使用 →
