@@ -1,5 +1,10 @@
 module.exports = {
   base: '/',
+  plugins: [
+    '@vuepress/active-header-links',
+    '@vuepress/back-to-top',
+    'vuepress-plugin-zooming'
+  ],
   locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
@@ -26,9 +31,6 @@ module.exports = {
       text: '主页',
       link: '/'
     }, {
-      text: 'API文档',
-      link: '#',
-    }, {
       text: '项目介绍',
       link: '/project'
     }, {
@@ -40,8 +42,8 @@ module.exports = {
       collapsable: false,
       children: [
         ['/framework.md', '架构概览'],
-        ['/dir.md', '目录结构'],
-        ['/principal.md', '各模块负责人']
+        ['/dir.md', '目录结构']
+        // ['/principal.md', '各模块负责人']
       ]
     }, {
       title: 'API',
