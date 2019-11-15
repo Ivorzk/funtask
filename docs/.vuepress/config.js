@@ -25,6 +25,8 @@ module.exports = {
     // 搜索
     search: true,
     searchMaxSuggestions: 10,
+    displayAllHeaders: true,
+    sidebar: 'auto',
     // 最后一次更新
     lastUpdated: '上次更新',
     nav: [{
@@ -38,22 +40,17 @@ module.exports = {
       link: '/change-log'
     }],
     sidebar: [{
-      title: '全局',
+      title: '指南',
       collapsable: false,
       children: [
-        ['/framework.md', '架构概览'],
-        ['/dir.md', '目录结构']
-        // ['/principal.md', '各模块负责人']
-      ]
-    }, {
-      title: 'API',
-      collapsable: false,
-      children: []
-    }, {
-      title: '插件',
-      collapsable: false,
-      children: [
-        ['/zh/plugin-dev.md', '插件开发指南']
+        ['/zh/introduction.md', '介绍'],
+        {
+          title: '插件',
+          collapsable: false,
+          children: [
+            ['/zh/plugin-dev.md', '插件开发指南']
+          ]
+        }
       ]
     }]
   }
