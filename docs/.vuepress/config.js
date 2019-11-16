@@ -45,11 +45,9 @@ module.exports = {
       children: [
         ['/zh/introduction.md', '介绍'],
         {
-          title: '插件',
+          title: 'API',
           collapsable: false,
-          children: [
-            ['/zh/plugin-dev.md', '插件开发指南']
-          ]
+          children: []
         }
       ]
     }]
