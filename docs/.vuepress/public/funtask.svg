@@ -3,7 +3,7 @@
     <style>
       .cls-1,
       .cls-2 {
-        fill: #2c3e50;
+        fill: #000000;
       }
       .cls-1 {
         fill-rule: evenodd;
