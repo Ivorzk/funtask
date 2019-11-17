@@ -5,6 +5,8 @@
   },
   "dependencies": {
     "vuepress-bar": "^0.2.1",
+    "vuepress-plugin-clean-urls": "^1.0.3",
+    "vuepress-plugin-smooth-scroll": "^0.0.7",
     "vuepress-plugin-zooming": "^1.1.5"
   }
 }

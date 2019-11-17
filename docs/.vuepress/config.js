@@ -1,9 +1,11 @@
 module.exports = {
   base: '/',
   plugins: [
+    'vuepress-plugin-clean-urls',
     '@vuepress/active-header-links',
     '@vuepress/back-to-top',
-    'vuepress-plugin-zooming'
+    'vuepress-plugin-zooming',
+    'vuepress-plugin-smooth-scroll'
   ],
   locales: {
     // 键名是该语言所属的子路径
@@ -45,7 +47,8 @@ module.exports = {
     sidebar: {
       '/zh/': [
         'introduction',
-        'devguide'
+        'devguide',
+        'API'
       ]
     }
   }

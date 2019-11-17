@@ -42,6 +42,25 @@ funtask link
 
 以上步骤完成后，启动/重启funtask客户端方可看到效果
 
+## 应用目录结构说明
+
+Funtask 遵循 “约定优于配置” 的原则，插件的目录结构如下：
+
+```
+.
+│  CHANGELOG.md // 修改日志
+│  index.js // 应用入口文件
+│  LICENSE.md // 协议
+│  logo.png // 应用logo
+│  package.json // npm 依赖文件
+│
+├─keymaps
+│      keymap.json // 快捷键绑定
+│
+└─menus
+        menus.json // 菜单文件
+```
+
 ## 发布Funtask应用
 
 funtask会自动去npm上搜索@funtask/开头的应用，所以你只要将应用发布到npm上即可
