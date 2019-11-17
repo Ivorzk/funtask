@@ -1,6 +1,6 @@
 # 开发指南
 
-Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能力，你只需要开发一套代码，即可在Windows、Mac、Linux、IOS、Android等多平台运行, 这将大幅度帮你降低开发成本，让你的应用模块快速上线
+Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能力，你只需要使用HTML+CSS+JS开发一套应用代码，即可在Windows、Mac、Linux、IOS、Android等多平台运行, 这将大幅度帮你降低开发成本，让你的应用模块快速上线
 
 ## Funtask桌面端下载
 
@@ -30,4 +30,23 @@ npm install -g @suwis/funtask
 
 ```sh
 funtask create hello-funtask
+```
+
+#### 本地引入应用到Funtask中
+
+```sh
+cd hello-funtask
+
+funtask link
+```
+
+以上步骤完成后，启动/重启funtask客户端方可看到效果
+
+## 发布Funtask应用
+
+funtask会自动去npm上搜索@funtask/开头的应用，所以你只要将应用发布到npm上即可
+
+```sh
+// 进入工程目录，运行下面的命令
+npm publish
 ```
