@@ -29,6 +29,9 @@ module.exports = {
     sidebar: 'auto',
     // 最后一次更新
     lastUpdated: '上次更新',
+    markdown: {
+      extractHeaders: ['h2', 'h3', 'h4']
+    },
     nav: [{
       text: '主页',
       link: '/'
@@ -43,7 +46,14 @@ module.exports = {
       title: '指南',
       collapsable: false,
       children: [
-        ['/zh/introduction.md', '介绍'],
+        ['/zh/introduction', '介绍'],
+        {
+          title: '开发第一个应用',
+          collapsable: false,
+          children: [
+            ['/zh/devguide', '开发第一个应用']
+          ]
+        },
         {
           title: 'API',
           collapsable: false,

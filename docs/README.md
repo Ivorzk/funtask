@@ -4,7 +4,7 @@ heroImage: /funtask.svg
 heroText:
 tagline: 高效、快乐、人性化的工作方式
 actionText: 开始使用 →
-actionLink: /zh/guide/
+actionLink: /zh/introduction/
 features:
 - title: 高效
   details: 巧用科技的力量帮你管理你的工作流，让你的效率倍速增长，四两拨千斤
