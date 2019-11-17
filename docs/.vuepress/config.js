@@ -30,7 +30,7 @@ module.exports = {
     // 最后一次更新
     lastUpdated: '上次更新',
     markdown: {
-      extractHeaders: ['h2', 'h3', 'h4']
+      extractHeaders: ['h2', 'h3', 'h4', 'h5']
     },
     nav: [{
       text: '主页',
@@ -42,24 +42,11 @@ module.exports = {
       text: '更新日志',
       link: '/change-log'
     }],
-    sidebar: [{
-      title: '指南',
-      collapsable: false,
-      children: [
-        ['/zh/introduction', '介绍'],
-        {
-          title: '开发第一个应用',
-          collapsable: false,
-          children: [
-            ['/zh/devguide', '开发第一个应用']
-          ]
-        },
-        {
-          title: 'API',
-          collapsable: false,
-          children: []
-        }
+    sidebar: {
+      '/zh/': [
+        'introduction',
+        'devguide'
       ]
-    }]
+    }
   }
 }
