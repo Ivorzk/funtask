@@ -36,8 +36,8 @@ module.exports = {
       text: '主页',
       link: '/'
     }, {
-      text: '项目介绍',
-      link: '/project'
+      text: '应用下载',
+      link: '/zh/devguide.html#funtask桌面端下载'
     }, {
       text: '更新日志',
       link: '/change-log'
