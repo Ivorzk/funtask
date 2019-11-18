@@ -42,7 +42,7 @@ module.exports = {
       link: '/zh/devguide.html#funtask桌面端下载'
     }, {
       text: '更新日志',
-      link: '/change-log'
+      link: '/zh/change-log'
     }],
     sidebar: {
       '/zh/': [
