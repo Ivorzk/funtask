@@ -1,7 +1,9 @@
 import YAML from 'yaml'
 import os from 'os'
-console.log(os.homeidr())
-class config {
+class Config {
+  constructor() {
+    console.log(os.homeidr(), 'homeidr')
+  }
   // 获取配置文件目录
   get configdir() {
 
@@ -13,4 +15,4 @@ class config {
   }
 }
 
-export default new config()
+export default new Config()

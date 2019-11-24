@@ -7,16 +7,16 @@ import {
 /**
  * 控制台
  */
-class control {
+class Control {
+  // 小球
+  ballwin
+  // 菜单窗口
+  controlwin
+  // 入口页面
+  winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
   // 构造函数
   constructor() {
-    // 小球
-    this.ballwin
-    // 菜单窗口
-    this.controlwin
-    // 入口页面
-    this.winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
-
+    
     app.on('ready', this.createWindow)
 
     app.on('window-all-closed', () => {
@@ -34,7 +34,7 @@ class control {
     // 监听菜单状态改变
     ipcMain.on('control-toggle', (evt, args) => {
       // 切换窗体类型
-      let wintype = controlwin.getOpacity() === 0 ? 'control' : 'ball'
+      let wintype = this.controlwin.getOpacity() === 0 ? 'control' : 'ball'
       // 同步菜单位置
       this.syncPosition(wintype)
       this.ballwin.webContents.send('control-reply', wintype === 'ball')
@@ -81,7 +81,7 @@ class control {
     this.ballwin.loadURL(this.winURL)
 
     this.ballwin.on('closed', () => {
-      ballwin = null
+      this.ballwin = null
     })
 
     // 初始化菜单
@@ -106,7 +106,7 @@ class control {
       }
     })
 
-    this.controlwin.loadURL(`${winURL}/#/control`)
+    this.controlwin.loadURL(`${this.winURL}/#/control`)
 
     this.controlwin.on('closed', () => {
       this.controlwin = null
@@ -117,10 +117,10 @@ class control {
   syncPosition(flag) {
     // console.log(flag, 'flag')
     // 小球位置
-    let ballpos = ballwin.getPosition()
+    let ballpos = this.ballwin.getPosition()
     // 窗体位置
-    let controlpos = controlwin.getPosition()
-    let controlBounds = controlwin.getBounds()
+    let controlpos = this.controlwin.getPosition()
+    let controlBounds = this.controlwin.getBounds()
     if (flag === 'control') {
       this.controlwin.setPosition(ballpos[0] - controlBounds.width + 75, ballpos[1] - controlBounds.height + 75)
     } else {
@@ -129,4 +129,4 @@ class control {
   }
 }
 
-export default new control()
+export default new Control()
