@@ -114,7 +114,7 @@ class Control {
 
   // 同步菜单位置
   syncPosition(flag) {
-    // console.log(flag, 'flag')
+    console.log(flag, 'flag')
     // 小球位置
     let ballpos = this.ballwin.getPosition()
     // 窗体位置
