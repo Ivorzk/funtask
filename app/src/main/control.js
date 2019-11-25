@@ -16,7 +16,6 @@ class Control {
   winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
   // 构造函数
   constructor() {
-    
     app.on('ready', this.createWindow)
 
     app.on('window-all-closed', () => {
