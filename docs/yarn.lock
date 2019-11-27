@@ -3,16 +3,16 @@
 
 
 "@vuepress/plugin-active-header-links@^1.0.0-rc.1":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.2.0.tgz#46495c89e51a95e57139be007dffbcae4b229260"
-  integrity sha512-vdi7l96pElJvEmcx6t9DWJNH25TIurS8acjN3+b7o4NzdaszFn5j6klN6WtI4Z+5BVDrxHP5W1F3Ebw8SZyupA==
+  version "1.0.0-rc.1"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.0.0-rc.1.tgz#46dc6f2efe6aef10c36f870e02b6d7af473de0cc"
+  integrity sha512-EC1SrnWHIsbpIzfjCumTTiXnKXxKayM6YJJ6cPZHVVaP5BdEIiJdRuecs5hM44u4LigDqFbXbvwWN769Ygn65Q==
   dependencies:
-    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
 
 "@vuepress/plugin-back-to-top@^1.0.0-rc.1":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.2.0.tgz#f6bb2f57317e94a6b0b6854719f3088481f2c0dd"
-  integrity sha512-QGFT5llXnqs/nrUmNql4jZuqo5VTKx/hsK9j1uNRdGBkyiqMs6h+brSpwTKtUqh/XwsCGn7FGPZLaYNkw7Oi8w==
+  version "1.0.0-rc.1"
+  resolved "https://registry.npmjs.org/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.0-rc.1.tgz#91fb693f3c7d7a9d8019842bb061ad756445e4ca"
+  integrity sha512-6XQfuNDLbfjOyxrVcgD09shPiFjc/YTkhAUMRrnkEfq1Uacaw9idr9BlCt+92Co3auIB15x7hsgyPr0es+PPNQ==
   dependencies:
     lodash.debounce "^4.0.8"
 
@@ -189,6 +189,11 @@ lodash.startcase@^4.4.0:
   resolved "https://registry.npmjs.org/lodash.startcase/-/lodash.startcase-4.4.0.tgz#9436e34ed26093ed7ffae1936144350915d9add8"
   integrity sha1-lDbjTtJgk+1/+uGTYUQ1CRXZrdg=
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
 markdown-it-meta@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/markdown-it-meta/-/markdown-it-meta-0.0.1.tgz#d75b68f115659caf568e4ad43cb460a471248c39"
@@ -270,11 +275,6 @@ set-blocking@^2.0.0:
   resolved "https://registry.npmjs.org/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
 
-smoothscroll-polyfill@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
-  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
-
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -320,18 +320,6 @@ vuepress-bar@^0.2.1:
     markdown-it "^10.0.0"
     markdown-it-meta "0.0.1"
     transliteration "^2.1.7"
-
-vuepress-plugin-clean-urls@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/vuepress-plugin-clean-urls/-/vuepress-plugin-clean-urls-1.0.3.tgz#87ef2349d6d1f835dc2519abeb0cb99ccf1698a5"
-  integrity sha512-fdsK2e+cTm8mVRm2S8TcnlijPZTX31v61sqUx+4Xiq+KqB05UQlpKI1lz1gte59L8VeDoOE0JjoGXpDFTFlqcQ==
-
-vuepress-plugin-smooth-scroll@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.7.tgz#ee0dc4b76eb487b115ae95049a5d749b581b8439"
-  integrity sha512-VbLl4AFoLypylCGN0PHO7X+wSjWPKGccaE91DjooXVCsXs6DadzDZCpXSIlQ1WJf/uu9Pi40l3e33FNtt7xu2Q==
-  dependencies:
-    smoothscroll-polyfill "^0.4.4"
 
 vuepress-plugin-zooming@^1.1.5:
   version "1.1.5"
