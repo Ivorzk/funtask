@@ -1,14 +1,14 @@
-const YAML = require('yaml')
-const os = require('os')
-console.log('os-----------------------------------', os.homeidr())
-class Config {
+import YAML from 'yaml'
+import os from 'os'
+export default class {
   constructor() {
-    console.log(os.homeidr(), 'homeidr')
+    // console.log(os.homedir(), 'homeidr')
+    console.log(this.configdir, 'configdir')
   }
 
   // 获取配置文件目录
   get configdir() {
-
+    return os.homeidr() + '/.funtask'
   }
 
   // 载入配置文件
@@ -16,5 +16,3 @@ class Config {
 
   }
 }
-
-export default new Config()

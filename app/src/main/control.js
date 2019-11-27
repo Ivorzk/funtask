@@ -16,7 +16,6 @@ export default class {
   winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
   // 构造函数
   constructor() {
-    console.log(process.env.NODE_ENV, 'process.env.NODE_ENV')
     app.on('ready', () => {
       this.createWindow()
     })
@@ -58,7 +57,6 @@ export default class {
 
   // 创建窗体
   createWindow() {
-    console.log(this.ballwin, 'ballwin')
     /**
      * Initial window options
      */
@@ -118,7 +116,6 @@ export default class {
 
   // 同步菜单位置
   syncPosition(flag) {
-    console.log(flag, 'flag')
     // 小球位置
     let ballpos = this.ballwin.getPosition()
     // 窗体位置

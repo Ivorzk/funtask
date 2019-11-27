@@ -1,8 +1,9 @@
 'use strict'
-// const config = require('./config-file')
+import Config from './config-file'
 import Control from './control'
+var config = new Config()
 var control = new Control()
-console.log(control, 'control')
+// console.log(control, config, 'control')
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
