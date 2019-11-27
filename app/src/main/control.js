@@ -1,22 +1,25 @@
+'use strict'
 import {
   app,
   BrowserWindow,
   ipcMain
 } from 'electron'
-
 /**
  * 控制台
  */
-class Control {
+export default class {
   // 小球
-  ballwin
+  ballwin = {}
   // 菜单窗口
-  controlwin
+  controlwin = {}
   // 入口页面
   winURL = process.env.NODE_ENV === 'development' ? `http://localhost:9080` : `file://${__dirname}/index.html`
   // 构造函数
   constructor() {
-    app.on('ready', this.createWindow)
+    console.log(process.env.NODE_ENV, 'process.env.NODE_ENV')
+    app.on('ready', () => {
+      this.createWindow()
+    })
 
     app.on('window-all-closed', () => {
       if (process.platform !== 'darwin') {
@@ -55,6 +58,7 @@ class Control {
 
   // 创建窗体
   createWindow() {
+    console.log(this.ballwin, 'ballwin')
     /**
      * Initial window options
      */
@@ -127,5 +131,3 @@ class Control {
     }
   }
 }
-
-export default new Control()

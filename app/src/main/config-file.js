@@ -1,11 +1,9 @@
-import YAML from 'yaml'
-import os from 'os'
-console.error('os-----------------------------------', os.homeidr())
+const YAML = require('yaml')
+const os = require('os')
+console.log('os-----------------------------------', os.homeidr())
 class Config {
   constructor() {
-    setTimeout(() => {
-      console.log(os.homeidr(), 'homeidr')
-    }, 5000)
+    console.log(os.homeidr(), 'homeidr')
   }
 
   // 获取配置文件目录
