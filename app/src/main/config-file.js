@@ -1,9 +1,11 @@
 import YAML from 'yaml'
 import os from 'os'
-console.log('os-----------------------------------', os.homeidr())
+console.error('os-----------------------------------', os.homeidr())
 class Config {
   constructor() {
-    console.log(os.homeidr(), 'homeidr')
+    setTimeout(() => {
+      console.log(os.homeidr(), 'homeidr')
+    }, 5000)
   }
 
   // 获取配置文件目录
