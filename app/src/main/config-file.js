@@ -2,6 +2,8 @@ import YAML from 'yaml'
 import path from 'path'
 import os from 'os'
 import fs from 'fs'
+import gulp from 'gulp'
+import rename from 'gulp-rename'
 export default class {
   constructor() {
     // 加载配置文件
@@ -19,9 +21,12 @@ export default class {
     try {
       file = fs.readFileSync(`${this.configdir}/config.yaml`, 'utf8')
     } catch (e) {
-      file = fs.readFileSync(path.resolve(`./static/default-config.yaml`), 'utf8')
       // 复制默认配置文件至配置目录
-      fs.copyFileSync(path.resolve(`./static/default-config.yaml`), path.resolve(`${this.configdir}/config.yaml`))
+      gulp.src(path.resolve(`./static/default-config.yaml`))
+        .pipe(rename('config.yaml'))
+        .pipe(gulp.dest(this.configdir))
+      // 读取默认配置文件
+      file = fs.readFileSync(path.resolve(`./static/default-config.yaml`), 'utf8')
     }
     return file
   }
@@ -32,5 +37,15 @@ export default class {
     let file = await this.getConfigFile()
     // 解析配置文件并注入到全局变量中
     global.$config = YAML.parse(file)
+    // 开始监听文件改变
+    this.watchConfigFile()
+  }
+
+  // 监听配置文件
+  watchConfigFile() {
+    gulp.watch(`${this.configdir}/config.yaml`, (event) => {
+      // 重新加载配置文件
+      this.loadConfig()
+    })
   }
 }
