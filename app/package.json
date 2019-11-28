@@ -5,10 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "test:unit": "vue-cli-service test:unit"
   },
+  "main": "background.js",
   "dependencies": {
+    "chai-as-promised": "^7.1.1",
     "core-js": "^3.4.3",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
@@ -27,10 +33,12 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
     "chai": "^4.1.2",
+    "electron": "^6.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
+    "vue-cli-plugin-electron-builder": "^1.4.2",
     "vue-template-compiler": "^2.6.10"
   }
 }
