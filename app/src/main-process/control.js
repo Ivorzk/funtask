@@ -153,13 +153,13 @@ export default class {
     if (process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
       this.ballwin.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-      this.controlwin.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}/control`)
+      this.controlwin.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}control`)
       // if (!process.env.IS_TEST) this.ballwin.webContents.openDevTools()
     } else {
       createProtocol('app')
       // Load the index.html when not in development
       this.ballwin.loadURL('app://./index.html')
-      this.controlwin.loadURL(`app://./index.html/control`)
+      this.controlwin.loadURL(`app://./control`)
     }
   }
 
