@@ -22,12 +22,13 @@ protocol.registerSchemesAsPrivileged([{
  * 控制台
  */
 export default class {
-  // 小球
-  ballwin = {}
-  // 菜单窗口
-  controlwin = {}
   // 构造函数
   constructor() {
+    // 小球
+    this.ballwin = {}
+    // 菜单窗口
+    this.controlwin = {}
+
     app.on('ready', () => {
       if (isDevelopment && !process.env.IS_TEST) {
         // Install Vue Devtools
@@ -153,7 +154,7 @@ export default class {
       // Load the url of the dev server if in development mode
       this.ballwin.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
       this.controlwin.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}/control`)
-      if (!process.env.IS_TEST) this.ballwin.webContents.openDevTools()
+      // if (!process.env.IS_TEST) this.ballwin.webContents.openDevTools()
     } else {
       createProtocol('app')
       // Load the index.html when not in development
