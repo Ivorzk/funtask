@@ -22,11 +22,11 @@ export default class {
       file = fs.readFileSync(`${this.configdir}/config.yaml`, 'utf8')
     } catch (e) {
       // 复制默认配置文件至配置目录
-      gulp.src(path.resolve(`./static/default-config.yaml`))
+      gulp.src(`${__static}/default-config.yaml`)
         .pipe(rename('config.yaml'))
         .pipe(gulp.dest(this.configdir))
       // 读取默认配置文件
-      file = fs.readFileSync(path.resolve(`./static/default-config.yaml`), 'utf8')
+      file = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
     }
     return file
   }
