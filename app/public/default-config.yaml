@@ -1,6 +1,7 @@
-YAML:
-  - A human-readable data serialization language
-  - https://en.wikipedia.org/wiki/YAML
-yaml:
-  - A complete JavaScript implementation
-  - https://www.npmjs.com/package/yaml
+app:
+  # 系统托盘配置
+  tray:
+    # 是否显示
+    visible: true
+    # 托盘图标
+    icon:    ''

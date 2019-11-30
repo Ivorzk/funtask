@@ -1,3 +1,6 @@
+/**
+ * APP管理类
+ */
 import fs from 'fs'
 import gulp from 'gulp'
 import rename from 'gulp-rename'

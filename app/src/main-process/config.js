@@ -1,3 +1,7 @@
+/**
+ * 配置文件
+ * @type {events} 事件
+ */
 import YAML from 'yaml'
 import path from 'path'
 import os from 'os'

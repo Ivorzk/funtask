@@ -1,3 +1,6 @@
+/**
+ * 控制台类
+ */
 'use strict'
 import {
   app,
