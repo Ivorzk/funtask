@@ -28,9 +28,11 @@ export default class {
   // 构造函数
   constructor() {
     // 小球
-    this.ballwin = {}
+    this.ball = {}
     // 菜单窗口
-    this.controlwin = {}
+    this.control = {}
+    // 最后一次显示的窗口
+    this.lastVisibleWindow = {}
 
     app.on('ready', () => {
       if (isDevelopment && !process.env.IS_TEST) {
@@ -56,7 +58,7 @@ export default class {
     })
 
     app.on('activate', () => {
-      if (this.ballwin === null) {
+      if (this.ball === null) {
         this.createWindow()
       }
     })
@@ -79,36 +81,38 @@ export default class {
     // 监听菜单状态改变
     ipcMain.on('control-toggle', (evt, args) => {
       // 切换窗体类型
-      let wintype = this.controlwin.getOpacity() === 0 ? 'control' : 'ball'
+      let wintype = this.control.getOpacity() === 0 ? 'control' : 'ball'
+      // 记录最后一次显示的窗口
+      this.lastVisibleWindow = this[wintype]
       // 同步菜单位置
       this.syncPosition(wintype)
-      this.ballwin.webContents.send('control-reply', wintype === 'ball')
-      this.controlwin.webContents.send('control-reply', wintype === 'control')
+      this.ball.webContents.send('control-reply', wintype === 'ball')
+      this.control.webContents.send('control-reply', wintype === 'control')
       // 设置显示和隐藏 间隔300毫秒，等待动画执行完成
       if (wintype === 'control') {
-        this.controlwin.setOpacity(wintype === 'control' ? 1 : 0)
+        this.control.setOpacity(wintype === 'control' ? 1 : 0)
         setTimeout(() => {
-          this.ballwin.setOpacity(wintype === 'ball' ? 1 : 0)
+          this.ball.setOpacity(wintype === 'ball' ? 1 : 0)
         }, 300)
       } else {
-        this.ballwin.setOpacity(wintype === 'ball' ? 1 : 0)
+        this.ball.setOpacity(wintype === 'ball' ? 1 : 0)
         setTimeout(() => {
-          this.controlwin.setOpacity(wintype === 'control' ? 1 : 0)
+          this.control.setOpacity(wintype === 'control' ? 1 : 0)
         }, 300)
       }
     })
 
     // 小球切换
     ipcMain.on('ball-toggle', () => {
-      let isVisible = this.ballwin.getOpacity() === 1
+      let isVisible = this.lastVisibleWindow.getOpacity() === 1
       if (isVisible) {
         setTimeout(() => {
-          this.ballwin.setOpacity(0)
+          this.lastVisibleWindow.setOpacity(0)
         }, 300)
       } else {
-        this.ballwin.setOpacity(1)
+        this.lastVisibleWindow.setOpacity(1)
       }
-      this.ballwin.webContents.send('ball-toggle', !isVisible)
+      this.lastVisibleWindow.webContents.send('toggle', !isVisible)
     })
   }
 
@@ -117,7 +121,7 @@ export default class {
     /**
      * Initial window options
      */
-    this.ballwin = new BrowserWindow({
+    this.ball = new BrowserWindow({
       width: 88,
       height: 88,
       frame: false,
@@ -135,13 +139,15 @@ export default class {
         nodeIntegrationInWorker: true
       }
     })
+    // 初始赋值最后一次显示的窗口
+    this.lastVisibleWindow = this.ball
 
-    this.ballwin.on('closed', () => {
-      this.ballwin = null
+    this.ball.on('closed', () => {
+      this.ball = null
     })
 
     // 初始化菜单
-    this.controlwin = new BrowserWindow({
+    this.control = new BrowserWindow({
       x: 0,
       y: 0,
       width: 618,
@@ -162,34 +168,34 @@ export default class {
       }
     })
 
-    this.controlwin.on('closed', () => {
-      this.controlwin = null
+    this.control.on('closed', () => {
+      this.control = null
     })
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
-      this.ballwin.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-      this.controlwin.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}control`)
-      // if (!process.env.IS_TEST) this.ballwin.webContents.openDevTools()
+      this.ball.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
+      this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}control`)
+      // if (!process.env.IS_TEST) this.ball.webContents.openDevTools()
     } else {
       createProtocol('app')
       // Load the index.html when not in development
-      this.ballwin.loadURL('app://./index.html')
-      this.controlwin.loadURL(`app://./control`)
+      this.ball.loadURL('app://./index.html')
+      this.control.loadURL(`app://./control`)
     }
   }
 
   // 同步菜单位置
   syncPosition(flag) {
     // 小球位置
-    let ballpos = this.ballwin.getPosition()
+    let ballpos = this.ball.getPosition()
     // 窗体位置
-    let controlpos = this.controlwin.getPosition()
-    let controlBounds = this.controlwin.getBounds()
+    let controlpos = this.control.getPosition()
+    let controlBounds = this.control.getBounds()
     if (flag === 'control') {
-      this.controlwin.setPosition(ballpos[0] - controlBounds.width + 75, ballpos[1] - controlBounds.height + 75)
+      this.control.setPosition(ballpos[0] - controlBounds.width + 75, ballpos[1] - controlBounds.height + 75)
     } else {
-      this.ballwin.setPosition(controlpos[0] + controlBounds.width - 75, controlpos[1] + controlBounds.height - 75)
+      this.ball.setPosition(controlpos[0] + controlBounds.width - 75, controlpos[1] + controlBounds.height - 75)
     }
   }
 }

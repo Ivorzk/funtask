@@ -41,6 +41,9 @@ export default {
     ipcRenderer.on('control-reply', (event, args) => {
       this.control.visible = args
     })
+    ipcRenderer.on('toggle', (event, visible) => {
+      this.control.visible = visible
+    })
   },
   methods: {
     toggle() {
