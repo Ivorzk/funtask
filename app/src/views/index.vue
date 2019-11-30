@@ -6,7 +6,7 @@
   <img @click="toggle"
     class="icon"
     src="@/assets/logo.jpg"
-    alt="">
+    alt="ball">
 </div>
 </template>
 

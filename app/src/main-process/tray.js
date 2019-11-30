@@ -4,7 +4,8 @@
 import {
   app,
   Menu,
-  Tray
+  Tray,
+  ipcMain
 } from 'electron'
 import path from 'path'
 export default class {
@@ -36,7 +37,6 @@ export default class {
   // 初始化系统托盘
   createTray() {
     app.on('ready', () => {
-      console.log(this.icon, 'icon')
       this.tray = new Tray(this.icon)
       const contextMenu = Menu.buildFromTemplate([{
           label: 'Item1',
@@ -59,6 +59,11 @@ export default class {
       // 设置悬浮描述
       this.tray.setToolTip(this.tip)
       this.tray.setContextMenu(contextMenu)
+      // 监听单击事件
+      this.tray.on('click', () => {
+        // 切换悬浮球
+        ipcMain.emit('ball-toggle')
+      })
     })
   }
 

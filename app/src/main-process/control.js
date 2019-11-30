@@ -97,6 +97,12 @@ export default class {
         }, 300)
       }
     })
+
+    // 小球切换
+    ipcMain.on('ball-toggle', () => {
+      console.log('ball-toggle')
+      this.ballwin.setOpacity(this.ballwin.getOpacity() === 1 ? 0 : 1)
+    })
   }
 
   // 创建窗体
