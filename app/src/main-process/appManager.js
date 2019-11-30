@@ -34,7 +34,6 @@ export default class {
         })
       }
     })
-    console.log(global.$apps)
   }
 
   // 载入缓存
