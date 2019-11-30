@@ -100,8 +100,15 @@ export default class {
 
     // 小球切换
     ipcMain.on('ball-toggle', () => {
-      console.log('ball-toggle')
-      this.ballwin.setOpacity(this.ballwin.getOpacity() === 1 ? 0 : 1)
+      let isVisible = this.ballwin.getOpacity() === 1
+      if (isVisible) {
+        setTimeout(() => {
+          this.ballwin.setOpacity(0)
+        }, 300)
+      } else {
+        this.ballwin.setOpacity(1)
+      }
+      this.ballwin.webContents.send('ball-toggle', !isVisible)
     })
   }
 

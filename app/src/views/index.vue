@@ -27,6 +27,9 @@ export default {
     ipcRenderer.on('control-reply', (event, args) => {
       this.control.visible = args
     })
+    ipcRenderer.on('ball-toggle', (event, visible) => {
+      this.control.visible = visible
+    })
   },
   watch: {},
   methods: {
