@@ -1,7 +1,14 @@
+# app配置
 app:
   # 系统托盘配置
   tray:
     # 是否显示
-    visible: true
+    visible:  true
     # 托盘图标
-    icon:    ''
+    icon:     ''
+
+# 开发环境配置
+dev:
+  # 调试的插件目录
+  debugdirs:
+    -
