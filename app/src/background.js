@@ -9,7 +9,8 @@ const control = new Control()
 const tray = new Tray()
 config.event.on('loaded', () => {
   console.log('app $config loaded')
-  // - 
+  // -
+  console.log(global.$config)
   control
   // 加载app
   appManager.loadApps()

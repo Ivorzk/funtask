@@ -54,7 +54,7 @@ export default class {
       packagesdir: this.packagesdir
     }
     // 触发配置表加载完成事件
-    this.event.emit('loaded', global.$$config)
+    this.event.emit('loaded', global.$config)
     // 开始监听文件改变
     this.watchConfigFile()
   }
