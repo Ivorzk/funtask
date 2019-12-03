@@ -9,12 +9,20 @@ import fs from 'fs'
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import events from 'events'
+import {
+  ipcMain
+} from 'electron'
 export default class {
   constructor() {
     // 初始化事件实例
     this.event = new events.EventEmitter()
     // 加载配置文件
     this.loadConfig()
+
+    // 监听web端向app请求配置信息
+    ipcMain.on('config-get', (evt) => {
+      evt.reply('config-reply', global.$config)
+    })
   }
 
   // 获取配置文件目录
@@ -65,5 +73,7 @@ export default class {
       // 重新加载配置文件
       this.loadConfig()
     })
+
+
   }
 }

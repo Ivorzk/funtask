@@ -48,6 +48,7 @@ module.exports = {
       '/zh/': [
         'introduction',
         'devguide',
+        'framework',
         'API'
       ]
     }
