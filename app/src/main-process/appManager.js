@@ -26,16 +26,37 @@ export default class {
     await this.copyReadme()
     // 所有应用的信息
     global.$apps = []
-    var files = fs.readdirSync(global.$config.packagesdir)
-    files.forEach((item, index) => {
-      let apppath = `${global.$config.packagesdir}/${item}`
-      let stat = fs.lstatSync(apppath)
-      if (stat.isDirectory() === true) {
-        global.$apps.push({
-          name: item,
-          path: path.resolve(apppath)
+    let dirs = [global.$config.packagesdir]
+    let debugdirs = global.$config.dev.debugdirs || []
+    await this.eachdirs(dirs, 0)
+    for (let path of debugdirs) {
+      global.$apps.push({
+        name: '',
+        path
+      })
+    }
+    //
+    console.log(global.$apps)
+  }
+
+  // 遍历目录
+  eachdirs(dirs, idx) {
+    return new Promise((resolve, reject) => {
+      var loopFun = () => {
+        var files = fs.readdirSync(dirs[idx])
+        files.forEach((item, index) => {
+          let apppath = `${dirs[idx]}/${item}`
+          let stat = fs.lstatSync(apppath)
+          if (stat.isDirectory() === true) {
+            global.$apps.push({
+              name: item,
+              path: path.resolve(apppath)
+            })
+          }
         })
       }
+      idx++
+      idx > dirs.length - 1 ? resolve(true) : loopFun()
     })
   }
 

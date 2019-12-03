@@ -55,9 +55,10 @@ export default class {
   async loadConfig() {
     // 尝试读取配置文件
     let file = await this.getConfigFile()
+    var $config = YAML.parse(file)
     // 解析配置文件并注入到全局变量中
     global.$config = {
-      ...YAML.parse(file),
+      ...$config,
       apphome: this.apphome,
       packagesdir: this.packagesdir
     }

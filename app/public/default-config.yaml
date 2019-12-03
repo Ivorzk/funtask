@@ -11,4 +11,4 @@ app:
 dev:
   # 调试的插件目录
   debugdirs:
-    -E:\work\suwis\LongRunProject\funtask_youdao
+    - E:\work\suwis\LongRunProject\funtask_youdao
