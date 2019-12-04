@@ -26,37 +26,71 @@ export default class {
     await this.copyReadme()
     // 所有应用的信息
     global.$apps = []
-    let dirs = [global.$config.packagesdir]
+    // 遍历包存放目录
+    let dirs = await this.eachdirs([global.$config.packagesdir])
+    // 获取调试目录
     let debugdirs = global.$config.dev.debugdirs || []
-    await this.eachdirs(dirs, 0)
-    for (let path of debugdirs) {
-      global.$apps.push({
-        name: '',
-        path
-      })
-    }
+    // 获取app信息
+    global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
     //
     console.log(global.$apps)
   }
 
   // 遍历目录
-  eachdirs(dirs, idx) {
+  eachdirs(dirs) {
     return new Promise((resolve, reject) => {
-      var loopFun = () => {
+      let apppaths = []
+      var loopFun = (idx) => {
         var files = fs.readdirSync(dirs[idx])
         files.forEach((item, index) => {
           let apppath = `${dirs[idx]}/${item}`
           let stat = fs.lstatSync(apppath)
           if (stat.isDirectory() === true) {
-            global.$apps.push({
-              name: item,
-              path: path.resolve(apppath)
-            })
+            apppaths.push(path.resolve(apppath))
           }
         })
+        idx += 1
+        idx > dirs.length - 1 ? resolve(apppaths) : loopFun(idx)
       }
-      idx++
-      idx > dirs.length - 1 ? resolve(true) : loopFun()
+      loopFun(0)
+    })
+  }
+
+  // 遍历app信息-递归模式
+  // eachAppInfo(dirs) {
+  //   return new Promise((resolve, reject) => {
+  //     let apps = []
+  //     var loopFun = (idx) => {
+  //       try {
+  //         var file = fs.readFileSync(path.resolve(dirs[idx] + '/package.json'), 'utf-8')
+  //         if (file) {
+  //           apps.push(JSON.parse(file))
+  //         }
+  //       } catch (e) {
+  //         // console.log(e, 'e')
+  //       }
+  //       idx += 1
+  //       idx > dirs.length - 1 ? resolve(apps) : loopFun(idx)
+  //     }
+  //     loopFun(0)
+  //   })
+  // }
+
+  // 遍历app信息
+  eachAppInfo(dirs) {
+    return new Promise((resolve, reject) => {
+      let apps = []
+      dirs.forEach(apppath => {
+        try {
+          var file = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
+          if (file) {
+            apps.push(JSON.parse(file))
+          }
+        } catch (e) {
+          // console.log(e, 'e')
+        }
+      })
+      resolve(apps)
     })
   }
 

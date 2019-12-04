@@ -11,4 +11,13 @@ app:
 dev:
   # 调试的插件目录
   debugdirs:
-    - E:\work\suwis\LongRunProject\funtask_youdao
+    - F:\work\suwis\longTimeProject\funtask_youdao
+    - F:\work\suwis\longTimeProject\funtask_youdao1
+    - F:\work\suwis\longTimeProject\funtask_youdao2
+    - F:\work\suwis\longTimeProject\funtask_youdao3
+    - F:\work\suwis\longTimeProject\funtask_youdao4
+    - F:\work\suwis\longTimeProject\funtask_youdao5
+    - F:\work\suwis\longTimeProject\funtask_youdao6
+    - F:\work\suwis\longTimeProject\funtask_youdao7
+    - F:\work\suwis\longTimeProject\funtask_youdao8
+    - F:\work\suwis\longTimeProject\funtask_youdao9
