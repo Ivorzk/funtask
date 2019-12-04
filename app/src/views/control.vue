@@ -44,6 +44,13 @@ export default {
     ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
     })
+
+    ipcRenderer.on('apps-reply', (event, apps) => {
+      console.log('apps', apps)
+      alert(JSON.stringify(apps))
+    })
+
+    ipcRenderer.send('apps-get', 'json')
   },
   methods: {
     toggle() {

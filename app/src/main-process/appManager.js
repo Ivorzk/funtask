@@ -11,8 +11,8 @@ import {
 export default class {
   constructor() {
     // 获取app菜单
-    ipcMain.on('apps-get', (evt) => {
-      evt.reply(global.$apps)
+    ipcMain.on('apps-get', (evt, dataType) => {
+      evt.reply('apps-reply', global.$apps)
     })
   }
 
