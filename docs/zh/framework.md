@@ -14,3 +14,16 @@ ipcRenderer.on('config-reply', (data) => {
   console.log(data)
 })
 ```
+
+## 获取应用菜单
+
+在渲染进程中可以通过以下方式获取全局菜单数据
+
+```js
+import { ipcRenderer } from 'electron'
+ipcRenderer.send('apps-get', 'json')
+ipcRenderer.on('apps-reply', (data) => {
+  // apps data
+  console.log(data)
+})
+```

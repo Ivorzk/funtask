@@ -5,8 +5,16 @@ import fs from 'fs'
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import path from 'path'
+import {
+  ipcMain
+} from 'electron'
 export default class {
-  constructor() {}
+  constructor() {
+    // 获取app菜单
+    ipcMain.on('apps-get', (evt) => {
+      evt.reply(global.$apps)
+    })
+  }
 
   // 初始化readme文件
   copyReadme() {
