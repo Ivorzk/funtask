@@ -39,23 +39,10 @@ export default class {
     app.on('ready', () => {
       this.tray = new Tray(this.icon)
       const contextMenu = Menu.buildFromTemplate([{
-          label: 'Item1',
-          type: 'radio'
-        },
-        {
-          label: 'Item2',
-          type: 'radio'
-        },
-        {
-          label: 'Item3',
-          type: 'radio',
-          checked: true
-        },
-        {
-          label: 'Item4',
-          type: 'radio'
-        }
-      ])
+        label: '退出',
+        type: 'normal',
+        role: 'quit'
+      }])
       // 设置悬浮描述
       this.tray.setToolTip(this.tip)
       this.tray.setContextMenu(contextMenu)
