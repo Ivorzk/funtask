@@ -126,7 +126,7 @@ export default class {
       width: 88,
       height: 88,
       frame: false,
-      transparent: true,
+      transparent: false,
       resizable: false,
       maximizable: false,
       minimizable: false,
@@ -183,6 +183,7 @@ export default class {
       // Load the index.html when not in development
       this.ball.loadURL(`${global.$config.app.protocol}://./index.html`)
       this.control.loadURL(`${global.$config.app.protocol}://./control`)
+      this.ball.webContents.openDevTools()
     }
   }
 
