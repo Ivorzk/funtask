@@ -5,13 +5,13 @@ import Control from './main-process/control'
 import Tray from './main-process/tray'
 const config = new Config()
 const appManager = new AppManager()
-const control = new Control()
 const tray = new Tray()
+var control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
   // -
   console.log(global.$config)
-  control
+  control = new Control()
   // 加载app
   appManager.loadApps()
   // 加载图标

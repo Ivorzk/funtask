@@ -92,7 +92,13 @@ export default class {
         try {
           var file = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
           if (file) {
-            apps.push(JSON.parse(file))
+            let data = JSON.parse(file)
+            data.logo = path.resolve(apppath + '/logo.png')
+            data.name = data.name.replace('@funtask/', '')
+            apps.push({
+              data,
+              path: apppath
+            })
           }
         } catch (e) {
           // console.log(e, 'e')

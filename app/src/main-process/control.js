@@ -14,13 +14,6 @@ import {
 } from 'vue-cli-plugin-electron-builder/lib'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
-protocol.registerSchemesAsPrivileged([{
-  scheme: 'app',
-  privileges: {
-    secure: true,
-    standard: true
-  }
-}])
 /**
  * 控制台
  */
@@ -33,6 +26,14 @@ export default class {
     this.control = {}
     // 最后一次显示的窗口
     this.lastVisibleWindow = {}
+
+    protocol.registerSchemesAsPrivileged([{
+      scheme: global.$config.app.protocol,
+      privileges: {
+        secure: true,
+        standard: true
+      }
+    }])
 
     app.on('ready', () => {
       if (isDevelopment && !process.env.IS_TEST) {
@@ -176,12 +177,12 @@ export default class {
       // Load the url of the dev server if in development mode
       this.ball.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
       this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}control`)
-      // if (!process.env.IS_TEST) this.ball.webContents.openDevTools()
+      if (!process.env.IS_TEST) this.control.webContents.openDevTools()
     } else {
-      createProtocol('app')
+      createProtocol(global.$config.app.protocol)
       // Load the index.html when not in development
-      this.ball.loadURL('app://./index.html')
-      this.control.loadURL(`app://./control`)
+      this.ball.loadURL(`${global.$config.app.protocol}://./index.html`)
+      this.control.loadURL(`${global.$config.app.protocol}://./control`)
     }
   }
 

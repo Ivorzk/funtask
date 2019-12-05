@@ -1,26 +1,24 @@
 <template>
-<div class="suwis-control"
-  :class="{show: control.visible}">
+<div class="suwis-control" :class="{show: control.visible}">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="header"></div>
     <!--  -->
-    <span @click="toggle"
-      class="btn-toggle iconfont">&#xe67c;</span>
+    <span @click="toggle" class="btn-toggle iconfont">&#xe67c;</span>
     <!--  -->
     <!-- <div class="search-bar">
       <input type="text" name="" value="">
     </div> -->
-    <!-- <div class="fun-list">
+    <div class="fun-list">
       <ul>
-        <li v-for="item in 15">
+        <li v-for="app in apps" :key="app.data.name">
           <span>
-            <i class="iconfont">&#xe610;</i>
-            功能
+            <img :src="'file:///'+app.data.logo" alt="">
+            {{app.data.name}}
           </span>
         </li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </div>
 </template>
@@ -34,7 +32,9 @@ export default {
     return {
       control: {
         visible: false
-      }
+      },
+      // 应用数据
+      apps: []
     }
   },
   mounted() {
@@ -44,12 +44,10 @@ export default {
     ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
     })
-
     ipcRenderer.on('apps-reply', (event, apps) => {
       console.log('apps', apps)
-      alert(JSON.stringify(apps))
+      this.apps = apps
     })
-
     ipcRenderer.send('apps-get', 'json')
   },
   methods: {

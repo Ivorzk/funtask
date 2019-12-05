@@ -1,5 +1,7 @@
 # app配置
 app:
+  # 协议
+  protocol:   funtask
   # 系统托盘配置
   tray:
     # 是否显示
@@ -21,3 +23,13 @@ dev:
     - F:\work\suwis\longTimeProject\funtask_youdao7
     - F:\work\suwis\longTimeProject\funtask_youdao8
     - F:\work\suwis\longTimeProject\funtask_youdao9
+    - E:\work\suwis\LongRunProject\funtask_youdao
+    - E:\work\suwis\LongRunProject\funtask_youdao1
+    - E:\work\suwis\LongRunProject\funtask_youdao2
+    - E:\work\suwis\LongRunProject\funtask_youdao3
+    - E:\work\suwis\LongRunProject\funtask_youdao4
+    - E:\work\suwis\LongRunProject\funtask_youdao5
+    - E:\work\suwis\LongRunProject\funtask_youdao6
+    - E:\work\suwis\LongRunProject\funtask_youdao7
+    - E:\work\suwis\LongRunProject\funtask_youdao8
+    - E:\work\suwis\LongRunProject\funtask_youdao9
