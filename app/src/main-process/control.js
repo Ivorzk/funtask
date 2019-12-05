@@ -26,12 +26,13 @@ export default class {
     this.control = {}
     // 最后一次显示的窗口
     this.lastVisibleWindow = {}
-
+    // 注册协议
     protocol.registerSchemesAsPrivileged([{
       scheme: global.$config.app.protocol,
       privileges: {
         secure: true,
-        standard: true
+        standard: true,
+        bypassCSP: true
       }
     }])
 
