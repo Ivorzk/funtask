@@ -31,7 +31,7 @@ export default class {
 
   // 加载应用
   async loadApps() {
-    await this.copyReadme()
+    // await this.copyReadme()
     // 所有应用的信息
     global.$apps = []
     // 遍历包存放目录
@@ -49,40 +49,22 @@ export default class {
     return new Promise((resolve, reject) => {
       let apppaths = []
       var loopFun = (idx) => {
-        var files = fs.readdirSync(dirs[idx])
-        files.forEach((item, index) => {
-          let apppath = `${dirs[idx]}/${item}`
-          let stat = fs.lstatSync(apppath)
-          if (stat.isDirectory() === true) {
-            apppaths.push(path.resolve(apppath))
-          }
-        })
+        try {
+          var files = fs.readdirSync(dirs[idx])
+          files.forEach((item, index) => {
+            let apppath = `${dirs[idx]}/${item}`
+            let stat = fs.lstatSync(apppath)
+            if (stat.isDirectory() === true) {
+              apppaths.push(path.resolve(apppath))
+            }
+          })
+        } catch (e) {}
         idx += 1
         idx > dirs.length - 1 ? resolve(apppaths) : loopFun(idx)
       }
       loopFun(0)
     })
   }
-
-  // 遍历app信息-递归模式
-  // eachAppInfo(dirs) {
-  //   return new Promise((resolve, reject) => {
-  //     let apps = []
-  //     var loopFun = (idx) => {
-  //       try {
-  //         var file = fs.readFileSync(path.resolve(dirs[idx] + '/package.json'), 'utf-8')
-  //         if (file) {
-  //           apps.push(JSON.parse(file))
-  //         }
-  //       } catch (e) {
-  //         // console.log(e, 'e')
-  //       }
-  //       idx += 1
-  //       idx > dirs.length - 1 ? resolve(apps) : loopFun(idx)
-  //     }
-  //     loopFun(0)
-  //   })
-  // }
 
   // 遍历app信息
   eachAppInfo(dirs) {
