@@ -38,6 +38,9 @@ module.exports = {
       text: '主页',
       link: '/'
     }, {
+      text: 'VI',
+      link: '/zh/vi'
+    }, {
       text: '应用下载',
       link: '/zh/devguide.html#funtask桌面端下载'
     }, {
