@@ -127,7 +127,7 @@ export default class {
       width: 88,
       height: 88,
       frame: false,
-      transparent: false,
+      transparent: true,
       resizable: false,
       maximizable: false,
       minimizable: false,
