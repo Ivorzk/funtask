@@ -30,9 +30,9 @@ export default class {
     protocol.registerSchemesAsPrivileged([{
       scheme: global.$config.app.protocol,
       privileges: {
-        secure: true,
+        secure: false,
         standard: true,
-        bypassCSP: true
+        bypassCSP: false
       }
     }])
 
