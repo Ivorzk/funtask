@@ -1,19 +1,23 @@
 <template>
-<div class="suwis-control" :class="{show: control.visible}">
+<div class="suwis-control"
+  :class="{show: control.visible}">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="header"></div>
     <!--  -->
-    <span @click="toggle" class="btn-toggle iconfont">&#xe67c;</span>
+    <span @click="toggle"
+      class="btn-toggle iconfont">&#xe67c;</span>
     <!--  -->
     <!-- <div class="search-bar">
       <input type="text" name="" value="">
     </div> -->
     <div class="fun-list">
       <ul>
-        <li v-for="app in apps" :key="app.data.name">
+        <li v-for="(app,idx) in apps"
+          :key="'app_'+idx">
           <span>
-            <!-- <img :src="'file:///'+app.data.logo" alt=""> -->
+            <img :src="app.data.name+ '/logo.png'"
+              alt="">
             {{app.data.name}}
           </span>
         </li>
@@ -84,7 +88,7 @@ export default {
         left: 0;
         top: 0;
         margin: 0 auto;
-        background: rgba(0, 0, 0, 1) url("./../assets/control_bg.jpg") no-repeat center/cover;
+        background: rgba(0, 0, 0, 1);
         overflow: hidden;
         filter: blur(39px);
         opacity: 0.39;
