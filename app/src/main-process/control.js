@@ -179,13 +179,13 @@ export default class {
     if (process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
       this.ball.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-      this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}control`)
+      this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}/control`)
       if (!process.env.IS_TEST) this.control.webContents.openDevTools()
     } else {
       createProtocol(global.$config.app.protocol)
       // Load the index.html when not in development
-      this.ball.loadURL(`${global.$config.app.protocol}://./index.html`)
-      this.control.loadURL(`${global.$config.app.protocol}://./control`)
+      this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
+      this.control.loadURL(`${global.$config.app.protocol}://./index.html#/control`)
       this.ball.webContents.openDevTools()
     }
   }
