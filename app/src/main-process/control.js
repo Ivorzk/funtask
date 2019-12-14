@@ -186,7 +186,6 @@ export default class {
       // Load the index.html when not in development
       this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/control`)
-      this.ball.webContents.openDevTools()
     }
   }
 
