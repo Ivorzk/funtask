@@ -180,16 +180,17 @@ export default class {
     // 创建协议(主框架工作目录)
     // createProtocol(global.$config.app.protocol)
     // 创建app目录协议
-    customProtocol(global.$config.app.protocol, global.$config.packagesdir)
-    if (process.env.WEBPACK_DEV_SERVER_URL) {
+    if (!process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
       this.ball.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
       this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}#/control`)
       if (!process.env.IS_TEST) this.control.webContents.openDevTools()
     } else {
+      customProtocol(global.$config.app.protocol, global.$config.packagesdir)
       // Load the index.html when not in development
       this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/control`)
+      this.control.webContents.openDevTools()
     }
   }
 
