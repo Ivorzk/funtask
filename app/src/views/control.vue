@@ -16,7 +16,7 @@
         <li v-for="(app,idx) in apps"
           :key="'app_'+idx">
           <span>
-            <img :src="app.data.name+ '/logo.png'"
+            <img :src="'funtsak://'+app.data.name+ '/logo.png'"
               alt="">
             {{app.data.name}}
           </span>
