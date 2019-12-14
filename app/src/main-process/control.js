@@ -36,7 +36,7 @@ export default class {
       }
     }])
 
-    app.on('ready', () => {
+    app.on('ready', async () => {
       if (isDevelopment && !process.env.IS_TEST) {
         // Install Vue Devtools
         // Devtools extensions are broken in Electron 6.0.0 and greater
@@ -128,6 +128,7 @@ export default class {
       height: 88,
       frame: false,
       transparent: true,
+      backgroundColor: '#00ffffff',
       resizable: false,
       maximizable: false,
       minimizable: false,
@@ -156,6 +157,7 @@ export default class {
       height: 380,
       frame: false,
       transparent: true,
+      backgroundColor: '#00ffffff',
       resizable: false,
       maximizable: false,
       minimizable: false,
