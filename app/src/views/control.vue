@@ -13,7 +13,7 @@
       <ul>
         <li v-for="app in apps" :key="app.data.name">
           <span>
-            <img :src="'file:///'+app.data.logo" alt="">
+            <!-- <img :src="'file:///'+app.data.logo" alt=""> -->
             {{app.data.name}}
           </span>
         </li>
@@ -45,7 +45,6 @@ export default {
       this.control.visible = visible
     })
     ipcRenderer.on('apps-reply', (event, apps) => {
-      console.log('apps', apps)
       this.apps = apps
     })
     ipcRenderer.send('apps-get', 'json')
