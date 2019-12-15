@@ -53,9 +53,9 @@ export default {
       console.log(request, 'request')
       // 判断资源来源主框架、应用目录、debug目录
       let paths = []
-      let dirs = [__dirname + '\\bundled\\', global.$config.packagesdir, ...global.$config.dev.debugdirs]
-      dirs.forEach((path, idx) => {
-        paths.push(path += pathName)
+      let dirs = [__dirname, global.$config.packagesdir, ...global.$config.dev.debugdirs]
+      dirs.forEach((dir, idx) => {
+        paths.push(path.join(dir, pathName))
       })
       // console.log(paths, 'paths')
       var loopFun = (paths, idx) => {
