@@ -167,7 +167,7 @@ export default {
             font-size: 1rem;
             cursor: pointer;
             box-sizing: border-box;
-            padding: 0 1.68vw 3.36vw;
+            padding: 0 1.68vw 5vw;
             transition: all 0.3s ease;
 
             &:active {
