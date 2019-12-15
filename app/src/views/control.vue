@@ -15,9 +15,11 @@
       <ul>
         <li v-for="(app,idx) in apps"
           :key="'app_'+idx">
+          <img src="@/assets/logo.jpg"
+            alt="">
+          <!-- <img :src="'funtask://'+app.data.name+ '/logo.png'"
+          alt=""> -->
           <span>
-            <img :src="app.data.name+ '/logo.png'"
-              alt="">
             {{app.data.name}}
           </span>
         </li>
@@ -141,13 +143,15 @@ export default {
     .fun-list {
         position: relative;
         z-index: 10;
+        height: calc(100vh - 36px);
+        overflow: auto;
 
         ul {
             display: flex;
             flex-wrap: wrap;
             list-style: none;
             margin: 0;
-            padding: 0;
+            padding: 0 1.68vw;
             height: calc(100vh - 80px);
         }
 
@@ -156,20 +160,31 @@ export default {
             min-width: 20%;
             color: #fff;
             text-align: center;
-            height: 33.33%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            font-size: 12px;
-            line-height: 28px;
+            font-size: 1rem;
             cursor: pointer;
+            box-sizing: border-box;
+            padding: 0 1.68vw 3.36vw;
+            transition: all 0.3s ease;
 
-            i {
+            &:active {
+                opacity: 0.8;
+            }
+
+            img {
                 display: block;
-                flex: 1;
-                font-size: 28px;
-                font-style: normal;
+                margin: auto;
+                width: 8vw;
+                height: 8vw;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+
+            span {
+                padding-top: 1.68vw;
             }
         }
     }
