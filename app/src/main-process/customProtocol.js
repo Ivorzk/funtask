@@ -8,6 +8,9 @@ import {
 import {
   URL
 } from 'url'
+import os from 'os'
+// 是否是windows
+const isWindows = os.platform() == 'win32'
 
 export default {
   // 创建协议
@@ -50,14 +53,12 @@ export default {
   },
   findFile(request, pathName) {
     return new Promise((resolve, reject) => {
-      console.log(request, 'request')
+      // console.log(request, 'request')
       // 判断资源来源主框架、应用目录、debug目录
       let paths = []
       let dirs = [__dirname, global.$config.packagesdir, ...global.$config.dev.debugdirs]
       dirs.forEach((dir, idx) => {
-        if (idx > 1) {
-          dir = dir.substr(0, dir.lastIndexOf('/'))
-        }
+        isWindows && idx > 1 ? dir = dir.substr(0, dir.lastIndexOf('\\')) : dir.substr(0, dir.lastIndexOf('/'))
         paths.push(path.join(dir, pathName))
       })
       // console.log(paths, 'paths')
