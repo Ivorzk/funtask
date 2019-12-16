@@ -55,6 +55,9 @@ export default {
       let paths = []
       let dirs = [__dirname, global.$config.packagesdir, ...global.$config.dev.debugdirs]
       dirs.forEach((dir, idx) => {
+        if (idx > 1) {
+          dir = dir.substr(0, dir.lastIndexOf('/'))
+        }
         paths.push(path.join(dir, pathName))
       })
       // console.log(paths, 'paths')
