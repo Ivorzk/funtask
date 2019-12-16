@@ -1,5 +1,11 @@
 module.exports = {
   base: '/',
+  head: [
+    ['link', {
+      rel: 'icon',
+      href: '/favicon.ico'
+    }]
+  ],
   plugins: [
     '@vuepress/active-header-links',
     '@vuepress/back-to-top',
