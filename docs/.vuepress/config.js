@@ -27,12 +27,12 @@ module.exports = {
       title: 'funtask',
       description: '高效、快乐、人性化的工作方式'
     },
-    '/en/': {
-      selectText: 'Languages',
-      lang: 'en-US',
-      title: 'funtask',
-      description: 'Efficient, happy, humane way of working'
-    }
+    // '/en/': {
+    //   selectText: 'Languages',
+    //   lang: 'en-US',
+    //   title: 'funtask',
+    //   description: 'Efficient, happy, humane way of working'
+    // }
   },
   themeConfig: {
     // 搜索
