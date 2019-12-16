@@ -10,7 +10,7 @@ var control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
   // -
-  console.log(global.$config)
+  // console.log(global.$config)
   control = new Control()
   // 加载app
   appManager.loadApps()

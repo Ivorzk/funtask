@@ -75,7 +75,6 @@ export default {
         height: 60%;
         border-radius: 100%;
         object-fit: cover;
-        background: #fff;
         -webkit-app-region: no-drag;
     }
 }

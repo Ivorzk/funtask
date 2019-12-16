@@ -74,7 +74,5 @@ export default class {
       // 重新加载配置文件
       this.loadConfig()
     })
-
-
   }
 }
