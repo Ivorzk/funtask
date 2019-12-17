@@ -14,7 +14,8 @@
     <div class="fun-list">
       <ul>
         <li v-for="(app,idx) in apps"
-          :key="'app_'+idx">
+          :key="'app_'+idx"
+          @click="run(app)">
           <img :src="app.data.name+ '/logo.png'"
             alt="">
           <span>
@@ -37,6 +38,7 @@ export default {
       control: {
         visible: false
       },
+      cantouch: true,
       // 应用数据
       apps: []
     }
@@ -52,11 +54,21 @@ export default {
       this.apps = apps
     })
     ipcRenderer.send('apps-get', 'json')
+    ipcRenderer.on('app-runing', (event, appInfo) => {
+      this.cantouch = true
+    })
   },
   methods: {
+    // 切换界面
     toggle() {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
+    },
+    // 运行app
+    run(app) {
+      if (!this.cantouch) return
+      this.cantouch = false
+      ipcRenderer.send('app-run', app)
     }
   }
 }
