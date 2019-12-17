@@ -5,8 +5,11 @@
   <div class="wrapper">
     <div class="header"></div>
     <!--  -->
-    <span @click="toggle"
-      class="btn-toggle iconfont">&#xe67c;</span>
+    <div class="btn-group">
+      <span @click="toggle"
+        class="btn toggle iconfont">&#xe63e;</span>
+      <span class="btn menu iconfont">&#xe67c;</span>
+    </div>
     <!--  -->
     <!-- <div class="search-bar">
       <input type="text" name="" value="">
@@ -16,7 +19,7 @@
         <li v-for="(app,idx) in apps"
           :key="'app_'+idx"
           @click="run(app)">
-          <img :src="app.data.name+ '/logo.png'"
+          <img v-lazy="app.data.name+ '/logo.png'"
             alt="">
           <span>
             {{app.data.name}}
@@ -115,21 +118,41 @@ export default {
     .header {
         height: 36px;
         -webkit-app-region: drag;
-        width: calc(100% - 45px);
+        width: calc(100% - 90px);
     }
 
-    .btn-toggle {
+    .btn-group {
         position: absolute;
-        right: 12px;
-        top: 5px;
+        right: 0;
+        top: 0;
         color: #1f85ff;
-        font-size: 24px;
-        cursor: pointer;
-        opacity: 0.6;
-        z-index: 99;
+        font-size: 1.5rem;
+        z-index: 399;
+        display: flex;
 
         &:hover {
+            .toggle {
+                visibility: visible;
+            }
+        }
+    }
+
+    .btn {
+        z-index: 99;
+        width: 45px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+        cursor: pointer;
+        &:hover {
+            background: #333;
             opacity: 1;
+        }
+
+        &.toggle {
+            visibility: hidden;
         }
     }
 
@@ -155,6 +178,7 @@ export default {
         z-index: 10;
         height: calc(100vh - 36px);
         overflow: auto;
+        padding: 15px 0;
 
         ul {
             display: flex;

@@ -105,11 +105,11 @@ export default class {
   // 打开应用
   async openWindow(app) {
     let win = new BrowserWindow({
-      x: 0,
-      y: 0,
+      x: 30,
+      y: 30,
       width: 618,
       height: 380,
-      frame: false,
+      frame: true,
       transparent: true,
       backgroundColor: '#00ffffff',
       resizable: false,
