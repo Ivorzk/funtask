@@ -1,5 +1,6 @@
 /**
  * 系统托盘
+ * @type Object
  */
 import {
   app,
