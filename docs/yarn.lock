@@ -275,6 +275,11 @@ set-blocking@^2.0.0:
   resolved "https://registry.npmjs.org/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
 
+smoothscroll-polyfill@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.npmjs.org/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
+  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -320,6 +325,28 @@ vuepress-bar@^0.2.1:
     markdown-it "^10.0.0"
     markdown-it-meta "0.0.1"
     transliteration "^2.1.7"
+
+vuepress-plugin-baidu-autopush@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/vuepress-plugin-baidu-autopush/-/vuepress-plugin-baidu-autopush-1.0.1.tgz#e5042170f05a585c4a38f876e01ff4706cd82fbe"
+  integrity sha512-KVQkrmMgPY+GG8dtI2wcRxUv1n2h5DM8aFs75ltsSlFBSS9C/vfLb2LmywXAsoCXk2EHya2p66cpn7BxofK+Mw==
+
+vuepress-plugin-baidu-google-analytics@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/vuepress-plugin-baidu-google-analytics/-/vuepress-plugin-baidu-google-analytics-1.0.0.tgz#35f6317ab27c000ce06e3e80ca90920b82046ed6"
+  integrity sha512-bXVaURSb2/1LnVKPQMLTmls2sVuY/nBg2myw8HmRywSsj9kfOERwW4QXas13gdrgx79CLLH5uu4VGrj85F0GTw==
+
+vuepress-plugin-clean-urls@^1.0.3:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/vuepress-plugin-clean-urls/-/vuepress-plugin-clean-urls-1.1.1.tgz#593f47be643c33c34413ba408e8bee31aaf534bd"
+  integrity sha512-cEDbqme8rPbkSbjz73ONFSKIZkzC8HFRBY7UD/oa1ZC655HYhQo3JMbJgJXeCQjV/vkl7WuPB/QMNlQY20PXjw==
+
+vuepress-plugin-smooth-scroll@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.7.tgz#ee0dc4b76eb487b115ae95049a5d749b581b8439"
+  integrity sha512-VbLl4AFoLypylCGN0PHO7X+wSjWPKGccaE91DjooXVCsXs6DadzDZCpXSIlQ1WJf/uu9Pi40l3e33FNtt7xu2Q==
+  dependencies:
+    smoothscroll-polyfill "^0.4.4"
 
 vuepress-plugin-zooming@^1.1.5:
   version "1.1.5"

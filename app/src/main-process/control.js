@@ -12,7 +12,7 @@ import {
   // createProtocol,
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
-import customProtocol from './createProtocol'
+import customProtocol from './customProtocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
 /**
@@ -185,11 +185,12 @@ export default class {
       this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}#/control`)
       if (!process.env.IS_TEST) this.control.webContents.openDevTools()
     } else {
-      customProtocol(global.$config.app.protocol, global.$config.packagesdir)
+      // 注册协议
+      customProtocol.register(global.$config.app.protocol)
       // Load the index.html when not in development
       this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/control`)
-      this.control.webContents.openDevTools()
+      // this.control.webContents.openDevTools()
     }
   }
 

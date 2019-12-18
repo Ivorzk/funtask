@@ -1,11 +1,22 @@
 module.exports = {
   base: '/',
+  head: [
+    ['link', {
+      rel: 'icon',
+      href: '/favicon.ico'
+    }]
+  ],
   plugins: [
-    'vuepress-plugin-clean-urls',
     '@vuepress/active-header-links',
     '@vuepress/back-to-top',
     'vuepress-plugin-zooming',
-    'vuepress-plugin-smooth-scroll'
+    'vuepress-plugin-smooth-scroll',
+    'vuepress-plugin-baidu-autopush',
+    ['vuepress-plugin-baidu-google-analytics', {
+      hm: 'e8d6d776c48a38d9d9420ec938a537fe',
+      ga: '',
+      ignore_hash: false
+    }]
   ],
   locales: {
     // 键名是该语言所属的子路径
@@ -16,12 +27,12 @@ module.exports = {
       title: 'funtask',
       description: '高效、快乐、人性化的工作方式'
     },
-    '/en/': {
-      selectText: 'Languages',
-      lang: 'en-US',
-      title: 'funtask',
-      description: 'Efficient, happy, humane way of working'
-    }
+    // '/en/': {
+    //   selectText: 'Languages',
+    //   lang: 'en-US',
+    //   title: 'funtask',
+    //   description: 'Efficient, happy, humane way of working'
+    // }
   },
   themeConfig: {
     // 搜索

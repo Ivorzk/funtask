@@ -6,13 +6,20 @@ import gulp from 'gulp'
 import rename from 'gulp-rename'
 import path from 'path'
 import {
+  BrowserWindow,
   ipcMain
 } from 'electron'
+var apps = []
 export default class {
   constructor() {
     // 获取app菜单
     ipcMain.on('apps-get', (evt, dataType) => {
       evt.reply('apps-reply', global.$apps)
+    })
+    // 监听app打开操作
+    ipcMain.on('app-run', async (evt, app) => {
+      await this.openWindow(app)
+      evt.reply('app-runing', app)
     })
   }
 
@@ -93,5 +100,32 @@ export default class {
   // 载入缓存
   cacheAppData() {
 
+  }
+
+  // 打开应用
+  async openWindow(app) {
+    let win = new BrowserWindow({
+      x: 30,
+      y: 30,
+      width: 618,
+      height: 380,
+      frame: true,
+      transparent: true,
+      backgroundColor: '#00ffffff',
+      resizable: false,
+      maximizable: false,
+      minimizable: false,
+      alwaysOnTop: true,
+      fullscreenable: false,
+      hasShadow: true,
+      skipTaskbar: true,
+      webPreferences: {
+        nodeIntegration: true,
+        nodeIntegrationInWorker: true
+      }
+    })
+    apps.push(win)
+    win.loadURL('https://funtask.dev')
+    return true
   }
 }

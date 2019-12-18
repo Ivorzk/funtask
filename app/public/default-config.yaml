@@ -13,23 +13,23 @@ app:
 dev:
   # 调试的插件目录
   debugdirs:
-    - F:\work\suwis\longTimeProject\funtask_youdao
-    - F:\work\suwis\longTimeProject\funtask_youdao1
-    - F:\work\suwis\longTimeProject\funtask_youdao2
-    - F:\work\suwis\longTimeProject\funtask_youdao3
-    - F:\work\suwis\longTimeProject\funtask_youdao4
-    - F:\work\suwis\longTimeProject\funtask_youdao5
-    - F:\work\suwis\longTimeProject\funtask_youdao6
-    - F:\work\suwis\longTimeProject\funtask_youdao7
-    - F:\work\suwis\longTimeProject\funtask_youdao8
-    - F:\work\suwis\longTimeProject\funtask_youdao9
-    - E:\work\suwis\LongRunProject\funtask_youdao
-    - E:\work\suwis\LongRunProject\funtask_youdao1
-    - E:\work\suwis\LongRunProject\funtask_youdao2
-    - E:\work\suwis\LongRunProject\funtask_youdao3
-    - E:\work\suwis\LongRunProject\funtask_youdao4
-    - E:\work\suwis\LongRunProject\funtask_youdao5
-    - E:\work\suwis\LongRunProject\funtask_youdao6
-    - E:\work\suwis\LongRunProject\funtask_youdao7
-    - E:\work\suwis\LongRunProject\funtask_youdao8
-    - E:\work\suwis\LongRunProject\funtask_youdao9
+    - F:\work\suwis\longTimeProject\youdao
+    - F:\work\suwis\longTimeProject\youdao1
+    - F:\work\suwis\longTimeProject\youdao2
+    - F:\work\suwis\longTimeProject\youdao3
+    - F:\work\suwis\longTimeProject\youdao4
+    - F:\work\suwis\longTimeProject\youdao5
+    - F:\work\suwis\longTimeProject\youdao6
+    - F:\work\suwis\longTimeProject\youdao7
+    - F:\work\suwis\longTimeProject\youdao8
+    - F:\work\suwis\longTimeProject\youdao9
+    - E:\work\suwis\LongRunProject\youdao
+    - E:\work\suwis\LongRunProject\youdao1
+    - E:\work\suwis\LongRunProject\youdao2
+    - E:\work\suwis\LongRunProject\youdao3
+    - E:\work\suwis\LongRunProject\youdao4
+    - E:\work\suwis\LongRunProject\youdao5
+    - E:\work\suwis\LongRunProject\youdao6
+    - E:\work\suwis\LongRunProject\youdao7
+    - E:\work\suwis\LongRunProject\youdao8
+    - E:\work\suwis\LongRunProject\youdao9
