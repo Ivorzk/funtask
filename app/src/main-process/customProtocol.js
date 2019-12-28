@@ -1,3 +1,6 @@
+/**
+ * 用户自定义协议
+ */
 import {
   protocol
 } from 'electron'
