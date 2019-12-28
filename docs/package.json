@@ -5,6 +5,7 @@
     "vuepress-plugin-baidu-google-analytics": "^1.0.0"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "vuepress-bar": "^0.2.1",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-clean-urls": "^1.0.3",
