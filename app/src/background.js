@@ -1,4 +1,5 @@
 'use strict'
+import 'core-js'
 import Config from './main-process/config'
 import AppManager from './main-process/appManager'
 import Control from './main-process/control'

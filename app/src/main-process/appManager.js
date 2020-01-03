@@ -9,7 +9,7 @@ import {
   BrowserWindow,
   ipcMain
 } from 'electron'
-var apps = []
+var apps = new Map()
 export default class {
   constructor() {
     // 获取app菜单
@@ -105,8 +105,8 @@ export default class {
   // 打开应用
   async openWindow(app) {
     let win = new BrowserWindow({
-      x: 30,
-      y: 30,
+      x: 28 * (apps.size + 1),
+      y: 28 * (apps.size + 1),
       width: 618,
       height: 380,
       frame: true,
@@ -124,7 +124,11 @@ export default class {
         nodeIntegrationInWorker: true
       }
     })
-    apps.push(win)
+    win.winId = 'win_' + Date.now()
+    apps.set(win.winId, win)
+    win.on('closed', (win) => {
+      apps.delete(win.sender.winId)
+    })
     win.loadURL('https://funtask.dev')
     return true
   }
