@@ -34,6 +34,7 @@ module.exports = {
     //   description: 'Efficient, happy, humane way of working'
     // }
   },
+  theme: 'funtask',
   themeConfig: {
     // 搜索
     search: true,
