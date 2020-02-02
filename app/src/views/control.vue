@@ -219,6 +219,8 @@ export default {
 
             span {
                 padding-top: 1.68vw;
+                display: block;
+                width: 100%;
             }
         }
     }

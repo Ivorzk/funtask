@@ -24,6 +24,7 @@ export default {
         let pathName = new URL(request.url).pathname
         // Needed in case URL contains spaces
         pathName = decodeURI(pathName)
+        console.log(pathName, 'pname')
         // 查找文件
         this.findFile(request, pathName).then(data => {
           let extension = path.extname(pathName).toLowerCase()

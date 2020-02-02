@@ -123,13 +123,14 @@ export default class {
         nodeIntegration: true,
         nodeIntegrationInWorker: true
       }
-    }, app))
+    }, app.winconf || {}))
     win.winId = 'win_' + Date.now()
     apps.set(win.winId, win)
     win.on('closed', (win) => {
       apps.delete(win.sender.winId)
     })
-    win.loadURL('https://funtask.dev')
+    console.log(app, 'app', 'funtask://' + app.data.name + '/views/index.html')
+    win.loadURL('funtask://' + app.data.name + '/views/index.html')
     return true
   }
 }
