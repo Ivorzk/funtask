@@ -104,7 +104,7 @@ export default class {
 
   // 打开应用
   async openWindow(app) {
-    let win = new BrowserWindow({
+    let win = new BrowserWindow(Object.assign({
       x: 28 * (apps.size + 1),
       y: 28 * (apps.size + 1),
       width: 618,
@@ -123,7 +123,7 @@ export default class {
         nodeIntegration: true,
         nodeIntegrationInWorker: true
       }
-    })
+    }, app))
     win.winId = 'win_' + Date.now()
     apps.set(win.winId, win)
     win.on('closed', (win) => {
