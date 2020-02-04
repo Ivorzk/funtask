@@ -130,7 +130,7 @@ export default class {
       apps.delete(win.sender.winId)
     })
     // console.log(app, 'app', 'funtask://' + app.data.name + '/views/index.html')
-    win.loadURL('funtask://' + app.data.name + '/views/index.html')
+    win.loadURL(global.$config.app.protocol + '://./' + app.data.name + '/views/index.html')
     return true
   }
 }
