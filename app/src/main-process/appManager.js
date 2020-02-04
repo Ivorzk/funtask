@@ -129,7 +129,7 @@ export default class {
     win.on('closed', (win) => {
       apps.delete(win.sender.winId)
     })
-    console.log(app, 'app', 'funtask://' + app.data.name + '/views/index.html')
+    // console.log(app, 'app', 'funtask://' + app.data.name + '/views/index.html')
     win.loadURL('funtask://' + app.data.name + '/views/index.html')
     return true
   }
