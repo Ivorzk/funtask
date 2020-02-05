@@ -76,6 +76,7 @@ export default {
         border-radius: 100%;
         object-fit: cover;
         -webkit-app-region: no-drag;
+        opacity: 0.89;
     }
 }
 </style>
