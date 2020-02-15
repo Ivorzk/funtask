@@ -4,13 +4,13 @@ Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能
 
 ## Funtask客户端下载
 
-| 平台      | 应用大小 | 更新时间       | 版本号    | 下载链接                                                  |
-| :------ | :--- | :--------- | :----- | :---------------------------------------------------- |
-| Windows | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe) |
-| Mac     | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe) |
-| Linux   | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe) |
-| IOS     | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe) |
-| Android | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe) |
+| 平台      | 应用大小 | 更新时间       | 版本号    | 下载链接                                                                     |
+| :------ | :--- | :--------- | :----- | :----------------------------------------------------------------------- |
+| Windows | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.0.exe) |
+| Mac     | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe)                    |
+| Linux   | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe)                    |
+| IOS     | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe)                    |
+| Android | 39M  | 2019-11-18 | v1.0.0 | [点击下载](https://funtask.dev/download/windows-step.exe)                    |
 
 ## 开发第一个应用
 
@@ -46,20 +46,18 @@ funtask link
 
 Funtask 遵循 “约定优于配置” 的原则，插件的目录结构如下：
 
-```
-.
-│  CHANGELOG.md // 修改日志
-│  index.js // 应用入口文件
-│  LICENSE.md // 协议
-│  logo.png // 应用logo
-│  package.json // npm 依赖文件
-│
-├─keymaps
-│      keymap.json // 快捷键绑定
-│
-└─menus
-        menus.json // 菜单文件
-```
+    .
+    │  CHANGELOG.md // 修改日志
+    │  index.js // 应用入口文件
+    │  LICENSE.md // 协议
+    │  logo.png // 应用logo
+    │  package.json // npm 依赖文件
+    │
+    ├─keymaps
+    │      keymap.json // 快捷键绑定
+    │
+    └─menus
+            menus.json // 菜单文件
 
 ## 发布Funtask应用
 
