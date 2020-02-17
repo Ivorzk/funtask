@@ -194,9 +194,6 @@ export default {
             min-width: 20%;
             color: #fff;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-wrap: wrap;
             font-size: 1rem;
             cursor: pointer;
