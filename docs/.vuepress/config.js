@@ -64,6 +64,7 @@ module.exports = {
         'introduction',
         'devguide',
         'framework',
+        'plugin',
         'API'
       ]
     }
