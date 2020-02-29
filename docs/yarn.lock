@@ -387,10 +387,10 @@ vuepress-plugin-zooming@^1.1.5:
   dependencies:
     zooming "^2.1.1"
 
-vuepress-theme-funtask@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/vuepress-theme-funtask/-/vuepress-theme-funtask-1.0.0.tgz#a85bd5480b8b5fcce37a4e8225d5e23e9b5086e2"
-  integrity sha512-yjhwjXg4t88H4RvMNpAzw2aHEYxkVXvKXKqhooswzGMApV058PaOktubospJVRcseay0fz9NHeuiy6mNICJIUQ==
+vuepress-theme-funtask@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/vuepress-theme-funtask/-/vuepress-theme-funtask-1.0.1.tgz#14e57ce176b6302eb2aeb7625734e0fab21643f4"
+  integrity sha512-1jXL4k10u5KBpAYURFnoLVYmMeEiIbTIDi5NLVuSJMTyXJAWQ2qbN+Rz6G4BIIf90Z0CU4yhjnyWnbKr+i/I3A==
 
 which-module@^2.0.0:
   version "2.0.0"
