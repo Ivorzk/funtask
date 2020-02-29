@@ -126,7 +126,8 @@ export default class {
       skipTaskbar: true,
       webPreferences: {
         nodeIntegration: true,
-        nodeIntegrationInWorker: true
+        nodeIntegrationInWorker: true,
+        webSecurity: false
       },
       titleBarStyle: 'hidden'
     }, app.winconf || {}))
