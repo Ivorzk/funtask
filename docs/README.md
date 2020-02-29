@@ -18,5 +18,6 @@ footer: MIT Licensed | Copyright © 2019 - CTI - Technology Group
 <style>
 .home .hero img {
   width: 58%;
+  min-height: 12vw;
 }
 </style>
