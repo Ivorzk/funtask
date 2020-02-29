@@ -19,10 +19,10 @@
         <li v-for="(app,idx) in apps"
           :key="'app_'+idx"
           @click="run(app)">
-          <img v-lazy="app.data.name+ '/logo.png'"
+          <img v-lazy="app.logo"
             alt="">
           <span>
-            {{app.data.name}}
+            {{app.name}}
           </span>
         </li>
       </ul>

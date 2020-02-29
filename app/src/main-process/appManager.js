@@ -79,13 +79,16 @@ export default class {
       let apps = []
       dirs.forEach(apppath => {
         try {
-          var file = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
-          if (file) {
-            let data = JSON.parse(file)
-            data.logo = path.resolve(apppath + '/logo.png')
-            data.name = data.name.replace('@funtask/', '')
+          var packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
+          var configFile = fs.readFileSync(path.resolve(apppath + '/app.json'), 'utf-8')
+          if (packageFile && configFile) {
+            let config = JSON.parse(configFile)
+            let packageJson = JSON.parse(packageFile)
+
             apps.push({
-              data,
+              logo: './' + packageJson.name + '/logo.png',
+              ...config,
+              package: packageJson,
               path: apppath
             })
           }
@@ -129,8 +132,8 @@ export default class {
     win.on('closed', (win) => {
       apps.delete(win.sender.winId)
     })
-    // console.log(app, 'app', 'funtask://' + app.data.name + '/views/index.html')
-    win.loadURL(global.$config.app.protocol + '://./' + app.data.name + '/views/index.html')
+    // console.log(app, 'app', 'funtask://' + app.package.name + '/views/index.html')
+    win.loadURL(global.$config.app.protocol + '://./' + app.package.name + '/views/index.html')
     return true
   }
 }
