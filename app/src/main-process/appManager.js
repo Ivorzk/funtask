@@ -110,6 +110,8 @@ export default class {
     let win = new BrowserWindow(Object.assign({
       x: 28 * (apps.size + 1),
       y: 28 * (apps.size + 1),
+      title: app.name,
+      icon: app.logo,
       width: 618,
       height: 380,
       frame: true,
@@ -125,7 +127,8 @@ export default class {
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true
-      }
+      },
+      titleBarStyle: 'hidden'
     }, app.winconf || {}))
     win.winId = 'win_' + Date.now()
     apps.set(win.winId, win)
