@@ -1,6 +1,7 @@
 /**
  * APP管理类
  */
+import YAML from 'yaml'
 import fs from 'fs'
 import gulp from 'gulp'
 import rename from 'gulp-rename'
@@ -80,9 +81,9 @@ export default class {
       dirs.forEach(apppath => {
         try {
           var packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
-          var configFile = fs.readFileSync(path.resolve(apppath + '/app.json'), 'utf-8')
+          var configFile = fs.readFileSync(path.resolve(apppath + '/app.yaml'), 'utf-8')
           if (packageFile && configFile) {
-            let config = JSON.parse(configFile)
+            let config = YAML.parse(configFile)
             let packageJson = JSON.parse(packageFile)
 
             apps.push({
