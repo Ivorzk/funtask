@@ -6,7 +6,8 @@ import {
   app,
   protocol,
   BrowserWindow,
-  ipcMain
+  ipcMain,
+  screen
 } from 'electron'
 import {
   // createProtocol,
@@ -121,10 +122,17 @@ export default class {
 
   // 创建窗体
   createWindow() {
+    // 获取宽高
+    const {
+      width,
+      height
+    } = screen.getPrimaryDisplay().workAreaSize
     /**
      * Initial window options
      */
     this.ball = new BrowserWindow({
+      x: width - 108,
+      y: height - 108,
       width: 88,
       height: 88,
       frame: false,
