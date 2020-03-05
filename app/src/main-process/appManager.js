@@ -119,7 +119,7 @@ export default class {
       x: (width - winconf.width || 618) + 28 * apps.size,
       y: (height - winconf.height || 380) + 28 * apps.size,
       title: app.name,
-      icon: app.logo,
+      icon: config.protocol + '://' + app.logo,
       width: 618,
       height: 380,
       frame: true,
