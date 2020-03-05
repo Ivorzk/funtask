@@ -4,6 +4,14 @@ module.exports = {
     ['link', {
       rel: 'icon',
       href: '/favicon.ico'
+    }],
+    ['media', {
+      name: 'description',
+      content: '高效、快乐、人性化的工作方式'
+    }],
+    ['media', {
+      name: 'keywords',
+      content: 'Funtask, SUWIS, 工具, 高效办公'
     }]
   ],
   plugins: [
