@@ -8,7 +8,8 @@ import rename from 'gulp-rename'
 import path from 'path'
 import {
   BrowserWindow,
-  ipcMain
+  ipcMain,
+  screen
 } from 'electron'
 var apps = new Map()
 export default class {
@@ -108,9 +109,15 @@ export default class {
 
   // 打开应用
   async openWindow(app) {
+    // 获取宽高
+    const {
+      width,
+      height
+    } = screen.getPrimaryDisplay().workAreaSize
+    let winconf = app.winconf || {}
     let win = new BrowserWindow(Object.assign({
-      x: 28 * (apps.size + 1),
-      y: 28 * (apps.size + 1),
+      x: (width - winconf.width || 618) + 28 * apps.size,
+      y: (height - winconf.height || 380) + 28 * apps.size,
       title: app.name,
       icon: app.logo,
       width: 618,
@@ -131,7 +138,7 @@ export default class {
         webSecurity: false
       },
       titleBarStyle: 'hidden'
-    }, app.winconf || {}))
+    }, winconf))
     win.winId = 'win_' + Date.now()
     apps.set(win.winId, win)
     win.on('closed', (win) => {
