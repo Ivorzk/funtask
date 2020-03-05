@@ -89,6 +89,7 @@ export default class {
 
             apps.push({
               logo: './' + packageJson.name + '/logo.png',
+              icon: path.resolve(apppath + '/logo.png'),
               ...config,
               package: packageJson,
               path: apppath
@@ -119,7 +120,7 @@ export default class {
       x: (width - winconf.width || 618) + 28 * apps.size,
       y: (height - winconf.height || 380) + 28 * apps.size,
       title: app.name,
-      icon: config.protocol + '://' + app.logo,
+      icon: app.icon,
       width: 618,
       height: 380,
       frame: true,
