@@ -1,6 +1,5 @@
 <template>
 <div class="funtask-appstore">
-
 </div>
 </template>
 <script>
