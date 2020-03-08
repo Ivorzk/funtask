@@ -25,7 +25,7 @@ export default {
 <style scoped lang="scss">
 .funtask-window-header {
     .topbar {
-        height: 36px;
+        height: $funtask-window-height;
         -webkit-app-region: drag;
         width: calc(100% - 90px);
     }
