@@ -5,24 +5,9 @@
   <div class="wrapper">
     <funtask-header @btn-click="headerClick"></funtask-header>
     <!--  -->
-    <!-- <div class="search-bar">
-      <input type="text" name="" value="">
-    </div> -->
-    <div class="fun-list">
-      <ul>
-        <li v-for="(app,idx) in apps"
-          :key="'app_'+idx"
-          @click="run(app)">
-          <img v-lazy="app.logo"
-            alt="">
-          <span>
-            {{app.name}}
-          </span>
-        </li>
-      </ul>
-    </div>
+    <router-view></router-view>
+    <!--  -->
   </div>
-  <!-- 菜单 -->
   <div class="settings">
     <ol>
       <li @click="$router.push('/appstore')"><i class="iconfont">&#xe63c;</i>应用</li>
@@ -34,6 +19,7 @@
       <li><i class="iconfont">&#xe600;</i>开发社区</li>
       <li><i class="iconfont">&#xe63a;</i>应用设置</li>
       <li><i class="iconfont">&#xe63a;</i>系统设置</li>
+      <li @click="$router.push('/funlist')"><i class="iconfont">&#xe63a;</i>菜单</li>
     </ul>
   </div>
 </div>
@@ -63,13 +49,6 @@ export default {
     ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
     })
-    ipcRenderer.on('apps-reply', (event, apps) => {
-      this.apps = apps
-    })
-    ipcRenderer.send('apps-get', 'json')
-    ipcRenderer.on('app-runing', (event, appInfo) => {
-      this.cantouch = true
-    })
   },
   watch: {
     'control.visible'(val) {
@@ -89,12 +68,6 @@ export default {
     // 切换设置菜单
     settingsToggle() {
       this.control.sideslip = !this.control.sideslip
-    },
-    // 运行app
-    run(app) {
-      if (!this.cantouch) return
-      this.cantouch = false
-      ipcRenderer.send('app-run', app)
     }
   }
 }
@@ -105,7 +78,6 @@ export default {
     position: relative;
     width: 100vw;
     height: 100vh;
-    user-select: none;
     background: $funtask-bg-color-mask;
     transition: all 0.3s ease-in-out;
     opacity: 0;
@@ -146,72 +118,6 @@ export default {
         position: relative;
         left: 0;
         z-index: 99;
-    }
-
-    .search-bar {
-        padding: 20px;
-        position: relative;
-        z-index: 10;
-
-        input {
-            box-sizing: border-box;
-            width: 100%;
-            height: 100%;
-            padding: 9px;
-            border: none;
-            background: rgba(255, 255, 255, 1);
-            border-radius: 3px;
-            font-size: 12px;
-        }
-    }
-
-    .fun-list {
-        position: relative;
-        z-index: 10;
-        height: calc(100vh - 36px);
-        overflow: auto;
-        padding: 15px 0;
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            margin: 0;
-            padding: 0 1.68vw;
-            height: calc(100vh - 80px);
-        }
-
-        li {
-            max-width: 20%;
-            min-width: 20%;
-            color: #fff;
-            text-align: center;
-            flex-wrap: wrap;
-            font-size: $funtask-font-size-base;
-            cursor: pointer;
-            box-sizing: border-box;
-            padding: 0 1.68vw 5vw;
-            transition: all 0.3s ease;
-
-            &:active {
-                opacity: 0.8;
-            }
-
-            img {
-                display: block;
-                margin: auto;
-                width: 8vw;
-                height: 8vw;
-                object-fit: cover;
-                border-radius: 100%;
-            }
-
-            span {
-                padding-top: 1.68vw;
-                display: block;
-                width: 100%;
-            }
-        }
     }
 
     .settings {

@@ -9,11 +9,22 @@ const routes = [{
 }, {
   path: '/control',
   name: 'control',
-  component: () => import('../views/control.vue')
-}, {
-  path: '/appstore',
-  name: 'appstore',
-  component: () => import('../views/appstore.vue')
+  component: () => import('../views/control'),
+  children: [{
+    path: '/funlist',
+    name: 'funlist',
+    component: () => import('../views/control/funlist'),
+    meta: {
+      keepAlive: true
+    }
+  }, {
+    path: '/appstore',
+    name: 'appstore',
+    component: () => import('../views/control/appstore'),
+    meta: {
+      keepAlive: true
+    }
+  }]
 }]
 
 const router = new VueRouter({
