@@ -1,3 +1,4 @@
+const path = require('path')
 module.exports = {
   pluginOptions: {
     electronBuilder: {
@@ -6,6 +7,12 @@ module.exports = {
       builderOptions: {
         copyright: 'Copyright © suwis'
       }
+    },
+    'style-resources-loader': {
+      'preProcessor': 'scss',
+      'patterns': [
+        path.resolve(__dirname, './src/styles/*.scss')
+      ]
     }
   }
 }

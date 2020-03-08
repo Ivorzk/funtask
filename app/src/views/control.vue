@@ -1,6 +1,6 @@
 <template>
 <div class="suwis-control"
-  :class="{show: control.visible}">
+  :class="{show: control.visible,sideslip:control.sideslip}">
   <div class="bg"></div>
   <div class="wrapper">
     <div class="header"></div>
@@ -8,7 +8,8 @@
     <div class="btn-group">
       <span @click="toggle"
         class="btn toggle iconfont">&#xe63e;</span>
-      <span class="btn menu iconfont">&#xe67c;</span>
+      <span @click="toggleSettings"
+        class="btn menu iconfont">&#xe67c;</span>
     </div>
     <!--  -->
     <!-- <div class="search-bar">
@@ -28,6 +29,19 @@
       </ul>
     </div>
   </div>
+  <!-- 菜单 -->
+  <div class="settings">
+    <ol>
+      <li><i class="iconfont">&#xe63c;</i>安装插件</li>
+      <li><i class="iconfont">&#xeb6e;</i>安装皮肤</li>
+    </ol>
+    <ul>
+      <li><i class="iconfont">&#xe61e;</i>反馈中心</li>
+      <li><i class="iconfont">&#xe600;</i>开发中心</li>
+      <li><i class="iconfont">&#xe63a;</i>应用设置</li>
+      <li><i class="iconfont">&#xe63a;</i>系统设置</li>
+    </ul>
+  </div>
 </div>
 </template>
 
@@ -39,7 +53,9 @@ export default {
   data() {
     return {
       control: {
-        visible: false
+        visible: false,
+        // 侧滑状态
+        sideslip: false
       },
       cantouch: true,
       // 应用数据
@@ -61,11 +77,20 @@ export default {
       this.cantouch = true
     })
   },
+  watch: {
+    'control.visible'(val) {
+      if (!val) this.control.sideslip = val
+    }
+  },
   methods: {
     // 切换界面
     toggle() {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
+    },
+    // 切换设置菜单
+    toggleSettings() {
+      this.control.sideslip = !this.control.sideslip
     },
     // 运行app
     run(app) {
@@ -82,18 +107,26 @@ export default {
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
     user-select: none;
-    // border-radius: 6px;
-    background: rgba(0, 0, 0, 0.69);
+    background: $suwis-bg-color-mask;
     transition: all 0.3s ease-in-out;
     opacity: 0;
+    left: 0;
     transform: scale(0);
     transform-origin: right bottom;
 
     &.show {
         opacity: 1;
         transform: none;
+    }
+
+    &.sideslip {
+        .wrapper {
+            left: -39vw;
+        }
+        .settings {
+            right: 0;
+        }
     }
 
     .bg {
@@ -111,7 +144,9 @@ export default {
     }
 
     .wrapper {
+        transition: all 0.3s ease-in-out;
         position: relative;
+        left: 0;
         z-index: 99;
     }
 
@@ -195,7 +230,7 @@ export default {
             color: #fff;
             text-align: center;
             flex-wrap: wrap;
-            font-size: 1rem;
+            font-size: $suwis-font-size-base;
             cursor: pointer;
             box-sizing: border-box;
             padding: 0 1.68vw 5vw;
@@ -218,6 +253,55 @@ export default {
                 padding-top: 1.68vw;
                 display: block;
                 width: 100%;
+            }
+        }
+    }
+
+    .settings {
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        background: $suwis-bg-color-mask;
+        width: 39vw;
+        height: 100vh;
+        top: 0;
+        right: -39vw;
+        color: $suwis-text-color-inverse;
+        font-size: $suwis-font-size-base;
+
+        ol,
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                padding: $suwis-spacing-col-base $suwis-spacing-row-base;
+            }
+        }
+
+        ol {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: $suwis-spacing-col-base 0;
+            .iconfont {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                width: 5vw;
+                height: 5vw;
+            }
+            li {
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        ul {
+            padding: $suwis-spacing-col-base $suwis-spacing-row-base;
+            li {
+                display: flex;
+                align-items: center;
             }
         }
     }
