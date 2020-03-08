@@ -53,6 +53,9 @@ export default {
   watch: {
     'control.visible'(val) {
       if (!val) this.control.sideslip = val
+    },
+    $route() {
+      this.settingsClose()
     }
   },
   methods: {
@@ -68,7 +71,12 @@ export default {
     // 切换设置菜单
     settingsToggle() {
       this.control.sideslip = !this.control.sideslip
+    },
+    // 关闭右侧菜单
+    settingsClose() {
+      this.control.sideslip = false
     }
+
   }
 }
 </script>
