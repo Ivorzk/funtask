@@ -32,12 +32,13 @@
   <!-- 菜单 -->
   <div class="settings">
     <ol>
-      <li><i class="iconfont">&#xe63c;</i>安装插件</li>
-      <li><i class="iconfont">&#xeb6e;</i>安装皮肤</li>
+      <li><i class="iconfont">&#xe63c;</i>应用</li>
+      <li><i class="iconfont">&#xeb6e;</i>皮肤</li>
+      <li><var class="num">122</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
     <ul>
-      <li><i class="iconfont">&#xe61e;</i>反馈中心</li>
-      <li><i class="iconfont">&#xe600;</i>开发中心</li>
+      <li><i class="iconfont">&#xe61e;</i>反馈建议</li>
+      <li><i class="iconfont">&#xe600;</i>开发社区</li>
       <li><i class="iconfont">&#xe63a;</i>应用设置</li>
       <li><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
@@ -160,7 +161,7 @@ export default {
         position: absolute;
         right: 0;
         top: 0;
-        color: #1f85ff;
+        color: $suwis-color-primary;
         font-size: 1.5rem;
         z-index: 399;
         display: flex;
@@ -274,8 +275,10 @@ export default {
             padding: 0;
             margin: 0;
             li {
-                padding: $suwis-spacing-col-base $suwis-spacing-row-base;
+                padding: $suwis-spacing-col-base * 1.28 $suwis-spacing-row-base;
+                cursor: pointer;
             }
+
         }
 
         ol {
@@ -287,9 +290,28 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin: auto;
+                margin: 0 auto 0.8vw;
                 width: 5vw;
                 height: 5vw;
+                font-size: $suwis-font-size-lg * 1.28;
+                background: $suwis-color-primary;
+                border-radius: 100%;
+                padding: 0.28vw;
+                opacity: 0.8;
+            }
+            .num {
+                font-style: normal;
+                background: $suwis-bg-color;
+                color: $suwis-color-primary;
+                position: absolute;
+                z-index: 99;
+                font-size: 10px;
+                padding: 3px;
+                margin-top: -8px;
+                margin-right: -8px;
+                text-align: center;
+                border-radius: 30px;
+                opacity: 0.9;
             }
             li {
                 flex: 1;
@@ -298,7 +320,10 @@ export default {
         }
 
         ul {
-            padding: $suwis-spacing-col-base $suwis-spacing-row-base;
+            padding: $suwis-spacing-col-lg $suwis-spacing-row-lg;
+            .iconfont {
+                width: 30px;
+            }
             li {
                 display: flex;
                 align-items: center;
