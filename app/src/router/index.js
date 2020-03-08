@@ -10,6 +10,10 @@ const routes = [{
   path: '/control',
   name: 'control',
   component: () => import('../views/control.vue')
+}, {
+  path: '/appstore',
+  name: 'appstore',
+  component: () => import('../views/appstore.vue')
 }]
 
 const router = new VueRouter({

@@ -12,62 +12,62 @@
 /* 颜色变量 */
 
 /* 行为相关颜色 */
-$suwis-color-primary: #ff6300;
-$suwis-color-success: #4cd964;
-$suwis-color-warning: #f0ad4e;
-$suwis-color-error: #dd524d;
+$funtask-color-primary: #ff6300;
+$funtask-color-success: #4cd964;
+$funtask-color-warning: #f0ad4e;
+$funtask-color-error: #dd524d;
 
 /* 文字基本颜色 */
-$suwis-text-color: #2b2b2b; //基本色
-$suwis-text-color-inverse: #fff; //反色
-$suwis-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
-$suwis-text-color-placeholder: #808080;
-$suwis-text-color-disable: #c0c0c0;
+$funtask-text-color: #2b2b2b; //基本色
+$funtask-text-color-inverse: #fff; //反色
+$funtask-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+$funtask-text-color-placeholder: #808080;
+$funtask-text-color-disable: #c0c0c0;
 
 /* 背景颜色 */
-$suwis-bg-color: #ffffff;
-$suwis-bg-color-grey: #f8f8f8;
-$suwis-bg-color-hover: #f1f1f1; //点击状态颜色
-$suwis-bg-color-mask: rgba(0, 0, 0, 0.58); //遮罩颜色
+$funtask-bg-color: #ffffff;
+$funtask-bg-color-grey: #f8f8f8;
+$funtask-bg-color-hover: #f1f1f1; //点击状态颜色
+$funtask-bg-color-mask: rgba(0, 0, 0, 0.58); //遮罩颜色
 
 /* 边框颜色 */
-$suwis-border-color: #f9f9f9;
+$funtask-border-color: #f9f9f9;
 
 /* 尺寸变量 */
 
 /* 文字尺寸 */
-$suwis-font-size-sm: 12px;
-$suwis-font-size-base: 14px;
-$suwis-font-size-lg: 16px;
+$funtask-font-size-sm: 12px;
+$funtask-font-size-base: 14px;
+$funtask-font-size-lg: 16px;
 
 /* 图片尺寸 */
-$suwis-img-size-sm: 40rpx;
-$suwis-img-size-base: 52rpx;
-$suwis-img-size-lg: 80rpx;
+$funtask-img-size-sm: 40rpx;
+$funtask-img-size-base: 52rpx;
+$funtask-img-size-lg: 80rpx;
 
 /* Border Radius */
-$suwis-border-radius-sm: 4rpx;
-$suwis-border-radius-base: 6rpx;
-$suwis-border-radius-lg: 12rpx;
-$suwis-border-radius-circle: 50%;
+$funtask-border-radius-sm: 4rpx;
+$funtask-border-radius-base: 6rpx;
+$funtask-border-radius-lg: 12rpx;
+$funtask-border-radius-circle: 50%;
 
 /* 水平间距 */
-$suwis-spacing-row-sm: 5px;
-$suwis-spacing-row-base: 10px;
-$suwis-spacing-row-lg: 15px;
+$funtask-spacing-row-sm: 5px;
+$funtask-spacing-row-base: 10px;
+$funtask-spacing-row-lg: 15px;
 
 /* 垂直间距 */
-$suwis-spacing-col-sm: 4px;
-$suwis-spacing-col-base: 8px;
-$suwis-spacing-col-lg: 12px;
+$funtask-spacing-col-sm: 4px;
+$funtask-spacing-col-base: 8px;
+$funtask-spacing-col-lg: 12px;
 
 /* 透明度 */
-$suwis-opacity-disabled: 0.3; // 组件禁用态的透明度
+$funtask-opacity-disabled: 0.3; // 组件禁用态的透明度
 
 /* 文章场景相关 */
-$suwis-color-title: #2c405a; // 文章标题颜色
-$suwis-font-size-title: 40upx;
-$suwis-color-subtitle: #555555; // 二级标题颜色
-$suwis-font-size-subtitle: 36upx;
-$suwis-color-paragraph: #3f536e; // 文章段落颜色
-$suwis-font-size-paragraph: 30upx;
+$funtask-color-title: #2c405a; // 文章标题颜色
+$funtask-font-size-title: 40upx;
+$funtask-color-subtitle: #555555; // 二级标题颜色
+$funtask-font-size-subtitle: 36upx;
+$funtask-color-paragraph: #3f536e; // 文章段落颜色
+$funtask-font-size-paragraph: 30upx;

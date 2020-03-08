@@ -1,16 +1,9 @@
 <template>
-<div class="suwis-control"
+<div class="funtask-control"
   :class="{show: control.visible,sideslip:control.sideslip}">
   <div class="bg"></div>
   <div class="wrapper">
-    <div class="header"></div>
-    <!--  -->
-    <div class="btn-group">
-      <span @click="toggle"
-        class="btn toggle iconfont">&#xe63e;</span>
-      <span @click="toggleSettings"
-        class="btn menu iconfont">&#xe67c;</span>
-    </div>
+    <funtask-header @btn-click="headerClick"></funtask-header>
     <!--  -->
     <!-- <div class="search-bar">
       <input type="text" name="" value="">
@@ -32,7 +25,7 @@
   <!-- 菜单 -->
   <div class="settings">
     <ol>
-      <li><i class="iconfont">&#xe63c;</i>应用</li>
+      <li @click="$router.push('/appstore')"><i class="iconfont">&#xe63c;</i>应用</li>
       <li><i class="iconfont">&#xeb6e;</i>皮肤</li>
       <li><var class="num">122</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
@@ -84,13 +77,17 @@ export default {
     }
   },
   methods: {
+    // 头部点击
+    headerClick(type) {
+      this[`${type}Toggle`]()
+    },
     // 切换界面
-    toggle() {
+    minToggle() {
       this.control.visible = !this.control.visible
       ipcRenderer.send('control-toggle', this.control.visible)
     },
     // 切换设置菜单
-    toggleSettings() {
+    settingsToggle() {
       this.control.sideslip = !this.control.sideslip
     },
     // 运行app
@@ -104,12 +101,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.suwis-control {
+.funtask-control {
     position: relative;
     width: 100vw;
     height: 100vh;
     user-select: none;
-    background: $suwis-bg-color-mask;
+    background: $funtask-bg-color-mask;
     transition: all 0.3s ease-in-out;
     opacity: 0;
     left: 0;
@@ -151,47 +148,6 @@ export default {
         z-index: 99;
     }
 
-    .header {
-        height: 36px;
-        -webkit-app-region: drag;
-        width: calc(100% - 90px);
-    }
-
-    .btn-group {
-        position: absolute;
-        right: 0;
-        top: 0;
-        color: $suwis-color-primary;
-        font-size: 1.5rem;
-        z-index: 399;
-        display: flex;
-
-        &:hover {
-            .toggle {
-                visibility: visible;
-            }
-        }
-    }
-
-    .btn {
-        z-index: 99;
-        width: 45px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.6;
-        cursor: pointer;
-        &:hover {
-            background: #333;
-            opacity: 1;
-        }
-
-        &.toggle {
-            visibility: hidden;
-        }
-    }
-
     .search-bar {
         padding: 20px;
         position: relative;
@@ -231,7 +187,7 @@ export default {
             color: #fff;
             text-align: center;
             flex-wrap: wrap;
-            font-size: $suwis-font-size-base;
+            font-size: $funtask-font-size-base;
             cursor: pointer;
             box-sizing: border-box;
             padding: 0 1.68vw 5vw;
@@ -261,13 +217,13 @@ export default {
     .settings {
         position: absolute;
         transition: all 0.3s ease-in-out;
-        background: $suwis-bg-color-mask;
+        background: $funtask-bg-color-mask;
         width: 39vw;
         height: 100vh;
         top: 0;
         right: -39vw;
-        color: $suwis-text-color-inverse;
-        font-size: $suwis-font-size-base;
+        color: $funtask-text-color-inverse;
+        font-size: $funtask-font-size-base;
 
         ol,
         ul {
@@ -275,7 +231,7 @@ export default {
             padding: 0;
             margin: 0;
             li {
-                padding: $suwis-spacing-col-base * 1.28 $suwis-spacing-row-base;
+                padding: $funtask-spacing-col-base * 1.28 $funtask-spacing-row-base;
                 cursor: pointer;
             }
 
@@ -285,7 +241,7 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: $suwis-spacing-col-base 0;
+            margin: $funtask-spacing-col-base 0;
             .iconfont {
                 display: flex;
                 justify-content: center;
@@ -293,16 +249,17 @@ export default {
                 margin: 0 auto 0.8vw;
                 width: 5vw;
                 height: 5vw;
-                font-size: $suwis-font-size-lg * 1.28;
-                background: $suwis-color-primary;
+                font-size: $funtask-font-size-lg * 1.28;
+                background: $funtask-color-primary;
                 border-radius: 100%;
                 padding: 0.28vw;
                 opacity: 0.8;
+                transition: all 0.3s ease;
             }
             .num {
                 font-style: normal;
-                background: $suwis-bg-color;
-                color: $suwis-color-primary;
+                background: $funtask-bg-color;
+                color: $funtask-color-primary;
                 position: absolute;
                 z-index: 99;
                 font-size: 10px;
@@ -316,11 +273,17 @@ export default {
             li {
                 flex: 1;
                 text-align: center;
+
+                &:hover {
+                    .iconfont {
+                        opacity: 1;
+                    }
+                }
             }
         }
 
         ul {
-            padding: $suwis-spacing-col-lg $suwis-spacing-row-lg;
+            padding: $funtask-spacing-col-lg $funtask-spacing-row-lg;
             .iconfont {
                 width: 30px;
             }

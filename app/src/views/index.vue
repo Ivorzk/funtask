@@ -1,6 +1,6 @@
 <template>
 <div id="ball"
-  class="suwis-index"
+  class="funtask-index"
   ref="ball"
   :class="{show: control.visible}">
   <img @click="toggle"
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.suwis-index {
+.funtask-index {
     position: fixed;
     top: 50%;
     left: 50%;
