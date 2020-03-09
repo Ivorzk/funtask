@@ -13,7 +13,14 @@
             alt="">
           ivorzk published 1.0.1 • 5 days ago{{item}}
         </span>
-        <button>安装</button>
+        <span class="btn-group">
+          <button><i class="iconfont">&#xe71f;</i><i v-if="false"
+              class="iconfont">&#xe640;</i>安装</button>
+          <!-- <button><i class="iconfont">&#xe63a;</i>设置</button>
+          <button><i class="iconfont">&#xe619;</i>删除</button> -->
+          <!-- <button><i class="iconfont">&#xe61c;</i>启用</button>
+          <button><i class="iconfont">&#xe76a;</i>禁用</button> -->
+        </span>
       </dd>
     </dl>
   </div>
@@ -33,11 +40,14 @@ export default {
     height: calc(100vh - 36px);
     overflow: auto;
     color: $funtask-text-color-inverse;
-    padding: 0 $funtask-spacing-row-base * 2 $funtask-spacing-row-lg;
+    padding: 0 $funtask-spacing-row-base $funtask-spacing-row-lg;
     font-size: $funtask-font-size-base;
 
     .app-list {
         dl {
+            background: rgba(0,0,0,0.28);
+            padding: $funtask-spacing-row-base $funtask-spacing-row-lg;
+            border-radius: $funtask-border-radius-sm;
             &:first-child {
                 margin-top: 0;
             }
@@ -45,7 +55,7 @@ export default {
             dd,
             dt {
                 margin: 0;
-                padding: $funtask-spacing-col-base 0;
+                padding: $funtask-spacing-col-sm 0;
                 display: flex;
                 align-items: center;
 
@@ -60,11 +70,11 @@ export default {
 
             dd {
                 label {
-                    background: rgba($funtask-color-primary, 0.69);
+                    background: rgba($funtask-color-primary, 0.58);
                     padding: $funtask-spacing-col-sm * 0.5 $funtask-spacing-row-sm;
                     border-radius: $funtask-border-radius-sm * 0.5;
                     margin-right: $funtask-spacing-row-base;
-                    color: rgba($funtask-text-color-inverse, 0.8);
+                    color: rgba($funtask-text-color-inverse, 0.68);
                 }
             }
         }
@@ -76,11 +86,18 @@ export default {
             display: inline-block;
         }
         button {
-            background: $funtask-color-primary;
+            background: transparent;
             border: none;
             padding: $funtask-spacing-col-sm $funtask-spacing-row-sm;
-            color: $funtask-text-color-inverse;
+            color: $funtask-color-primary;
             cursor: pointer;
+            margin-left: $funtask-spacing-row-base;
+            display: flex;
+            align-items: center;
+
+            .iconfont {
+                margin-right: $funtask-spacing-row-sm * 0.8;
+            }
         }
     }
 }
