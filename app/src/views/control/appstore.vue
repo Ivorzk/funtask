@@ -1,17 +1,22 @@
 <template>
 <div class="funtask-appstore">
+  <input class="search-input"
+    v-model="keywords"
+    type="text"
+    placeholder="请输入关键字">
   <div class="app-list">
-    <dl v-for="(item,idx) in 10"
+    <dl v-for="(item,idx) in apps"
       :key="idx">
-      <dt>funtask-translate</dt>
-      <dd>集成有道翻译、百度翻译、和谷歌翻译的Funtask插件</dd>
-      <dd><label>funtask</label><label>translate</label></dd>
+      <dt>{{item.name}}</dt>
+      <dd>{{item.description}}</dd>
+      <dd><label v-for="key in item.keywords"
+          :key="key">{{key}}</label></dd>
       <dd class="between">
         <span>
           <img class="avatar"
             src="https://s.gravatar.com/avatar/d58973c038d271823c09420d1a0bb64e?size=100&default=retro"
             alt="">
-          ivorzk published 1.0.1 • 5 days ago{{item}}
+          {{item.publisher.username}} 发布版本 v{{item.version}} • &nbsp;&nbsp;于{{item.date|timediff}}前
         </span>
         <span class="btn-group">
           <button><i class="iconfont">&#xe71f;</i><i v-if="false"
@@ -27,11 +32,70 @@
 </div>
 </template>
 <script>
+import _ from 'lodash'
 export default {
   data() {
-    return {}
+    return {
+      // 关键字
+      keywords: '',
+      apps: []
+    }
   },
-  methods: {}
+  mounted() {
+    this.getApps()
+  },
+  watch: {
+    keywords: _.debounce(function() {
+      this.getApps()
+    }, 300)
+  },
+  filters: {
+    timediff(val) {
+      var startDate = new Date(val)
+      var endDate = new Date()
+      // 时间差的毫秒数
+      var diff = endDate.getTime() - startDate.getTime()
+
+      // 计算出相差天数
+      var days = Math.floor(diff / (24 * 3600 * 1000))
+
+      // 计算出小时数
+      var leave1 = diff % (24 * 3600 * 1000)
+      // 计算天数后剩余的毫秒数
+      var hours = Math.floor(leave1 / (3600 * 1000))
+      // 计算相差分钟数
+      var leave2 = leave1 % (3600 * 1000)
+      // 计算小时数后剩余的毫秒数
+      var minutes = Math.floor(leave2 / (60 * 1000))
+
+      // 计算相差秒数
+      var leave3 = leave2 % (60 * 1000)
+      // 计算分钟数后剩余的毫秒数
+      var seconds = Math.round(leave3 / 1000)
+
+      if (days > 0) {
+        if (days > 365) return Math.floor(days / 365) + '年'
+        if (days > 30) return Math.floor(days / 30) + '个月'
+        return days + '天'
+      }
+      if (hours > 0) {
+        return hours + '小时'
+      }
+      if (minutes > 0) {
+        return minutes + '分'
+      }
+      if (seconds > 0) {
+        return seconds + '秒'
+      }
+    }
+  },
+  methods: {
+    // 获取应用
+    async getApps() {
+      let res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
+      this.apps = res.data || []
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -42,6 +106,21 @@ export default {
     color: $funtask-text-color-inverse;
     padding: 0 $funtask-spacing-row-base $funtask-spacing-row-lg;
     font-size: $funtask-font-size-base;
+
+    .search-input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid rgba($funtask-color-primary,0.6);
+        background: transparent;
+        color: $funtask-text-color-inverse;
+        padding: $funtask-spacing-col-base 0;
+        margin-bottom: $funtask-spacing-col-lg;
+        transition: all 0.3s ease;
+
+        &:focus {
+            border-color: rgba($funtask-color-primary,1);
+        }
+    }
 
     .app-list {
         dl {

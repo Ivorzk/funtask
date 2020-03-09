@@ -148,7 +148,8 @@ export default class {
       skipTaskbar: true,
       webPreferences: {
         nodeIntegration: true,
-        nodeIntegrationInWorker: true
+        nodeIntegrationInWorker: true,
+        webSecurity: false
       }
     })
     // 初始赋值最后一次显示的窗口
@@ -177,7 +178,8 @@ export default class {
       opacity: 0,
       webPreferences: {
         nodeIntegration: true,
-        nodeIntegrationInWorker: true
+        nodeIntegrationInWorker: true,
+        webSecurity: false
       }
     })
 
