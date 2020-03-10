@@ -6,6 +6,7 @@
     placeholder="请输入关键字">
   <div class="app-list">
     <dl v-for="(item,idx) in apps"
+      v-show="item.name.indexOf('funtask-')===0"
       :key="idx">
       <dt>{{item.name}}</dt>
       <dd>{{item.description}}</dd>
@@ -19,7 +20,7 @@
           {{item.publisher.username}} 发布版本 v{{item.version}} • &nbsp;&nbsp;于{{item.date|timediff}}前
         </span>
         <span class="btn-group">
-          <button><i class="iconfont">&#xe71f;</i><i v-if="false"
+          <button @click="install(item)"><i class="iconfont">&#xe71f;</i><i v-if="false"
               class="iconfont">&#xe640;</i>安装</button>
           <!-- <button><i class="iconfont">&#xe63a;</i>设置</button>
           <button><i class="iconfont">&#xe619;</i>删除</button> -->
@@ -33,6 +34,9 @@
 </template>
 <script>
 import _ from 'lodash'
+import {
+  ipcRenderer
+} from 'electron'
 export default {
   data() {
     return {
@@ -94,6 +98,14 @@ export default {
     async getApps() {
       let res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
       this.apps = res.data || []
+    },
+    // 安装应用
+    install(app) {
+      // 获取应用下载地址
+      ipcRenderer.send('app-install', app)
+      ipcRenderer.on('app-installed', () => {
+        alert('安装成功')
+      })
     }
   }
 }

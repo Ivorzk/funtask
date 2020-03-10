@@ -23,6 +23,11 @@ export default class {
       await this.openWindow(app)
       evt.reply('app-runing', app)
     })
+    // 监听app安装事件
+    ipcMain.on('app-install', async (evt, app) => {
+      await this.install(app)
+      evt.reply('app-runing', app)
+    })
   }
 
   // 初始化readme文件
@@ -148,5 +153,10 @@ export default class {
     // console.log(app, 'app', 'funtask://' + app.package.name + '/views/index.html')
     win.loadURL(global.$config.app.protocol + '://./' + app.package.name + '/views/index.html')
     return true
+  }
+
+  // 安装应用
+  async install(app) {
+    
   }
 }
