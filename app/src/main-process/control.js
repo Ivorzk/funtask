@@ -9,6 +9,7 @@ import {
   ipcMain,
   screen
 } from 'electron'
+import funtask from '@suwis/funtask/core'
 import {
   // createProtocol,
   installVueDevtools
@@ -159,6 +160,7 @@ export default class {
       this.ball = null
     })
 
+
     // 初始化菜单
     this.control = new BrowserWindow({
       x: 0,
@@ -186,6 +188,7 @@ export default class {
     this.control.on('closed', () => {
       this.control = null
     })
+
     // 创建协议(主框架工作目录)
     // createProtocol(global.$config.app.protocol)
     // 创建app目录协议
@@ -202,6 +205,9 @@ export default class {
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/funlist`)
       // this.control.webContents.openDevTools()
     }
+    // 注入脚本
+    this.ball.webContents.executeJavaScript(`window.funtask = ${funtask}`)
+    this.control.webContents.executeJavaScript(`window.funtask = ${funtask}`)
   }
 
   // 同步菜单位置
