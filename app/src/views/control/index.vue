@@ -1,6 +1,5 @@
 <template>
-<div class="funtask-control"
-  :class="{show: control.visible,sideslip:control.sideslip}">
+<div class="funtask-control" :class="{show: control.visible,sideslip:control.sideslip}">
   <div class="bg"></div>
   <div class="wrapper">
     <funtask-header @btn-click="headerClick"></funtask-header>
@@ -18,7 +17,6 @@
       <li><i class="iconfont">&#xe61e;</i>反馈建议</li>
       <li><i class="iconfont">&#xe600;</i>开发社区</li>
       <li><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
-      <li><i class="iconfont">&#xe63a;</i>应用设置</li>
       <li><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
   </div>
