@@ -159,7 +159,9 @@ export default class {
     this.ball.on('closed', () => {
       this.ball = null
     })
-
+    this.ball.on('ready-to-show', () => {
+      this.ball.webContents.executeJavaScript(`window.funtask = ${funtask}`)
+    })
 
     // 初始化菜单
     this.control = new BrowserWindow({
@@ -206,8 +208,9 @@ export default class {
       // this.control.webContents.openDevTools()
     }
     // 注入脚本
-    this.ball.webContents.executeJavaScript(`window.funtask = ${funtask}`)
-    this.control.webContents.executeJavaScript(`window.funtask = ${funtask}`)
+    this.control.on('ready-to-show', () => {
+      this.control.webContents.executeJavaScript(`window.funtask = ${funtask}`)
+    })
   }
 
   // 同步菜单位置

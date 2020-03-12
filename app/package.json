@@ -19,7 +19,7 @@
     "axios": "^0.19.2",
     "chai-as-promised": "^7.1.1",
     "core-js": "^3.4.7",
-    "electron": "^7.1.4",
+    "electron": "^8.1.1",
     "gulp": "^4.0.2",
     "gulp-rename": "^2.0.0",
     "register-service-worker": "^1.6.2",
