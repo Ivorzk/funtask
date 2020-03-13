@@ -159,9 +159,6 @@ export default class {
     this.ball.on('closed', () => {
       this.ball = null
     })
-    this.ball.on('ready-to-show', () => {
-      this.ball.webContents.executeJavaScript(`window.funtask = ${funtask}`)
-    })
 
     // 初始化菜单
     this.control = new BrowserWindow({
@@ -190,7 +187,6 @@ export default class {
     this.control.on('closed', () => {
       this.control = null
     })
-
     // 创建协议(主框架工作目录)
     // createProtocol(global.$config.app.protocol)
     // 创建app目录协议
@@ -207,10 +203,6 @@ export default class {
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/funlist`)
       // this.control.webContents.openDevTools()
     }
-    // 注入脚本
-    this.control.on('ready-to-show', () => {
-      this.control.webContents.executeJavaScript(`window.funtask = ${funtask}`)
-    })
   }
 
   // 同步菜单位置

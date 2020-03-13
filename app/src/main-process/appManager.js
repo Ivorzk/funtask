@@ -11,7 +11,6 @@ import {
   ipcMain,
   screen
 } from 'electron'
-import funtask from '@suwis/funtask/core'
 var apps = new Map()
 export default class {
   constructor() {
@@ -153,7 +152,6 @@ export default class {
     })
     // console.log(app, 'app', 'funtask://' + app.package.name + '/views/index.html')
     win.loadURL(global.$config.app.protocol + '://./' + app.package.name + '/views/index.html')
-    win.webContents.executeJavaScript(`window.funtask = ${funtask}`)
     return true
   }
 
