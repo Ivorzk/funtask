@@ -203,7 +203,7 @@ export default class {
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/funlist`)
       // this.control.webContents.openDevTools()
     }
-    // this.control.webContents.executeJavaScript(`window.funtask = require('@suwis/funtask/core/index.js')`)
+    this.control.webContents.executeJavaScript(`window.funtask = require('@suwis/funtask/core/index.js')`)
   }
 
   // 同步菜单位置
