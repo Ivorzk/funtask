@@ -34,9 +34,6 @@
 </template>
 <script>
 import _ from 'lodash'
-import {
-  ipcRenderer
-} from 'electron'
 export default {
   data() {
     return {
@@ -100,12 +97,9 @@ export default {
       this.apps = res.data || []
     },
     // 安装应用
-    install(app) {
+    async install(app) {
       // 获取应用下载地址
-      ipcRenderer.send('app-install', app)
-      ipcRenderer.on('app-installed', () => {
-        alert('安装成功')
-      })
+      await this.$funtask.app.install(app)
     }
   }
 }
