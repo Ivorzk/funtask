@@ -98,7 +98,6 @@ export default {
     },
     // 安装应用
     async install(app) {
-      console.log(app, 'app')
       // 获取应用下载地址
       await this.$funtask.app.install(app)
     }

@@ -1,5 +1,13 @@
 # API
 
+::: tip
+在使用API前，需要引入funtask sdk
+:::
+
+```js
+import funtask from "@suwis/funtask/core"
+```
+
 ## system
 
 系统模块
