@@ -6,7 +6,7 @@ export default class {
   // 下载文件
   download(fileInfo, downloadPath) {
     var received_bytes = 0 //已经接收到的集结
-    var total_bytes = item.fileInfo //总字节
+    var total_bytes = fileInfo.size //总字节
     let path = this.downloadPath + '/' + fileInfo.name //确定文件下载的本地位置
     try {
       let stats = fs.statSync(path) //如果文件已存在读取文件信息
@@ -39,7 +39,7 @@ export default class {
     })
     //文件接收结束
     req.on('end', () => {
-      console.log(`file ${item.name} download complete`)
+      console.log(`file ${fileInfo.name} download complete`)
       if (received_bytes >= total_bytes) {
         this.dataset.splice(index, 1)
       }
