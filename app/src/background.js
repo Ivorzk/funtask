@@ -1,11 +1,11 @@
 'use strict'
 import 'core-js'
-import Config from './main-process/config'
-import AppManager from './main-process/appManager'
+import Config from './main-process/modules/config'
+import App from './main-process/modules/app'
 import Control from './main-process/control'
-import Tray from './main-process/tray'
+import Tray from './main-process/modules/tray'
 const config = new Config()
-const appManager = new AppManager()
+const appManager = new App()
 const tray = new Tray()
 var control = {}
 config.event.on('loaded', () => {

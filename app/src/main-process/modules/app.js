@@ -157,6 +157,6 @@ export default class {
 
   // 安装应用
   async install(app) {
-
+    console.log(app, 'app')
   }
 }

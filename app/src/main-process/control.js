@@ -14,7 +14,7 @@ import {
   // createProtocol,
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
-import customProtocol from './customProtocol'
+import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
 /**
@@ -189,6 +189,8 @@ export default class {
     })
     // 创建协议(主框架工作目录)
     // createProtocol(global.$config.app.protocol)
+    // 注册协议
+    customProtocol.register(global.$config.app.protocol)
     // 创建app目录协议
     if (process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
@@ -196,14 +198,12 @@ export default class {
       this.control.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}#/funlist`)
       if (!process.env.IS_TEST) this.control.webContents.openDevTools()
     } else {
-      // 注册协议
-      customProtocol.register(global.$config.app.protocol)
       // Load the index.html when not in development
       this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/funlist`)
       // this.control.webContents.openDevTools()
     }
-    this.control.webContents.executeJavaScript(`window.funtask = require('@suwis/funtask/core/index.js')`)
+    // this.control.webContents.executeJavaScript(`window.funtask = require('@suwis/funtask/core/index.js')`)
   }
 
   // 同步菜单位置
