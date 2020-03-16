@@ -1,8 +1,8 @@
 {
   "name": "@suwis/funtask",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "为你提供高效、快乐、人性化的工作方式",
-  "main": "bin/index.js",
+  "main": "core/index.js",
   "bin": {
     "funtask": "bin/index.js"
   },
