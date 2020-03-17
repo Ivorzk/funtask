@@ -5,23 +5,24 @@
     type="text"
     placeholder="请输入关键字">
   <div class="app-list">
-    <dl v-for="(item,idx) in apps"
-      v-show="item.name.indexOf('funtask-')===0"
+    <dl v-for="(app,idx) in apps"
+      v-show="app.name.indexOf('funtask-')===0"
       :key="idx">
-      <dt>{{item.name}}</dt>
-      <dd>{{item.description}}</dd>
-      <dd><label v-for="key in item.keywords"
+      <dt>{{app.name}}</dt>
+      <dd>{{app.description}}</dd>
+      <dd><label v-for="key in app.keywords"
           :key="key">{{key}}</label></dd>
       <dd class="between">
         <span>
           <img class="avatar"
             src="https://s.gravatar.com/avatar/d58973c038d271823c09420d1a0bb64e?size=100&default=retro"
             alt="">
-          {{item.publisher.username}} 发布版本 v{{item.version}} • &nbsp;&nbsp;于{{item.date|timediff}}前
+          {{app.publisher.username}} 发布版本 v{{app.version}} • &nbsp;&nbsp;于{{app.date|timediff}}前
         </span>
         <span class="btn-group">
-          <button @click="install(item)"><i class="iconfont">&#xe71f;</i><i v-if="false"
-              class="iconfont">&#xe640;</i>安装</button>
+          <button @click="install(app)"><i v-if="app.installing"
+              class="iconfont installing">&#xe640;</i><i v-else
+              class="iconfont">&#xe71f;</i>安装</button>
           <!-- <button><i class="iconfont">&#xe63a;</i>设置</button>
           <button><i class="iconfont">&#xe619;</i>删除</button> -->
           <!-- <button><i class="iconfont">&#xe61c;</i>启用</button>
@@ -98,6 +99,7 @@ export default {
     },
     // 安装应用
     async install(app) {
+      this.$set(app, 'installing', true)
       // 获取应用下载地址
       await this.$funtask.app.install(app)
     }
@@ -181,7 +183,21 @@ export default {
             align-items: center;
 
             .iconfont {
+                position: relative;
+                top: 1px;
                 margin-right: $funtask-spacing-row-sm * 0.8;
+            }
+
+            .installing {
+                animation: installing 0.6s infinite linear;
+            }
+        }
+        @keyframes installing {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
             }
         }
     }
