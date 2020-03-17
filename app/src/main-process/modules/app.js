@@ -6,6 +6,7 @@ import fs from 'fs'
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import path from 'path'
+import io from './io'
 import {
   BrowserWindow,
   ipcMain,
@@ -158,5 +159,7 @@ export default class {
   // 安装应用
   async install(app) {
     console.log(app, 'app')
+    await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`)
+    console.log('download complete')
   }
 }

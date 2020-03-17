@@ -4275,15 +4275,6 @@ dotenv@^8.0.0, dotenv@^8.2.0:
   resolved "https://npm.suwis.com:443/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
-download-git-repo@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/download-git-repo/-/download-git-repo-3.0.2.tgz#8caae24fb2abd6453172deea5619036024f190f6"
-  integrity sha512-N8hWXD4hXqmEcNoR8TBYFntaOcYvEQ7Bz90mgm3bZRTuteGQqwT32VDMnTyD0KTEvb8BWrMc1tVmzuV9u/WrAg==
-  dependencies:
-    download "^7.1.0"
-    git-clone "^0.1.0"
-    rimraf "^3.0.0"
-
 download@^7.1.0:
   version "7.1.0"
   resolved "https://registry.npmjs.org/download/-/download-7.1.0.tgz#9059aa9d70b503ee76a132897be6dec8e5587233"
@@ -5667,11 +5658,6 @@ getpass@^0.1.1:
   integrity sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
   dependencies:
     assert-plus "^1.0.0"
-
-git-clone@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/git-clone/-/git-clone-0.1.0.tgz#0d76163778093aef7f1c30238f2a9ef3f07a2eb9"
-  integrity sha1-DXYWN3gJOu9/HDAjjyqe8/B6Lrk=
 
 glob-parent@5.1.0, glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.0:
   version "5.1.0"
@@ -10266,13 +10252,6 @@ rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.3, rimraf@^2.7.1:
   version "2.7.1"
   resolved "https://npm.suwis.com:443/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
   integrity sha1-NXl/E6f9rcVmFCwp1PB8ytSD4+w=
-  dependencies:
-    glob "^7.1.3"
-
-rimraf@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
-  integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
 

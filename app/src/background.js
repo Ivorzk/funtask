@@ -17,5 +17,6 @@ config.event.on('loaded', () => {
   // 加载图标
   tray.createTray()
 })
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

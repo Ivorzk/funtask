@@ -60,7 +60,8 @@ export default class {
     global.$config = {
       ...$config,
       apphome: this.apphome,
-      packagesdir: this.packagesdir
+      packagesdir: this.packagesdir,
+      tmpdir: os.tmpdir()
     }
     // 触发配置表加载完成事件
     this.event.emit('loaded', global.$config)
