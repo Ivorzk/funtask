@@ -6,5 +6,6 @@ export default new class {
   async download(repo, path) {
     console.log('download ' + repo, global.$config.tmpdir)
     await download(repo, path || global.$config.tmpdir + '/funtask/')
+    return path || global.$config.tmpdir + '/funtask/'
   }
 }

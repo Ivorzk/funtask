@@ -7,6 +7,7 @@ import gulp from 'gulp'
 import rename from 'gulp-rename'
 import path from 'path'
 import io from './io'
+import compressing from 'compressing'
 import {
   BrowserWindow,
   ipcMain,
@@ -158,8 +159,12 @@ export default class {
 
   // 安装应用
   async install(app) {
+    // 下载
     console.log(app, 'app')
-    await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`)
+    let path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`)
     console.log('download complete')
+    // 解压
+    await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, global.$config.packagesdir + `/${app.name}/`)
+    console.log('unzip ok')
   }
 }
