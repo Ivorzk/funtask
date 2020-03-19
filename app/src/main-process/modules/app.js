@@ -27,8 +27,8 @@ export default class {
     })
     // 监听app安装事件
     ipcMain.on('app-install', async (evt, app) => {
-      await this.install(app)
-      evt.reply('app-runing', app)
+      let data = await this.install(app)
+      evt.reply('app-install-reply', data)
     })
   }
 
@@ -93,13 +93,19 @@ export default class {
           if (packageFile && configFile) {
             let config = YAML.parse(configFile)
             let packageJson = JSON.parse(packageFile)
-
             apps.push({
               logo: './' + packageJson.name + '/logo.png',
               icon: path.resolve(apppath + '/logo.png'),
+              // 应用配置
               ...config,
+              // 包信息
               package: packageJson,
-              path: apppath
+              // 应用路径
+              path: apppath,
+              // 是否已安装
+              installed: true,
+              // 是否禁用
+              disabled: false
             })
           }
         } catch (e) {
@@ -172,5 +178,7 @@ export default class {
       .src(path + `${app.name}-${app.version}/package/**/*`)
       .pipe(gulp.dest(global.$config.packagesdir + `/${app.name}`))
     console.log('installed')
+    // 返回app信息给客户端
+    return app
   }
 }

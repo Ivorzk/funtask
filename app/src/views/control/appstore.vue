@@ -19,14 +19,18 @@
             alt="">
           {{app.publisher.username}} 发布版本 v{{app.version}} • &nbsp;&nbsp;于{{app.date|timediff}}前
         </span>
-        <span class="btn-group">
+        <span v-if="!app.installed"
+          class="btn-group">
           <button @click="install(app)"><i v-if="app.installing"
               class="iconfont installing">&#xe640;</i><i v-else
               class="iconfont">&#xe71f;</i>安装</button>
-          <!-- <button><i class="iconfont">&#xe63a;</i>设置</button>
-          <button><i class="iconfont">&#xe619;</i>删除</button> -->
-          <!-- <button><i class="iconfont">&#xe61c;</i>启用</button>
-          <button><i class="iconfont">&#xe76a;</i>禁用</button> -->
+        </span>
+        <span v-else
+          class="btn-group">
+          <button><i class="iconfont">&#xe63a;</i>设置</button>
+          <button><i class="iconfont">&#xe619;</i>删除</button>
+          <button><i class="iconfont">&#xe61c;</i>启用</button>
+          <button><i class="iconfont">&#xe76a;</i>禁用</button>
         </span>
       </dd>
     </dl>
@@ -102,6 +106,10 @@ export default {
       this.$set(app, 'installing', true)
       // 获取应用下载地址
       await this.$funtask.app.install(app)
+      // 安装成功
+      this.$set(app, 'installing', false)
+      // 标记安装
+      this.$set(app, 'installed', true)
     }
   }
 }
@@ -171,6 +179,10 @@ export default {
             margin-right: $funtask-spacing-row-sm;
             vertical-align: top;
             display: inline-block;
+        }
+        .btn-group {
+            display: flex;
+            align-items: center;
         }
         button {
             background: transparent;
