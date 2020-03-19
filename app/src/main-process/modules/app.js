@@ -161,10 +161,16 @@ export default class {
   async install(app) {
     // 下载
     console.log(app, 'app')
-    let path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`)
+    let tmpdir = global.$config.tmpdir + '/funtask/app/'
+    let path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
     console.log('download complete')
     // 解压
-    await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, global.$config.packagesdir + `/${app.name}/`)
+    await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, path + `${app.name}-${app.version}/`)
     console.log('unzip ok')
+    // 复制 packages 至 funtask 安装目录
+    await gulp
+      .src(path + `${app.name}-${app.version}/package/**/*`)
+      .pipe(gulp.dest(global.$config.packagesdir + `/${app.name}`))
+    console.log('installed')
   }
 }
