@@ -5,7 +5,7 @@
     type="text"
     placeholder="请输入关键字">
   <div class="app-list">
-    <dl v-for="(app,idx) in apps"
+    <dl v-for="(app,idx) in remoteApps"
       v-show="app.name.indexOf('funtask-')===0"
       :key="idx">
       <dt>{{app.name}}</dt>
@@ -44,15 +44,18 @@ export default {
     return {
       // 关键字
       keywords: '',
-      apps: []
+      remoteApps: [],
+      localApps: []
     }
   },
   mounted() {
-    this.getApps()
+    // 获取本地app
+    this.getLocalApps()
+    this.searchApps()
   },
   watch: {
     keywords: _.debounce(function() {
-      this.getApps()
+      this.searchApps()
     }, 300)
   },
   filters: {
@@ -97,9 +100,15 @@ export default {
   },
   methods: {
     // 获取应用
-    async getApps() {
+    async searchApps() {
       let res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
-      this.apps = res.data || []
+      this.remoteApps = res.data || []
+    },
+    // 获取系统app
+    async getLocalApps() {
+      let apps = await this.$funtask.app.getApps()
+      this.localApps = apps
+      console.log(this.localApps, 'localApps')
     },
     // 安装应用
     async install(app) {
