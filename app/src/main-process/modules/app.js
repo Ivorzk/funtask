@@ -17,13 +17,13 @@ var apps = new Map()
 export default class {
   constructor() {
     // 获取app菜单
-    ipcMain.on('apps-get', (evt, dataType) => {
-      evt.reply('apps-reply', global.$apps)
+    ipcMain.on('app-get-apps', (evt, dataType) => {
+      evt.reply('app-get-apps-reply', global.$apps)
     })
     // 监听app打开操作
-    ipcMain.on('app-run', async (evt, app) => {
+    ipcMain.on('app-start', async (evt, app) => {
       await this.openWindow(app)
-      evt.reply('app-runing', app)
+      evt.reply('app-start-reply', app)
     })
     // 监听app安装事件
     ipcMain.on('app-install', async (evt, app) => {
@@ -123,6 +123,7 @@ export default class {
 
   // 打开应用
   async openWindow(app) {
+    console.log(app, 'app')
     // 获取宽高
     const {
       width,
@@ -166,7 +167,6 @@ export default class {
   // 安装应用
   async install(app) {
     // 下载
-    console.log(app, 'app')
     let tmpdir = global.$config.tmpdir + '/funtask/app/'
     let path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
     console.log('download complete')

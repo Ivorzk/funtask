@@ -6,7 +6,9 @@ module.exports = {
       // 打包配置
       builderOptions: {
         copyright: 'Copyright © suwis'
-      }
+      },
+      mainProcessFile: 'src/main-process',
+      mainProcessWatch: ['main-process/**/*']
     },
     'style-resources-loader': {
       'preProcessor': 'scss',

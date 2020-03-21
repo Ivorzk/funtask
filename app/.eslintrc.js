@@ -23,16 +23,16 @@ module.exports = {
     }]
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    ecmaVersion: 7,
+    sourceType: 'module'
   },
-  overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)'
-      ],
-      env: {
-        mocha: true
-      }
+  overrides: [{
+    files: [
+      '**/__tests__/*.{j,t}s?(x)'
+    ],
+    env: {
+      mocha: true
     }
-  ]
+  }]
 }

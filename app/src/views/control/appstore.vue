@@ -56,7 +56,10 @@ export default {
   watch: {
     keywords: _.debounce(function() {
       this.searchApps()
-    }, 300)
+    }, 300),
+    remoteApps() {
+      this.checkInstall()
+    }
   },
   filters: {
     timediff(val) {
@@ -119,6 +122,17 @@ export default {
       this.$set(app, 'installing', false)
       // 标记安装
       this.$set(app, 'installed', true)
+    },
+    // 检查安装情况
+    checkInstall() {
+      for (let lapp of this.localApps) {
+        for (let rapp of this.remoteApps) {
+          if (lapp.package.name === rapp.name) {
+            rapp.installed = true
+            rapp.localVersion = lapp.package.version
+          }
+        }
+      }
     }
   }
 }

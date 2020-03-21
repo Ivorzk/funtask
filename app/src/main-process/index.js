@@ -1,9 +1,9 @@
 'use strict'
 import 'core-js'
-import Config from './main-process/modules/config'
-import App from './main-process/modules/app'
-import Control from './main-process/control'
-import Tray from './main-process/modules/tray'
+import Config from './modules/config'
+import App from './modules/app'
+import Control from './control'
+import Tray from './modules/tray'
 const config = new Config()
 const appManager = new App()
 const tray = new Tray()
