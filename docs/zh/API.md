@@ -48,16 +48,17 @@ async getConfig() {
 
 ```js
 async download() {
-  let result = await funtask.io.download(options)
+  let result = await funtask.io.download(url,path)
   console.log(result)
 }
 ```
 
 > options 参数结构
 
-| 名称  | 说明      | 类型     | 默认值 |
-| :-- | :------ | ------ | --- |
-| url | 下载的文件地址 | String | -   |
+| 名称   | 说明      | 类型     | 默认值          |
+| :--- | :------ | ------ | ------------ |
+| url  | 下载的文件地址 | String | -            |
+| path | 目标存储位置  | String | Temp/funtask |
 
 ## app
 
@@ -167,6 +168,16 @@ async getApps() {
   let result = await funtask.app.getApps()
   console.log(result)
 }
+```
+
+### funtask.app.start
+
+启动一个应用
+
+```js
+  let apps = await funtask.app.getApps()
+  var app = apps[0]
+  await funtask.app.start(app)
 ```
 
 ## notice
