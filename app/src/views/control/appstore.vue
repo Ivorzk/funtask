@@ -111,7 +111,7 @@ export default {
     async getLocalApps() {
       let apps = await this.$funtask.app.getApps()
       this.localApps = apps
-      console.log(this.localApps, 'localApps')
+      // console.log(this.localApps, 'localApps')
     },
     // 安装应用
     async install(app) {
