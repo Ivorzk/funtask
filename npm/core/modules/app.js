@@ -15,8 +15,8 @@ export default new class {
   // 删除app
   uninstall(app) {
     return new Promise((resolve, reject) => {
-      ipcRenderer.send('app-remove', app)
-      ipcRenderer.on('app-remove-reply', (evt, data) => {
+      ipcRenderer.send('app-uninstall', app)
+      ipcRenderer.on('app-uninstall-reply', (evt, data) => {
         resolve(data)
       })
     })

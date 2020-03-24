@@ -82,18 +82,8 @@ export default class {
   // 监听配置文件
   watchConfigFile() {
     // 监听
-    var watcher = chokidar.watch([`${this.apphome}/config.yaml`, `${this.packagesdir}/`], {
-      persistent: true,
-      depth: 1
+    gulp.watch(`${this.apphome}/config.yaml`, () => {
+      this.watchConfigFile()
     })
-    watcher
-      .on('add', () => {
-        console.log('addDir')
-        this.loadConfig()
-      })
-      .on('unlinkDir', () => {
-        console.log('unlinkDir')
-        this.loadConfig()
-      })
   }
 }

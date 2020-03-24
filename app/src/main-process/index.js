@@ -17,8 +17,8 @@ config.event.on('loaded', () => {
   // 加载图标
   tray.createTray()
 })
-config.event.on('loaded', () => {
-  console.log('config change------------------')
+config.event.on('change', () => {
+  console.log('config change')
   // 加载app
   appManager.loadApps()
 })

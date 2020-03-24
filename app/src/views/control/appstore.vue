@@ -28,7 +28,7 @@
         <span v-else
           class="btn-group">
           <button><i class="iconfont">&#xe63a;</i>设置</button>
-          <button><i class="iconfont">&#xe619;</i>删除</button>
+          <button @click="uninstall(app)"><i class="iconfont">&#xe619;</i>删除</button>
           <button><i class="iconfont">&#xe61c;</i>启用</button>
           <button><i class="iconfont">&#xe76a;</i>禁用</button>
         </span>
@@ -122,6 +122,12 @@ export default {
       this.$set(app, 'installing', false)
       // 标记安装
       this.$set(app, 'installed', true)
+    },
+    // 删除
+    async uninstall(app) {
+      this.$set(app, 'removeling', true)
+      // 获取应用下载地址
+      await this.$funtask.app.uninstall(app)
     },
     // 检查安装情况
     checkInstall() {

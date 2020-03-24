@@ -30,6 +30,11 @@ export default class {
       let data = await this.install(app)
       evt.reply('app-install-reply', data)
     })
+
+    ipcMain.on('app-uninstall', async (evt, app) => {
+      let data = await this.uninstall(app)
+      evt.reply('app-uninstall-reply', data)
+    })
   }
 
   // 初始化readme文件
@@ -56,7 +61,7 @@ export default class {
     let debugdirs = global.$config.dev.debugdirs || []
     // 获取app信息
     global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
-    // console.log(global.$apps)
+    console.log(global.$apps)
     return global.$apps
   }
 
@@ -174,11 +179,22 @@ export default class {
     await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, path + `${app.name}-${app.version}/`)
     console.log('unzip ok')
     // 复制 packages 至 funtask 安装目录
-    await gulp
+    gulp
       .src(path + `${app.name}-${app.version}/package/**/*`)
       .pipe(gulp.dest(global.$config.packagesdir + `/${app.name}`))
-    console.log('installed')
+      .on('end', () => {
+        console.log('installed')
+        this.loadApps()
+      })
     // 返回app信息给客户端
+    return app
+  }
+
+  // 删除应用
+  async uninstall(app) {
+    console.log('remove ' + path.resolve(global.$config.packagesdir + `/${app.name}`))
+    fs.rmdirSync(path.resolve(global.$config.packagesdir + `/${app.name}`))
+    await this.loadApps()
     return app
   }
 }
