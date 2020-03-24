@@ -9,17 +9,25 @@ import fs from 'fs'
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import events from 'events'
+import chokidar from 'chokidar'
 import {
   ipcMain
 } from 'electron'
 export default class {
+
   constructor() {
+    // 首次加载
+    this.isFirstLoad = true
     // 初始化事件实例
     this.event = new events.EventEmitter()
     // 加载配置文件
     this.loadConfig()
 
     // 监听web端向app请求配置信息
+    ipcMain.on('config-get', (evt) => {
+      evt.reply('config-reply', global.$config)
+    })
+
     ipcMain.on('config-get', (evt) => {
       evt.reply('config-reply', global.$config)
     })
@@ -64,16 +72,28 @@ export default class {
       tmpdir: os.tmpdir()
     }
     // 触发配置表加载完成事件
-    this.event.emit('loaded', global.$config)
+    this.event.emit(this.isFirstLoad ? 'loaded' : 'change', global.$config)
     // 开始监听文件改变
     this.watchConfigFile()
+    // 修改状态
+    this.isFirstLoad = false
   }
 
   // 监听配置文件
   watchConfigFile() {
-    gulp.watch(`${this.apphome}/config.yaml`, (event) => {
-      // 重新加载配置文件
-      this.loadConfig()
+    // 监听
+    var watcher = chokidar.watch([`${this.apphome}/config.yaml`, `${this.packagesdir}/`], {
+      persistent: true,
+      depth: 1
     })
+    watcher
+      .on('add', () => {
+        console.log('addDir')
+        this.loadConfig()
+      })
+      .on('unlinkDir', () => {
+        console.log('unlinkDir')
+        this.loadConfig()
+      })
   }
 }
