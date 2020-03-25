@@ -201,7 +201,7 @@ export default class {
       // Load the index.html when not in development
       this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/funlist`)
-      // this.control.webContents.openDevTools()
+      this.control.webContents.openDevTools()
     }
     // this.control.webContents.executeJavaScript(`window.funtask = require('@suwis/funtask/core/index.js')`)
   }
