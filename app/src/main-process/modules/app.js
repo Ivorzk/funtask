@@ -2,7 +2,7 @@
  * APP管理类
  */
 import YAML from 'yaml'
-import fs from 'fs'
+import fs from 'fs-extra'
 import gulp from 'gulp'
 import rename from 'gulp-rename'
 import path from 'path'
@@ -193,7 +193,7 @@ export default class {
   // 删除应用
   async uninstall(app) {
     console.log('remove ' + path.resolve(global.$config.packagesdir + `/${app.name}`))
-    fs.rmdirSync(path.resolve(global.$config.packagesdir + `/${app.name}`))
+    await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
     await this.loadApps()
     return app
   }

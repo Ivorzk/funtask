@@ -22,13 +22,17 @@
         <span v-if="!app.installed"
           class="btn-group">
           <button @click="install(app)"><i v-if="app.installing"
-              class="iconfont installing">&#xe640;</i><i v-else
+              class="iconfont waiting">&#xe640;</i><i v-else
               class="iconfont">&#xe71f;</i>安装</button>
         </span>
         <span v-else
           class="btn-group">
           <button><i class="iconfont">&#xe63a;</i>设置</button>
-          <button @click="uninstall(app)"><i class="iconfont">&#xe619;</i>删除</button>
+          <button @click="uninstall(app)">
+            <i v-if="app.removeling"
+              class="iconfont waiting">&#xe640;</i>
+            <i class="iconfont"
+              v-else>&#xe619;</i>删除</button>
           <button><i class="iconfont">&#xe61c;</i>启用</button>
           <button><i class="iconfont">&#xe76a;</i>禁用</button>
         </span>
@@ -125,14 +129,21 @@ export default {
     },
     // 删除
     async uninstall(app) {
+      // 设置删除状态
       this.$set(app, 'removeling', true)
       // 获取应用下载地址
       await this.$funtask.app.uninstall(app)
+      // 重新加载本地app列表
+      await this.getLocalApps()
+      // 更新安装状态
+      this.checkInstall()
     },
     // 检查安装情况
     checkInstall() {
-      for (let lapp of this.localApps) {
-        for (let rapp of this.remoteApps) {
+      for (let rapp of this.remoteApps) {
+        rapp.installed = false
+        rapp.removeling = false
+        for (let lapp of this.localApps) {
           if (lapp.package.name === rapp.name) {
             rapp.installed = true
             rapp.localVersion = lapp.package.version
@@ -229,11 +240,11 @@ export default {
                 margin-right: $funtask-spacing-row-sm * 0.8;
             }
 
-            .installing {
-                animation: installing 0.6s infinite linear;
+            .waiting {
+                animation: waiting 0.6s infinite linear;
             }
         }
-        @keyframes installing {
+        @keyframes waiting {
             0% {
                 transform: rotate(0deg);
             }
