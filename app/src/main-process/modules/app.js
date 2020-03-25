@@ -61,7 +61,7 @@ export default class {
     let debugdirs = global.$config.dev.debugdirs || []
     // 获取app信息
     global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
-    console.log(global.$apps)
+    // console.log(global.$apps)
     return global.$apps
   }
 
