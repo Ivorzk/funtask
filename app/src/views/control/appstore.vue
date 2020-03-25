@@ -141,8 +141,8 @@ export default {
     // 检查安装情况
     checkInstall() {
       for (let rapp of this.remoteApps) {
-        rapp.installed = false
-        rapp.removeling = false
+        this.$set(rapp, 'installed', false)
+        this.$set(rapp, 'removeling', false)
         for (let lapp of this.localApps) {
           if (lapp.package.name === rapp.name) {
             rapp.installed = true
