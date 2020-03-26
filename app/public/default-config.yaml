@@ -2,8 +2,6 @@
 app:
   # 协议
   protocol:   funtask
-  # 临时目录
-  tmppath:    /tmp/
   # 系统托盘配置
   tray:
     # 是否显示
