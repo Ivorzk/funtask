@@ -108,12 +108,12 @@ export default {
   methods: {
     // 获取应用
     async searchApps() {
-      let res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
+      const res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
       this.remoteApps = res.data || []
     },
     // 获取系统app
     async getLocalApps() {
-      let apps = await this.$funtask.app.getApps()
+      const apps = await this.$funtask.app.getApps()
       this.localApps = apps
       // console.log(this.localApps, 'localApps')
     },
@@ -140,10 +140,10 @@ export default {
     },
     // 检查安装情况
     checkInstall() {
-      for (let rapp of this.remoteApps) {
+      for (const rapp of this.remoteApps) {
         this.$set(rapp, 'installed', false)
         this.$set(rapp, 'removeling', false)
-        for (let lapp of this.localApps) {
+        for (const lapp of this.localApps) {
           if (lapp.package.name === rapp.name) {
             rapp.installed = true
             rapp.localVersion = lapp.package.version

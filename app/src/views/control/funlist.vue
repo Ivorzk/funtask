@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     async getApps() {
-      let apps = await this.$funtask.app.getApps()
+      const apps = await this.$funtask.app.getApps()
       this.apps = apps || []
     },
     // 运行app
