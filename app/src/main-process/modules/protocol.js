@@ -47,11 +47,6 @@ export default {
         }).catch(error => {
           console.error(`Failed to register ${scheme} protocol`, error)
         })
-      },
-      error => {
-        if (error) {
-          console.error(`Failed to register ${scheme} protocol`, error)
-        }
       }
     )
   },
@@ -60,7 +55,8 @@ export default {
       // console.log(request, 'request')
       // 判断资源来源主框架、应用目录、debug目录
       let paths = []
-      let dirs = [__dirname, global.$config.packagesdir, ...global.$config.dev.debugdirs]
+      var debugdirs = global.$config.dev.debugdirs || []
+      let dirs = [__dirname, global.$config.packagesdir, ...debugdirs]
       dirs.forEach((dir, idx) => {
         isWindows && idx > 1 ? dir = dir.substr(0, dir.lastIndexOf('\\')) : dir.substr(0, dir.lastIndexOf('/'))
         paths.push(path.join(dir, pathName))
