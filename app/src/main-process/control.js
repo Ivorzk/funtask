@@ -18,6 +18,15 @@ import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
 app.allowRendererProcessReuse = true
+// 注册标准协议
+protocol.registerSchemesAsPrivileged([{
+  scheme: 'funtask',
+  privileges: {
+    secure: false,
+    standard: true,
+    bypassCSP: false
+  }
+}])
 /**
  * 控制台
  */
@@ -30,15 +39,6 @@ export default class {
     this.control = {}
     // 最后一次显示的窗口
     this.lastVisibleWindow = {}
-    // 注册标准协议
-    protocol.registerSchemesAsPrivileged([{
-      scheme: global.$config.app.protocol,
-      privileges: {
-        secure: false,
-        standard: true,
-        bypassCSP: false
-      }
-    }])
 
     app.on('ready', async () => {
       if (isDevelopment && !process.env.IS_TEST) {

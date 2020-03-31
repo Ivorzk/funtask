@@ -3,8 +3,6 @@
  */
 import YAML from 'yaml'
 import fs from 'fs-extra'
-import gulp from 'gulp'
-import rename from 'gulp-rename'
 import path from 'path'
 import io from './io'
 import compressing from 'compressing'
@@ -43,16 +41,9 @@ export default class {
   }
 
   // 初始化readme文件
-  copyReadme() {
+  async copyReadme() {
     // 复制readme文件到packages目录中
-    return new Promise((resolve, reject) => {
-      gulp.src(`${__static}/packages-readme.md`)
-        .pipe(rename('README.md'))
-        .pipe(gulp.dest(global.$config.packagesdir))
-        .on('end', () => {
-          resolve(true)
-        })
-    })
+    return fs.copy(`${__static}/packages-readme.md`, global.$config.packagesdir + 'README.md')
   }
 
   // 加载应用
@@ -184,13 +175,8 @@ export default class {
     await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, path + `${app.name}-${app.version}/`)
     console.log('unzip ok')
     // 复制 packages 至 funtask 安装目录
-    gulp
-      .src(path + `${app.name}-${app.version}/package/**/*`)
-      .pipe(gulp.dest(global.$config.packagesdir + `/${app.name}`))
-      .on('end', () => {
-        console.log('installed')
-        this.loadApps()
-      })
+    await fs.copy(path + `${app.name}-${app.version}/package`, global.$config.packagesdir + `/${app.name}`)
+    this.loadApps()
     // 返回app信息给客户端
     return app
   }
