@@ -33,8 +33,10 @@
               class="iconfont waiting">&#xe640;</i>
             <i class="iconfont"
               v-else>&#xe619;</i>删除</button>
-          <button><i class="iconfont">&#xe61c;</i>启用</button>
-          <button @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
+          <button v-if="app.disabled"
+            @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
+          <button v-else
+            @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
         </span>
       </dd>
     </dl>
@@ -62,7 +64,7 @@ export default {
       this.searchApps()
     }, 300),
     remoteApps() {
-      this.checkInstall()
+      this.updateAppState()
     }
   },
   filters: {
@@ -136,17 +138,19 @@ export default {
       // 重新加载本地app列表
       await this.getLocalApps()
       // 更新安装状态
-      this.checkInstall()
+      this.updateAppState()
     },
-    // 检查安装情况
-    checkInstall() {
+    // 更新app状态
+    updateAppState() {
       for (const rapp of this.remoteApps) {
         this.$set(rapp, 'installed', false)
         this.$set(rapp, 'removeling', false)
+        this.$set(rapp, 'disabled', false)
         for (const lapp of this.localApps) {
           if (lapp.package.name === rapp.name) {
             rapp.installed = true
             rapp.localVersion = lapp.package.version
+            rapp.disabled = lapp.disabled
           }
         }
       }
@@ -154,6 +158,18 @@ export default {
     // 禁用
     async disable(app) {
       await this.$funtask.app.disable(app)
+      // 重新加载本地app列表
+      await this.getLocalApps()
+      // 更新安装状态
+      this.updateAppState()
+    },
+    // 启用
+    async enable(app) {
+      await this.$funtask.app.enable(app)
+      // 重新加载本地app列表
+      await this.getLocalApps()
+      // 更新安装状态
+      this.updateAppState()
     }
   }
 }

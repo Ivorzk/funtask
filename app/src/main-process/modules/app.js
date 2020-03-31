@@ -38,6 +38,11 @@ export default class {
       let data = await this.disable(app)
       evt.reply('app-disable-reply', data)
     })
+
+    ipcMain.on('app-enable', async (evt, app) => {
+      let data = await this.enable(app)
+      evt.reply('app-enable-reply', data)
+    })
   }
 
   // 初始化readme文件
@@ -87,6 +92,8 @@ export default class {
   eachAppInfo(dirs) {
     return new Promise((resolve, reject) => {
       let apps = []
+      // 已禁用的app列表
+      var disabledApps = global.$config.disabledApps || []
       dirs.forEach(apppath => {
         try {
           var packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
@@ -106,7 +113,7 @@ export default class {
               // 是否已安装
               installed: true,
               // 是否禁用
-              disabled: false
+              disabled: disabledApps.indexOf(packageJson.name) > -1
             })
           }
         } catch (e) {
@@ -191,17 +198,35 @@ export default class {
 
   // 禁用应用
   async disable(app) {
+    return this.toggleApp(app, false)
+  }
+
+  // 启用
+  async enable(app) {
+    return this.toggleApp(app, true)
+  }
+
+  async toggleApp(app, state) {
     // 读取配置文件
     var configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
     // 设置将app禁用
     var configJson = YAML.parse(configFile)
     // 初始化app
     configJson.disabledApps ? '' : configJson.disabledApps = []
-    // 添加到禁用列表
-    configJson.disabledApps.push(app.name)
+    // app索引
+    let appIdx = configJson.disabledApps.indexOf(app.name)
+    // 启用 - 从禁用列表中移除
+    if (state) {
+      appIdx > -1 ? configJson.disabledApps.splice(appIdx, 1) : ''
+    } else {
+      // 禁用 - 加入禁用列表
+      appIdx == -1 ? configJson.disabledApps.push(app.name) : ''
+    }
     // 写入本地磁盘
     console.log(YAML.stringify(configJson))
     fs.writeFileSync(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    // 重新加载app
+    await this.loadApps()
     return app
   }
 }
