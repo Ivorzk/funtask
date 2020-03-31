@@ -35,6 +35,11 @@ export default class {
       let data = await this.uninstall(app)
       evt.reply('app-uninstall-reply', data)
     })
+
+    ipcMain.on('app-disable', async (evt, app) => {
+      let data = await this.disable(app)
+      evt.reply('app-disable-reply', data)
+    })
   }
 
   // 初始化readme文件
@@ -195,6 +200,22 @@ export default class {
     console.log('remove ' + path.resolve(global.$config.packagesdir + `/${app.name}`))
     await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
     await this.loadApps()
+    return app
+  }
+
+  // 禁用应用
+  async disable(app) {
+    // 读取配置文件
+    var configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
+    // 设置将app禁用
+    var configJson = YAML.parse(configFile)
+    // 初始化app
+    configJson.disabledApps ? '' : configJson.disabledApps = []
+    // 添加到禁用列表
+    configJson.disabledApps.push(app.name)
+    // 写入本地磁盘
+    console.log(YAML.stringify(configJson))
+    fs.writeFileSync(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
     return app
   }
 }

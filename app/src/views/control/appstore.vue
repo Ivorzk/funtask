@@ -34,7 +34,7 @@
             <i class="iconfont"
               v-else>&#xe619;</i>删除</button>
           <button><i class="iconfont">&#xe61c;</i>启用</button>
-          <button><i class="iconfont">&#xe76a;</i>禁用</button>
+          <button @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
         </span>
       </dd>
     </dl>
@@ -150,6 +150,10 @@ export default {
           }
         }
       }
+    },
+    // 禁用
+    async disable(app) {
+      await this.$funtask.app.disable(app)
     }
   }
 }
