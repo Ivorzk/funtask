@@ -2,6 +2,7 @@
 <div class="funtask-funlist">
   <ul>
     <li v-for="(app,idx) in apps"
+      v-show="!app.disabled"
       :key="'app_'+idx"
       @click="start(app)">
       <img v-lazy="app.logo"
