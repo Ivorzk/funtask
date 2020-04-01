@@ -8,7 +8,6 @@ import os from 'os'
 import fs from 'fs-extra'
 import gulp from 'gulp'
 import events from 'events'
-import chokidar from 'chokidar'
 import {
   ipcMain
 } from 'electron'
@@ -80,7 +79,7 @@ export default class {
   watchConfigFile() {
     // 监听
     gulp.watch(`${this.apphome}/config.yaml`, () => {
-      this.watchConfigFile()
+      this.loadConfig()
     })
   }
 }

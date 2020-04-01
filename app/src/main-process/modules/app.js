@@ -223,10 +223,29 @@ export default class {
       appIdx == -1 ? configJson.disabledApps.push(app.name) : ''
     }
     // 写入本地磁盘
-    console.log(YAML.stringify(configJson))
+    // console.log(YAML.stringify(configJson))
     fs.writeFileSync(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    // 检查配置文件更新情况
+    await this.checkAppStatus(state, app.name)
     // 重新加载app
     await this.loadApps()
     return app
+  }
+
+  checkAppStatus(state, name) {
+    return new Promise((resolve, reject) => {
+      var loopFun = () => {
+        let disabledApps = global.$config.disabledApps || []
+        // 启用
+        if (state) {
+          disabledApps.indexOf(name) == -1 ? resolve(true) : setTimeout(loopFun, 150)
+        }
+        // 禁用
+        if (!state) {
+          disabledApps.indexOf(name) > -1 ? resolve(true) : setTimeout(loopFun, 150)
+        }
+      }
+      loopFun()
+    })
   }
 }
