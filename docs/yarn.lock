@@ -388,9 +388,9 @@ vuepress-plugin-zooming@^1.1.5:
     zooming "^2.1.1"
 
 vuepress-theme-funtask@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/vuepress-theme-funtask/-/vuepress-theme-funtask-1.0.1.tgz#14e57ce176b6302eb2aeb7625734e0fab21643f4"
-  integrity sha512-1jXL4k10u5KBpAYURFnoLVYmMeEiIbTIDi5NLVuSJMTyXJAWQ2qbN+Rz6G4BIIf90Z0CU4yhjnyWnbKr+i/I3A==
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/vuepress-theme-funtask/-/vuepress-theme-funtask-1.0.2.tgz#83dc72c54781e1839f2cf98bd919696e06522c4e"
+  integrity sha512-xt3mP5B8V/DXID6kzrMkNe4crBVYlRCnXVGFsAnFRlwC6HmD2k8kQQfewNvBsUrsuFWPX5O1Uz8/2jO2Aq91Vw==
 
 which-module@^2.0.0:
   version "2.0.0"

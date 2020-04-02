@@ -6,7 +6,7 @@ export default new class {
   install(app) {
     return new Promise((resolve, reject) => {
       ipcRenderer.send('app-install', app)
-      ipcRenderer.on('app-install-reply', (data) => {
+      ipcRenderer.on('app-install-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -15,8 +15,8 @@ export default new class {
   // 删除app
   uninstall(app) {
     return new Promise((resolve, reject) => {
-      ipcRenderer.send('app-remove', app)
-      ipcRenderer.on('app-remove-reply', (data) => {
+      ipcRenderer.send('app-uninstall', app)
+      ipcRenderer.on('app-uninstall-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -26,7 +26,7 @@ export default new class {
   setting(data) {
     return new Promise((resolve, reject) => {
       ipcRenderer.send('app-setting', data)
-      ipcRenderer.on('app-setting-reply', (data) => {
+      ipcRenderer.on('app-setting-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -36,7 +36,7 @@ export default new class {
   disable(data) {
     return new Promise((resolve, reject) => {
       ipcRenderer.send('app-disable', data)
-      ipcRenderer.on('app-disable-reply', (data) => {
+      ipcRenderer.on('app-disable-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -46,7 +46,17 @@ export default new class {
   enable(data) {
     return new Promise((resolve, reject) => {
       ipcRenderer.send('app-enable', data)
-      ipcRenderer.on('app-enable-reply', (data) => {
+      ipcRenderer.on('app-enable-reply', (evt, data) => {
+        resolve(data)
+      })
+    })
+  }
+
+  // 运行app
+  start(app) {
+    return new Promise((resolve, reject) => {
+      ipcRenderer.send('app-start', app)
+      ipcRenderer.on('app-start-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -56,7 +66,7 @@ export default new class {
   getApps() {
     return new Promise((resolve, reject) => {
       ipcRenderer.send('app-get-apps', 'json')
-      ipcRenderer.on('app-get-apps-reply', (data) => {
+      ipcRenderer.on('app-get-apps-reply', (evt, data) => {
         resolve(data)
       })
     })

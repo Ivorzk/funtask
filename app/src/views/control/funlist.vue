@@ -3,7 +3,7 @@
   <ul>
     <li v-for="(app,idx) in apps"
       :key="'app_'+idx"
-      @click="run(app)">
+      @click="start(app)">
       <img v-lazy="app.logo"
         alt="">
       <span>
@@ -14,9 +14,6 @@
 </div>
 </template>
 <script>
-import {
-  ipcRenderer
-} from 'electron'
 export default {
   data() {
     return {
@@ -26,20 +23,19 @@ export default {
     }
   },
   mounted() {
-    ipcRenderer.on('apps-reply', (event, apps) => {
-      this.apps = apps
-    })
-    ipcRenderer.send('apps-get', 'json')
-    ipcRenderer.on('app-runing', (event, appInfo) => {
-      this.cantouch = true
-    })
+    this.getApps()
   },
   methods: {
+    async getApps() {
+      const apps = await this.$funtask.app.getApps()
+      this.apps = apps || []
+    },
     // 运行app
-    run(app) {
+    async start(app) {
       if (!this.cantouch) return
       this.cantouch = false
-      ipcRenderer.send('app-run', app)
+      await this.$funtask.app.start(app)
+      this.cantouch = true
     }
   }
 }

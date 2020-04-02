@@ -22,15 +22,21 @@
         <span v-if="!app.installed"
           class="btn-group">
           <button @click="install(app)"><i v-if="app.installing"
-              class="iconfont installing">&#xe640;</i><i v-else
+              class="iconfont waiting">&#xe640;</i><i v-else
               class="iconfont">&#xe71f;</i>安装</button>
         </span>
         <span v-else
           class="btn-group">
           <button><i class="iconfont">&#xe63a;</i>设置</button>
-          <button><i class="iconfont">&#xe619;</i>删除</button>
-          <button><i class="iconfont">&#xe61c;</i>启用</button>
-          <button><i class="iconfont">&#xe76a;</i>禁用</button>
+          <button @click="uninstall(app)">
+            <i v-if="app.removeling"
+              class="iconfont waiting">&#xe640;</i>
+            <i class="iconfont"
+              v-else>&#xe619;</i>删除</button>
+          <button v-if="app.disabled"
+            @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
+          <button v-else
+            @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
         </span>
       </dd>
     </dl>
@@ -56,7 +62,10 @@ export default {
   watch: {
     keywords: _.debounce(function() {
       this.searchApps()
-    }, 300)
+    }, 300),
+    remoteApps() {
+      this.updateAppState()
+    }
   },
   filters: {
     timediff(val) {
@@ -101,12 +110,12 @@ export default {
   methods: {
     // 获取应用
     async searchApps() {
-      let res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
+      const res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
       this.remoteApps = res.data || []
     },
     // 获取系统app
     async getLocalApps() {
-      let apps = await this.$funtask.app.getApps()
+      const apps = await this.$funtask.app.getApps()
       this.localApps = apps
       console.log(this.localApps, 'localApps')
     },
@@ -119,6 +128,48 @@ export default {
       this.$set(app, 'installing', false)
       // 标记安装
       this.$set(app, 'installed', true)
+    },
+    // 删除
+    async uninstall(app) {
+      // 设置删除状态
+      this.$set(app, 'removeling', true)
+      // 获取应用下载地址
+      await this.$funtask.app.uninstall(app)
+      // 重新加载本地app列表
+      await this.getLocalApps()
+      // 更新安装状态
+      this.updateAppState()
+    },
+    // 更新app状态
+    updateAppState() {
+      for (const rapp of this.remoteApps) {
+        this.$set(rapp, 'installed', false)
+        this.$set(rapp, 'removeling', false)
+        this.$set(rapp, 'disabled', false)
+        for (const lapp of this.localApps) {
+          if (lapp.package.name === rapp.name) {
+            rapp.installed = true
+            rapp.localVersion = lapp.package.version
+            rapp.disabled = lapp.disabled
+          }
+        }
+      }
+    },
+    // 禁用
+    async disable(app) {
+      await this.$funtask.app.disable(app)
+      // 重新加载本地app列表
+      await this.getLocalApps()
+      // 更新安装状态
+      this.updateAppState()
+    },
+    // 启用
+    async enable(app) {
+      await this.$funtask.app.enable(app)
+      // 重新加载本地app列表
+      await this.getLocalApps()
+      // 更新安装状态
+      this.updateAppState()
     }
   }
 }
@@ -209,11 +260,11 @@ export default {
                 margin-right: $funtask-spacing-row-sm * 0.8;
             }
 
-            .installing {
-                animation: installing 0.6s infinite linear;
+            .waiting {
+                animation: waiting 0.6s infinite linear;
             }
         }
-        @keyframes installing {
+        @keyframes waiting {
             0% {
                 transform: rotate(0deg);
             }

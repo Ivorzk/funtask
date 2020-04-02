@@ -8,7 +8,7 @@
 import funtask from "@suwis/funtask/core"
 ```
 
-## system
+## system 系统
 
 系统模块
 
@@ -23,7 +23,7 @@ async getSystemInfo() {
 }
 ```
 
-## config
+## config 配置
 
 Funtask 配置模块
 
@@ -38,7 +38,7 @@ async getConfig() {
 }
 ```
 
-## io
+## io 文件操作
 
 文件操作模块
 
@@ -48,18 +48,19 @@ async getConfig() {
 
 ```js
 async download() {
-  let result = await funtask.io.download(options)
+  let result = await funtask.io.download(url,path)
   console.log(result)
 }
 ```
 
 > options 参数结构
 
-| 名称  | 说明      | 类型     | 默认值 |
-| :-- | :------ | ------ | --- |
-| url | 下载的文件地址 | String | -   |
+| 名称   | 说明      | 类型     | 默认值          |
+| :--- | :------ | ------ | ------------ |
+| url  | 下载的文件地址 | String | -            |
+| path | 目标存储位置  | String | Temp/funtask |
 
-## app
+## app 应用管理
 
 应用管理模块
 
@@ -169,7 +170,17 @@ async getApps() {
 }
 ```
 
-## notice
+### funtask.app.start
+
+启动一个应用
+
+```js
+  let apps = await funtask.app.getApps()
+  var app = apps[0]
+  await funtask.app.start(app)
+```
+
+## notice 通知
 
 系统通知模块
 
@@ -191,7 +202,7 @@ async send() {
 | title   | 推送标题 | String | -   |
 | content | 推送内容 | String | -   |
 
-## bluetooth
+## bluetooth 蓝牙
 
 蓝牙模块
 

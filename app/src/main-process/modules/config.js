@@ -5,21 +5,27 @@
 import YAML from 'yaml'
 import path from 'path'
 import os from 'os'
-import fs from 'fs'
+import fs from 'fs-extra'
 import gulp from 'gulp'
-import rename from 'gulp-rename'
 import events from 'events'
 import {
   ipcMain
 } from 'electron'
 export default class {
+
   constructor() {
+    // 首次加载
+    this.isFirstLoad = true
     // 初始化事件实例
     this.event = new events.EventEmitter()
     // 加载配置文件
     this.loadConfig()
 
     // 监听web端向app请求配置信息
+    ipcMain.on('config-get', (evt) => {
+      evt.reply('config-reply', global.$config)
+    })
+
     ipcMain.on('config-get', (evt) => {
       evt.reply('config-reply', global.$config)
     })
@@ -42,9 +48,7 @@ export default class {
       file = fs.readFileSync(`${this.apphome}/config.yaml`, 'utf8')
     } catch (e) {
       // 复制默认配置文件至配置目录
-      gulp.src(`${__static}/default-config.yaml`)
-        .pipe(rename('config.yaml'))
-        .pipe(gulp.dest(this.apphome))
+      await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
       // 读取默认配置文件
       file = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
     }
@@ -64,15 +68,17 @@ export default class {
       tmpdir: os.tmpdir()
     }
     // 触发配置表加载完成事件
-    this.event.emit('loaded', global.$config)
+    this.event.emit(this.isFirstLoad ? 'loaded' : 'change', global.$config)
     // 开始监听文件改变
     this.watchConfigFile()
+    // 修改状态
+    this.isFirstLoad = false
   }
 
   // 监听配置文件
   watchConfigFile() {
-    gulp.watch(`${this.apphome}/config.yaml`, (event) => {
-      // 重新加载配置文件
+    // 监听
+    gulp.watch(`${this.apphome}/config.yaml`, () => {
       this.loadConfig()
     })
   }

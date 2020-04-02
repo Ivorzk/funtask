@@ -17,6 +17,16 @@ import {
 import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
+app.allowRendererProcessReuse = true
+// 注册标准协议
+protocol.registerSchemesAsPrivileged([{
+  scheme: 'funtask',
+  privileges: {
+    secure: false,
+    standard: true,
+    bypassCSP: false
+  }
+}])
 /**
  * 控制台
  */
@@ -29,15 +39,6 @@ export default class {
     this.control = {}
     // 最后一次显示的窗口
     this.lastVisibleWindow = {}
-    // 注册标准协议
-    protocol.registerSchemesAsPrivileged([{
-      scheme: global.$config.app.protocol,
-      privileges: {
-        secure: false,
-        standard: true,
-        bypassCSP: false
-      }
-    }])
 
     app.on('ready', async () => {
       if (isDevelopment && !process.env.IS_TEST) {
@@ -199,9 +200,8 @@ export default class {
       if (!process.env.IS_TEST) this.control.webContents.openDevTools()
     } else {
       // Load the index.html when not in development
-      this.ball.loadURL(`${global.$config.app.protocol}://./index.html#/`)
+      this.ball.loadURL(`${global.$config.app.protocol}://./index.html`)
       this.control.loadURL(`${global.$config.app.protocol}://./index.html#/funlist`)
-      // this.control.webContents.openDevTools()
     }
     // this.control.webContents.executeJavaScript(`window.funtask = require('@suwis/funtask/core/index.js')`)
   }
