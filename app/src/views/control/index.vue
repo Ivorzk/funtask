@@ -17,7 +17,7 @@
       <li role="toggle"><var class="num">99+</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
     <ul>
-      <li role="toggle"><i class="iconfont">&#xe61e;</i>反馈建议</li>
+      <li role="toggle" @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
       <li role="toggle"><i class="iconfont">&#xe600;</i>开发社区</li>
       <li role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
       <li role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
