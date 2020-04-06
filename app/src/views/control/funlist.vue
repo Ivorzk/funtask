@@ -37,6 +37,9 @@ export default {
       this.cantouch = false
       await this.$funtask.app.start(app)
       this.cantouch = true
+      // 收起面板
+      this.$parent.minToggle()
+      console.log(this)
     }
   }
 }
