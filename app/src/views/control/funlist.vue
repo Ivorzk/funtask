@@ -39,7 +39,6 @@ export default {
       this.cantouch = true
       // 收起面板
       this.$parent.minToggle()
-      console.log(this)
     }
   }
 }
