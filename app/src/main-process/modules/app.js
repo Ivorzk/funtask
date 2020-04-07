@@ -192,7 +192,8 @@ export default class {
   async uninstall(app) {
     console.log('remove ' + path.resolve(global.$config.packagesdir + `/${app.name}`))
     await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
-    await this.loadApps()
+    // 将app从禁用列表中移除
+    await this.toggleApp(app, true)
     return app
   }
 

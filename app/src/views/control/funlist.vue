@@ -2,6 +2,7 @@
 <div class="funtask-funlist">
   <ul>
     <li v-for="(app,idx) in apps"
+      v-show="!app.disabled"
       :key="'app_'+idx"
       @click="start(app)">
       <img v-lazy="app.logo"
@@ -36,6 +37,8 @@ export default {
       this.cantouch = false
       await this.$funtask.app.start(app)
       this.cantouch = true
+      // 收起面板
+      this.$parent.minToggle()
     }
   }
 }

@@ -7,6 +7,7 @@
   <div class="app-list">
     <dl v-for="(app,idx) in remoteApps"
       v-show="app.name.indexOf('funtask-')===0"
+      :class="{disabled:app.disabled}"
       :key="idx">
       <dt>{{app.name}}</dt>
       <dd>{{app.description}}</dd>
@@ -14,9 +15,9 @@
           :key="key">{{key}}</label></dd>
       <dd class="between">
         <span>
-          <img class="avatar"
+          <!-- <img class="avatar"
             src="https://s.gravatar.com/avatar/d58973c038d271823c09420d1a0bb64e?size=100&default=retro"
-            alt="">
+            alt=""> -->
           {{app.publisher.username}} 发布版本 v{{app.version}} • &nbsp;&nbsp;于{{app.date|timediff}}前
         </span>
         <span v-if="!app.installed"
@@ -33,7 +34,8 @@
               class="iconfont waiting">&#xe640;</i>
             <i class="iconfont"
               v-else>&#xe619;</i>删除</button>
-          <button v-if="app.disabled"
+          <button class="btn-enable"
+            v-if="app.disabled"
             @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
           <button v-else
             @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
@@ -117,7 +119,7 @@ export default {
     async getLocalApps() {
       const apps = await this.$funtask.app.getApps()
       this.localApps = apps
-      console.log(this.localApps, 'localApps')
+      // console.log(this.localApps, 'localApps')
     },
     // 安装应用
     async install(app) {
@@ -205,6 +207,15 @@ export default {
             border-radius: $funtask-border-radius-sm;
             &:first-child {
                 margin-top: 0;
+            }
+
+            &.disabled {
+                opacity: 0.58;
+                .btn-group {
+                    button:not(.btn-enable) {
+                        pointer-events: none;
+                    }
+                }
             }
 
             dd,

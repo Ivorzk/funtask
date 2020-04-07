@@ -7,6 +7,8 @@ const program = require('commander')
 
 const minimist = require('minimist')
 
+const devhelper = require('./../lib/devhelper')
+
 program
   .version(require('../package').version)
   .usage('<command> [options]')
@@ -22,9 +24,28 @@ program
     if (minimist(process.argv.slice(3))._.length > 1) {
       console.log(chalk.yellow('\n Info: You provided more than one argument. The first one will be used as the app\'s name, the rest are ignored.'))
     }
-    
+
     // 引入构建器
     require('../lib/generate')(name, options)
+  })
+
+// 引入开发插件
+program
+  .command('link')
+  .description('link app to funtask')
+  .action((name, cmd) => {
+    // 引入构建器
+    devhelper.link(name)
+  })
+
+// 移除开发插件
+program
+  .command('unlink')
+  .description('unlink app from funtask')
+  .action((name, cmd) => {
+    const options = cleanArgs(cmd)
+    // 引入构建器
+    devhelper.unlink(name, options)
   })
 
 // ui 界面
@@ -47,7 +68,6 @@ program
   .action((cmd) => {
     program.outputHelp()
     console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`))
-    console.log()
     suggestCommands(cmd)
   })
 

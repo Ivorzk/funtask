@@ -16,8 +16,8 @@ Tasks.prototype.copyTemplates = () => {
 
 // replace variables
 Tasks.prototype.replaceVariables = () => {
-  gulp.src([`${__dirname}/../plugin-tpl/package.json`])
-    .pipe(replace('${name}', `@funtask/${options.name}`))
+  gulp.src([`${__dirname}/../plugin-tpl/package.json`, `${__dirname}/../plugin-tpl/app.yaml`])
+    .pipe(replace('${name}', `funtask-${options.name}`))
     .pipe(replace('${description}', `a funtask app`))
     .pipe(replace('${keywords}', `keywords`))
     .pipe(replace('${repository}', ``))

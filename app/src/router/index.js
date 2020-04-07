@@ -24,6 +24,13 @@ const routes = [{
     meta: {
       keepAlive: true
     }
+  }, {
+    path: '/feedback',
+    name: 'feedback',
+    component: () => import('../views/control/feedback'),
+    meta: {
+      keepAlive: true
+    }
   }]
 }]
 

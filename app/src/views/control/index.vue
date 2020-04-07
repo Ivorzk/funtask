@@ -1,5 +1,6 @@
 <template>
-<div class="funtask-control" :class="{show: control.visible,sideslip:control.sideslip}">
+<div class="funtask-control"
+  :class="{show: control.visible,sideslip:control.sideslip}">
   <div class="bg"></div>
   <div class="wrapper">
     <funtask-header @btn-click="headerClick"></funtask-header>
@@ -9,15 +10,17 @@
   </div>
   <div class="settings">
     <ol>
-      <li @click="$router.push('/appstore')"><i class="iconfont"> &#xe605;</i>应用</li>
-      <li @click="$router.push('/funlist')"><i class="iconfont"> &#xe63c;</i>菜单</li>
-      <li><var class="num">99+</var><i class="iconfont">&#xeb7d;</i>通知</li>
+      <li role="toggle"
+        @click="navlink('/appstore')"><i class="iconfont">&#xe605;</i>应用</li>
+      <li role="toggle"
+        @click="navlink('/funlist')"><i class="iconfont">&#xe63c;</i>菜单</li>
+      <li role="toggle"><var class="num">99+</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
     <ul>
-      <li><i class="iconfont">&#xe61e;</i>反馈建议</li>
-      <li><i class="iconfont">&#xe600;</i>开发社区</li>
-      <li><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
-      <li><i class="iconfont">&#xe63a;</i>系统设置</li>
+      <li role="toggle" @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
+      <li role="toggle"><i class="iconfont">&#xe600;</i>开发社区</li>
+      <li role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
+      <li role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
   </div>
 </div>
@@ -73,8 +76,11 @@ export default {
     // 关闭右侧菜单
     settingsClose() {
       this.control.sideslip = false
+    },
+    navlink(path) {
+      this.$router.push(path)
+      this.settingsClose()
     }
-
   }
 }
 </script>
