@@ -11,6 +11,6 @@
     "vuepress-plugin-clean-urls": "^1.0.3",
     "vuepress-plugin-smooth-scroll": "^0.0.7",
     "vuepress-plugin-zooming": "^1.1.5",
-    "vuepress-theme-funtask": "^1.0.1"
+    "vuepress-theme-funtask": "^1.0.2"
   }
 }

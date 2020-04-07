@@ -44,18 +44,24 @@ funtask link
 
 Funtask 遵循 “约定优于配置” 的原则，插件的目录结构如下：
 
-    .
-    │  CHANGELOG.md // 修改日志
-    │  index.js // 应用入口文件
-    │  LICENSE.md // 协议
-    │  logo.png // 应用logo
-    │  package.json // npm 依赖文件
-    │
-    ├─keymaps
-    │      keymap.json // 快捷键绑定
-    │
-    └─menus
-            menus.json // 菜单文件
+```shell
+│  CHANGELOG.md // 更新日志文件
+│  index.js // 插件入口文件（将被加载到主进程中）
+│  app.yaml // 应用配置
+│  LICENSE.md // 开源协议
+│  logo.png // logo
+│  package.json // 依赖文件
+│  app.json // 应用配置文件
+│
+├─keymaps // 快捷键配置
+│      keymap.json
+│
+├─menus // 菜单配置
+│      menus.json
+│
+└─views // 视图文件
+        index.html
+```
 
 ## 发布Funtask应用
 
