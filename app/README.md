@@ -1,29 +1,23 @@
-# app
+website: <https://funtask.dev>
 
-## Project setup
-```
-yarn install
-```
+## install
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+```sh
+npm install -g @suwis/funtask
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+## create new app
+
+```sh
+funtask create hello-funtask
 ```
 
-### Run your unit tests
-```
-yarn test:unit
+## app debugging
+
+```sh
+cd hello-funtask
+
+funtask link
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Restart Funtask client
