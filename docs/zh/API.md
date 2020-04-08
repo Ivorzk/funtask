@@ -5,7 +5,7 @@
 :::
 
 ```js
-import funtask from "@suwis/funtask/core"
+import funtask from "@suwis/funtask"
 ```
 
 ## system 系统
