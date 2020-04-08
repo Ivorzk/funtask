@@ -11,7 +11,7 @@
       <textarea name=""
         id=""
         cols="30"
-        rows="10"></textarea>
+        rows="14"></textarea>
     </li>
     <li class="btn-group">
       <button>提交</button>
@@ -39,10 +39,11 @@
     input,
     textarea {
         width: 100%;
-        padding: 5px 8px;
+        padding: 8px 8px;
         box-sizing: border-box;
         border: none;
         background: rgba(255, 255,255,0.8);
+        font-size: 12px;
     }
 
     input {
