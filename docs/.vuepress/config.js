@@ -54,6 +54,9 @@ module.exports = {
       text: '主页',
       link: '/'
     }, {
+      text: '社区',
+      link: 'https://funtask.club'
+    }, {
       text: 'VI',
       link: '/zh/vi'
     }, {
