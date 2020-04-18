@@ -167,8 +167,12 @@ export default class {
     win.on('closed', (win) => {
       apps.delete(win.sender.winId)
     })
-    // console.log(app, 'app', 'funtask://' + app.package.name + '/views/index.html')
-    win.loadURL(global.$config.app.protocol + '://./' + app.package.name + '/views/index.html')
+    let url = global.$config.app.protocol + '://./' + app.package.name + '/views/index.html'
+    // 判断是否设置入口页面
+    if (app.main) {
+      app.main.indexOf('://') > -1 ? url = app.main : url = global.$config.app.protocol + '://./' + app.main
+    }
+    win.loadURL(url)
     return true
   }
 
