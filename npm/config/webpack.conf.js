@@ -7,5 +7,6 @@ module.exports = {
   },
   node: {
     fs: 'empty'
-  }
+  },
+  mode: 'production'
 }

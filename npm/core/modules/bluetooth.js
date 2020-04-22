@@ -1,12 +1,10 @@
-import {
-  ipcRenderer
-} from 'electron'
+import electron from './../utils/electron'
 export default {
   // 获取全局配置
   get() {
     return new Promise((resolve, reject) => {
-      ipcRenderer.send('bluetooth-get', 'json')
-      ipcRenderer.on('bluetooth-get-reply', (data) => {
+      electron.ipcRenderer.send('bluetooth-get', 'json')
+      electron.ipcRenderer.on('bluetooth-get-reply', (data) => {
         resolve(data)
       })
     })

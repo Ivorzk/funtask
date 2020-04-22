@@ -173,7 +173,7 @@ export default class {
       app.main.indexOf('://') > -1 ? url = app.main : url = global.$config.app.protocol + '://./' + app.main
     }
     win.loadURL(url)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
     return true
   }
 

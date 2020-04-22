@@ -1,12 +1,10 @@
-import {
-  ipcRenderer
-} from 'electron'
+import electron from './../utils/electron'
 export default {
   // 获取全局配置
   download(data) {
     return new Promise((resolve, reject) => {
-      ipcRenderer.send('io-download', data)
-      ipcRenderer.on('io-download-reply', (data) => {
+      electron.ipcRenderer.send('io-download', data)
+      electron.ipcRenderer.on('io-download-reply', (data) => {
         resolve(data)
       })
     })

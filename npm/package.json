@@ -2,7 +2,7 @@
   "name": "@suwis/funtask",
   "version": "1.0.9",
   "description": "为你提供高效、快乐、人性化的工作方式",
-  "main": "dist/index.js",
+  "main": "core/index.js",
   "bin": {
     "funtask": "bin/index.js"
   },

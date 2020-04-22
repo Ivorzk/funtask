@@ -1,12 +1,10 @@
-import {
-  ipcRenderer
-} from 'electron'
+import electron from './../utils/electron'
 export default {
   // 获取全局配置
   get() {
     return new Promise((resolve, reject) => {
-      ipcRenderer.send('config-get', 'json')
-      ipcRenderer.on('config-get-reply', (data) => {
+      electron.ipcRenderer.send('config-get', 'json')
+      electron.ipcRenderer.on('config-get-reply', (data) => {
         resolve(data)
       })
     })
