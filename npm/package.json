@@ -2,12 +2,13 @@
   "name": "@suwis/funtask",
   "version": "1.0.9",
   "description": "为你提供高效、快乐、人性化的工作方式",
-  "main": "core/index.js",
+  "main": "dist/index.js",
   "bin": {
     "funtask": "bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config config/webpack.conf.js"
   },
   "keywords": [
     "work",
@@ -29,5 +30,10 @@
     "gulp-replace": "^1.0.0",
     "minimist": "^1.2.0",
     "yaml": "^1.8.3"
+  },
+  "devDependencies": {
+    "electron": "^8.2.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
