@@ -4,7 +4,7 @@ export default {
   getInfo() {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('system-get-info', 'json')
-      electron.ipcRenderer.on('system-get-info-reply', (data) => {
+      electron.ipcRenderer.on('system-get-info-reply', (evt, data) => {
         resolve(data)
       })
     })

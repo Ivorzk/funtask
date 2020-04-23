@@ -4,7 +4,7 @@ export default {
   download(data) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('io-download', data)
-      electron.ipcRenderer.on('io-download-reply', (data) => {
+      electron.ipcRenderer.on('io-download-reply', (evt, data) => {
         resolve(data)
       })
     })
