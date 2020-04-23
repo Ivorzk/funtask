@@ -23,11 +23,8 @@ export default class {
 
     // 监听web端向app请求配置信息
     ipcMain.on('config-get', (evt) => {
-      evt.reply('config-reply', global.$config)
-    })
-
-    ipcMain.on('config-get', (evt) => {
-      evt.reply('config-reply', global.$config)
+      console.log('获取配置')
+      evt.reply('config-get-reply', global.$config)
     })
   }
 

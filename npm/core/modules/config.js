@@ -4,7 +4,7 @@ export default {
   get() {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('config-get', 'json')
-      electron.ipcRenderer.on('config-get-reply', (data) => {
+      electron.ipcRenderer.on('config-get-reply', (evt, data) => {
         resolve(data)
       })
     })
