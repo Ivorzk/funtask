@@ -25,7 +25,7 @@ module.exports = {
       configJson.dev.debugdirs.push(process.cwd())
     }
     // 写入本地磁盘
-    console.log(YAML.stringify(configJson))
+    // console.log(YAML.stringify(configJson))
     fs.writeFileSync(path.resolve(apphome + '/config.yaml'), YAML.stringify(configJson))
 
     console.log(chalk.yellow('Application register successfully !'))
@@ -48,7 +48,7 @@ module.exports = {
       }
     }
     // 写入本地磁盘
-    console.log(YAML.stringify(configJson))
+    // console.log(YAML.stringify(configJson))
     fs.writeFileSync(path.resolve(apphome + '/config.yaml'), YAML.stringify(configJson))
 
     console.log(chalk.yellow(`${name} unlkin successfully !`))
