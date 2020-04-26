@@ -18,27 +18,32 @@ export default class {
     ipcMain.on('app-get-apps', (evt, dataType) => {
       evt.reply('app-get-apps-reply', global.$apps)
     })
-    // 监听app打开操作
+    // 打开应用
     ipcMain.on('app-start', async (evt, app) => {
-      await this.openWindow(app)
-      evt.reply('app-start-reply', app)
+      let win = await this.openWindow(app)
+      evt.reply('app-start-reply', win)
+    })
+    // 关闭应用
+    ipcMain.on('app-stop', async (evt, app) => {
+      await this.closeWindow(app)
+      evt.reply('app-stop-reply', app)
     })
     // 监听app安装事件
     ipcMain.on('app-install', async (evt, app) => {
       let data = await this.install(app)
       evt.reply('app-install-reply', data)
     })
-
+    //  卸载
     ipcMain.on('app-uninstall', async (evt, app) => {
       let data = await this.uninstall(app)
       evt.reply('app-uninstall-reply', data)
     })
-
+    // 禁用
     ipcMain.on('app-disable', async (evt, app) => {
       let data = await this.disable(app)
       evt.reply('app-disable-reply', data)
     })
-
+    // 启用
     ipcMain.on('app-enable', async (evt, app) => {
       let data = await this.enable(app)
       evt.reply('app-enable-reply', data)
@@ -173,8 +178,17 @@ export default class {
       app.main.indexOf('://') > -1 ? url = app.main : url = global.$config.app.protocol + '://./' + app.main
     }
     win.loadURL(url)
+    win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
     // win.webContents.openDevTools()
-    return true
+    return win
+  }
+
+  // 关闭窗口
+  closeWindow(winId) {
+    // 尝试关闭
+    try {
+      apps.get(winId).close()
+    } catch (e) {}
   }
 
   // 安装应用

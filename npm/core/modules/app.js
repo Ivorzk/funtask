@@ -4,7 +4,7 @@ export default new class {
   install(app) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-install', app)
-      electron.ipcRenderer.on('app-install-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-install-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -14,7 +14,7 @@ export default new class {
   uninstall(app) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-uninstall', app)
-      electron.ipcRenderer.on('app-uninstall-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-uninstall-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -24,7 +24,7 @@ export default new class {
   setting(data) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-setting', data)
-      electron.ipcRenderer.on('app-setting-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-setting-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -34,7 +34,7 @@ export default new class {
   disable(data) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-disable', data)
-      electron.ipcRenderer.on('app-disable-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-disable-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -44,7 +44,7 @@ export default new class {
   enable(data) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-enable', data)
-      electron.ipcRenderer.on('app-enable-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-enable-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -54,7 +54,18 @@ export default new class {
   start(app) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-start', app)
-      electron.ipcRenderer.on('app-start-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-start-reply', (evt, win) => {
+        resolve(win)
+      })
+    })
+  }
+
+  // 关闭app
+  stop(app = {}) {
+    return new Promise((resolve, reject) => {
+      let winId = sessionStorage.getItem('winId') || app.winId
+      electron.ipcRenderer.send('app-stop', winId)
+      electron.ipcRenderer.once('app-stop-reply', (evt, data) => {
         resolve(data)
       })
     })
@@ -64,7 +75,7 @@ export default new class {
   getApps() {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('app-get-apps', 'json')
-      electron.ipcRenderer.on('app-get-apps-reply', (evt, data) => {
+      electron.ipcRenderer.once('app-get-apps-reply', (evt, data) => {
         resolve(data)
       })
     })
