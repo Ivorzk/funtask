@@ -175,7 +175,7 @@ export default class {
     let url = global.$config.app.protocol + '://./' + app.package.name + '/views/index.html'
     // 判断是否设置入口页面
     if (app.main) {
-      app.main.indexOf('://') > -1 ? url = app.main : url = global.$config.app.protocol + '://./' + app.main
+      app.main.indexOf('://') > -1 ? url = app.main : url = `${global.$config.app.protocol}://./${app.package.name}/${app.main}`
     }
     win.loadURL(url)
     win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
