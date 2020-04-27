@@ -1,3 +1,5 @@
 app/
 
 docs/
+
+package-lock.json
