@@ -4,7 +4,7 @@ export default {
   get() {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('bluetooth-get', 'json')
-      electron.ipcRenderer.on('bluetooth-get-reply', (evt, data) => {
+      electron.ipcRenderer.once('bluetooth-get-reply', (evt, data) => {
         resolve(data)
       })
     })

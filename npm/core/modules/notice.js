@@ -4,7 +4,7 @@ export default {
   send(data) {
     return new Promise((resolve, reject) => {
       electron.ipcRenderer.send('notice-send', data)
-      electron.ipcRenderer.on('notice-send-reply', (evt, data) => {
+      electron.ipcRenderer.once('notice-send-reply', (evt, data) => {
         resolve(data)
       })
     })
