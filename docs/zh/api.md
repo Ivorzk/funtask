@@ -175,9 +175,25 @@ async getApps() {
 启动一个应用
 
 ```js
-  let apps = await funtask.app.getApps()
-  var app = apps[0]
-  await funtask.app.start(app)
+let apps = await funtask.app.getApps()
+var app = apps[0]
+await funtask.app.start(app)
+```
+
+### funtask.app.stop
+
+关闭应用, 默认关闭当前窗口
+
+```js
+funtask.app.stop()
+```
+
+### funtask.app.openDevTools
+
+打开调试工具
+
+```js
+funtask.app.openDevTools()
 ```
 
 ## notice 通知

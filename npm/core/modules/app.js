@@ -80,4 +80,15 @@ export default new class {
       })
     })
   }
+
+  // 打开调试工具
+  openDevTools(app) {
+    return new Promise((resolve, reject) => {
+      let winId = sessionStorage.getItem('winId') || app.winId
+      electron.ipcRenderer.send('app-openDevTools', winId)
+      electron.ipcRenderer.once('app-openDevTools-reply', (evt, data) => {
+        resolve(data)
+      })
+    })
+  }
 }

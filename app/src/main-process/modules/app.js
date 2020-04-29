@@ -24,9 +24,9 @@ export default class {
       evt.reply('app-start-reply', win)
     })
     // 关闭应用
-    ipcMain.on('app-stop', async (evt, app) => {
-      await this.closeWindow(app)
-      evt.reply('app-stop-reply', app)
+    ipcMain.on('app-stop', async (evt, winId) => {
+      await this.closeWindow(winId)
+      evt.reply('app-stop-reply', winId)
     })
     // 监听app安装事件
     ipcMain.on('app-install', async (evt, app) => {
@@ -36,7 +36,10 @@ export default class {
     //  卸载
     ipcMain.on('app-uninstall', async (evt, app) => {
       let data = await this.uninstall(app)
-      evt.reply('app-uninstall-reply', data)
+      // 加入延迟防止前端出现无法及时生效的问题
+      setTimeout(() => {
+        evt.reply('app-uninstall-reply', data)
+      }, 999)
     })
     // 禁用
     ipcMain.on('app-disable', async (evt, app) => {
@@ -47,6 +50,11 @@ export default class {
     ipcMain.on('app-enable', async (evt, app) => {
       let data = await this.enable(app)
       evt.reply('app-enable-reply', data)
+    })
+    // 打开调试
+    ipcMain.on('app-openDevTools', async (evt, app) => {
+      let data = await this.openDevTools(app)
+      evt.reply('app-openDevTools-reply', data)
     })
   }
 
@@ -210,10 +218,34 @@ export default class {
   // 删除应用
   async uninstall(app) {
     console.log('remove ' + path.resolve(global.$config.packagesdir + `/${app.name}`))
+    // 移除调试软件链接
+    await this.unlink(app.name)
+    // 删除文件夹
     await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
     // 将app从禁用列表中移除
     await this.toggleApp(app, true)
     return app
+  }
+
+  // 取消链接
+  async unlink(name) {
+    // 读取配置文件
+    var configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
+    // 设置将app禁用
+    var configJson = YAML.parse(configFile)
+    // 初始化app
+    configJson.dev.debugdirs ? '' : configJson.dev.debugdirs = []
+    for (let idx in configJson.dev.debugdirs) {
+      let dir = configJson.dev.debugdirs[idx]
+      if (dir.indexOf(name) > -1) {
+        configJson.dev.debugdirs.splice(idx, 1)
+        break
+      }
+    }
+    // 写入本地磁盘
+    // console.log(YAML.stringify(configJson))
+    await fs.outputFile(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    return true
   }
 
   // 禁用应用
@@ -244,7 +276,7 @@ export default class {
     }
     // 写入本地磁盘
     // console.log(YAML.stringify(configJson))
-    fs.writeFileSync(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    await fs.outputFile(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
     // 检查配置文件更新情况
     await this.checkAppStatus(state, app.name)
     // 重新加载app
@@ -252,6 +284,7 @@ export default class {
     return app
   }
 
+  // 检查app状态
   checkAppStatus(state, name) {
     return new Promise((resolve, reject) => {
       var loopFun = () => {
@@ -267,5 +300,13 @@ export default class {
       }
       loopFun()
     })
+  }
+
+  // 打开调试工具
+  openDevTools(winId){
+    // 尝试关闭
+    try {
+      apps.get(winId).openDevTools()
+    } catch (e) {}
   }
 }

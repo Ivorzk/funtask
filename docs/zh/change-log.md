@@ -1,5 +1,10 @@
 # 更新日志
 
+## 2020-04-30
+
+-   增加api funtask.app.stop
+-   增加api funtask.app.openDevTools
+
 ## 2020-04-01
 
 -   应用的启用和禁用功能实现
