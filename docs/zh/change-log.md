@@ -1,9 +1,9 @@
 # 更新日志
 
-## 2020-04-30
+## 2020-04-26
 
--   增加api funtask.app.stop
--   增加api funtask.app.openDevTools
+-   基础API完善
+-   Funtask API 演示程序0.0.3版本发布
 
 ## 2020-04-01
 
