@@ -4,11 +4,12 @@ Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能
 
 ## Funtask客户端下载
 
-| 平台      | 应用大小 | 更新时间       | 版本号    | 下载链接                                                                     |
-| :------ | :--- | :--------- | :----- | :----------------------------------------------------------------------- |
-| Windows | 39M  | 2019-11-18 | v1.0.6 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.6.exe) |
-| Mac     | 39M  | 2019-11-18 | v1.0.6 | [点击下载](https://funtask.dev/download/funtask%20Setup%201.0.6.exe)         |
-| Linux   | 39M  | 2019-11-18 | v1.0.6 | [点击下载](https://funtask.dev/download/funtask%20Setup%201.0.6.exe)         |
+| 平台          | 应用大小 | 更新时间       | 版本号    | 下载链接                                                                          |
+| :---------- | :--- | :--------- | :----- | :---------------------------------------------------------------------------- |
+| Windows 64位 | 39M  | 2020-05-02 | v1.0.6 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.6.exe)      |
+| Windows 32位 | 39M  | 2020-05-02 | v1.0.6 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.6_ia32.exe) |
+| Mac         | 39M  | 2020-05-02 | v1.0.6 | [点击下载](https://funtask.dev/download/funtask%20Setup%201.0.6.exe)              |
+| Linux       | 39M  | 2020-05-02 | v1.0.6 | [点击下载](https://funtask.dev/download/funtask%20Setup%201.0.6.snap)              |
 
 ## 开发第一个应用
 
