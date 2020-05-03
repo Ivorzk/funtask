@@ -21,7 +21,6 @@ export default class {
     let notice = new Notification({
       ...data
     })
-    console.log(notice.show)
     notice.show()
     return true
   }
