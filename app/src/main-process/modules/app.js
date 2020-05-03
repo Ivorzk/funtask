@@ -166,7 +166,7 @@ export default class {
       minimizable: false,
       alwaysOnTop: true,
       fullscreenable: false,
-      hasShadow: true,
+      hasShadow: false,
       skipTaskbar: true,
       webPreferences: {
         nodeIntegration: true,
