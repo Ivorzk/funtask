@@ -4,9 +4,11 @@ import Config from './modules/config'
 import App from './modules/app'
 import Control from './control'
 import Tray from './modules/tray'
+import System from './modules/system'
 const config = new Config()
 const appManager = new App()
 const tray = new Tray()
+const system = new System()
 var control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
