@@ -5,10 +5,12 @@ import App from './modules/app'
 import Control from './control'
 import Tray from './modules/tray'
 import System from './modules/system'
+import Notice from './modules/notice'
 const config = new Config()
 const appManager = new App()
 const tray = new Tray()
 const system = new System()
+const notice = new Notice()
 var control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
