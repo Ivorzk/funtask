@@ -31,14 +31,14 @@ const routes = [{
     meta: {
       keepAlive: true
     }
-  }, {
-    path: '/notice',
-    name: 'notice',
-    component: () => import('../views/notice'),
-    meta: {
-      keepAlive: true
-    }
   }]
+}, {
+  path: '/notice',
+  name: 'notice',
+  component: () => import('../views/notice'),
+  meta: {
+    keepAlive: true
+  }
 }]
 
 const router = new VueRouter({

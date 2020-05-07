@@ -36,7 +36,7 @@ export default class {
       minimizable: false,
       alwaysOnTop: true,
       fullscreenable: false,
-      skipTaskbar: false,
+      skipTaskbar: true,
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
@@ -45,16 +45,19 @@ export default class {
     })
     if (process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
-      win.loadURL(process.env.WEBPACK_DEV_SERVER_URL + '#/notice')
+      win.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL}#/notice`)
     } else {
       win.loadURL(`${global.$config.app.protocol}://./index.html#/notice`)
     }
-    win.hide()
+    // win.hide()
   }
 
   // 发送通知
   async send(data) {
     win.show()
+    setTimeout(() => {
+      win.hide()
+    }, 5000)
     return true
   }
 }

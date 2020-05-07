@@ -9,11 +9,6 @@ import {
   ipcMain,
   screen
 } from 'electron'
-import funtask from '@suwis/funtask/core'
-import {
-  // createProtocol,
-  installVueDevtools
-} from 'vue-cli-plugin-electron-builder/lib'
 import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready

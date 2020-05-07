@@ -144,7 +144,7 @@ export default class {
 
   // 打开应用
   async openWindow(app) {
-    console.log(app, 'app')
+    // console.log(app, 'app')
     // 获取宽高
     const {
       width,
