@@ -24,11 +24,11 @@ export default class {
     } = screen.getPrimaryDisplay().workAreaSize
 
     win = new BrowserWindow({
-      width: 520,
-      height: 268,
+      width: 486,
+      height: 168,
       frame: false,
-      x: width - 520,
-      y: height - 268,
+      x: width - 486,
+      y: height - 168,
       hasShadow: false,
       transparent: true,
       resizable: false,
