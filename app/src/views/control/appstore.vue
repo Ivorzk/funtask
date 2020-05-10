@@ -43,6 +43,13 @@
       </dd>
     </dl>
   </div>
+  <div class="loading"
+    :class="{show:loading}">
+    <img v-if="remoteApps.length==0"
+      src="@/assets/loading.svg"
+      alt="">
+    <span>暂无数据~</span>
+  </div>
 </div>
 </template>
 <script>
@@ -52,8 +59,12 @@ export default {
     return {
       // 关键字
       keywords: '',
+      // 远端搜索app列表
       remoteApps: [],
-      localApps: []
+      // 本地app列表
+      localApps: [],
+      // 加载状态
+      loading: true
     }
   },
   mounted() {
@@ -112,8 +123,10 @@ export default {
   methods: {
     // 获取应用
     async searchApps() {
+      this.loading = true
       const res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
       this.remoteApps = res.data || []
+      this.loading = false
     },
     // 获取系统app
     async getLocalApps() {
@@ -282,6 +295,32 @@ export default {
             100% {
                 transform: rotate(360deg);
             }
+        }
+    }
+
+    .loading {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+
+        &.show {
+            opacity: 1;
+        }
+
+        img {
+            max-width: 39px;
+            opacity: 0.5;
+        }
+        span {
+            color: $funtask-color-primary;
+            opacity: 0.5;
         }
     }
 }

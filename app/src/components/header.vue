@@ -35,7 +35,6 @@ export default {
         right: 0;
         top: 0;
         color: $funtask-color-primary;
-        font-size: 1.5rem;
         z-index: 399;
         display: flex;
 
@@ -43,6 +42,10 @@ export default {
             .toggle {
                 visibility: visible;
             }
+        }
+
+        .iconfont {
+            font-size: 1.5rem;
         }
     }
 

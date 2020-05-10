@@ -1,0 +1,128 @@
+{
+  "id": "1569162",
+  "name": "funtask",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1304892",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "7408324",
+      "name": "loading",
+      "font_class": "loading",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "953857",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "1040565",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e76a",
+      "unicode_decimal": 59242
+    },
+    {
+      "icon_id": "1621427",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "3216098",
+      "name": "下载",
+      "font_class": "icon--",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "137885",
+      "name": "文件夹",
+      "font_class": "iconfont89",
+      "unicode": "e752",
+      "unicode_decimal": 59218
+    },
+    {
+      "icon_id": "686434",
+      "name": "文件",
+      "font_class": "wenjian",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "10468199",
+      "name": "商店",
+      "font_class": "icon-test",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "12099660",
+      "name": "消息",
+      "font_class": "huabanfuben",
+      "unicode": "eb7d",
+      "unicode_decimal": 60285
+    },
+    {
+      "icon_id": "9708919",
+      "name": "反馈",
+      "font_class": "fankui",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "1067055",
+      "name": "应用",
+      "font_class": "application",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "1687284",
+      "name": "设置",
+      "font_class": "ziyuan",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "3248565",
+      "name": "开发",
+      "font_class": "kaifa",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5387843",
+      "name": "主题_调色盘_o",
+      "font_class": "zhuti_tiaosepan_o",
+      "unicode": "eb6e",
+      "unicode_decimal": 60270
+    },
+    {
+      "icon_id": "7408316",
+      "name": "减号",
+      "font_class": "jianhao1",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "1183137",
+      "name": "菜单",
+      "font_class": "caidan1",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    }
+  ]
+}

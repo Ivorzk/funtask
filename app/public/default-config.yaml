@@ -8,6 +8,10 @@ app:
     visible:  true
     # 托盘图标
     icon:     ''
+  # 通知
+  notice:
+    # 显示停留时间
+    delay:    5000
 
 # 开发环境配置
 dev:

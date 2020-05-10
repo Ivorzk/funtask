@@ -1,25 +1,18 @@
 <template>
-<div class="funtask-notice">
+<div class="funtask-notice"
+  :class="{'show':show}">
   <div class="message-box"
-    :class="direction"
-    @mouseup="close">
-    <div class="mask"
-      @mousedown="direction='transform-top'"></div>
-    <div class="mask"
-      @mousedown="direction='transform-right'"></div>
-    <div class="mask"
-      @mousedown="direction='transform-bottom'"></div>
-    <div class="mask"
-      @mousedown="direction='transform-left'"></div>
-    <!--  -->
+    @mouseup="close('custom')">
     <dl>
       <dt>
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588794868821&di=8c356c2f9ceef9803bd612c5c65c8d5c&imgtype=0&src=http%3A%2F%2Fpic15.nipic.com%2F20110630%2F7688891_130841059318_2.jpg"
+        <img v-if="msgdata.icon"
+          :src="msgdata.icon"
           alt="">
       </dt>
       <dd>
-        <h5>应用程序用户模型</h5>
-        <p>Windows 7和更高版本系统中的任务栏广泛使用应用程序用户模型ID，以将进程，文件和窗口与特定应用程序相关联</p>
+        <i class="arrow iconfont">&#xe625;</i>
+        <h5>{{msgdata.title||''}}</h5>
+        <p>{{msgdata.body||''}}</p>
       </dd>
     </dl>
   </div>
@@ -27,18 +20,51 @@
 </template>
 
 <script>
-// import {
-//   ipcRenderer
-// } from 'electron'
+import {
+  ipcRenderer
+} from 'electron'
+let timer
 export default {
   data() {
     return {
-      direction: ''
+      show: false,
+      msgdata: {},
+      config: {}
     }
   },
-  mounted() {},
+  computed: {
+    delay() {
+      if (this.config.app && this.config.app.notice) {
+        return this.config.app.notice.delay || 5000
+      }
+      return 5000
+    }
+  },
+  mounted() {
+    this.getConfig()
+    ipcRenderer.on('notice-push-reply', (event, data) => {
+      this.msgdata = data
+      this.show = true
+      window.clearInterval(timer)
+      // 5秒自动消失
+      timer = setTimeout(() => {
+        this.close('system')
+      }, this.delay)
+    })
+  },
   methods: {
-    close() {}
+    async getConfig() {
+      this.config = await this.$funtask.config.get()
+    },
+    close(type) {
+      this.show = false
+      setTimeout(() => {
+        ipcRenderer.send('notice-close', {
+          show: this.show,
+          type
+        })
+      }, 398)
+    }
   }
 }
 </script>
@@ -50,37 +76,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    transition: all 0.3s ease;
+    transform: translateX(100vw);
 
-    .mask {
-        position: absolute;
-        width: 50%;
-        height: 50%;
-        z-index: 138;
-
-        &:nth-child(1) {
-            width: 44%;
-            height: 50%;
-            left: 28%;
-            top: 0;
-        }
-        &:nth-child(2) {
-            width: 28%;
-            height: 100%;
-            right: 0;
-            top: 0;
-        }
-        &:nth-child(3) {
-            width: 44%;
-            height: 50%;
-            left: 28%;
-            bottom: 0;
-        }
-        &:nth-child(4) {
-            width: 28%;
-            height: 100%;
-            left: 0;
-            top: 0;
-        }
+    &.show {
+        transform: none;
     }
 
     .message-box {
@@ -89,63 +89,88 @@ export default {
         width: calc(100vw - 28px);
         height: calc(100vh - 28px);
         background: rgba(0,0,0,0.68);
-        padding: 2.8vw;
+        padding: 3.28vw;
         box-sizing: border-box;
         color: #fff;
-
-        transition: all 0.3s ease;
-        -webkit-transition: all 0.6s ease;
         transform: none;
 
-        &:active.transform-top {
-            transform-origin: 50% bottom;
-            -webkit-transform: perspective(900px) rotateX(0.13838372rad) !important;
-        }
-
-        &:active.transform-right {
-            transform-origin: left 50%;
-            -webkit-transform: perspective(900px) rotateY(0.13838372rad) !important;
-        }
-
-        &:active.transform-bottom {
-            transform-origin: 50% top;
-            -webkit-transform: perspective(900px) rotateX(-0.13838372rad) !important;
-        }
-
-        &:active.transform-left {
-            transform-origin: right 50%;
-            -webkit-transform: perspective(900px) rotateY(-0.13838372rad) !important;
-        }
         dl {
             margin: 0;
             padding: 0;
             display: flex;
             box-sizing: border-box;
             align-items: top;
+            justify-content: flex-start;
             dd,
             dt {
                 margin: 0;
                 padding: 0;
+                flex: 1;
+            }
+            dt {
+                max-width: 16.8vw;
             }
             dd {
                 padding: 0 3vw;
                 font-size: 14px;
                 text-align: justify;
-                line-height: 23.9px;
+                line-height: 22.8px;
+                position: relative;
+                max-width: calc(100% - 22vw);
             }
             img {
-                width: 21.39vw;
-                min-width: 21.39vw;
-                height: 21.39vw;
-                min-height: 21.39vw;
+                width: 16.8vw;
+                min-width: 16.8vw;
+                height: 16.8vw;
+                min-height: 16.8vw;
                 object-fit: cover;
+                position: relative;
+                display: block;
+                top: 0.68vw;
+                margin-left: 0.5vw;
             }
             h5 {
+                position: relative;
+                width: 98%;
                 margin: 0;
+                padding: 0;
                 font-size: 16px;
+                font-weight: normal;
+                margin-bottom: 2vw;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                word-break: break-all;
+            }
+            .arrow {
+                color: #fff;
+                position: absolute;
+                right: 2.8vw;
+                top: -2vw;
+                font-weight: lighter;
+                font-size: 14px;
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 200;
             }
             p {
                 font-size: 14px;
+                margin: 0;
+                text-overflow: -o-ellipsis-lastline;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                width: 100%;
+            }
+        }
+
+        &:hover {
+            .arrow {
+                opacity: 1;
+                right: 1vw;
             }
         }
     }
