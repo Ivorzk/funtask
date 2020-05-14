@@ -10,7 +10,7 @@ const config = new Config()
 const appManager = new App()
 const tray = new Tray()
 const system = new System()
-const notice  = {}
+var notice  = {}
 var control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')

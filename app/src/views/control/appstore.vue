@@ -44,10 +44,12 @@
     </dl>
   </div>
   <div class="loading"
-    :class="{show:loading}">
-    <img v-if="remoteApps.length==0"
-      src="@/assets/loading.svg"
+    :class="{show:loading&&remoteApps.length==0}">
+    <img src="@/assets/loading.svg"
       alt="">
+  </div>
+  <div class="loading"
+    :class="{show:!loading&&remoteApps.length==0}">
     <span>暂无数据~</span>
   </div>
 </div>
@@ -123,6 +125,7 @@ export default {
   methods: {
     // 获取应用
     async searchApps() {
+      this.remoteApps = []
       this.loading = true
       const res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
       this.remoteApps = res.data || []

@@ -8,8 +8,8 @@ Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能
 | :---------- | :--- | :--------- | :----- | :---------------------------------------------------------------------------- |
 | Windows 64位 | 39M  | 2020-05-02 | v1.0.7 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.7.exe)      |
 | Windows 32位 | 39M  | 2020-05-02 | v1.0.7 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.7_ia32.exe) |
-| Mac         | 39M  | 2020-05-02 | v1.0.7 | [点击下载](https://funtask.dev/download/funtask%20Setup%201.0.7.exe)              |
-| Linux       | 39M  | 2020-05-02 | v1.0.7 | [点击下载](https://funtask.dev/download/funtask%20Setup%201.0.7.snap)             |
+| Mac         | 39M  | 2020-05-02 | v1.0.7 | [点击下载](https://funtask.dev/download/mac/funtask%20Setup%201.0.7.exe)              |
+| Linux       | 39M  | 2020-05-02 | v1.0.7 | [点击下载](https://funtask.dev/download/linux/funtask_1.0.7_amd64.snap)             |
 
 ## 开发第一个应用
 
