@@ -1,5 +1,6 @@
 'use strict'
 import 'core-js'
+import 'modules/updater'
 import Config from './modules/config'
 import App from './modules/app'
 import Control from './control'
@@ -10,7 +11,7 @@ const config = new Config()
 const appManager = new App()
 const tray = new Tray()
 const system = new System()
-var notice  = {}
+var notice = {}
 var control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
