@@ -31,6 +31,13 @@ const routes = [{
     meta: {
       keepAlive: true
     }
+  }, {
+    path: '/notice-list',
+    name: 'notice-list',
+    component: () => import('../views/notice/list'),
+    meta: {
+      keepAlive: true
+    }
   }]
 }, {
   path: '/notice',

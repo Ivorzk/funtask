@@ -1,6 +1,6 @@
 'use strict'
 import 'core-js'
-import 'modules/updater'
+import './modules/updater'
 import Config from './modules/config'
 import App from './modules/app'
 import Control from './control'
