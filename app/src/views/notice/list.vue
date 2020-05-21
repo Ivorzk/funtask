@@ -115,7 +115,7 @@ export default {
                 max-width: 16.8vw;
             }
             dd {
-                padding: 0 3vw;
+                padding: 0 4vw;
                 font-size: 14px;
                 text-align: justify;
                 line-height: 22.8px;
