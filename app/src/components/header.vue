@@ -56,7 +56,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0.6;
+        opacity: 1;
         cursor: pointer;
         &:hover {
             background: #333;
