@@ -5,23 +5,40 @@ import {
   app
 } from 'electron'
 let win
-// 缓存通知内容
-let custom = {
-  evt: {},
-  data: {}
-}
+// 消息队列
+let queues = new Map()
+import _ from 'lodash'
 export default class {
   constructor() {
+    // 监听客户端发送过来的通知
     ipcMain.on('notice-send', async (evt, data) => {
-      let res = await this.send(data)
-      evt.reply('notice-send-reply', res)
-      custom.evt = evt
-      custom.data = data
+      queues.set(`notice_${Date.now()}`, {
+        evt,
+        data
+      })
+      // 设置缓存
+      this.setCatch()
     })
-    ipcMain.on('notice-close', async (evt, type) => {
+    // 监听消息框发送过来的点击事件
+    ipcMain.on('notice-close', async (evt, key) => {
       win.hide()
       // 如果是用户点击的通知，则通知客户端
-      if (type === 'custom') custom.evt.reply('notice-click-reply', custom.data)
+      let notice = queues.get(key)
+      if (notice) {
+        notice.evt.reply('notice-click-reply', notice.data)
+        // 从队列中删除
+        queues.delete(key)
+      }
+    })
+    ipcMain.on('notice-get-list', async (evt, data) => {
+      let list = []
+      for (let key in queues) {
+        list.push({
+          key: key,
+          data: queues[key]
+        })
+      }
+      evt.reply('notice-get-list-reply', list)
     })
     app.on('ready', () => {
       this.init()
@@ -62,6 +79,16 @@ export default class {
     }
     win.hide()
   }
+
+  // 加载缓存数据
+  getCache() {
+
+  }
+
+  // 设置缓存
+  setCatch = _.debounce(function() {
+
+  }, 1000)
 
   // 发送通知
   async send(data) {
