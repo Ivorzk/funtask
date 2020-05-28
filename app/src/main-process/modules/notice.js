@@ -8,6 +8,8 @@ let win
 // 消息队列
 let queues = new Map()
 import _ from 'lodash'
+// 当前消息是否显示
+let display = false
 export default class {
   constructor() {
     // 监听客户端发送过来的通知
@@ -16,6 +18,8 @@ export default class {
         evt,
         data
       })
+      // 发送数据
+      if (!display) this.send(data)
       // 设置缓存
       this.setCatch()
     })
@@ -29,6 +33,7 @@ export default class {
         // 从队列中删除
         queues.delete(key)
       }
+      display = false
     })
     ipcMain.on('notice-get-list', async (evt, data) => {
       let list = []
@@ -86,12 +91,13 @@ export default class {
   }
 
   // 设置缓存
-  setCatch = _.debounce(function() {
-
-  }, 1000)
+  setCatch() {
+    console.log('设置缓存')
+  }
 
   // 发送通知
   async send(data) {
+    display = true
     win.show()
     win.webContents.send('notice-push-reply', data)
     return true
