@@ -4433,6 +4433,11 @@ electron-is-dev@^0.3.0:
   resolved "https://registry.npmjs.org/electron-is-dev/-/electron-is-dev-0.3.0.tgz#14e6fda5c68e9e4ecbeff9ccf037cbd7c05c5afe"
   integrity sha1-FOb9pcaOnk7L7/nM8DfL18BcWv4=
 
+electron-log@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/electron-log/-/electron-log-4.2.0.tgz#44ef0987fcc53097ad0574b94672fc6712b234e1"
+  integrity sha512-Yy1X8iZEzoBA8pu5b7YU07dRHi1GPM9C5jLEOn87Uqtdc9rbe6KbvvQ/AAAtGvn4/GC3azRW/eeiSI4ZF+Hm2A==
+
 electron-publish@21.2.0:
   version "21.2.0"
   resolved "https://registry.npmjs.org/electron-publish/-/electron-publish-21.2.0.tgz#cc225cb46aa62e74b899f2f7299b396c9802387d"
