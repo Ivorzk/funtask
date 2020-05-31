@@ -33,5 +33,14 @@ name: hello funtask
 main: views/index.html
 # 应用窗体配置
 winconf:
-  autoHideMenuBar:  true
+  # 窗体宽度 default 618
+  width: 618
+  # 窗体高度 default 380
+  height: 380
+  # 是否为无边框窗体 default false
+  frame: true,
+  # 窗口是否总是在最前面 default true
+  alwaysOnTop: true
+  # 是否为透明窗体 default true
+  transparent: true
 ```

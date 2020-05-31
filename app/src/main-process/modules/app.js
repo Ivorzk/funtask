@@ -151,9 +151,18 @@ export default class {
       height
     } = screen.getPrimaryDisplay().workAreaSize
     let winconf = app.winconf || {}
+    let winx = Math.abs((width * 0.5 - (winconf.width || 618) * 0.5)) + 28 * apps.size
+    let winy = Math.abs((height * 0.5 - (winconf.height || 380) * 0.5)) + 28 * apps.size
+    // 是否是全屏
+    if (winconf.fullscreen) {
+      winx = 0
+      winy = 0
+      winconf.width = width
+      winconf.height = height
+    }
     let win = new BrowserWindow(Object.assign({
-      x: (width - winconf.width || 618) + 28 * apps.size,
-      y: (height - winconf.height || 380) + 28 * apps.size,
+      x: winx,
+      y: winy,
       title: app.name,
       icon: app.icon,
       width: 618,
@@ -164,14 +173,16 @@ export default class {
       resizable: false,
       maximizable: false,
       minimizable: false,
-      alwaysOnTop: true,
+      alwaysOnTop: !winconf.fullscreen,
+      autoHideMenuBar: true,
       fullscreenable: false,
       hasShadow: false,
       skipTaskbar: true,
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
-        webSecurity: false
+        webSecurity: false,
+        webviewTag: true
       },
       titleBarStyle: 'hidden'
     }, winconf))
@@ -303,7 +314,7 @@ export default class {
   }
 
   // 打开调试工具
-  openDevTools(winId){
+  openDevTools(winId) {
     // 尝试关闭
     try {
       apps.get(winId).openDevTools()
