@@ -2,29 +2,27 @@
 <div class="funtask-notice-list">
   <div class="item"
     @mouseup="close('custom')"
-    v-for="item in 10"
+    v-for="item in list"
     :key="item">
     <dl>
       <dt>
-        <img v-if="msgdata.icon"
-          :src="msgdata.icon"
+        <img v-if="item.icon"
+          :src="item.icon"
           alt="">
       </dt>
       <dd>
         <i class="arrow iconfont">&#xe625;</i>
-        <h5>{{msgdata.title||''}}{{item}}</h5>
-        <p>{{msgdata.body||''}}</p>
+        <h5>{{item.title||''}}{{item}}</h5>
+        <p>{{item.body||''}}</p>
       </dd>
     </dl>
   </div>
+  <!--  -->
+  <span class="no-data-tips">没有新通知</span>
 </div>
 </template>
 
 <script>
-import {
-  ipcRenderer
-} from 'electron'
-let timer
 export default {
   data() {
     return {
@@ -33,7 +31,8 @@ export default {
         body: '点击下载',
         icon: 'https://funtask.dev/funtask.svg'
       },
-      config: {}
+      config: {},
+      list: []
     }
   },
   computed: {
@@ -46,28 +45,15 @@ export default {
   },
   mounted() {
     this.getConfig()
-    ipcRenderer.on('notice-push-reply', (event, data) => {
-      this.msgdata = data
-      this.show = true
-      window.clearInterval(timer)
-      // 5秒自动消失
-      timer = setTimeout(() => {
-        this.close('system')
-      }, this.delay)
-    })
+    this.getList()
   },
   methods: {
     async getConfig() {
       this.config = await this.$funtask.config.get()
     },
-    close(type) {
-      this.show = false
-      setTimeout(() => {
-        ipcRenderer.send('notice-close', {
-          show: this.show,
-          type
-        })
-      }, 398)
+    async getList() {
+      const res = await this.$funtask.notice.getList()
+      console.log(res, 'res')
     }
   }
 }
@@ -80,7 +66,7 @@ export default {
     transition: all 0.3s ease;
     overflow: auto;
     margin-bottom: 1.9vw;
-    padding: 0 1.8vw 0 1.8vw;
+    padding: 0 1.8vw;
     box-sizing: border-box;
 
     .item {
@@ -178,6 +164,16 @@ export default {
                 right: 1vw;
             }
         }
+    }
+
+    .no-data-tips {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: $funtask-color-primary;
+        opacity: 0.68;
     }
 }
 </style>

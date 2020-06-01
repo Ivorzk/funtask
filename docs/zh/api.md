@@ -211,6 +211,18 @@ async send() {
 }
 ```
 
+### funtask.notice.getList
+
+获取通知列表
+
+```js
+async getList() {
+  let result = await funtask.notice.getList()
+  console.log(result)
+  // result => [{title: '标题', icon: 'xxx.jpg', body: '主内容'}]
+}
+```
+
 > options 参数结构
 
 | 名称      | 说明   | 类型     | 默认值 |
