@@ -6,6 +6,7 @@ import fs from 'fs-extra'
 import path from 'path'
 import io from './io'
 import compressing from 'compressing'
+import _ from 'lodash'
 import {
   BrowserWindow,
   ipcMain,
@@ -160,7 +161,7 @@ export default class {
       winconf.width = width
       winconf.height = height
     }
-    let win = new BrowserWindow(Object.assign({
+    let win = new BrowserWindow(_.merge({
       x: winx,
       y: winy,
       title: app.name,
