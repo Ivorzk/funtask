@@ -179,6 +179,7 @@ export default class {
       fullscreenable: false,
       hasShadow: false,
       skipTaskbar: true,
+      show: false,
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
@@ -200,6 +201,37 @@ export default class {
     win.loadURL(url)
     win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
     // win.webContents.openDevTools()
+    win.webContents.on('did-finish-load', function() {
+      win.webContents.insertCSS(`
+        /*---滚动条默认显示样式--*/
+        ::-webkit-scrollbar-thumb {
+          background-color: #ff6300;
+          height: 50px;
+          outline-offset: -2px;
+          outline: 2px solid transparent;
+          -webkit-border-radius: 4px;
+          border: 2px solid transparent;
+        }
+        /*---鼠标点击滚动条显示样式--*/
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: #ff6300;
+          height: 50px;
+          -webkit-border-radius: 4px;
+        }
+        /*---滚动条大小--*/
+        ::-webkit-scrollbar {
+          width: 3px;
+          height: 3px;
+          background: rgba(255,255,255,0);
+        }
+        /*---滚动框背景样式--*/
+        ::-webkit-scrollbar-track-piece {
+          -webkit-border-radius: 0;
+          background: transparent;
+        }
+        `)
+      win.show()
+    })
     return win
   }
 
