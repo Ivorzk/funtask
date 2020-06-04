@@ -52,8 +52,8 @@ export default {
       this.config = await this.$funtask.config.get()
     },
     async getList() {
-      const res = await this.$funtask.notice.getList()
-      console.log(res, 'res')
+      // const res = await this.$funtask.notice.getList()
+      // console.log(res, 'res')
     }
   }
 }
