@@ -200,12 +200,12 @@ export default class {
     }
     win.loadURL(url)
     win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
     win.webContents.on('did-finish-load', function() {
       win.webContents.insertCSS(`
         /*---滚动条默认显示样式--*/
         ::-webkit-scrollbar-thumb {
-          background-color: #ff6300;
+          background-color: #ccc;
           height: 50px;
           outline-offset: -2px;
           outline: 2px solid transparent;
@@ -214,7 +214,7 @@ export default class {
         }
         /*---鼠标点击滚动条显示样式--*/
         ::-webkit-scrollbar-thumb:hover {
-          background-color: #ff6300;
+          background-color: #ccc;
           height: 50px;
           -webkit-border-radius: 4px;
         }
