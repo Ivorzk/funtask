@@ -200,7 +200,7 @@ export default class {
     }
     win.loadURL(url)
     win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
     win.webContents.on('did-finish-load', function() {
       win.webContents.insertCSS(`
         /*---滚动条默认显示样式--*/
