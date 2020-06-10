@@ -90,9 +90,9 @@ export default {
       path.indexOf('http') > -1 ? shell.openExternal(path) : this.$router.push(path)
       this.settingsClose()
     },
+    // 获取消息列表
     async getNotices() {
       const res = await this.$funtask.notice.getList()
-      console.log(res, 'res')
       this.notices = res || []
     }
   }
