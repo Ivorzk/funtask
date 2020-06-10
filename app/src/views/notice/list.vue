@@ -3,22 +3,23 @@
   <div class="item"
     @mouseup="close('custom')"
     v-for="item in list"
-    :key="item">
+    :key="item.key">
     <dl>
       <dt>
-        <img v-if="item.icon"
-          :src="item.icon"
+        <img v-if="item.data.icon"
+          :src="item.data.icon"
           alt="">
       </dt>
       <dd>
         <i class="arrow iconfont">&#xe625;</i>
-        <h5>{{item.title||''}}{{item}}</h5>
-        <p>{{item.body||''}}</p>
+        <h5>{{item.data.title||''}}</h5>
+        <p>{{item.data.body||''}}</p>
       </dd>
     </dl>
   </div>
   <!--  -->
-  <span class="no-data-tips">没有新通知</span>
+  <span v-if="list.length==0"
+    class="no-data-tips">没有新通知</span>
 </div>
 </template>
 
@@ -26,11 +27,6 @@
 export default {
   data() {
     return {
-      msgdata: {
-        title: '有新版本更新',
-        body: '点击下载',
-        icon: 'https://funtask.dev/funtask.svg'
-      },
       config: {},
       list: []
     }
@@ -45,15 +41,17 @@ export default {
   },
   mounted() {
     this.getConfig()
+    // 获取列表
     this.getList()
   },
   methods: {
     async getConfig() {
       this.config = await this.$funtask.config.get()
     },
+    // 获取消息列表
     async getList() {
-      // const res = await this.$funtask.notice.getList()
-      // console.log(res, 'res')
+      const res = await this.$funtask.notice.getList()
+      this.list = res || []
     }
   }
 }

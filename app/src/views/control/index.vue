@@ -15,7 +15,8 @@
       <li role="toggle"
         @click="navlink('/funlist')"><i class="iconfont">&#xe63c;</i>菜单</li>
       <li role="toggle"
-        @click="navlink('/notice-list')"><var class="num">99+</var><i class="iconfont">&#xeb7d;</i>通知</li>
+        @click="navlink('/notice-list')"><var v-show="notices.length>0"
+          class="num">{{notices.length>99?'99+':notices.length}}</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
     <ul>
       <li role="toggle"
@@ -44,7 +45,9 @@ export default {
       },
       cantouch: true,
       // 应用数据
-      apps: []
+      apps: [],
+      // 通知
+      notices: []
     }
   },
   mounted() {
@@ -66,6 +69,8 @@ export default {
   methods: {
     // 头部点击
     headerClick(type) {
+      // 获取消息列表
+      this.getNotices()
       this[`${type}Toggle`]()
     },
     // 切换界面
@@ -84,6 +89,11 @@ export default {
     navlink(path) {
       path.indexOf('http') > -1 ? shell.openExternal(path) : this.$router.push(path)
       this.settingsClose()
+    },
+    async getNotices() {
+      const res = await this.$funtask.notice.getList()
+      console.log(res, 'res')
+      this.notices = res || []
     }
   }
 }

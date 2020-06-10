@@ -35,16 +35,18 @@ export default class {
       }
       display = false
     })
+    // 获取通知消息列表
     ipcMain.on('notice-get-list', async (evt, data) => {
       let list = []
-      for (let key in queues) {
+      for (let [key, value] of queues) {
         list.push({
           key: key,
-          data: queues[key]
+          ...value
         })
       }
       evt.reply('notice-get-list-reply', list)
     })
+    // 调用初始化窗口方法
     app.on('ready', () => {
       this.init()
     })
