@@ -240,6 +240,7 @@ export default {
                 padding: $funtask-spacing-col-sm 0;
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
 
                 &.between {
                     justify-content: space-between;
@@ -257,6 +258,13 @@ export default {
                     border-radius: $funtask-border-radius-sm * 0.5;
                     margin-right: $funtask-spacing-row-base;
                     color: rgba($funtask-text-color-inverse, 0.68);
+                    display: block;
+                    margin-bottom: $funtask-spacing-row-base;
+                }
+
+                &:nth-child(3) {
+                    position: relative;
+                    top: 1vw;
                 }
             }
         }
