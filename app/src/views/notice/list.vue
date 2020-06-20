@@ -72,12 +72,12 @@ export default {
 <style lang="scss" scoped>
 .funtask-notice-list {
     width: 100vw;
-    height: calc(100vh - 35px - 1.9vw);
+    height: calc(100vh - 35px + 0.5vw);
     transition: all 0.3s ease;
     overflow: auto;
-    margin-bottom: 1.9vw;
     padding: 0 1.8vw;
     box-sizing: border-box;
+    position: relative;
 
     .item {
         position: relative;
