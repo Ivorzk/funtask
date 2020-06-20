@@ -1,9 +1,10 @@
 <template>
 <div class="funtask-notice-list">
   <div class="item"
-    @mouseup="close('custom')"
-    v-for="item in list"
-    :key="item.key">
+    v-for="(item,idx) in list"
+    :key="item.key"
+    :class="{leave:item.leave}"
+    @click="close(idx)">
     <dl>
       <dt>
         <img v-if="item.data.icon"
@@ -52,6 +53,12 @@ export default {
     async getList() {
       const res = await this.$funtask.notice.getList()
       this.list = res || []
+    },
+    // 关闭消息列表
+    async close(idx) {
+      this.$set(this.list[idx], 'leave', true)
+      // 删除消息
+      await this.$funtask.notice.close(this.list[idx])
     }
   }
 }
@@ -70,17 +77,40 @@ export default {
     .item {
         position: relative;
         background: rgb(29, 29, 29,0.8);
-        padding: 3.28vw;
+        padding: 0 3.28vw;
         box-sizing: border-box;
         color: $funtask-color-primary;
         transform: none;
         margin: 1.8vw 0;
+        cursor: pointer;
+        z-index: 86;
+        height: 22vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         &:first-child {
             margin-top: 0;
         }
         &:last-child {
             margin-bottom: 0;
+        }
+
+        &.leave {
+            animation: itemleave 0.3s ease forwards;
+        }
+
+        @keyframes itemleave {
+            0% {
+                transform: translateX(0);
+                z-index: 1;
+                opacity: 1;
+            }
+            100% {
+                height: 0;
+                opacity: 0;
+                margin: 0;
+            }
         }
 
         dl {
@@ -90,6 +120,7 @@ export default {
             box-sizing: border-box;
             align-items: top;
             justify-content: flex-start;
+            width: 100%;
             dd,
             dt {
                 margin: 0;

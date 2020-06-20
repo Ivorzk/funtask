@@ -19,4 +19,14 @@ export default new class {
       })
     })
   }
+
+  // 删除消息
+  close(data) {
+    return new Promise((resolve, reject) => {
+      electron.ipcRenderer.send('notice-close', data)
+      electron.ipcRenderer.once('notice-close-reply', (evt, data) => {
+        resolve(data)
+      })
+    })
+  }
 }

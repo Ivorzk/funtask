@@ -196,6 +196,7 @@ export default {
                 z-index: 99;
                 font-size: 10px;
                 padding: 3px;
+                min-width: 10px;
                 margin-top: -8px;
                 margin-right: -8px;
                 text-align: center;
