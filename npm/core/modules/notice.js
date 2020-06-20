@@ -21,10 +21,10 @@ export default new class {
   }
 
   // 删除消息
-  close(data) {
+  remove(data) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('notice-close', data)
-      electron.ipcRenderer.once('notice-close-reply', (evt, data) => {
+      electron.ipcRenderer.send('notice-remove', data)
+      electron.ipcRenderer.once('notice-remove-reply', (evt, data) => {
         resolve(data)
       })
     })

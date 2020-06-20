@@ -44,6 +44,7 @@ export default {
     this.getConfig()
     // 获取列表
     this.getList()
+    window.$axios = this.$axios
   },
   methods: {
     async getConfig() {
@@ -57,6 +58,10 @@ export default {
     // 关闭消息列表
     async close(idx) {
       this.$set(this.list[idx], 'leave', true)
+      // 从本地删除
+      setTimeout(() => {
+        this.list.splice(idx, 1)
+      }, 380)
       // 删除消息
       await this.$funtask.notice.close(this.list[idx])
     }
@@ -76,25 +81,15 @@ export default {
 
     .item {
         position: relative;
-        background: rgb(29, 29, 29,0.8);
-        padding: 0 3.28vw;
         box-sizing: border-box;
         color: $funtask-color-primary;
         transform: none;
-        margin: 1.8vw 0;
         cursor: pointer;
         z-index: 86;
-        height: 22vw;
+        height: 25.8vw;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        &:first-child {
-            margin-top: 0;
-        }
-        &:last-child {
-            margin-bottom: 0;
-        }
 
         &.leave {
             animation: itemleave 0.3s ease forwards;
@@ -106,21 +101,27 @@ export default {
                 z-index: 1;
                 opacity: 1;
             }
+            99% {
+                display: block;
+            }
             100% {
                 height: 0;
                 opacity: 0;
                 margin: 0;
+                display: none;
             }
         }
 
         dl {
-            margin: 0;
-            padding: 0;
+            position: relative;
             display: flex;
             box-sizing: border-box;
             align-items: top;
             justify-content: flex-start;
             width: 100%;
+            height: calc(100% - 2vw);
+            padding: 2.8vw;
+            background: rgb(29, 29, 29,0.8);
             dd,
             dt {
                 margin: 0;
@@ -166,7 +167,7 @@ export default {
                 color: $funtask-color-primary;
                 position: absolute;
                 right: 2.8vw;
-                top: -2vw;
+                top: -1.58vw;
                 font-weight: lighter;
                 font-size: 14px;
                 opacity: 0;
