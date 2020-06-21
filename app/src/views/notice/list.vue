@@ -4,7 +4,7 @@
     v-for="(item,idx) in list"
     :key="item.key"
     :class="{leave:item.leave}"
-    @click="close(idx)">
+    @click="remove(idx)">
     <dl>
       <dt>
         <img v-if="item.data.icon"
@@ -56,7 +56,7 @@ export default {
       this.list = res || []
     },
     // 关闭消息列表
-    async close(idx) {
+    async remove(idx) {
       this.$set(this.list[idx], 'leave', true)
       // 从本地删除
       setTimeout(() => {
