@@ -63,7 +63,7 @@ export default {
         this.list.splice(idx, 1)
       }, 380)
       // 删除消息
-      await this.$funtask.notice.close(this.list[idx])
+      await this.$funtask.notice.remove(this.list[idx])
     }
   }
 }

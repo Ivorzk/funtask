@@ -39,7 +39,7 @@ export default class {
     ipcMain.on('notice-remove', async (evt, data) => {
       // 从队列中删除]
       queues.delete(data.key)
-      evt.evt.reply('notice-remove-reply', true)
+      evt.reply('notice-remove-reply', true)
     })
     // 获取通知消息列表
     ipcMain.on('notice-get-list', async (evt, data) => {
