@@ -124,14 +124,16 @@ export default class {
       width,
       height
     } = screen.getPrimaryDisplay().workAreaSize
+    // 窗口比率
+    const ratio = width / 1920
     /**
      * Initial window options
      */
     this.ball = new BrowserWindow({
       x: width - 108,
       y: height - 108,
-      width: 88,
-      height: 88,
+      width: Math.floor(88 * ratio),
+      height: Math.floor(88 * ratio),
       frame: false,
       transparent: true,
       backgroundColor: '#00ffffff',
@@ -160,8 +162,9 @@ export default class {
     this.control = new BrowserWindow({
       x: 0,
       y: 0,
-      width: 618,
-      height: 380,
+      // 黄金比例等比缩放
+      width: Math.floor(618 * ratio),
+      height: Math.floor(380 * ratio),
       frame: false,
       transparent: true,
       backgroundColor: '#00ffffff',
@@ -203,15 +206,23 @@ export default class {
 
   // 同步菜单位置
   syncPosition(flag) {
+    // 获取宽高
+    const {
+      width
+    } = screen.getPrimaryDisplay().workAreaSize
+    // 窗口比率
+    const ratio = width / 1920
     // 小球位置
     let ballpos = this.ball.getPosition()
     // 窗体位置
     let controlpos = this.control.getPosition()
     let controlBounds = this.control.getBounds()
+    // 同步位置
+    let offset = Math.floor(75 * ratio)
     if (flag === 'control') {
-      this.control.setPosition(ballpos[0] - controlBounds.width + 75, ballpos[1] - controlBounds.height + 75)
+      this.control.setPosition(ballpos[0] - controlBounds.width + offset, ballpos[1] - controlBounds.height + offset)
     } else {
-      this.ball.setPosition(controlpos[0] + controlBounds.width - 75, controlpos[1] + controlBounds.height - 75)
+      this.ball.setPosition(controlpos[0] + controlBounds.width - offset, controlpos[1] + controlBounds.height - offset)
     }
   }
 }

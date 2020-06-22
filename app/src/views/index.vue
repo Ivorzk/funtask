@@ -48,10 +48,10 @@ export default {
     top: 50%;
     left: 50%;
     background: rgba(0,0,0,0.68);
-    width: 60px;
-    height: 60px;
-    margin-left: -30px;
-    margin-top: -30px;
+    width: 68vw;
+    height: 68vw;
+    margin-left: -34vw;
+    margin-top: -34vw;
     display: flex;
     justify-content: center;
     align-items: center;

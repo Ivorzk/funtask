@@ -45,14 +45,14 @@ export default {
         }
 
         .iconfont {
-            font-size: 1.5rem;
+            font-size: 1.36rem;
         }
     }
 
     .btn {
         z-index: 99;
-        width: 45px;
-        height: 36px;
+        width: 9vw;
+        height: $funtask-window-height;
         display: flex;
         align-items: center;
         justify-content: center;

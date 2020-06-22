@@ -178,9 +178,9 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin: 0 auto 0.8vw;
-                width: 5vw;
-                height: 5vw;
+                margin: 0 auto 1vw;
+                width: 5.18vw;
+                height: 5.18vw;
                 font-size: $funtask-font-size-lg * 1.28;
                 background: $funtask-color-primary;
                 border-radius: 100%;
