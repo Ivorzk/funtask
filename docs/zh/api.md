@@ -23,6 +23,17 @@ async getSystemInfo() {
 }
 ```
 
+### funtask.system.getUUID
+
+获取设备唯一标识
+
+```js
+async getUUID() {
+  let uuid = await funtask.system.getUUID()
+  console.log(uuid)
+}
+```
+
 ## config 配置
 
 Funtask 配置模块
