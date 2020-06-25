@@ -25,7 +25,6 @@ export default {
   },
   mounted() {
     this.getApps()
-    this.$funtask.system.getUUID()
   },
   methods: {
     async getApps() {
