@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import axios from 'axios'
 var instance = axios.create({
-  baseURL: '',
-  withCredentials: true
+  baseURL: $config.apihost,
+  withCredentials: true,
+  timeout: $config.timeout
 })
 
 // 拦截器

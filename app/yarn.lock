@@ -11930,6 +11930,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vue-cli-plugin-app-config@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npmjs.org/vue-cli-plugin-app-config/-/vue-cli-plugin-app-config-1.0.9.tgz#ef3cb63108c8cf893037f18fa2e2a0f579a1c3f0"
+  integrity sha512-veFYjLNKEYCFRZz1d+dUNCVzHhmyabr0/XUgTknZgKvZ0NuubDJ1zbKRK9Q6AwkPfb+DfQ/6a1UGUBtAEIq0qw==
+
 vue-cli-plugin-electron-builder@^1.4.6:
   version "1.4.6"
   resolved "https://registry.npmjs.org/vue-cli-plugin-electron-builder/-/vue-cli-plugin-electron-builder-1.4.6.tgz#5de519edc158c80ae72a67e8ae8ae983e38ecb7a"

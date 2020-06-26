@@ -2,29 +2,36 @@
 <div class="funtask-feedback">
   <ul>
     <li class="col-xs-3">
-      <input type="text"
+      <input v-model="formdata.name"
+        type="text"
         placeholder="请输入姓名">
-      <input type="text"
+      <input v-model="formdata.account"
+        type="text"
         placeholder="请输入联系方式">
-      <select placeholder="请选择需要反馈的应用">
+      <select v-model="currentApp"
+        placeholder="请选择需要反馈的应用">
         <option v-for="app in apps"
+          :value="app.package.name"
           :key="app.name">{{app.name}}</option>
       </select>
     </li>
     <li>
-      <textarea name=""
-        id=""
+      <textarea v-model="formdata.content"
         cols="30"
         rows="8"
         placeholder="请输入您的问题，可截图直接粘贴上传"></textarea>
     </li>
-    <li class="phones">
-      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593099147246&di=4e24f626b734e70f093ca26f4ef5bcd9&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg"
-        alt="">
-      <span class="btn-add-file">+</span>
+    <li class="thumbs">
+      <img :src="url"
+        v-for="url in thumbs"
+        :key="url">
+      <funtask-upload @on-success="uploadSuccess"
+        class="btn-add-file">
+        <span>+</span>
+      </funtask-upload>
     </li>
     <li class="btn-group">
-      <button>提交</button>
+      <button @click="submit">提交</button>
     </li>
   </ul>
 </div>
@@ -33,17 +40,88 @@
 export default {
   data() {
     return {
-      apps: []
+      // app列表
+      apps: [],
+      // 当前选择的app
+      currentApp: '',
+      // 缩略图
+      thumbs: [],
+      // 表单数据
+      formdata: {
+        uuid: '',
+        name: '',
+        account: '',
+        appinfo: '',
+        thumbs: '',
+        content: ''
+      }
     }
   },
   mounted() {
     this.getApps()
+    // 提取缓存
+    this.extractCache()
+  },
+  watch: {
+    currentApp(val) {
+      for (const item of this.apps) {
+        if (item.package.name === this.currentApp) {
+          this.formdata.appinfo = JSON.stringify({
+            name: item.package.name,
+            version: item.package.version,
+            description: item.package.description
+          })
+          break
+        }
+      }
+    }
   },
   methods: {
+    // 获取视频
     async getApps() {
       const list = await this.$funtask.app.getApps()
-      console.log(list)
       this.apps = list || []
+      const uuid = await this.$funtask.system.getUUID()
+      this.formdata.uuid = uuid
+      this.currentApp = list[0].package.name
+    },
+    extractCache() {
+      const res = localStorage.getItem('funtask_feedback_cache')
+      if (res) {
+        const cache = JSON.parse(res)
+        this.formdata.name = cache.name
+        this.formdata.account = cache.account
+        this.currentApp = cache.currentApp
+      }
+    },
+    // 上传成功
+    uploadSuccess(data) {
+      this.thumbs.push(data.url)
+    },
+    // 提交反馈
+    async submit() {
+      this.formdata.thumbs = this.thumbs.join(',')
+      const res = await this.$axios.post('/funtask/feedbacks', this.formdata)
+      alert(res.data.errno ? res.data.errmsg : '提交成功！感谢您的宝贵建议')
+      if (!res.data.errno) {
+        this.cache()
+        this.reset()
+      }
+    },
+    // 缓存
+    cache() {
+      // 本地存储用户名和联系方式
+      localStorage.setItem('funtask_feedback_cache', JSON.stringify({
+        name: this.formdata.name,
+        account: this.formdata.account,
+        currentApp: this.currentApp
+      }))
+    },
+    // 重置表单
+    reset() {
+      this.formdata.content = ''
+      this.formdata.thumbs = ''
+      this.thumbs = []
     }
   }
 }
@@ -56,15 +134,16 @@ export default {
     height: calc(100vh - 6.8vw);
     ul {
         list-style: none;
-        margin: 0;
+        margin: 0 0 2vw;
         padding: 0;
         li {
             padding: 1.2vw 0;
             display: flex;
             justify-content: space-between;
 
-            &.phones {
+            &.thumbs {
                 justify-content: flex-start;
+                flex-wrap: wrap;
             }
         }
 
@@ -109,12 +188,8 @@ export default {
         align-items: center;
         justify-content: center;
         font-size: 6vw;
-        margin-left: 2.2vw;
+        margin-right: 2.2vw;
         margin-bottom: 2.2vw;
-
-        &:first-child {
-            margin-left: 0;
-        }
     }
 
     .btn-group {
