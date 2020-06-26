@@ -155,10 +155,10 @@ export default {
         padding: 8px;
         box-sizing: border-box;
         border: none;
-        background: rgba(225,225,225,0.3);
+        background: rgba(225,225,225,0.218);
         font-size: 12px;
         flex: 1;
-        color: rgba(255,255,255,0.68);
+        color: rgba(255,255,255,0.8);
         appearance: none;
     }
 
@@ -184,12 +184,13 @@ export default {
         object-fit: cover;
         cursor: pointer;
         display: inline-flex;
-        background: #ccc;
+        background: rgba(225,225,225,0.218);
         align-items: center;
         justify-content: center;
         font-size: 6vw;
         margin-right: 2.2vw;
         margin-bottom: 2.2vw;
+        color: rgba(0, 0, 0, 0.3);
     }
 
     .btn-group {
