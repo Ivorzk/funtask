@@ -288,11 +288,11 @@ export default {
             cursor: pointer;
             margin-left: $funtask-spacing-row-base;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
 
             .iconfont {
                 position: relative;
-                top: 1px;
+                top: 0.3px;
                 margin-right: $funtask-spacing-row-sm * 0.8;
             }
 
