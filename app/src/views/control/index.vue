@@ -23,8 +23,10 @@
         @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
       <li role="toggle"
         @click="navlink('https://funtask.club')"><i class="iconfont">&#xe600;</i>开发社区</li>
-      <li role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
-      <li role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
+      <li @click="navlink('/themes')"
+        role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
+      <li @click="navlink('/settings')"
+        role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
   </div>
 </div>
