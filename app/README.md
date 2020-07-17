@@ -1,4 +1,4 @@
-# @suwis/funtask
+# app
 
 ## Project setup
 ```
