@@ -2,15 +2,6 @@
 
 Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能力，你只需要使用HTML+CSS+JS开发一套应用代码，即可在Windows、Mac、Linux、IOS、Android等多平台运行, 这将大幅度帮你降低开发成本，让你的应用模块快速上线
 
-## Funtask客户端下载
-
-| 平台          | 应用大小 | 更新时间       | 版本号    | 下载链接                                                                          |
-| :---------- | :--- | :--------- | :----- | :---------------------------------------------------------------------------- |
-| Windows 64位 | 39M  | 2020-05-02 | v1.0.10 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.10.exe)      |
-| Windows 32位 | 39M  | 2020-05-02 | v1.0.10 | [点击下载](https://funtask.dev/download/windows/funtask%20Setup%201.0.10_ia32.exe) |
-| Mac         | 39M  | 2020-05-02 | v1.0.10 | [点击下载](https://funtask.dev/download/mac/funtask%20Setup%201.0.10.exe)          |
-| Linux       | 39M  | 2020-05-02 | v1.0.10 | [点击下载](https://funtask.dev/download/linux/funtask_1.0.10_amd64.snap)           |
-
 ## 开发第一个应用
 
 funtask为你提供了一个开发脚手架，可帮你快速构建一个完整的应用目录及开发文件，使用方法如下
