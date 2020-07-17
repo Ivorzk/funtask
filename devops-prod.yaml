@@ -1,0 +1,9 @@
+# 名称
+name :       funtask
+# 部署数据
+depdata:
+  -
+    # 目标代码
+    source:  /docs/.vuepress/dist
+    # 部署目录
+    target:  /funtask.dev

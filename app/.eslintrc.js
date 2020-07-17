@@ -3,7 +3,10 @@ module.exports = {
   env: {
     node: true
   },
-  extends: [
+  globals: {
+    $config: true
+  },
+  'extends': [
     'plugin:vue/essential',
     '@vue/standard',
     '@vue/typescript/recommended'

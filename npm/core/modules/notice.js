@@ -19,4 +19,14 @@ export default new class {
       })
     })
   }
+
+  // 删除消息
+  remove(data) {
+    return new Promise((resolve, reject) => {
+      electron.ipcRenderer.send('notice-remove', data)
+      electron.ipcRenderer.once('notice-remove-reply', (evt, data) => {
+        resolve(data)
+      })
+    })
+  }
 }

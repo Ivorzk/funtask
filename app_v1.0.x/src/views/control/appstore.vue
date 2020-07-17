@@ -198,8 +198,9 @@ export default {
     height: calc(100vh - 36px);
     overflow: auto;
     color: $funtask-text-color-inverse;
-    padding: 0 $funtask-spacing-row-base $funtask-spacing-row-lg;
+    padding: 0 $funtask-spacing-row-base*2.39 $funtask-spacing-row-base*1.8;
     font-size: $funtask-font-size-base;
+    box-sizing: border-box;
 
     .search-input {
         width: 100%;
@@ -287,11 +288,11 @@ export default {
             cursor: pointer;
             margin-left: $funtask-spacing-row-base;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
 
             .iconfont {
                 position: relative;
-                top: 1px;
+                top: 0.3px;
                 margin-right: $funtask-spacing-row-sm * 0.8;
             }
 

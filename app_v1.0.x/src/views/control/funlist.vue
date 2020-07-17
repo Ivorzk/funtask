@@ -47,9 +47,9 @@ export default {
 .funtask-funlist {
     position: relative;
     z-index: 10;
-    height: calc(100vh - 36px);
+    height: calc(100vh - 6.8vw);
     overflow: auto;
-    padding: 15px 0;
+    padding: 3vw 0;
 
     ul {
         display: flex;
@@ -57,7 +57,6 @@ export default {
         list-style: none;
         margin: 0;
         padding: 0 1.68vw;
-        height: calc(100vh - 80px);
     }
 
     li {

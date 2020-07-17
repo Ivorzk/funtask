@@ -1,6 +1,6 @@
 {
-  "name": "@suwis/funtask",
-  "version": "0.1.0",
+  "name": "funtask",
+  "version": "1.0.10",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

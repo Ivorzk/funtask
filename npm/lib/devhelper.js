@@ -8,8 +8,29 @@ const YAML = require('yaml')
 const apphome = path.resolve(os.homedir() + '/.funtask')
 // options
 const options = {}
+
+
+// 遍历app信息
+var eachAppInfo = function(dirs) {
+  return new Promise((resolve, reject) => {
+    let apps = []
+    dirs.forEach(apppath => {
+      try {
+        var packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
+        if (packageFile) {
+          apps.push({
+            package: JSON.parse(packageFile),
+            path: apppath
+          })
+        }
+      } catch (e) {}
+    })
+    resolve(apps)
+  })
+}
+
 // export
-module.exports = {
+const instance = {
   // 链接
   link: (name) => {
     // init options
@@ -31,7 +52,7 @@ module.exports = {
     console.log(chalk.yellow('Application register successfully !'))
   },
   // 取消链接
-  unlink: (name) => {
+  unlink: async (name) => {
     // init options
     options.name = name
     // 读取配置文件
@@ -40,9 +61,11 @@ module.exports = {
     var configJson = YAML.parse(configFile)
     // 初始化app
     configJson.dev.debugdirs ? '' : configJson.dev.debugdirs = []
-    for (let idx in configJson.dev.debugdirs) {
-      let dir = configJson.dev.debugdirs[idx]
-      if (dir.indexOf(name) > -1) {
+    // 过滤非法目录
+    let apps = await eachAppInfo(configJson.dev.debugdirs)
+    for (let app of apps) {
+      if (name == app.package.name) {
+        let idx = configJson.dev.debugdirs.indexOf(path.resolve(app.path))
         configJson.dev.debugdirs.splice(idx, 1)
         break
       }
@@ -54,3 +77,5 @@ module.exports = {
     console.log(chalk.yellow(`${name} unlkin successfully !`))
   }
 }
+
+module.exports = instance

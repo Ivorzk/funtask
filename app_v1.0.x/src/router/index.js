@@ -38,6 +38,20 @@ const routes = [{
     meta: {
       keepAlive: true
     }
+  }, {
+    path: '/themes',
+    name: 'themes',
+    component: () => import('../views/control/themes'),
+    meta: {
+      keepAlive: true
+    }
+  }, {
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../views/control/settings'),
+    meta: {
+      keepAlive: true
+    }
   }]
 }, {
   path: '/notice',

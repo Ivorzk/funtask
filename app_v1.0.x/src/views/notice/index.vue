@@ -23,13 +23,14 @@
 import {
   ipcRenderer
 } from 'electron'
-let timer
 export default {
   data() {
     return {
       show: false,
       msgdata: {},
-      config: {}
+      config: {},
+      // 消息队列
+      queues: []
     }
   },
   computed: {
@@ -40,21 +41,36 @@ export default {
       return 5000
     }
   },
+  watch: {
+    queues: {
+      deep: true,
+      handler(val) {
+        // 显示队列数据
+        if (val.length > 0) this.push()
+      }
+    }
+  },
   mounted() {
     this.getConfig()
     ipcRenderer.on('notice-push-reply', (event, data) => {
-      this.msgdata = data
-      this.show = true
-      window.clearInterval(timer)
-      // 5秒自动消失
-      timer = setTimeout(() => {
-        this.close('system')
-      }, this.delay)
+      // 将消息缓存到队列中
+      this.queues.push(data)
     })
   },
   methods: {
     async getConfig() {
       this.config = await this.$funtask.config.get()
+    },
+    // 推送消息
+    push() {
+      // 获取最后一条消息
+      this.msgdata = this.queues[this.queues.length - 1]
+      // 显示窗口
+      this.show = true
+      // 5秒自动消失
+      setTimeout(() => {
+        this.close('system')
+      }, this.delay)
     },
     close(type) {
       this.show = false
@@ -63,6 +79,8 @@ export default {
           show: this.show,
           type
         })
+        // 移除最后一个
+        this.queues.pop()
       }, 398)
     }
   }

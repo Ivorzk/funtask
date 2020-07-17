@@ -36,9 +36,9 @@ $funtask-border-color: #f9f9f9;
 /* 尺寸变量 */
 
 /* 文字尺寸 */
-$funtask-font-size-sm: 12px;
-$funtask-font-size-base: 14px;
-$funtask-font-size-lg: 16px;
+$funtask-font-size-sm: 0.7rem;
+$funtask-font-size-base: 0.8rem;
+$funtask-font-size-lg: 0.9rem;
 
 /* 图片尺寸 */
 $funtask-img-size-sm: 40px;
@@ -52,14 +52,14 @@ $funtask-border-radius-lg: 12px;
 $funtask-border-radius-circle: 50%;
 
 /* 水平间距 */
-$funtask-spacing-row-sm: 5px;
-$funtask-spacing-row-base: 10px;
-$funtask-spacing-row-lg: 15px;
+$funtask-spacing-row-sm: 0.6vw;
+$funtask-spacing-row-base: 1.2vw;
+$funtask-spacing-row-lg: 1.5vw;
 
 /* 垂直间距 */
-$funtask-spacing-col-sm: 4px;
-$funtask-spacing-col-base: 8px;
-$funtask-spacing-col-lg: 12px;
+$funtask-spacing-col-sm: 0.6vw;
+$funtask-spacing-col-base: 1.2vw;
+$funtask-spacing-col-lg: 1.5vw;
 
 /* 透明度 */
 $funtask-opacity-disabled: 0.3; // 组件禁用态的透明度
@@ -73,4 +73,4 @@ $funtask-color-paragraph: #3f536e; // 文章段落颜色
 $funtask-font-size-paragraph: 30upx;
 
 /*窗口*/
-$funtask-window-height: 36px;
+$funtask-window-height: 6.8vw;

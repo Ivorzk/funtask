@@ -1,9 +1,10 @@
 <template>
 <div class="funtask-notice-list">
   <div class="item"
-    @mouseup="close('custom')"
-    v-for="item in list"
-    :key="item.key">
+    v-for="(item,idx) in list"
+    :key="item.key"
+    :class="{leave:item.leave}"
+    @click="remove(idx)">
     <dl>
       <dt>
         <img v-if="item.data.icon"
@@ -43,6 +44,7 @@ export default {
     this.getConfig()
     // 获取列表
     this.getList()
+    window.$axios = this.$axios
   },
   methods: {
     async getConfig() {
@@ -52,6 +54,16 @@ export default {
     async getList() {
       const res = await this.$funtask.notice.getList()
       this.list = res || []
+    },
+    // 关闭消息列表
+    async remove(idx) {
+      this.$set(this.list[idx], 'leave', true)
+      // 从本地删除
+      setTimeout(() => {
+        this.list.splice(idx, 1)
+      }, 380)
+      // 删除消息
+      await this.$funtask.notice.remove(this.list[idx])
     }
   }
 }
@@ -60,36 +72,56 @@ export default {
 <style lang="scss" scoped>
 .funtask-notice-list {
     width: 100vw;
-    height: calc(100vh - 35px - 1.9vw);
+    height: calc(100vh - 35px + 0.5vw);
     transition: all 0.3s ease;
     overflow: auto;
-    margin-bottom: 1.9vw;
     padding: 0 1.8vw;
     box-sizing: border-box;
+    position: relative;
 
     .item {
         position: relative;
-        background: rgb(29, 29, 29,0.8);
-        padding: 3.28vw;
         box-sizing: border-box;
         color: $funtask-color-primary;
         transform: none;
-        margin: 1.8vw 0;
+        cursor: pointer;
+        z-index: 86;
+        height: 25.8vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-        &:first-child {
-            margin-top: 0;
+        &.leave {
+            animation: itemleave 0.3s ease forwards;
         }
-        &:last-child {
-            margin-bottom: 0;
+
+        @keyframes itemleave {
+            0% {
+                transform: translateX(0);
+                z-index: 1;
+                opacity: 1;
+            }
+            99% {
+                display: block;
+            }
+            100% {
+                height: 0;
+                opacity: 0;
+                margin: 0;
+                display: none;
+            }
         }
 
         dl {
-            margin: 0;
-            padding: 0;
+            position: relative;
             display: flex;
             box-sizing: border-box;
             align-items: top;
             justify-content: flex-start;
+            width: 100%;
+            height: calc(100% - 2vw);
+            padding: 2.8vw;
+            background: rgb(29, 29, 29,0.8);
             dd,
             dt {
                 margin: 0;
@@ -135,7 +167,7 @@ export default {
                 color: $funtask-color-primary;
                 position: absolute;
                 right: 2.8vw;
-                top: -2vw;
+                top: -1.58vw;
                 font-weight: lighter;
                 font-size: 14px;
                 opacity: 0;

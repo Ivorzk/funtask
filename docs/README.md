@@ -2,7 +2,7 @@
 home: true
 heroImage: /funtask.svg
 heroText:
-tagline: 高效、快乐、人性化的工作方式
+tagline: 高效、快乐、人性化的多终端智能办公平台
 actionText: 开始使用 →
 actionLink: /zh/introduction/
 features:

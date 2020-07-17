@@ -23,8 +23,10 @@
         @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
       <li role="toggle"
         @click="navlink('https://funtask.club')"><i class="iconfont">&#xe600;</i>开发社区</li>
-      <li role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
-      <li role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
+      <li @click="navlink('/themes')"
+        role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
+      <li @click="navlink('/settings')"
+        role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
   </div>
 </div>
@@ -178,9 +180,9 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin: 0 auto 0.8vw;
-                width: 5vw;
-                height: 5vw;
+                margin: 0 auto 1vw;
+                width: 5.18vw;
+                height: 5.18vw;
                 font-size: $funtask-font-size-lg * 1.28;
                 background: $funtask-color-primary;
                 border-radius: 100%;
@@ -196,6 +198,7 @@ export default {
                 z-index: 99;
                 font-size: 10px;
                 padding: 3px;
+                min-width: 10px;
                 margin-top: -8px;
                 margin-right: -8px;
                 text-align: center;
