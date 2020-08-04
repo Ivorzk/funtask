@@ -1,0 +1,76 @@
+/**
+ * 这里是app内置的常用样式变量
+ *
+ */
+
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+
+/* 颜色变量 */
+
+/* 行为相关颜色 */
+$funtask-color-primary: #ff6300;
+$funtask-color-success: #4cd964;
+$funtask-color-warning: #f0ad4e;
+$funtask-color-error: #dd524d;
+
+/* 文字基本颜色 */
+$funtask-text-color: #2b2b2b; //基本色
+$funtask-text-color-inverse: #fff; //反色
+$funtask-text-color-grey: #999; //辅助灰色，如加载更多的提示信息
+$funtask-text-color-placeholder: #808080;
+$funtask-text-color-disable: #c0c0c0;
+
+/* 背景颜色 */
+$funtask-bg-color: #ffffff;
+$funtask-bg-color-grey: #f8f8f8;
+$funtask-bg-color-hover: #f1f1f1; //点击状态颜色
+$funtask-bg-color-mask: rgba(0, 0, 0, 0.58); //遮罩颜色
+
+/* 边框颜色 */
+$funtask-border-color: #f9f9f9;
+
+/* 尺寸变量 */
+
+/* 文字尺寸 */
+$funtask-font-size-sm: 0.7rem;
+$funtask-font-size-base: 0.8rem;
+$funtask-font-size-lg: 0.9rem;
+
+/* 图片尺寸 */
+$funtask-img-size-sm: 40px;
+$funtask-img-size-base: 52px;
+$funtask-img-size-lg: 80px;
+
+/* Border Radius */
+$funtask-border-radius-sm: 4px;
+$funtask-border-radius-base: 6px;
+$funtask-border-radius-lg: 12px;
+$funtask-border-radius-circle: 50%;
+
+/* 水平间距 */
+$funtask-spacing-row-sm: 0.6vw;
+$funtask-spacing-row-base: 1.2vw;
+$funtask-spacing-row-lg: 1.5vw;
+
+/* 垂直间距 */
+$funtask-spacing-col-sm: 0.6vw;
+$funtask-spacing-col-base: 1.2vw;
+$funtask-spacing-col-lg: 1.5vw;
+
+/* 透明度 */
+$funtask-opacity-disabled: 0.3; // 组件禁用态的透明度
+
+/* 文章场景相关 */
+$funtask-color-title: #2c405a; // 文章标题颜色
+$funtask-font-size-title: 40upx;
+$funtask-color-subtitle: #555555; // 二级标题颜色
+$funtask-font-size-subtitle: 36upx;
+$funtask-color-paragraph: #3f536e; // 文章段落颜色
+$funtask-font-size-paragraph: 30upx;
+
+/*窗口*/
+$funtask-window-height: 6.8vw;
