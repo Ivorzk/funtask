@@ -11,8 +11,8 @@ const config = new Config()
 const appManager = new App()
 const tray = new Tray()
 const system = new System()
-var notice = {}
-var control = {}
+let notice = {}
+let control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
   // console.log(global.$config)

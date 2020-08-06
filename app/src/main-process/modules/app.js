@@ -12,7 +12,7 @@ import {
   ipcMain,
   screen
 } from 'electron'
-var apps = new Map()
+const apps = new Map()
 export default class {
   constructor() {
     // 获取app菜单
@@ -21,7 +21,7 @@ export default class {
     })
     // 打开应用
     ipcMain.on('app-start', async (evt, app) => {
-      let win = await this.openWindow(app)
+      const win = await this.openWindow(app)
       evt.reply('app-start-reply', win)
     })
     // 关闭应用
@@ -31,12 +31,12 @@ export default class {
     })
     // 监听app安装事件
     ipcMain.on('app-install', async (evt, app) => {
-      let data = await this.install(app)
+      const data = await this.install(app)
       evt.reply('app-install-reply', data)
     })
     //  卸载
     ipcMain.on('app-uninstall', async (evt, app) => {
-      let data = await this.uninstall(app)
+      const data = await this.uninstall(app)
       // 加入延迟防止前端出现无法及时生效的问题
       setTimeout(() => {
         evt.reply('app-uninstall-reply', data)
@@ -44,17 +44,17 @@ export default class {
     })
     // 禁用
     ipcMain.on('app-disable', async (evt, app) => {
-      let data = await this.disable(app)
+      const data = await this.disable(app)
       evt.reply('app-disable-reply', data)
     })
     // 启用
     ipcMain.on('app-enable', async (evt, app) => {
-      let data = await this.enable(app)
+      const data = await this.enable(app)
       evt.reply('app-enable-reply', data)
     })
     // 打开调试
     ipcMain.on('app-openDevTools', async (evt, app) => {
-      let data = await this.openDevTools(app)
+      const data = await this.openDevTools(app)
       evt.reply('app-openDevTools-reply', data)
     })
   }
@@ -71,9 +71,9 @@ export default class {
     // 所有应用的信息
     global.$apps = []
     // 遍历包存放目录
-    let dirs = await this.eachdirs([global.$config.packagesdir])
+    const dirs = await this.eachdirs([global.$config.packagesdir])
     // 获取调试目录
-    let debugdirs = global.$config.dev.debugdirs || []
+    const debugdirs = global.$config.dev.debugdirs || []
     // 获取app信息
     global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
     // console.log(global.$apps)
@@ -83,13 +83,13 @@ export default class {
   // 遍历目录
   eachdirs(dirs) {
     return new Promise((resolve, reject) => {
-      let apppaths = []
+      const apppaths = []
       var loopFun = (idx) => {
         try {
-          var files = fs.readdirSync(dirs[idx])
+          const files = fs.readdirSync(dirs[idx])
           files.forEach((item, index) => {
-            let apppath = `${dirs[idx]}/${item}`
-            let stat = fs.lstatSync(apppath)
+            const apppath = `${dirs[idx]}/${item}`
+            const stat = fs.lstatSync(apppath)
             if (stat.isDirectory() === true) {
               apppaths.push(path.resolve(apppath))
             }
@@ -105,16 +105,16 @@ export default class {
   // 遍历app信息
   eachAppInfo(dirs) {
     return new Promise((resolve, reject) => {
-      let apps = []
+      const apps = []
       // 已禁用的app列表
-      var disabledApps = global.$config.disabledApps || []
+      const disabledApps = global.$config.disabledApps || []
       dirs.forEach(apppath => {
         try {
-          var packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
-          var configFile = fs.readFileSync(path.resolve(apppath + '/app.yaml'), 'utf-8')
+          const packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
+          const configFile = fs.readFileSync(path.resolve(apppath + '/app.yaml'), 'utf-8')
           if (packageFile && configFile) {
-            let config = YAML.parse(configFile)
-            let packageJson = JSON.parse(packageFile)
+            const config = YAML.parse(configFile)
+            const packageJson = JSON.parse(packageFile)
             apps.push({
               logo: './' + packageJson.name + '/logo.png',
               icon: path.resolve(apppath + '/logo.png'),
@@ -151,7 +151,7 @@ export default class {
       width,
       height
     } = screen.getPrimaryDisplay().workAreaSize
-    let winconf = app.winconf || {}
+    const winconf = app.winconf || {}
     let winx = Math.abs((width * 0.5 - (winconf.width || 618) * 0.5)) + 28 * apps.size
     let winy = Math.abs((height * 0.5 - (winconf.height || 380) * 0.5)) + 28 * apps.size
     // 是否是全屏
@@ -161,7 +161,7 @@ export default class {
       winconf.width = width
       winconf.height = height
     }
-    let win = new BrowserWindow(_.merge({
+    const win = new BrowserWindow(_.merge({
       x: winx,
       y: winy,
       title: app.name,
@@ -246,8 +246,8 @@ export default class {
   // 安装应用
   async install(app) {
     // 下载
-    let tmpdir = global.$config.tmpdir + '/funtask/app/'
-    let path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
+    const tmpdir = global.$config.tmpdir + '/funtask/app/'
+    const path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
     console.log('download complete')
     // 解压
     await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, path + `${app.name}-${app.version}/`)
@@ -274,13 +274,13 @@ export default class {
   // 取消链接
   async unlink(name) {
     // 读取配置文件
-    var configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
+    const configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
     // 设置将app禁用
-    var configJson = YAML.parse(configFile)
+    const configJson = YAML.parse(configFile)
     // 初始化app
     configJson.dev.debugdirs ? '' : configJson.dev.debugdirs = []
-    for (let idx in configJson.dev.debugdirs) {
-      let dir = configJson.dev.debugdirs[idx]
+    for (const idx in configJson.dev.debugdirs) {
+      const dir = configJson.dev.debugdirs[idx]
       if (dir.indexOf(name) > -1) {
         configJson.dev.debugdirs.splice(idx, 1)
         break
@@ -304,13 +304,13 @@ export default class {
 
   async toggleApp(app, state) {
     // 读取配置文件
-    var configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
+    const configFile = fs.readFileSync(path.resolve(global.$config.apphome + '/config.yaml'), 'utf-8')
     // 设置将app禁用
-    var configJson = YAML.parse(configFile)
+    const configJson = YAML.parse(configFile)
     // 初始化app
     configJson.disabledApps ? '' : configJson.disabledApps = []
     // app索引
-    let appIdx = configJson.disabledApps.indexOf(app.name)
+    const appIdx = configJson.disabledApps.indexOf(app.name)
     // 启用 - 从禁用列表中移除
     if (state) {
       appIdx > -1 ? configJson.disabledApps.splice(appIdx, 1) : ''
@@ -332,7 +332,7 @@ export default class {
   checkAppStatus(state, name) {
     return new Promise((resolve, reject) => {
       var loopFun = () => {
-        let disabledApps = global.$config.disabledApps || []
+        const disabledApps = global.$config.disabledApps || []
         // 启用
         if (state) {
           disabledApps.indexOf(name) == -1 ? resolve(true) : setTimeout(loopFun, 150)

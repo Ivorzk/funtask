@@ -12,7 +12,6 @@ import {
   ipcMain
 } from 'electron'
 export default class {
-
   constructor() {
     // 首次加载
     this.isFirstLoad = true
@@ -54,8 +53,8 @@ export default class {
   // 载入配置文件
   async loadConfig() {
     // 尝试读取配置文件
-    let file = await this.getConfigFile()
-    var $config = YAML.parse(file)
+    const file = await this.getConfigFile()
+    const $config = YAML.parse(file)
     // 解析配置文件并注入到全局变量中
     global.$config = {
       ...$config,

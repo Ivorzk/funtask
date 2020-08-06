@@ -27,7 +27,7 @@ export default class {
 
   // 获取描述
   get tip() {
-    return global.$config.app.tray.tip || `Funtask`
+    return global.$config.app.tray.tip || 'Funtask'
   }
 
   // 设置描述

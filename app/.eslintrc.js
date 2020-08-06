@@ -19,11 +19,11 @@ module.exports = {
     // 函数括号前面是否加上两个空格
     'space-before-function-paren': [0, 'always'],
     // 末尾是否加上分号 never/always
-    'semi': [2, 'never'],
+    semi: [2, 'never'],
     // 分号前后是否加空格
     'semi-spacing': [2, {
-      'before': false,
-      'after': true
+      before: false,
+      after: true
     }]
   }
 }

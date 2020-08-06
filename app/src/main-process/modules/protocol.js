@@ -27,7 +27,7 @@ export default {
         // console.log(pathName, 'pname')
         // 查找文件
         this.findFile(request, pathName).then(data => {
-          let extension = path.extname(pathName).toLowerCase()
+          const extension = path.extname(pathName).toLowerCase()
           let mimeType = ''
           if (extension === '.js') {
             mimeType = 'text/javascript'
@@ -54,9 +54,9 @@ export default {
     return new Promise((resolve, reject) => {
       // console.log(request, 'request')
       // 判断资源来源主框架、应用目录、debug目录
-      let paths = []
-      var debugdirs = global.$config.dev.debugdirs || []
-      let dirs = [__dirname, global.$config.packagesdir, ...debugdirs]
+      const paths = []
+      const debugdirs = global.$config.dev.debugdirs || []
+      const dirs = [__dirname, global.$config.packagesdir, ...debugdirs]
       dirs.forEach((dir, idx) => {
         isWindows && idx > 1 ? dir = dir.substr(0, dir.lastIndexOf('\\')) : dir.substr(0, dir.lastIndexOf('/'))
         paths.push(path.join(dir, pathName))

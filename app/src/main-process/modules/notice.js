@@ -4,10 +4,10 @@ import {
   screen,
   app
 } from 'electron'
+import _ from 'lodash'
 let win
 // 消息队列
-let queues = new Map()
-import _ from 'lodash'
+const queues = new Map()
 // 当前消息是否显示
 let display = false
 export default class {
@@ -27,7 +27,7 @@ export default class {
     ipcMain.on('notice-close', async (evt, key) => {
       win.hide()
       // 如果是用户点击的通知，则通知客户端
-      let notice = queues.get(key)
+      const notice = queues.get(key)
       if (notice) {
         notice.evt.reply('notice-click-reply', notice.data)
         // 从队列中删除
@@ -37,8 +37,8 @@ export default class {
     })
     // 获取通知消息列表
     ipcMain.on('notice-get-list', async (evt, data) => {
-      let list = []
-      for (let [key, value] of queues) {
+      const list = []
+      for (const [key, value] of queues) {
         list.push({
           key: key,
           ...value

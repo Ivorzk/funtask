@@ -82,7 +82,7 @@ export default class {
     // 监听菜单状态改变
     ipcMain.on('control-toggle', (evt, args) => {
       // 切换窗体类型
-      let wintype = this.control.getOpacity() === 0 ? 'control' : 'ball'
+      const wintype = this.control.getOpacity() === 0 ? 'control' : 'ball'
       // 记录最后一次显示的窗口
       this.lastVisibleWindow = this[wintype]
       // 同步菜单位置
@@ -105,7 +105,7 @@ export default class {
 
     // 小球切换
     ipcMain.on('ball-toggle', () => {
-      let isVisible = this.lastVisibleWindow.getOpacity() === 1
+      const isVisible = this.lastVisibleWindow.getOpacity() === 1
       if (isVisible) {
         setTimeout(() => {
           this.lastVisibleWindow.setOpacity(0)
@@ -204,10 +204,10 @@ export default class {
   // 同步菜单位置
   syncPosition(flag) {
     // 小球位置
-    let ballpos = this.ball.getPosition()
+    const ballpos = this.ball.getPosition()
     // 窗体位置
-    let controlpos = this.control.getPosition()
-    let controlBounds = this.control.getBounds()
+    const controlpos = this.control.getPosition()
+    const controlBounds = this.control.getBounds()
     if (flag === 'control') {
       this.control.setPosition(ballpos[0] - controlBounds.width + 75, ballpos[1] - controlBounds.height + 75)
     } else {
