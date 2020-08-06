@@ -10,7 +10,7 @@ const routes: Array<RouteConfig> = [{
 }, {
   path: '/control',
   name: 'control',
-  component: () => import('../views/control'),
+  component: () => import('../views/control/index.vue'),
   children: []
 }]
 
