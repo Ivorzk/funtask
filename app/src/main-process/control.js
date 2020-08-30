@@ -146,7 +146,8 @@ export default class {
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
-        webSecurity: false
+        webSecurity: false,
+        enableRemoteModule: true
       }
     })
     // 初始赋值最后一次显示的窗口
