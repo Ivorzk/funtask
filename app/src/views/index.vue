@@ -11,9 +11,7 @@
 </template>
 
 <script>
-import {
-  ipcRenderer
-} from '@suwis/funtask/core/utils/electron'
+import electron from '@suwis/funtask/core/utils/electron'
 export default {
   data() {
     return {
@@ -24,10 +22,10 @@ export default {
     }
   },
   mounted() {
-    ipcRenderer.on('control-reply', (event, args) => {
+    electron.ipcRenderer.on('control-reply', (event, args) => {
       this.control.visible = args
     })
-    ipcRenderer.on('toggle', (event, visible) => {
+    electron.ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
     })
   },
@@ -36,7 +34,7 @@ export default {
     // 切换菜单
     toggle() {
       this.control.visible = !this.control.visible
-      ipcRenderer.send('control-toggle', this.control.visible)
+      electron.ipcRenderer.send('control-toggle', this.control.visible)
     }
   }
 }
