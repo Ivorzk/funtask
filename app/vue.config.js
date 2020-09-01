@@ -1,4 +1,5 @@
 const path = require('path')
+console.log('path', path)
 module.exports = {
   pluginOptions: {
     electronBuilder: {
@@ -16,6 +17,11 @@ module.exports = {
       'patterns': [
         path.resolve(__dirname, './src/styles/variables.scss')
       ]
+    },
+    // options
+    'app-config': {
+      file: './app.config.js',
+      default: 'dev'
     }
   }
 }

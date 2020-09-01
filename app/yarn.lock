@@ -11562,6 +11562,11 @@ vue-class-component@^7.1.0, vue-class-component@^7.2.3:
   resolved "https://registry.npmjs.org/vue-class-component/-/vue-class-component-7.2.5.tgz#212b3548c4fdd3314774c4adbc1c3792a40b52d0"
   integrity sha512-0CSftHY0bDTD+4FbYkuFf6+iKDjZ4h2in2YYJDRMk5daZIjrgT9LjFHvP7Rzqy9/s1pij3zDtTSLRUjsPWMwqg==
 
+vue-cli-plugin-app-config@~1.0.9:
+  version "1.0.9"
+  resolved "https://npm.suwis.com:443/vue-cli-plugin-app-config/-/vue-cli-plugin-app-config-1.0.9.tgz#ef3cb63108c8cf893037f18fa2e2a0f579a1c3f0"
+  integrity sha512-veFYjLNKEYCFRZz1d+dUNCVzHhmyabr0/XUgTknZgKvZ0NuubDJ1zbKRK9Q6AwkPfb+DfQ/6a1UGUBtAEIq0qw==
+
 vue-cli-plugin-electron-builder@~2.0.0-rc.4:
   version "2.0.0-rc.4"
   resolved "https://registry.npmjs.org/vue-cli-plugin-electron-builder/-/vue-cli-plugin-electron-builder-2.0.0-rc.4.tgz#c819279e00fe6771912f5f0468ee26f279750a5b"

@@ -22,7 +22,7 @@
 <script>
 import {
   ipcRenderer
-} from 'electron'
+} from '@suwis/funtask/core/utils/electron'
 export default {
   data() {
     return {
