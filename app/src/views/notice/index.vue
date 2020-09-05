@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import {
-  ipcRenderer
-} from '@suwis/funtask/core/utils/electron'
+import electron from '@suwis/funtask/core/utils/electron'
 export default {
   data() {
     return {
@@ -52,7 +50,7 @@ export default {
   },
   mounted() {
     this.getConfig()
-    ipcRenderer.on('notice-push-reply', (event, data) => {
+    electron.ipcRenderer.on('notice-push-reply', (event, data) => {
       // 将消息缓存到队列中
       this.queues.push(data)
     })
@@ -75,7 +73,7 @@ export default {
     close(type) {
       this.show = false
       setTimeout(() => {
-        ipcRenderer.send('notice-close', {
+        electron.ipcRenderer.send('notice-close', {
           show: this.show,
           type
         })

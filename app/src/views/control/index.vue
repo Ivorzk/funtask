@@ -33,9 +33,6 @@
 </template>
 
 <script>
-import {
-  shell
-} from 'electron'
 import electron from '@suwis/funtask/core/utils/electron'
 export default {
   data() {
@@ -89,7 +86,7 @@ export default {
       this.control.sideslip = false
     },
     navlink(path) {
-      path.indexOf('http') > -1 ? shell.openExternal(path) : this.$router.push(path)
+      path.indexOf('http') > -1 ? electron.shell.openExternal(path) : this.$router.push(path)
       this.settingsClose()
     },
     // 获取消息列表
