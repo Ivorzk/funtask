@@ -81,6 +81,7 @@ export default class {
 
     // 监听菜单状态改变
     ipcMain.on('control-toggle', (evt, args) => {
+      console.log('control')
       // 切换窗体类型
       const wintype = this.control.getOpacity() === 0 ? 'control' : 'ball'
       // 记录最后一次显示的窗口
@@ -105,6 +106,7 @@ export default class {
 
     // 小球切换
     ipcMain.on('ball-toggle', () => {
+      console.log('ball')
       const isVisible = this.lastVisibleWindow.getOpacity() === 1
       if (isVisible) {
         setTimeout(() => {
@@ -165,7 +167,7 @@ export default class {
       height: 380,
       frame: false,
       transparent: true,
-      backgroundColor: '#00ffffff',
+      // backgroundColor: '#00ffffff',
       resizable: false,
       maximizable: false,
       minimizable: false,
