@@ -22,7 +22,9 @@ export default class {
     // 打开应用
     ipcMain.on('app-start', async (evt, app) => {
       const win = await this.openWindow(app)
-      evt.reply('app-start-reply', win)
+      evt.reply('app-start-reply', {
+        winId: win.winId,
+      })
     })
     // 关闭应用
     ipcMain.on('app-stop', async (evt, winId) => {
