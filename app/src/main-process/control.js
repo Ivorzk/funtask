@@ -13,6 +13,7 @@ import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
 app.allowRendererProcessReuse = true
+app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 // 注册标准协议
 protocol.registerSchemesAsPrivileged([{
   scheme: 'funtask',
