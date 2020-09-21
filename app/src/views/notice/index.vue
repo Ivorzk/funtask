@@ -21,6 +21,8 @@
 
 <script>
 import electron from '@suwis/funtask/core/utils/electron'
+import _ from 'lodash'
+var timer
 export default {
   data() {
     return {
@@ -60,16 +62,18 @@ export default {
       this.config = await this.$funtask.config.get()
     },
     // 推送消息
-    push() {
+    push: _.debounce(function() {
       // 获取最后一条消息
       this.msgdata = this.queues[this.queues.length - 1]
       // 显示窗口
       this.show = true
       // 5秒自动消失
-      setTimeout(() => {
+      window.clearInterval(timer)
+      timer = setTimeout(() => {
+        this.show = false
         this.close('system')
       }, this.delay)
-    },
+    }, 300),
     close(type) {
       this.show = false
       setTimeout(() => {
