@@ -1,6 +1,7 @@
 const path = require('path')
 console.log('path', path)
 module.exports = {
+  lintOnSave: false,
   pluginOptions: {
     electronBuilder: {
       customFileProtocol: 'funtask://./', // Make sure to add "./" to the end of the protocol
