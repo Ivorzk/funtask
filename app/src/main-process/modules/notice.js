@@ -39,12 +39,26 @@ export default class {
     ipcMain.on('notice-get-list', async (evt, data) => {
       const list = []
       for (const [key, value] of queues) {
-        list.push({
+        let item = {
           key: key,
           ...value
-        })
+        }
+        delete item.evt
+        list.push(item)
       }
       evt.reply('notice-get-list-reply', list)
+    })
+    // 删除事件
+    ipcMain.on('notice-remove', async (evt, item) => {
+      win.hide()
+      // 如果是用户点击的通知，则通知客户端
+      const notice = queues.get(item.key)
+      if (notice) {
+        notice.evt.reply('notice-remove-reply', notice.data)
+        // 从队列中删除
+        queues.delete(item.key)
+      }
+      display = false
     })
     // 调用初始化窗口方法
     app.on('ready', () => {

@@ -38,7 +38,11 @@ export default class {
     // 监听第二个实例
     app.on('second-instance', (event, commandLine, workingDirectory) => {
       // 切换悬浮球
-      if (this.lastVisibleWindow.getOpacity() !== 1) ipcMain.emit('ball-toggle')
+      if (this.lastVisibleWindow.getOpacity() !== 1) {
+        ipcMain.emit('ball-toggle')
+      } else {
+        this.lastVisibleWindow.focus()
+      }
     })
     app.on('ready', async () => {
       if (isDevelopment && !process.env.IS_TEST) {
