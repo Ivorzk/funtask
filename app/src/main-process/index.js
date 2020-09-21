@@ -7,6 +7,11 @@ import Control from './control'
 import Tray from './modules/tray'
 import System from './modules/system'
 import Notice from './modules/notice'
+import {
+  app
+} from 'electron'
+// 获取应用锁
+const gotTheLock = app.requestSingleInstanceLock()
 const config = new Config()
 const appManager = new App()
 const tray = new Tray()
@@ -15,6 +20,11 @@ let notice = {}
 let control = {}
 config.event.on('loaded', () => {
   console.log('app $config loaded')
+  // 判断应用是否在运行
+  if (!gotTheLock) {
+    app.quit()
+    return
+  }
   // console.log(global.$config)
   control = new Control()
   // 初始化通知

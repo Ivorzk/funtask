@@ -11,7 +11,6 @@ import {
 } from 'electron'
 import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
-const gotTheLock = app.requestSingleInstanceLock()
 // Scheme must be registered before the app is ready
 app.allowRendererProcessReuse = true
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
@@ -30,18 +29,17 @@ protocol.registerSchemesAsPrivileged([{
 export default class {
   // 构造函数
   constructor() {
-    // 判断应用是否在运行
-    if (!gotTheLock) {
-      app.quit()
-      return
-    }
     // 小球
     this.ball = {}
     // 菜单窗口
     this.control = {}
     // 最后一次显示的窗口
     this.lastVisibleWindow = {}
-
+    // 监听第二个实例
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+      // 切换悬浮球
+      if (this.lastVisibleWindow.getOpacity() !== 1) ipcMain.emit('ball-toggle')
+    })
     app.on('ready', async () => {
       if (isDevelopment && !process.env.IS_TEST) {
         // Install Vue Devtools
