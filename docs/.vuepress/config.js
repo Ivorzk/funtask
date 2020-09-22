@@ -65,7 +65,7 @@ module.exports = {
       link: '/zh/vi'
     }, {
       text: '应用下载',
-      link: '/zh/introduction.html#Funtask客户端下载'
+      link: '/zh/introduction.html#funtask客户端下载'
     }, {
       text: '更新日志',
       link: '/zh/change-log'
