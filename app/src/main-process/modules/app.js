@@ -12,6 +12,9 @@ import {
   ipcMain,
   screen
 } from 'electron'
+import {
+  Worker
+} from 'worker_threads'
 const apps = new Map()
 export default class {
   constructor() {
@@ -79,6 +82,7 @@ export default class {
     // 获取app信息
     global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
     // console.log(global.$apps)
+    this.runAppProcess()
     return global.$apps
   }
 
@@ -143,6 +147,18 @@ export default class {
   // 载入缓存
   cacheAppData() {
 
+  }
+
+  // 运行app后台进程
+  runAppProcess() {
+    for (let app of global.$apps) {
+      let file = path.resolve(global.$config.packagesdir + '/' + app.package.name + '/index.js')
+      if (!fs.existsSync(file)) continue
+      app.worker = new Worker(file, {
+        workerData: {}
+      })
+    }
+    console.log('运行应用后台进程完毕')
   }
 
   // 打开应用
