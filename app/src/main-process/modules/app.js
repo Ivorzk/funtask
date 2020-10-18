@@ -196,7 +196,7 @@ export default class {
       autoHideMenuBar: true,
       fullscreenable: false,
       hasShadow: false,
-      skipTaskbar: true,
+      skipTaskbar: false,
       show: false,
       webPreferences: {
         nodeIntegration: true,
