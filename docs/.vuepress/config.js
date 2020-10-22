@@ -32,7 +32,7 @@ module.exports = {
     '/': {
       selectText: '选择语言',
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
-      title: 'funtask',
+      title: 'Funtask™',
       description: '高效、快乐、人性化的工作方式'
     },
     // '/en/': {
@@ -65,7 +65,7 @@ module.exports = {
       link: '/zh/vi'
     }, {
       text: '应用下载',
-      link: '/zh/devguide.html#funtask桌面端下载'
+      link: '/zh/introduction.html#funtask客户端下载'
     }, {
       text: '更新日志',
       link: '/zh/change-log'
