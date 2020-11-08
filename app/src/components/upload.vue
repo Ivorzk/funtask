@@ -57,7 +57,7 @@ export default {
     upload() {
       this.uploading = true
       const xhr = new XMLHttpRequest()
-      xhr.open('post', $config.uploadhost + '/jsonapi/io/upload')
+      xhr.open('post', $config.uploadhost + '/core/upload/upyun')
       xhr.onload = (event) => {
         this.uploading = false
         let data

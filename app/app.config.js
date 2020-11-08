@@ -4,17 +4,17 @@ module.exports = {
     // 开发环境
     dev: {
       apihost: 'http://cloudapi.suwis.com',
-      uploadhost: 'http://suwis.com/system'
+      uploadhost: 'http://192.168.137.1:8360'
     },
     // 测试环境
     test: {
       apihost: 'http://cloudapi.suwis.com',
-      uploadhost: 'http://suwis.com/system'
+      uploadhost: 'http://cloudapi.suwis.com'
     },
     // 投产环境
     prod: {
       apihost: 'http://cloudapi.suwis.com',
-      uploadhost: 'http://suwis.com/system'
+      uploadhost: 'http://cloudapi.suwis.com'
     },
   },
   // 公用配置
