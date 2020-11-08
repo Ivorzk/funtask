@@ -4,7 +4,7 @@ module.exports = {
     // 开发环境
     dev: {
       apihost: 'http://cloudapi.suwis.com',
-      uploadhost: 'http://192.168.137.1:8360'
+      uploadhost: 'http://cloudapi.suwis.com'
     },
     // 测试环境
     test: {
