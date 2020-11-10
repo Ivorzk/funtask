@@ -6,4 +6,8 @@ export default new class {
   get shell() {
     return window.require('electron').shell
   }
+
+  get clipboard() {
+    return window.require('electron').clipboard
+  }
 }

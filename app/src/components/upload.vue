@@ -40,7 +40,9 @@ export default {
   data() {
     return {
       percent: 0,
-      uploading: false
+      uploading: false,
+      // 粘贴板文件
+      clipboardFile: ''
     }
   },
   watch: {
@@ -54,7 +56,7 @@ export default {
       this.$refs.file.click()
     },
     // 上传
-    upload() {
+    upload(type) {
       this.uploading = true
       const xhr = new XMLHttpRequest()
       xhr.open('post', $config.uploadhost + '/core/upload/upyun')
@@ -77,7 +79,29 @@ export default {
         this.percent = event.loaded / event.total
       }
       const data = new FormData(this.$refs.form)
+      if (type == 'base64') {
+        data.delete('file')
+        data.append('file', this.clipboardFile)
+      }
       xhr.send(data)
+    },
+    // 上传base64图片
+    uploadBase64(data) {
+      this.clipboardFile = this.dataURLtoFile(data, 'file')
+      this.upload('base64')
+    },
+    dataURLtoFile: function(dataurl, filename) {
+      var arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new File([u8arr], filename, {
+        type: mime
+      })
     }
   }
 }

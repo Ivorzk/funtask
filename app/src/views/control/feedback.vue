@@ -1,5 +1,6 @@
 <template>
-<div class="funtask-feedback">
+<div class="funtask-feedback"
+  @paste="paste">
   <ul>
     <li class="col-xs-3">
       <input v-model="formdata.name"
@@ -10,9 +11,9 @@
         placeholder="请输入联系方式">
       <select v-model="currentApp"
         placeholder="请选择需要反馈的应用">
-        <option v-for="app in apps"
+        <option v-for="(app,idx) in apps"
           :value="app.package.name"
-          :key="app.name">{{app.name}}</option>
+          :key="idx">{{app.name}}</option>
       </select>
     </li>
     <li>
@@ -25,7 +26,8 @@
       <img :src="url"
         v-for="url in thumbs"
         :key="url">
-      <funtask-upload @on-success="uploadSuccess"
+      <funtask-upload ref="upload"
+        @on-success="uploadSuccess"
         class="btn-add-file">
         <span>+</span>
       </funtask-upload>
@@ -37,6 +39,7 @@
 </div>
 </template>
 <script>
+import electron from '@suwis/funtask/core/utils/electron'
 export default {
   data() {
     return {
@@ -116,6 +119,14 @@ export default {
         account: this.formdata.account,
         currentApp: this.currentApp
       }))
+    },
+    // 鼠标粘贴
+    paste() {
+      // 尝试读取粘贴板中的图片
+      let img = electron.clipboard.readImage()
+      if (img.isEmpty()) return
+      // console.log(img.toDataURL(), 'img')
+      this.$refs.upload.uploadBase64(img.toDataURL())
     },
     // 重置表单
     reset() {
