@@ -1,9 +1,12 @@
 <template>
 <div class="funtask-settings">
   <mu-container>
-    <mu-form label-position="left"
+    <mu-form label-position="left" label-width="138"
       :model="form">
       <mu-form-item label="开机自动启动">
+        <mu-switch v-model="automatic"></mu-switch>
+      </mu-form-item>
+      <mu-form-item label="窗体固定外层">
         <mu-switch v-model="automatic"></mu-switch>
       </mu-form-item>
     </mu-form>
