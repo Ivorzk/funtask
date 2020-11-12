@@ -241,6 +241,72 @@ async getList() {
 | title   | 推送标题 | String | -   |
 | content | 推送内容 | String | -   |
 
+## clipboard 粘贴板
+
+粘贴板模块
+
+### funtask.clipboard.writeText
+
+往粘贴板写入文本
+
+```js
+// 写入
+funtask.clipboard.writeText('hello world')
+```
+
+### funtask.clipboard.readText
+
+从粘贴板获取文本
+
+```js
+// 读取
+let text = funtask.clipboard.readText()
+
+// => hello world
+```
+
+### funtask.clipboard.writeHTML
+
+往粘贴板写入HTML
+
+```js
+// 写入
+funtask.clipboard.writeHTML('<h1>hello world</h1>')
+```
+
+### funtask.clipboard.readHTML
+
+从粘贴板获取HTML
+
+```js
+// 读取
+let html = funtask.clipboard.readText()
+
+// => <h1>hello world</h1>
+```
+
+### funtask.clipboard.writeImage
+
+往粘贴板写入图片
+
+```js
+// 写入
+funtask.clipboard.writeImage(base64|NativeImage)
+```
+
+### funtask.clipboard.readImage
+
+从粘贴板获取文本
+
+```js
+// 读取
+let img = funtask.clipboard.readText()
+
+console.log(img.toDataURL())
+
+// => base64
+```
+
 ## bluetooth 蓝牙
 
 蓝牙模块
