@@ -2,11 +2,10 @@ import Vue from 'vue'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import theme from 'muse-ui/lib/theme'
-theme.add('teal', {
+theme.add('funtask', {
   primary: '#ff6300',
-  secondary: '#5e5c5d',
-  success: '#4caf50',
-  warning: '#ffeb3b',
+  secondary: '#5e5c5d'
 }, 'dark')
-theme.use('teal')
+
+theme.use('funtask')
 Vue.use(MuseUI)
