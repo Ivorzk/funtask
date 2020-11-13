@@ -24,6 +24,11 @@ export default class {
     ipcMain.on('config-get', (evt) => {
       evt.reply('config-get-reply', global.$config)
     })
+
+    // 设置配置
+    ipcMain.on('config-set', (evt) => {
+      evt.reply('config-set-reply', true)
+    })
   }
 
   // 获取配置文件目录

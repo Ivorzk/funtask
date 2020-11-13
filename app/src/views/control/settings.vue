@@ -1,13 +1,14 @@
 <template>
 <div class="funtask-settings">
   <mu-container>
-    <mu-form label-position="left" label-width="138"
+    <mu-form label-position="left"
+      label-width="138"
       :model="form">
       <mu-form-item label="开机自动启动">
-        <mu-switch v-model="automatic"></mu-switch>
+        <mu-switch v-model="autostart"></mu-switch>
       </mu-form-item>
       <mu-form-item label="窗体固定外层">
-        <mu-switch v-model="automatic"></mu-switch>
+        <mu-switch v-model="alwaysOnTop"></mu-switch>
       </mu-form-item>
     </mu-form>
   </mu-container>
@@ -18,7 +19,29 @@ export default {
   data() {
     return {
       form: {},
-      automatic: false
+      // 自动启动
+      autostart: false,
+      // 窗口顶置
+      alwaysOnTop: false
+    }
+  },
+  beforeMount() {
+    let config = this.$funtask.config.get()
+    this.autostart = config.app.autostart
+    this.alwaysOnTop = config.app.window.alwaysOnTop
+  },
+  watch: {
+    autostart(val) {
+      this.$funtask.config.set({
+        autostart: val
+      })
+    },
+    alwaysOnTop(val) {
+      this.$funtask.config.set({
+        window: {
+          alwaysOnTop: val
+        }
+      })
     }
   }
 }

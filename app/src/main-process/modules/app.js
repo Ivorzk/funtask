@@ -10,7 +10,8 @@ import _ from 'lodash'
 import {
   BrowserWindow,
   ipcMain,
-  screen
+  screen,
+  app
 } from 'electron'
 import {
   Worker
@@ -70,6 +71,15 @@ export default class {
     return fs.copy(`${__static}/packages-readme.md`, global.$config.packagesdir + 'README.md')
   }
 
+  // app初始化
+  init() {
+    // 自动启动配置
+    app.setLoginItemSettings({
+      openAtLogin: global.$config.app.autostart,
+      openAsHidden: global.$config.app.autostart
+    })
+  }
+
   // 加载应用
   async loadApps() {
     // await this.copyReadme()
@@ -83,6 +93,8 @@ export default class {
     global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
     // console.log(global.$apps)
     this.runAppProcess()
+    // 运行初始化任务
+    this.init()
     return global.$apps
   }
 
