@@ -49,6 +49,17 @@ async getConfig() {
 }
 ```
 
+### funtask.config.set
+
+设置Funtask配置
+
+```js
+async getConfig() {
+  let result = await funtask.config.set(options)
+  console.log(result)
+}
+```
+
 ## io 文件操作
 
 文件操作模块
