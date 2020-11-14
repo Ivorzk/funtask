@@ -206,7 +206,7 @@ export default class {
       resizable: false,
       maximizable: false,
       minimizable: false,
-      alwaysOnTop: !winconf.fullscreen && lodash.isEmpty(global.$config.app.window.alwaysOnTop),
+      alwaysOnTop: !winconf.fullscreen && _.isEmpty(global.$config.app.window.alwaysOnTop),
       autoHideMenuBar: true,
       fullscreenable: false,
       hasShadow: false,
