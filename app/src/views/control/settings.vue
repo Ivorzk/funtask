@@ -26,22 +26,31 @@ export default {
     }
   },
   beforeMount() {
-    let config = this.$funtask.config.get()
-    this.autostart = config.app.autostart
-    this.alwaysOnTop = config.app.window.alwaysOnTop
+    this.getConfig()
   },
   watch: {
     autostart(val) {
       this.$funtask.config.set({
-        autostart: val
+        app: {
+          autostart: val
+        }
       })
     },
     alwaysOnTop(val) {
       this.$funtask.config.set({
-        window: {
-          alwaysOnTop: val
+        app: {
+          window: {
+            alwaysOnTop: val
+          }
         }
       })
+    }
+  },
+  methods: {
+    async getConfig() {
+      let config = await this.$funtask.config.get()
+      this.autostart = config.app.autostart
+      this.alwaysOnTop = config.app.window.alwaysOnTop
     }
   }
 }

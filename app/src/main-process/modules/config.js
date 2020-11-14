@@ -11,6 +11,7 @@ import events from 'events'
 import {
   ipcMain
 } from 'electron'
+import lodash from 'lodash'
 export default class {
   constructor() {
     // 首次加载
@@ -26,8 +27,9 @@ export default class {
     })
 
     // 设置配置
-    ipcMain.on('config-set', (evt) => {
-      evt.reply('config-set-reply', true)
+    ipcMain.on('config-set', async (evt, options) => {
+      let res = await this.setConfig(options)
+      evt.reply('config-set-reply', res)
     })
   }
 
@@ -53,6 +55,18 @@ export default class {
       file = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
     }
     return file
+  }
+
+  // 设置配置文件
+  async setConfig(options) {
+    // 尝试读取配置文件
+    const file = await this.getConfigFile()
+    let $config = YAML.parse(file)
+    $config = lodash.defaultsDeep(options, $config)
+    let configYaml = YAML.stringify($config)
+    // 写入文件
+    await fs.outputFile(`${this.apphome}/config.yaml`, configYaml)
+    return true
   }
 
   // 载入配置文件
