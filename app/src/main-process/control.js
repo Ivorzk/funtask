@@ -10,6 +10,7 @@ import {
   screen
 } from 'electron'
 import customProtocol from './modules/protocol'
+import lodash from 'lodash'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
 app.allowRendererProcessReuse = true
@@ -147,7 +148,7 @@ export default class {
       resizable: false,
       maximizable: false,
       minimizable: false,
-      alwaysOnTop: global.$config.app.alwaysOnTop,
+      alwaysOnTop: lodash.isEmpty(global.$config.app.window.alwaysOnTop),
       fullscreenable: false,
       hasShadow: false,
       useContentSize: true,
@@ -178,7 +179,7 @@ export default class {
       resizable: false,
       maximizable: false,
       minimizable: false,
-      alwaysOnTop: global.$config.app.alwaysOnTop,
+      alwaysOnTop: lodash.isEmpty(global.$config.app.window.alwaysOnTop),
       fullscreenable: false,
       hasShadow: true,
       skipTaskbar: true,

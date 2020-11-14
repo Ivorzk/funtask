@@ -74,10 +74,12 @@ export default class {
   // app初始化
   init() {
     // 自动启动配置
-    app.setLoginItemSettings({
-      openAtLogin: global.$config.app.autostart,
-      openAsHidden: global.$config.app.autostart
-    })
+    if (process.env.NODE_ENV == 'production') {
+      app.setLoginItemSettings({
+        openAtLogin: global.$config.app.autostart,
+        openAsHidden: global.$config.app.autostart
+      })
+    }
   }
 
   // 加载应用
@@ -204,7 +206,7 @@ export default class {
       resizable: false,
       maximizable: false,
       minimizable: false,
-      alwaysOnTop: !winconf.fullscreen && global.$config.app.alwaysOnTop,
+      alwaysOnTop: !winconf.fullscreen && lodash.isEmpty(global.$config.app.window.alwaysOnTop),
       autoHideMenuBar: true,
       fullscreenable: false,
       hasShadow: false,
