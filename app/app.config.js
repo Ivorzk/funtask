@@ -20,6 +20,6 @@ module.exports = {
   // 公用配置
   common: {
     // 接口超时时间
-    timeout: 5000
+    timeout: 20000
   }
 }

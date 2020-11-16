@@ -45,23 +45,28 @@ export default class {
 
   // 检查配置文件是否存在
   async getConfigFile() {
-    let file = ''
+    let custom = ''
+    let defaultFile = ''
     try {
-      file = fs.readFileSync(`${this.apphome}/config.yaml`, 'utf8')
+      custom = fs.readFileSync(`${this.apphome}/config.yaml`, 'utf8')
     } catch (e) {
       // 复制默认配置文件至配置目录
       await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
+    } finally {
       // 读取默认配置文件
-      file = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
+      defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
     }
-    return file
+    return {
+      custom: custom || defaultFile,
+      default: defaultFile
+    }
   }
 
   // 设置配置文件
   async setConfig(options) {
     // 尝试读取配置文件
     const file = await this.getConfigFile()
-    let $config = YAML.parse(file)
+    let $config = YAML.parse(file.custom)
     $config = lodash.defaultsDeep(options, $config)
     let configYaml = YAML.stringify($config)
     // 写入文件
@@ -73,7 +78,9 @@ export default class {
   async loadConfig() {
     // 尝试读取配置文件
     const file = await this.getConfigFile()
-    const $config = YAML.parse(file)
+    let $config = YAML.parse(file.custom)
+    let $default = YAML.parse(file.default)
+    $config = lodash.defaultsDeep($config, $default)
     // 解析配置文件并注入到全局变量中
     global.$config = {
       ...$config,
