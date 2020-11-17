@@ -70,7 +70,14 @@ export default class {
     $config = lodash.defaultsDeep(options, $config)
     let configYaml = YAML.stringify($config)
     // 写入文件
-    await fs.outputFile(`${this.apphome}/config.yaml`, configYaml)
+    try {
+      await fs.outputFile(`${this.apphome}/config.yaml`, configYaml)
+    } catch (e) {
+      // 如果报错则删除配置文件，重新设置
+      await fs.remove(`${this.apphome}/config.yaml`)
+      // 重新执行
+      await this.setConfig(options)
+    }
     return true
   }
 
