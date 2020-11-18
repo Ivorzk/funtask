@@ -1,55 +1,40 @@
 <template>
 <div class="funtask-appstore">
-  <input class="search-input"
-    v-model="keywords"
-    type="text"
-    placeholder="请输入关键字">
+  <input class="search-input" v-model="keywords" type="text" placeholder="请输入关键字">
   <div class="app-list">
-    <dl v-for="(app,idx) in remoteApps"
-      v-show="app.name.indexOf('funtask-')===0"
-      :class="{disabled:app.disabled}"
-      :key="idx">
+    <dl v-for="(app,idx) in remoteApps" v-show="app.name.indexOf('funtask-')===0" :class="{disabled:app.disabled}" :key="idx">
       <dt>{{app.name}}</dt>
       <dd>{{app.description}}</dd>
-      <dd><label v-for="key in app.keywords"
-          :key="key">{{key}}</label></dd>
+      <dd><label v-for="key in app.keywords" :key="key">{{key}}</label></dd>
       <dd class="between">
         <span>
           <!-- <img class="avatar"
             src="https://s.gravatar.com/avatar/d58973c038d271823c09420d1a0bb64e?size=100&default=retro"
             alt=""> -->
           {{app.publisher.username}} 发布版本 v{{app.version}} • &nbsp;&nbsp;于{{app.date|timediff}}前
+          <template v-if="app.localVersion">
+            (当前版本:v{{app.localVersion}})
+          </template>
         </span>
-        <span v-if="!app.installed"
-          class="btn-group">
-          <button @click="install(app)"><i v-if="app.installing"
-              class="iconfont waiting">&#xe640;</i><i v-else
-              class="iconfont">&#xe71f;</i>安装</button>
+        <span v-if="!app.installed" class="btn-group">
+          <button @click="install(app)"><i v-if="app.installing" class="iconfont waiting">&#xe640;</i><i v-else class="iconfont">&#xe71f;</i>安装</button>
         </span>
-        <span v-else
-          class="btn-group">
+        <span v-else class="btn-group">
           <button><i class="iconfont">&#xe63a;</i>设置</button>
           <button @click="uninstall(app)">
-            <i v-if="app.removeling"
-              class="iconfont waiting">&#xe640;</i>
-            <i class="iconfont"
-              v-else>&#xe619;</i>删除</button>
-          <button class="btn-enable"
-            v-if="app.disabled"
-            @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
-          <button v-else
-            @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
+            <i v-if="app.removeling" class="iconfont waiting">&#xe640;</i>
+            <i class="iconfont" v-else>&#xe619;</i>删除</button>
+          <button class="btn-enable" v-if="app.disabled" @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
+          <button v-else @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
+          <button v-if="app.version!=app.localVersion" @click="update(app,idx)"><i v-if="app.installing" class="iconfont waiting">&#xe640;</i><i v-else class="iconfont">&#xe71f;</i>更新</button>
         </span>
       </dd>
     </dl>
   </div>
-  <div class="loading"
-    :class="{show:loading&&remoteApps.length==0}">
-    <img src="@/assets/loading.svg"
-      alt="">
+  <div class="loading" :class="{show:loading&&remoteApps.length==0}">
+    <img src="@/assets/loading.svg" alt="">
   </div>
-  <div class="loading"
-    :class="{show:!loading&&remoteApps.length==0}">
+  <div class="loading" :class="{show:!loading&&remoteApps.length==0}">
     <span>暂无数据~</span>
   </div>
 </div>
@@ -164,6 +149,7 @@ export default {
         this.$set(rapp, 'installed', false)
         this.$set(rapp, 'removeling', false)
         this.$set(rapp, 'disabled', false)
+        this.$set(rapp, 'localVersion', '')
         for (const lapp of this.localApps) {
           if (lapp.package.name === rapp.name) {
             rapp.installed = true
@@ -172,6 +158,12 @@ export default {
           }
         }
       }
+    },
+    // 更新应用
+    async update(app, idx) {
+      // 安装应用
+      await this.install(app)
+      app.localVersion = app.version
     },
     // 禁用
     async disable(app) {
