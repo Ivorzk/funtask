@@ -233,6 +233,20 @@ async send() {
 }
 ```
 
+> options
+
+```js
+{
+  title: '有新版本更新', // 标题
+  body: '点击下载', // 内容
+  icon: 'https://funtask.dev/funtask.svg', // 图标
+  url: 'https://funtask.dev/zh/introduction.html#funtask客户端下载',  // 点击消息后需要打开的url
+  command: 'api-demos:open' // 应用唤起命令
+}
+```
+
+默认 url 和 command 如果都有值的话，都会被执行
+
 ### funtask.notice.getList
 
 获取通知列表
@@ -244,13 +258,6 @@ async getList() {
   // result => [{title: '标题', icon: 'xxx.jpg', body: '主内容'}]
 }
 ```
-
-> options 参数结构
-
-| 名称      | 说明   | 类型     | 默认值 |
-| :------ | :--- | ------ | --- |
-| title   | 推送标题 | String | -   |
-| content | 推送内容 | String | -   |
 
 ## clipboard 粘贴板
 

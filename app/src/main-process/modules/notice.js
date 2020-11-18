@@ -2,7 +2,8 @@ import {
   ipcMain,
   BrowserWindow,
   screen,
-  app
+  app,
+  shell
 } from 'electron'
 import _ from 'lodash'
 let win
@@ -14,7 +15,12 @@ export default class {
   constructor() {
     // 监听客户端发送过来的通知
     ipcMain.on('notice-send', async (evt, data) => {
-      queues.set(`notice_${Date.now()}`, {
+      let key = `notice_${Date.now()}`
+      data = {
+        ...data,
+        key
+      }
+      queues.set(key, {
         evt,
         data
       })
@@ -24,14 +30,16 @@ export default class {
       this.setCatch()
     })
     // 监听消息框发送过来的点击事件
-    ipcMain.on('notice-close', async (evt, key) => {
+    ipcMain.on('notice-close', async (evt, item) => {
       win.hide()
       // 如果是用户点击的通知，则通知客户端
-      const notice = queues.get(key)
+      const notice = queues.get(item.key)
       if (notice) {
+        if (item.type == 'custom') this.runBehavior(notice.data)
+        // todo: command 实现
         notice.evt.reply('notice-click-reply', notice.data)
         // 从队列中删除
-        queues.delete(key)
+        queues.delete(item.key)
       }
       display = false
     })
@@ -39,10 +47,7 @@ export default class {
     ipcMain.on('notice-get-list', async (evt, data) => {
       const list = []
       for (const [key, value] of queues) {
-        let item = {
-          key: key,
-          ...value
-        }
+        let item = value
         delete item.evt
         list.push(item)
       }
@@ -54,6 +59,7 @@ export default class {
       // 如果是用户点击的通知，则通知客户端
       const notice = queues.get(item.key)
       if (notice) {
+        if (item.behavior) this.runBehavior(notice.data)
         notice.evt.reply('notice-remove-reply', notice.data)
         // 从队列中删除
         queues.delete(item.key)
@@ -64,6 +70,15 @@ export default class {
     app.on('ready', () => {
       this.init()
     })
+  }
+
+  // 执行点击行为
+  runBehavior(data) {
+    console.log('data', data)
+    // 判断是否有url
+    if (data.url) {
+      shell.openExternal(data.url)
+    }
   }
 
   async init() {

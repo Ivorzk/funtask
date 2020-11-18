@@ -4,7 +4,7 @@
     v-for="(item,idx) in list"
     :key="item.key"
     :class="{leave:item.leave}"
-    @click="remove(idx)">
+    @click="remove(idx,true)">
     <dl>
       <dt>
         <img v-if="item.data.icon"
@@ -12,7 +12,7 @@
           alt="">
       </dt>
       <dd>
-        <i class="arrow iconfont">&#xe625;</i>
+        <i @click.stop="remove(idx,false)" class="arrow iconfont">&#xe6df;</i>
         <h5>{{item.data.title||''}}</h5>
         <p>{{item.data.body||''}}</p>
       </dd>
@@ -44,7 +44,6 @@ export default {
     this.getConfig()
     // 获取列表
     this.getList()
-    window.$axios = this.$axios
   },
   methods: {
     async getConfig() {
@@ -56,14 +55,17 @@ export default {
       this.list = res || []
     },
     // 关闭消息列表
-    async remove(idx) {
+    async remove(idx, behavior) {
       this.$set(this.list[idx], 'leave', true)
       // 从本地删除
       setTimeout(() => {
         this.list.splice(idx, 1)
       }, 380)
       // 删除消息
-      await this.$funtask.notice.remove(this.list[idx])
+      await this.$funtask.notice.remove({
+        behavior,
+        ...this.list[idx].data
+      })
     }
   }
 }
@@ -72,7 +74,7 @@ export default {
 <style lang="scss" scoped>
 .funtask-notice-list {
     width: 100vw;
-    height: calc(100vh - 35px + 0.5vw);
+    height: calc(100vh - 35px - 0.6vw);
     transition: all 0.3s ease;
     overflow: auto;
     padding: 0 1.8vw;
@@ -137,7 +139,7 @@ export default {
                 text-align: justify;
                 line-height: 22.8px;
                 position: relative;
-                max-width: calc(100% - 22vw);
+                max-width: calc(100% - 16vw);
             }
             img {
                 width: 16.8vw;
@@ -166,8 +168,8 @@ export default {
             .arrow {
                 color: $funtask-color-primary;
                 position: absolute;
-                right: 2.8vw;
-                top: -1.58vw;
+                right: 0;
+                top: -1.28vw;
                 font-weight: lighter;
                 font-size: 14px;
                 opacity: 0;
@@ -191,7 +193,6 @@ export default {
         &:hover {
             .arrow {
                 opacity: 1;
-                right: 1vw;
             }
         }
     }

@@ -1,13 +1,9 @@
 <template>
-<div class="funtask-notice"
-  :class="{'show':show}">
-  <div class="message-box"
-    @mouseup="close('custom')">
+<div class="funtask-notice" :class="{'show':show}">
+  <div class="message-box" @mouseup="close('custom')">
     <dl>
       <dt>
-        <img v-if="msgdata.icon"
-          :src="msgdata.icon"
-          alt="">
+        <img v-if="msgdata.icon" :src="msgdata.icon" alt="">
       </dt>
       <dd>
         <i class="arrow iconfont">&#xe625;</i>
@@ -55,6 +51,7 @@ export default {
     electron.ipcRenderer.on('notice-push-reply', (event, data) => {
       // 将消息缓存到队列中
       this.queues.push(data)
+      this.$funtask.app.openDevTools()
     })
   },
   methods: {
@@ -79,7 +76,8 @@ export default {
       setTimeout(() => {
         electron.ipcRenderer.send('notice-close', {
           show: this.show,
-          type
+          type,
+          key: this.msgdata.key
         })
         // 移除最后一个
         this.queues.pop()
