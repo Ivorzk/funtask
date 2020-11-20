@@ -22,7 +22,7 @@ npm install -g @suwis/funtask
 funtask create hello-funtask
 ```
 
-#### 本地引入应用到Funtask中
+#### 将应用软链接到Funtask运行环境中
 
 ```sh
 cd hello-funtask
@@ -31,6 +31,16 @@ funtask link
 ```
 
 以上步骤完成后，启动/重启funtask客户端方可看到效果
+
+## 移除软链接
+
+应用调试完毕，需要运行unlink命令将本地应用从Funtask运行环境中移除
+
+以`funtask-api-demos`为例：
+
+```js
+funtask unlink funtask-api-demos
+```
 
 ## 应用目录结构说明
 
