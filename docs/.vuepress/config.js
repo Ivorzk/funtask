@@ -77,7 +77,8 @@ module.exports = {
         // 'framework',
         'plugin',
         'api'
-      ]
+      ],
+      'settled': 'settled'
     }
   }
 }

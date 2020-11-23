@@ -7,6 +7,9 @@
   "dependencies": {
     "@vuepress/core": "^1.7.1",
     "axios": "^0.19.2",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "scss": "^0.2.4",
     "vuepress-bar": "^0.3.1",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-clean-urls": "^1.1.1",
