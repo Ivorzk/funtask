@@ -13,5 +13,7 @@
 
 </script>
 <style lang="scss">
-.funtask-index {}
+.funtask-index {
+    position: relative;
+}
 </style>
