@@ -23,9 +23,16 @@ body {
     padding-right: 0;
 }
 .home {
-    max-width: 1200px;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 .funtask-index {
     position: relative;
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
 }
 </style>
