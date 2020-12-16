@@ -7,7 +7,7 @@
         物联网日益发展, 于此对应的就需要为这些lot硬件提供相应的控制终端, 而对于用户而言需要在这些不同的控制终端来回切换操作增加了操作的复杂性, 交互体验差, Funtask 统一和规范了控制端, 使其成为一个标准化 模块化 和开放化的办公平台真正做到, 根据用户的需要, 提供对应的功能模块, 避免无关的功能干扰工作, 从而提升用户的办公体验.
       </dd>
     </dl>
-    <img src="about.png"
+    <img src="about/poster.png"
       class="poster">
   </div>
 </section>
@@ -21,7 +21,7 @@ export default {
 .funtask-about {
     position: relative;
     padding: 3vw 0;
-    background: #f6f6f6;
+    background: #FAFAFA;
     .container {
         display: flex;
         justify-content: space-between;
@@ -34,6 +34,10 @@ export default {
 
         dl {
             text-align: justify;
+            background: #fff;
+            padding: 2vw;
+            border-radius: 1vw;
+            box-shadow: 0 16px 85px rgba(246, 210, 189, 0.45);
 
             dt {
                 padding-bottom: 1vw;
