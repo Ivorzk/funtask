@@ -37,6 +37,7 @@ export default {
 .funtask-autom-factory {
     position: relative;
     padding: 3vw 0;
+    background: #FAFAFA;
     .container {
         position: relative;
         display: flex;
