@@ -1,7 +1,7 @@
 <template>
 <section class="funtask-autom-factory">
   <div class="container">
-    <h3>智慧农场</h3>
+    <h3>自动化工厂</h3>
     <img class="decoration"
       src="wisdom-agriculture/autom-factory.png"
       alt="">
