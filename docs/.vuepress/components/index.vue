@@ -6,7 +6,7 @@
   <autom-factory></autom-factory>
   <cooperative-office></cooperative-office>
   <social-contact></social-contact>
-  <footer></footer>
+  <footers></footers>
 </section>
 </template>
 <script>
@@ -16,12 +16,7 @@
 body {
     use-select: none;
 }
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding-left: 0;
-    padding-right: 0;
-}
+
 .home {
     max-width: 100%;
     padding-left: 0;

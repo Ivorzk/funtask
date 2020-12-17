@@ -1,10 +1,10 @@
 <template>
 <section class="funtask-autom-factory">
-  <div class="container">
-    <h3>自动化工厂</h3>
+  <div class="container end">
     <img class="decoration"
-      src="wisdom-agriculture/autom-factory.png"
+      src="autom-factory/decoration.png"
       alt="">
+    <h3>自动化工厂</h3>
   </div>
   <div class="container">
     <dl>
@@ -23,7 +23,7 @@
         </button>
       </dd>
     </dl>
-    <img src="autom-factory.png"
+    <img src="autom-factory/poster.png"
       class="poster">
   </div>
 </section>
@@ -43,10 +43,14 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        &.end {
+            justify-content: flex-end;
+        }
         img.poster {
             pointer-events: none;
-            width: 26vw;
-            margin-right: 5vw;
+            width: 19.7vw;
+            left: 0;
+            margin-top: 0.8vw;
         }
 
         h3 {
@@ -54,9 +58,10 @@ export default {
         }
 
         .decoration {
-            width: 16.25vw;
+            width: 8.6vw;
+            left: 0;
             position: absolute;
-            right: -13vw;
+            left: -6vw;
             top: 0;
         }
 
