@@ -33,7 +33,7 @@ export default {
 </script>
 <style lang="scss">
 .funtask-social-contact {
-    padding: 1vw 0 5vw;
+    padding: 1vw 0 3.9vw;
     .container {
         display: flex;
         justify-content: flex-end;

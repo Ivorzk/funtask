@@ -41,10 +41,39 @@ export default {
 
             dt {
                 padding-bottom: 1vw;
+                font-size: 1.2vw;
             }
             dd {
                 margin: 0;
                 line-height: 2vw;
+                font-size: 0.9vw;
+            }
+        }
+    }
+}
+@media (max-width: 720px) {
+    .funtask-about {
+        .container {
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+            img {
+                width: 80%;
+                display: block;
+                margin: auto;
+            }
+
+            dl {
+                width: 100%;
+                dt {
+                    padding-bottom: 1vw;
+                    font-size: 4vw;
+                }
+                dd {
+                    margin: 0;
+                    line-height: 2vw;
+                    font-size: 3.2vw;
+                    line-height: 6vw;
+                }
             }
         }
     }

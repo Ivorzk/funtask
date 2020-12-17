@@ -97,7 +97,7 @@ export default {
             dd {
                 padding: 0 0 0 1.59vw;
                 margin: 0;
-                font-size: 0.8vw;
+                font-size: 0.9vw;
 
                 em {
                     font-weight: bold;
@@ -105,6 +105,59 @@ export default {
                     font-size: 1.2vw;
                     margin-bottom: 0.2vw;
                     display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .funtask-kv {
+        .poster {
+            display: block;
+            img {
+                width: 98%;
+                display: block;
+                margin: auto;
+            }
+            .text {
+                text-align: center;
+                em {
+                    font-size: 5vw;
+                }
+                span {
+                    font-size: 4vw;
+                }
+            }
+        }
+
+        .features {
+            display: block;
+
+            dl {
+
+                dt {
+
+                    img {
+                        display: block;
+                        max-width: 18vw;
+                        position: relative;
+                        left: -3.9vw;
+                    }
+                }
+
+                dd {
+                    padding: 0.68vw;
+                    margin: 0;
+                    font-size: 3.2vw;
+
+                    em {
+                        font-weight: bold;
+                        font-style: normal;
+                        font-size: 4.9vw;
+                        margin-bottom: 0.2vw;
+                        display: block;
+                    }
                 }
             }
         }

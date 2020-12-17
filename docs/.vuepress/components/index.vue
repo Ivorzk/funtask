@@ -24,18 +24,16 @@ body {
 }
 .funtask-index {
     position: relative;
-
     .container {
-        max-width: 62.5vw;
+        max-width: 62.8vw;
         margin: auto;
     }
-
 }
-@media (max-width: 1440px) {
+@media (max-width: 720px) {
     .funtask-index {
         position: relative;
         .container {
-            max-width: 69vw;
+            max-width: 90vw;
             margin: auto;
         }
     }

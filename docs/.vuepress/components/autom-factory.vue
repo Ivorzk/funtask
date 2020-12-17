@@ -85,6 +85,7 @@ export default {
                     align-items: top;
                     color: #59518E;
                     min-width: 15vw;
+                    font-size: 1vw;
                     img {
                         width: 1.9vw;
                         margin-right: 1vw;
@@ -103,6 +104,8 @@ export default {
                     left: 50%;
                     transform: translateX(-50%);
                     cursor: pointer;
+                    white-space: nowrap;
+                    font-size: 0.8vw;
                 }
             }
         }
