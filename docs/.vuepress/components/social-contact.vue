@@ -48,7 +48,7 @@ export default {
         }
     }
     img {
-        width: 39px;
+        width: 2vw;
         pointer-events: none;
     }
 }
