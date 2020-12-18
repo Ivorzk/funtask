@@ -122,6 +122,8 @@ export default {
             }
             .text {
                 text-align: center;
+                padding: 5vw 0 0;
+                line-height: 9vw;
                 em {
                     font-size: 5vw;
                 }
@@ -133,6 +135,7 @@ export default {
 
         .features {
             display: block;
+            width: 100%;
 
             dl {
 
@@ -142,7 +145,7 @@ export default {
                         display: block;
                         max-width: 18vw;
                         position: relative;
-                        left: -3.9vw;
+                        left: -3.8vw;
                     }
                 }
 

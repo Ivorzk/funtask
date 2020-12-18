@@ -105,4 +105,47 @@ export default {
         }
     }
 }
+@media (max-width: 720px) {
+    .funtask-wisdom-agriculture {
+        .container {
+            display: block;
+            h3 {
+                font-size: 4.9vw;
+            }
+            img.poster {
+                width: 90%;
+                display: block;
+                margin: auto;
+            }
+            .decoration {
+                display: none;
+            }
+            dl {
+                dt {
+                    font-size: 3.9vw;
+                    margin-bottom: 5vw;
+                }
+                dd {
+                    line-height: 8vw;
+                    padding: 5vw;
+                    // box-shadow: none;
+                    .item {
+                        font-size: 3.9vw;
+                        align-items: center;
+
+                        img {
+                            width: 4.9vw;
+                            margin-top: 2.8vw;
+                        }
+                    }
+
+                    button {
+                        padding: 2vw 3.9vw;
+                        font-size: 2.68vw;
+                    }
+                }
+            }
+        }
+    }
+}
 </style>

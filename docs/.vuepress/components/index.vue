@@ -33,7 +33,7 @@ body {
     .funtask-index {
         position: relative;
         .container {
-            max-width: 90vw;
+            max-width: calc(100% - 30px);
             margin: auto;
         }
     }

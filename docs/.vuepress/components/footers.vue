@@ -29,4 +29,9 @@ export default {
         color: #fff;
     }
 }
+@media (max-width: 728px) {
+    .funtask-footer {
+        font-size: 12px;
+    }
+}
 </style>

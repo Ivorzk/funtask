@@ -52,4 +52,18 @@ export default {
         pointer-events: none;
     }
 }
+@media (max-width: 728px) {
+    .funtask-social-contact {
+        padding: 8vw 0;
+        .container {
+            justify-content: center;
+        }
+        a {
+            margin: 0 8px;
+        }
+        img {
+            width: 6.28vw;
+        }
+    }
+}
 </style>

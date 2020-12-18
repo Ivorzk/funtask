@@ -38,6 +38,7 @@ export default {
             padding: 2vw;
             border-radius: 1vw;
             box-shadow: 0 16px 85px rgba(246, 210, 189, 0.45);
+            text-align: justify;
 
             dt {
                 padding-bottom: 1vw;
@@ -63,7 +64,12 @@ export default {
             }
 
             dl {
-                width: 100%;
+                width: calc(100% - 10px);
+                box-shadow: none;
+                border-radius: 0;
+                background: transparent;
+                padding: 0;
+                margin: 3vw 0;
                 dt {
                     padding-bottom: 1vw;
                     font-size: 4vw;
