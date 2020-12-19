@@ -6846,10 +6846,10 @@ vuepress-plugin-zooming@^1.1.7:
   dependencies:
     zooming "^2.1.1"
 
-vuepress-theme-funtask@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/vuepress-theme-funtask/-/vuepress-theme-funtask-1.0.3.tgz#48e8fd436ab7f339b8049c0ca02a2c8b37684f9c"
-  integrity sha512-kIFOS6Tjmwaa5jUvugcWMtuO/YmGAHRgczfGVqUBzBp06Jf/Jvbq0/QwO7C59smz3sTnQIjh8pE3ys6MoyFSDw==
+vuepress-theme-funtask@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/vuepress-theme-funtask/-/vuepress-theme-funtask-1.0.7.tgz#a0bc2d16c720e4920f5d1fe9e736a2abdaaad401"
+  integrity sha512-Be9np4uT1tOaXaMkKY9CK41rbnAehFfd+E25/3CQ9mdfEkPBs/MGXSWDWNjnybcxsP6mcKtaiBqPO9JiQcL+TQ==
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"
