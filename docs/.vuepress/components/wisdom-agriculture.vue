@@ -21,7 +21,7 @@
             alt="">智能温控生态系统
         </div>
         <button>
-          入驻申请<br>(农场主 硬件供应商)
+          <a href="settled.html">入驻申请<br>(农场主 硬件供应商)</a>
         </button>
       </dd>
     </dl>
@@ -100,6 +100,9 @@ export default {
                     cursor: pointer;
                     white-space: nowrap;
                     font-size: 0.8vw;
+                    a {
+                        color: #fff;
+                    }
                 }
             }
         }

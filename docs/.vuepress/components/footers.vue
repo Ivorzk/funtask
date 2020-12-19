@@ -2,16 +2,24 @@
 <section class="funtask-footer">
   <div class="container">
     <p>
-      友情链接：<a href="//funtask.club">Funtask 社区</a> | <a href="//xnit.funtask.club">西南IT 社区</a> | <a href="//suwis.com">SUWIS</a>
+      友情链接：<a target="_blank"
+        href="//funtask.club">Funtask 社区</a> | <a target="_blank"
+        href="//xnit.funtask.club">西南IT 社区</a> | <a target="_blank"
+        href="//suwis.com">SUWIS</a>
     </p>
     <p>
-      MIT Licensed | Copyright © 2019 - CTI - Technology Group
+      MIT Licensed | Copyright © 2019 ~ {{year}} - CTI - Technology Group
     </p>
   </div>
 </section>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      year: new Date().getFullYear()
+    }
+  },
   methods: {
 
   }

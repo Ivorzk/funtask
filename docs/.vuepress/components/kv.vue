@@ -7,7 +7,7 @@
       <div class="text">
         <em>高效、快乐、人性化</em>
         <span>的多终端智能办公平台</span>
-        <ui-button @click="donload">下载</ui-button>
+        <ui-button @click.native="donload">下载</ui-button>
       </div>
     </div>
     <div class="features">
@@ -44,7 +44,9 @@
 export default {
   methods: {
     // 下载
-    donload() {}
+    donload() {
+      location.href = '/zh/introduction.html#funtask客户端下载'
+    }
   }
 }
 </script>
