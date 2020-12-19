@@ -67,7 +67,7 @@ export default {
         &:hover {
             .mask {
                 opacity: 1;
-                margin-top: -9px;
+                margin-top: -12.8px;
                 pointer-events: auto;
             }
         }
