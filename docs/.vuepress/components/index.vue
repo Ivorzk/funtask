@@ -28,6 +28,9 @@ body {
         max-width: 62.8vw;
         margin: auto;
     }
+    img {
+        pointer-events: none;
+    }
 }
 @media (max-width: 720px) {
     .funtask-index {
