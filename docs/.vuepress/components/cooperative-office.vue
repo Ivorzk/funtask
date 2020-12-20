@@ -21,7 +21,7 @@
             alt="">个人超级工具箱
         </div>
         <button>
-          <a href="settled.html">入驻申请<br>(团队 个人开发者)</a>
+          <a href="settled.html?type=office">入驻申请<br>(团队 个人开发者)</a>
         </button>
       </dd>
     </dl>
@@ -80,6 +80,7 @@ export default {
                     color: #59518E;
                     min-width: 15vw;
                     font-size: 1vw;
+                    margin-bottom: 0.5vw;
                     img {
                         width: 1.9vw;
                         margin-right: 1vw;
@@ -91,15 +92,15 @@ export default {
                     border: 0;
                     background: #FC601D;
                     box-shadow: 0 16px 85px rgba(246, 210, 189, 0.45);
-                    border-radius: 10px;
-                    padding: 0.3vw 0.5vw;
+                    border-radius: 0.49vw;
+                    padding: 0.39vw 0.68vw;
                     color: #fff;
                     text-align: center;
                     left: 50%;
                     transform: translateX(-50%);
                     cursor: pointer;
                     white-space: nowrap;
-                    font-size: 0.8vw;
+                    font-size: 0.69vw;
                     a {
                         color: #fff;
                     }
@@ -145,6 +146,7 @@ export default {
                     button {
                         padding: 2vw 3.9vw;
                         font-size: 2.68vw;
+                        border-radius: 2vw;
                     }
                 }
             }
