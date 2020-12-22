@@ -82,7 +82,7 @@ export default {
 
                 .item {
                     display: flex;
-                    align-items: top;
+                    align-items: flex-start;
                     color: #59518E;
                     min-width: 15vw;
                     font-size: 1vw;
