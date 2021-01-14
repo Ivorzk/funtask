@@ -12,11 +12,11 @@
       <dd>
         <div class="item">
           <img src="list-item.png"
-            alt="">自动化灌溉系统
+            alt="">全自动化生产流水线
         </div>
         <div class="item">
           <img src="list-item.png"
-            alt="">智能温控生态系统
+            alt="">中控智能化集中管理
         </div>
         <button>
           <a href="settled.html">入驻申请<br>(农场主 硬件供应商)</a>
