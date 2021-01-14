@@ -53,6 +53,7 @@ export default {
 <style lang="scss">
 .funtask-kv {
     position: relative;
+    padding-top: 2vw;
 
     img {
         pointer-events: none;
