@@ -19,7 +19,7 @@
             alt="">中控智能化集中管理
         </div>
         <button>
-          <a href="settled.html?type=factory">入驻申请<br>(农场主 硬件供应商)</a>
+          <a href="settled.html?type=factory">入驻申请<br>(工厂主 硬件供应商)</a>
         </button>
       </dd>
     </dl>
