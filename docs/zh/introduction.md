@@ -24,10 +24,10 @@ Funtask 中文谐音为方塔，是一个面像个人/企业的一个工作流�
 
 | 平台          | 版本号    | 下载链接                                                                          |
 | :---------- | :----- | :---------------------------------------------------------------------------- |
-| Windows 64位 | v1.1.2 | [点击下载](https://funtask.dev/download/windows/Funtask%20Setup%201.1.2.exe)      |
-| Windows 32位 | v1.1.2 | [点击下载](https://funtask.dev/download/windows/Funtask%20Setup%201.1.2_ia32.exe) |
-| Mac         | v1.1.2 | [点击下载](https://funtask.dev/download/mac/Funtask%20Setup%201.1.2.exe)          |
-| Linux       | v1.1.2 | [点击下载](https://funtask.dev/download/linux/Funtask_1.1.2_amd64.snap)           |
+| Windows 64位 | v1.1.4 | [点击下载](https://funtask.dev/download/windows/Funtask%20Setup%201.1.4.exe)      |
+| Windows 32位 | v1.1.4 | [点击下载](https://funtask.dev/download/windows/Funtask%20Setup%201.1.4_ia32.exe) |
+| Mac         | v1.1.4 | [点击下载](https://funtask.dev/download/mac/Funtask%20Setup%201.1.4.exe)          |
+| Linux       | v1.1.4 | [点击下载](https://funtask.dev/download/linux/Funtask_1.1.4_amd64.snap)           |
 
 更新时间: 2020-11-08
 
