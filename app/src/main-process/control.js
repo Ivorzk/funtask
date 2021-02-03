@@ -100,11 +100,13 @@ export default class {
       this.control.webContents.send('control-reply', wintype === 'control')
       // 设置显示和隐藏 间隔300毫秒，等待动画执行完成
       if (wintype === 'control') {
+        this.control.setAlwaysOnTop(true)
         this.control.setOpacity(wintype === 'control' ? 1 : 0)
         setTimeout(() => {
           this.ball.setOpacity(wintype === 'ball' ? 1 : 0)
         }, 300)
       } else {
+        this.ball.setAlwaysOnTop(true)
         this.ball.setOpacity(wintype === 'ball' ? 1 : 0)
         setTimeout(() => {
           this.control.setOpacity(wintype === 'control' ? 1 : 0)
@@ -120,6 +122,7 @@ export default class {
           this.lastVisibleWindow.setOpacity(0)
         }, 300)
       } else {
+        this.lastVisibleWindow.setAlwaysOnTop(true)
         this.lastVisibleWindow.setOpacity(1)
       }
       this.lastVisibleWindow.webContents.send('toggle', !isVisible)
