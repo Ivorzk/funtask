@@ -30,9 +30,9 @@ var eachAppInfo = function(dirs) {
 }
 
 // export
-const instance = {
+const instance = new class {
   // 链接
-  link: (name) => {
+  link(name) {
     // init options
     options.name = name
     // 读取配置文件
@@ -49,10 +49,13 @@ const instance = {
     // console.log(YAML.stringify(configJson))
     fs.writeFileSync(path.resolve(apphome + '/config.yaml'), YAML.stringify(configJson))
 
+    this.sendmsg('link', name)
+
     console.log(chalk.yellow('Application register successfully !'))
-  },
+  }
+
   // 取消链接
-  unlink: async (name) => {
+  async unlink(name) {
     // init options
     options.name = name
     // 读取配置文件
@@ -74,7 +77,14 @@ const instance = {
     // console.log(YAML.stringify(configJson))
     fs.writeFileSync(path.resolve(apphome + '/config.yaml'), YAML.stringify(configJson))
 
+    this.sendmsg('unlink', name)
+
     console.log(chalk.yellow(`${name} unlkin successfully !`))
+  }
+
+  // 向客户端发送调试信息
+  sendmsg(type, data) {
+    // TODO: 通讯机制待实现
   }
 }
 
