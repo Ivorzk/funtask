@@ -15,7 +15,7 @@ export default new class {
   }
 
   // 通知控制台执行刷新操作
-  resolve() {
+  devUpdate() {
 
   }
 }
