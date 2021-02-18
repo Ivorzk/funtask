@@ -1,6 +1,6 @@
 {
   "name": "@suwis/funtask",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Funtask js sdk",
   "main": "core/index.js",
   "bin": {
