@@ -42,6 +42,13 @@ funtask link
 funtask unlink funtask-api-demos
 ```
 
+或者进入项目根目录直接运行
+
+```js
+// unlink 后面不带插件名的话，系统会尝试寻找当前命令所在目录的插件
+funtask unlink
+```
+
 ## 应用目录结构说明
 
 Funtask 遵循 “约定优于配置” 的原则，插件的目录结构如下：
