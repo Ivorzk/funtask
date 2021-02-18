@@ -33,7 +33,7 @@ module.exports = {
       selectText: '选择语言',
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
       title: 'Funtask™',
-      description: '高效、快乐、人性化的工作方式'
+      description: '高效、快乐、人性化的多终端智能办公平台'
     },
     // '/en/': {
     //   selectText: 'Languages',
