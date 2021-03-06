@@ -32,8 +32,8 @@ module.exports = {
     '/': {
       selectText: '选择语言',
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
-      title: 'Funtask™',
-      description: '高效、快乐、人性化的工作方式'
+      title: 'Funtask',
+      description: '高效、快乐、人性化的多终端智能办公平台'
     },
     // '/en/': {
     //   selectText: 'Languages',
@@ -58,14 +58,20 @@ module.exports = {
       text: '主页',
       link: '/'
     }, {
-      text: '社区',
-      link: 'https://funtask.club'
+      text: '开发指南',
+      link: '/zh/devguide.html'
+    }, {
+      text: 'API',
+      link: '/zh/api.html'
+    }, {
+      text: '下载',
+      link: '/zh/introduction.html#funtask客户端下载'
     }, {
       text: 'VI',
       link: '/zh/vi'
     }, {
-      text: '应用下载',
-      link: '/zh/introduction.html#funtask客户端下载'
+      text: '社区',
+      link: 'https://funtask.club'
     }, {
       text: '更新日志',
       link: '/zh/change-log'

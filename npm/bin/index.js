@@ -17,7 +17,6 @@ program
 program
   .command('create <app-name>')
   .description('create a new project powered by funtask')
-  .option('-m, --packageManager <command>', 'Use specified npm client when installing dependencies')
   .action((name, cmd) => {
     const options = cleanArgs(cmd)
 
@@ -42,10 +41,10 @@ program
 program
   .command('unlink')
   .description('unlink app from funtask')
-  .action((name, cmd) => {
-    const options = cleanArgs(cmd)
+  .action((cmd, args) => {
+    let name = args instanceof Array ? args[0] : ''
     // 引入构建器
-    devhelper.unlink(name, options)
+    devhelper.unlink(name)
   })
 
 // ui 界面
@@ -103,6 +102,7 @@ if (!process.argv.slice(2).length) {
   program.outputHelp()
 }
 
+// 检测命令行是否支持
 function suggestCommands(cmd) {
   const availableCommands = program.commands.map(cmd => {
     return cmd._name
@@ -114,6 +114,10 @@ function suggestCommands(cmd) {
   }
 }
 
+function didYouMean(cmd, availableCommands) {
+  // console.log(cmd, availableCommands)
+}
+
 function camelize(str) {
   return str.replace(/-(\w)/g, (_, c) => c ? c.toUpperCase() : '')
 }
@@ -122,7 +126,8 @@ function camelize(str) {
 // extract only actual options into a fresh object.
 function cleanArgs(cmd) {
   const args = {}
-  cmd.options.forEach(o => {
+  let options = cmd instanceof Object ? cmd.options : []
+  options.forEach(o => {
     const key = camelize(o.long.replace(/^--/, ''))
     // if an option is not present and Command has a method with the same name
     // it should not be copied

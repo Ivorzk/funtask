@@ -129,6 +129,12 @@ export default class {
       }
       this.lastVisibleWindow.webContents.send('toggle', !isVisible)
     })
+
+    // 监听窗口刷新操作
+    ipcMain.on('dev-update', (evt, data) => {
+      this.control.webContents.send('dev-update', data)
+    })
+
   }
 
   // 创建窗体

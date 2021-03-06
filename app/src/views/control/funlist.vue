@@ -15,6 +15,7 @@
 </div>
 </template>
 <script>
+import electron from '@suwis/funtask/core/utils/electron'
 export default {
   data() {
     return {
@@ -25,6 +26,10 @@ export default {
   },
   mounted() {
     this.getApps()
+    // 监听系统刷新
+    electron.ipcRenderer.on('dev-update', (event, visible) => {
+      this.getApps()
+    })
   },
   methods: {
     async getApps() {
