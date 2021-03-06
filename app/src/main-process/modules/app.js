@@ -66,7 +66,6 @@ export default class {
     })
     // 显示右键菜单
     ipcMain.on('show-context-menu', (evt, menus) => {
-      console.log(menus, 'menus')
       const template = []
       menus.forEach(item => {
         template.push({
