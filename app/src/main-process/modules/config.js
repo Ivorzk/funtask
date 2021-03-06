@@ -71,7 +71,7 @@ export default class {
     let configYaml = YAML.stringify($config)
     // 写入文件
     try {
-      await fs.outputFile(`${this.apphome}/config.yaml`, configYaml)
+      await fs.writeFileSync(`${this.apphome}/config.yaml`, configYaml)
     } catch (e) {
       // 如果报错则删除配置文件，重新设置
       await fs.remove(`${this.apphome}/config.yaml`)

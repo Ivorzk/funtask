@@ -37,6 +37,7 @@ export default class {
     this.lastVisibleWindow = {}
     // 监听第二个实例
     app.on('second-instance', (event, commandLine, workingDirectory) => {
+      if (!this.lastVisibleWindow.id) return
       // 切换悬浮球
       if (this.lastVisibleWindow.getOpacity() !== 1) {
         ipcMain.emit('ball-toggle')
@@ -116,6 +117,7 @@ export default class {
 
     // 小球切换
     ipcMain.on('ball-toggle', () => {
+      if (!this.lastVisibleWindow.id) return
       const isVisible = this.lastVisibleWindow.getOpacity() === 1
       if (isVisible) {
         setTimeout(() => {
