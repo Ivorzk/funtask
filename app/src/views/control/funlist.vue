@@ -13,6 +13,7 @@
       </span>
     </li>
   </ul>
+  <p class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
 </div>
 </template>
 <script>
@@ -117,6 +118,18 @@ export default {
             display: block;
             width: 100%;
         }
+    }
+
+    .no-data-tips {
+        text-align: center;
+        height: calc(100% - 45px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        color: $funtask-color-primary;
+        opacity: 0.68;
     }
 }
 </style>

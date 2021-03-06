@@ -3,7 +3,8 @@
   class="funtask-index"
   ref="ball"
   :class="{show: control.visible}">
-  <img @click="toggle"
+  <img @mousedown="e=>e.preventDefault()"
+    @click="toggle"
     class="icon"
     src="@/assets/logo.jpg"
     alt="ball">
