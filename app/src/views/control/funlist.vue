@@ -4,7 +4,8 @@
     <li v-for="(app,idx) in apps"
       v-show="!app.disabled"
       :key="'app_'+idx"
-      @click="start(app)">
+      @click="start(app)"
+      @contextmenu="showContextMenu(app)">
       <img v-lazy="app.logo"
         alt="">
       <span>
@@ -16,6 +17,7 @@
 </template>
 <script>
 import electron from '@suwis/funtask/core/utils/electron'
+import _ from 'lodash'
 export default {
   data() {
     return {
@@ -44,7 +46,28 @@ export default {
       this.cantouch = true
       // 收起面板
       this.$parent.minToggle()
-    }
+    },
+    // 卸载
+    async uninstall(app) {
+      await this.$funtask.app.uninstall(app.package)
+      await this.getApps()
+    },
+    // 显示右键菜单
+    showContextMenu(app) {
+      this.$funtask.app.showContextMenu([{
+        label: '打开',
+        key: 'start'
+      }, {
+        label: '卸载',
+        key: 'uninstall'
+      }]).then((item) => {
+        this.contextMenuReply(item, app)
+      })
+    },
+    // 右键菜单回应
+    contextMenuReply: _.debounce(function(item, app) {
+      this[item.key](app)
+    }, 100)
   }
 }
 </script>

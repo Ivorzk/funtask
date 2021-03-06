@@ -91,4 +91,14 @@ export default new class {
       })
     })
   }
+
+  // 打开右键菜单
+  showContextMenu(menus) {
+    return new Promise((resolve, reject) => {
+      electron.ipcRenderer.send('show-context-menu', menus || [])
+      electron.ipcRenderer.once('context-menu-reply', (evt, data) => {
+        resolve(data)
+      })
+    })
+  }
 }

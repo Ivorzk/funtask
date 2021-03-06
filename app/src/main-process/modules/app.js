@@ -11,6 +11,7 @@ import {
   BrowserWindow,
   ipcMain,
   screen,
+  Menu,
   app
 } from 'electron'
 import {
@@ -62,6 +63,21 @@ export default class {
     ipcMain.on('app-openDevTools', async (evt, app) => {
       const data = await this.openDevTools(app)
       evt.reply('app-openDevTools-reply', data)
+    })
+    // 显示右键菜单
+    ipcMain.on('show-context-menu', (evt, menus) => {
+      console.log(menus, 'menus')
+      const template = []
+      menus.forEach(item => {
+        template.push({
+          ...item,
+          click: () => {
+            evt.sender.send('context-menu-reply', item)
+          }
+        })
+      })
+      const menu = Menu.buildFromTemplate(template)
+      menu.popup(BrowserWindow.fromWebContents(evt.sender))
     })
   }
 
