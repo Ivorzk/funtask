@@ -23,6 +23,7 @@ protocol.registerSchemesAsPrivileged([{
     bypassCSP: false
   }
 }])
+
 /**
  * 控制台
  */

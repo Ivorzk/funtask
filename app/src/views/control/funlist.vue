@@ -13,7 +13,8 @@
       </span>
     </li>
   </ul>
-  <p class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
+  <p :class="{show:apps.length==0}"
+    class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
 </div>
 </template>
 <script>
@@ -121,6 +122,7 @@ export default {
     }
 
     .no-data-tips {
+        position: absolute;
         text-align: center;
         height: calc(100% - 45px);
         display: flex;
@@ -130,6 +132,16 @@ export default {
         padding: 0;
         color: $funtask-color-primary;
         opacity: 0.68;
+        z-index: 300;
+        width: 100%;
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+
+        &.show {
+            opacity: 1;
+        }
     }
 }
 </style>
