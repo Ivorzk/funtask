@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     async getConfig() {
-      let config = await this.$funtask.config.get()
+      const config = await this.$funtask.config.get()
       this.autostart = config.app.autostart
       this.alwaysOnTop = config.app.window.alwaysOnTop
     }

@@ -15,7 +15,7 @@ export default class {
   constructor() {
     // 监听客户端发送过来的通知
     ipcMain.on('notice-send', async (evt, data) => {
-      let key = `notice_${Date.now()}`
+      const key = `notice_${Date.now()}`
       data = {
         ...data,
         key
@@ -47,7 +47,7 @@ export default class {
     ipcMain.on('notice-get-list', async (evt, data) => {
       const list = []
       for (const [key, value] of queues) {
-        let item = value
+        const item = value
         delete item.evt
         list.push(item)
       }

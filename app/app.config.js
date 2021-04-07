@@ -15,7 +15,7 @@ module.exports = {
     prod: {
       apihost: 'http://cloudapi.suwis.com',
       uploadhost: 'http://cloudapi.suwis.com'
-    },
+    }
   },
   // 公用配置
   common: {

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
-var instance = axios.create({
+const instance = axios.create({
   baseURL: $config.apihost,
   withCredentials: true,
   timeout: $config.timeout

@@ -1,9 +1,9 @@
 /**
  * 开发辅助类
  */
- import {
-   ipcMain
- } from 'electron'
+import {
+  ipcMain
+} from 'electron'
 export default new class {
   constructor() {
     this.init()
@@ -18,4 +18,4 @@ export default new class {
   devUpdate() {
 
   }
-}
+}()

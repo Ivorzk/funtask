@@ -123,7 +123,7 @@ export default {
     // 鼠标粘贴
     paste() {
       // 尝试读取粘贴板中的图片
-      let img = electron.clipboard.readImage()
+      const img = electron.clipboard.readImage()
       if (img.isEmpty()) return
       // console.log(img.toDataURL(), 'img')
       this.$refs.upload.uploadBase64(img.toDataURL())

@@ -28,7 +28,7 @@ export default class {
 
     // 设置配置
     ipcMain.on('config-set', async (evt, options) => {
-      let res = await this.setConfig(options)
+      const res = await this.setConfig(options)
       evt.reply('config-set-reply', res)
     })
   }
@@ -68,7 +68,7 @@ export default class {
     const file = await this.getConfigFile()
     let $config = YAML.parse(file.custom)
     $config = lodash.defaultsDeep(options, $config)
-    let configYaml = YAML.stringify($config)
+    const configYaml = YAML.stringify($config)
     // 写入文件
     try {
       await fs.writeFileSync(`${this.apphome}/config.yaml`, configYaml)
@@ -86,7 +86,7 @@ export default class {
     // 尝试读取配置文件
     const file = await this.getConfigFile()
     let $config = YAML.parse(file.custom)
-    let $default = YAML.parse(file.default)
+    const $default = YAML.parse(file.default)
     $config = lodash.defaultsDeep($config, $default)
     // 解析配置文件并注入到全局变量中
     global.$config = {

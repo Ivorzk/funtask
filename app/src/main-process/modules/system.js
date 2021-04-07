@@ -5,14 +5,13 @@ import os from 'os'
 import process from 'child_process'
 export default class {
   constructor() {
-
     ipcMain.on('system-get-info', async (evt, dataType) => {
       const data = await this.getInfo(dataType)
       evt.reply('system-get-info-reply', data)
     })
 
     ipcMain.on('system-get-uuid', async (evt, dataType) => {
-      let data = await this.getUUID(dataType)
+      const data = await this.getUUID(dataType)
       evt.reply('system-get-uuid-reply', data)
     })
   }
@@ -29,10 +28,10 @@ export default class {
 
   // 获取uuid
   async getUUID() {
-    let res = process.execSync('wmic csproduct get UUID', {
+    const res = process.execSync('wmic csproduct get UUID', {
       encoding: 'UTF-8'
     })
-    let uuid = res.replace('UUID', '').replace(/[\r\n]/g, '').replace(/\s+/g, '')
+    const uuid = res.replace('UUID', '').replace(/[\r\n]/g, '').replace(/\s+/g, '')
     return uuid
   }
 }

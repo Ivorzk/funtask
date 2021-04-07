@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     noticesCount() {
-      let length = this.notices.length
+      const length = this.notices.length
       if (length < 10) return `0${length}`
       if (length > 99) return '99+'
       return length

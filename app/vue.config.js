@@ -14,8 +14,8 @@ module.exports = {
       mainProcessWatch: ['main-process/**/*']
     },
     'style-resources-loader': {
-      'preProcessor': 'scss',
-      'patterns': [
+      preProcessor: 'scss',
+      patterns: [
         path.resolve(__dirname, './src/styles/variables.scss')
       ]
     },

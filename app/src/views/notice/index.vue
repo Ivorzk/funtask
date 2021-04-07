@@ -18,7 +18,7 @@
 <script>
 import electron from '@suwis/funtask/core/utils/electron'
 import _ from 'lodash'
-var timer
+let timer
 export default {
   data() {
     return {

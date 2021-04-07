@@ -28,7 +28,7 @@ export default class {
     ipcMain.on('app-start', async (evt, app) => {
       const win = await this.openWindow(app)
       evt.reply('app-start-reply', {
-        winId: win.winId,
+        winId: win.winId
       })
     })
     // 关闭应用
@@ -180,8 +180,8 @@ export default class {
 
   // 运行app后台进程
   runAppProcess() {
-    for (let app of global.$apps) {
-      let file = path.resolve(global.$config.packagesdir + '/' + app.package.name + '/index.js')
+    for (const app of global.$apps) {
+      const file = path.resolve(global.$config.packagesdir + '/' + app.package.name + '/index.js')
       if (!fs.existsSync(file)) continue
       app.worker = new Worker(file, {
         workerData: {}
