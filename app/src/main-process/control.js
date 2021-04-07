@@ -167,7 +167,8 @@ export default class {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
         webSecurity: false,
-        enableRemoteModule: true
+        enableRemoteModule: true,
+        contextIsolation: false
       }
     })
     // 初始赋值最后一次显示的窗口
@@ -197,7 +198,8 @@ export default class {
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
-        webSecurity: false
+        webSecurity: false,
+        contextIsolation: false
       }
     })
 
