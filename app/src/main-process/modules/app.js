@@ -231,7 +231,8 @@ export default class {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
         webSecurity: false,
-        webviewTag: true
+        enableRemoteModule: true,
+        contextIsolation: false
       },
       titleBarStyle: 'hidden'
     }, winconf))
@@ -240,6 +241,7 @@ export default class {
     win.on('closed', (win) => {
       apps.delete(win.sender.winId)
     })
+    // win.openDevTools()
     let url = global.$config.app.protocol + '://./' + app.package.name + '/views/index.html'
     // 判断是否设置入口页面
     if (app.main) {

@@ -47,12 +47,13 @@ export default class {
   async getConfigFile() {
     let custom = ''
     let defaultFile = ''
-    try {
+    // 判断用户配置文件是否存在
+    let exist = await fs.pathExists(`${this.apphome}/config.yaml`)
+    if (exist) {
       custom = fs.readFileSync(`${this.apphome}/config.yaml`, 'utf8')
-    } catch (e) {
+    } else {
       // 复制默认配置文件至配置目录
       await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
-    } finally {
       // 读取默认配置文件
       defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
     }
