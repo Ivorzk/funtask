@@ -45,9 +45,7 @@ export default class {
     ipcMain.on('app-uninstall', async (evt, app) => {
       const data = await this.uninstall(app)
       // 加入延迟防止前端出现无法及时生效的问题
-      setTimeout(() => {
-        evt.reply('app-uninstall-reply', data)
-      }, 999)
+      evt.reply('app-uninstall-reply', data)
     })
     // 禁用
     ipcMain.on('app-disable', async (evt, app) => {
@@ -88,13 +86,18 @@ export default class {
 
   // app初始化
   init() {
-    // 自动启动配置
-    if (process.env.NODE_ENV == 'production') {
-      app.setLoginItemSettings({
-        openAtLogin: global.$config.app.autostart,
-        openAsHidden: global.$config.app.autostart
-      })
-    }
+    return new Promise((resolve, reject) => {
+      // 自动启动配置
+      if (process.env.NODE_ENV == 'production') {
+        app.setLoginItemSettings({
+          openAtLogin: global.$config.app.autostart,
+          openAsHidden: global.$config.app.autostart
+        })
+      }
+      setTimeout(() => {
+        resolve()
+      }, 888)
+    })
   }
 
   // 加载应用
@@ -111,7 +114,7 @@ export default class {
     // console.log(global.$apps)
     this.runAppProcess()
     // 运行初始化任务
-    this.init()
+    await this.init()
     return global.$apps
   }
 
@@ -306,7 +309,7 @@ export default class {
     console.log('remove ok')
     // 复制 packages 至 funtask 安装目录
     await fs.copy(apppath + `${app.name}-${app.version}/package`, global.$config.packagesdir + `/${app.name}`)
-    this.loadApps()
+    await this.loadApps()
     // 返回app信息给客户端
     return app
   }

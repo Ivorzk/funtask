@@ -67,9 +67,7 @@ export default class {
       display = false
     })
     // 调用初始化窗口方法
-    app.on('ready', () => {
-      this.init()
-    })
+    this.init()
   }
 
   // 执行点击行为

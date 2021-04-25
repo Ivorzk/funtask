@@ -15,7 +15,7 @@
   },
   "main": "background.js",
   "dependencies": {
-    "@suwis/funtask": "^1.0.22",
+    "@suwis/funtask": "^1.0.23",
     "axios": "^0.21.1",
     "compressing": "^1.5.1",
     "core-js": "^3.10.0",

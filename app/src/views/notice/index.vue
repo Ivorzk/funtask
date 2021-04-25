@@ -163,7 +163,7 @@ export default {
             .arrow {
                 color: #fff;
                 position: absolute;
-                right: 2.8vw;
+                right: 0vw;
                 top: -2vw;
                 font-weight: lighter;
                 font-size: 14px;
@@ -188,7 +188,7 @@ export default {
         &:hover {
             .arrow {
                 opacity: 1;
-                right: 1vw;
+                right: -5vw;
             }
         }
     }
