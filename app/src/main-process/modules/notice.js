@@ -105,7 +105,9 @@ export default class {
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
-        webSecurity: false
+        webSecurity: false,
+        enableRemoteModule: true,
+        contextIsolation: false
       }
     })
     if (process.env.WEBPACK_DEV_SERVER_URL) {
