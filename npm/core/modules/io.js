@@ -1,11 +1,11 @@
-import electron from './../utils/electron'
+import dce from './../utils/dce'
 export default {
   // 获取全局配置
   download(data) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('io-download', data)
-      electron.ipcRenderer.once('io-download-reply', (evt, data) => {
-        resolve(data)
+      dce.send('io-download', data, {
+        resolve,
+        reject
       })
     })
   }

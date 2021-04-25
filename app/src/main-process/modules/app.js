@@ -71,7 +71,7 @@ export default class {
         template.push({
           ...item,
           click: () => {
-            evt.sender.send('context-menu-reply', item)
+            evt.sender.send('show-context-menu-reply', item)
           }
         })
       })
