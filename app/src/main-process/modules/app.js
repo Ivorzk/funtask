@@ -296,13 +296,16 @@ export default class {
   async install(app) {
     // 下载
     const tmpdir = global.$config.tmpdir + '/funtask/app/'
-    const path = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
+    const apppath = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
     console.log('download complete')
     // 解压
-    await compressing.tgz.uncompress(path + `${app.name}-${app.version}.tgz`, path + `${app.name}-${app.version}/`)
+    await compressing.tgz.uncompress(apppath + `${app.name}-${app.version}.tgz`, apppath + `${app.name}-${app.version}/`)
     console.log('unzip ok')
+    // 清理原应用的文件夹
+    await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
+    console.log('remove ok')
     // 复制 packages 至 funtask 安装目录
-    await fs.copy(path + `${app.name}-${app.version}/package`, global.$config.packagesdir + `/${app.name}`)
+    await fs.copy(apppath + `${app.name}-${app.version}/package`, global.$config.packagesdir + `/${app.name}`)
     this.loadApps()
     // 返回app信息给客户端
     return app
@@ -337,7 +340,14 @@ export default class {
     }
     // 写入本地磁盘
     // console.log(YAML.stringify(configJson))
-    await fs.outputFile(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    try {
+      await fs.writeFileSync(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    } catch (e) {
+      // 如果报错则删除配置文件，重新写入
+      await fs.remove(`${global.$config.apphome}/config.yaml`)
+      // 重新写入
+      await fs.writeFileSync(path.resolve(global.$config.apphome + '/config.yaml'), YAML.stringify(configJson))
+    }
     return true
   }
 

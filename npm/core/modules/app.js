@@ -1,11 +1,11 @@
-import electron from './../utils/electron'
+import dce from './../utils/dce'
 export default new class {
   // 安装app
   install(app) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-install', app)
-      electron.ipcRenderer.once('app-install-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-install', app, {
+        resolve,
+        reject
       })
     })
   }
@@ -13,9 +13,9 @@ export default new class {
   // 删除app
   uninstall(app) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-uninstall', app)
-      electron.ipcRenderer.once('app-uninstall-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-uninstall', app, {
+        resolve,
+        reject
       })
     })
   }
@@ -23,9 +23,9 @@ export default new class {
   // 应用设置
   setting(data) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-setting', data)
-      electron.ipcRenderer.once('app-setting-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-setting', data, {
+        resolve,
+        reject
       })
     })
   }
@@ -33,9 +33,9 @@ export default new class {
   // 禁用
   disable(data) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-disable', data)
-      electron.ipcRenderer.once('app-disable-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-disable', data, {
+        resolve,
+        reject
       })
     })
   }
@@ -43,9 +43,9 @@ export default new class {
   // 启用
   enable(data) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-enable', data)
-      electron.ipcRenderer.once('app-enable-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-enable', data, {
+        resolve,
+        reject
       })
     })
   }
@@ -53,9 +53,9 @@ export default new class {
   // 运行app
   start(app) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-start', app)
-      electron.ipcRenderer.once('app-start-reply', (evt, win) => {
-        resolve(win)
+      dce.send('app-start', app, {
+        resolve,
+        reject
       })
     })
   }
@@ -64,9 +64,9 @@ export default new class {
   stop(app = {}) {
     return new Promise((resolve, reject) => {
       let winId = sessionStorage.getItem('winId') || app.winId
-      electron.ipcRenderer.send('app-stop', winId)
-      electron.ipcRenderer.once('app-stop-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-stop', winId, {
+        resolve,
+        reject
       })
     })
   }
@@ -74,9 +74,9 @@ export default new class {
   // 获取应用列表
   getApps() {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('app-get-apps', 'json')
-      electron.ipcRenderer.once('app-get-apps-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-get-apps', 'json', {
+        resolve,
+        reject
       })
     })
   }
@@ -85,9 +85,9 @@ export default new class {
   openDevTools(app) {
     return new Promise((resolve, reject) => {
       let winId = sessionStorage.getItem('winId') || app.winId
-      electron.ipcRenderer.send('app-openDevTools', winId)
-      electron.ipcRenderer.once('app-openDevTools-reply', (evt, data) => {
-        resolve(data)
+      dce.send('app-openDevTools', winId, {
+        resolve,
+        reject
       })
     })
   }
@@ -95,9 +95,9 @@ export default new class {
   // 打开右键菜单
   showContextMenu(menus) {
     return new Promise((resolve, reject) => {
-      electron.ipcRenderer.send('show-context-menu', menus || [])
-      electron.ipcRenderer.once('context-menu-reply', (evt, data) => {
-        resolve(data)
+      dce.send('show-context-menu', menus || [], {
+        resolve,
+        reject
       })
     })
   }

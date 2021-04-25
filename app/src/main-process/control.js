@@ -126,7 +126,6 @@ export default class {
 
   // 创建窗体
   createWindow() {
-    console.log('创建窗体')
     // 获取宽高
     const {
       width,
