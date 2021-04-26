@@ -37,10 +37,14 @@ winconf:
   width: 618
   # 窗体高度 default 380
   height: 380
-  # 是否为无边框窗体 default false
-  frame: true,
+  # 是否为无边框窗体 default true
+  frame: true
   # 窗口是否总是在最前面 default true
   alwaysOnTop: true
-  # 是否为透明窗体 default true
+  # 是否为透明窗体 default false
   transparent: true
+  # 是否全屏  default false
+  fullscreen: false
+  # 窗体透明度 default 1
+  opacity: 0.5
 ```

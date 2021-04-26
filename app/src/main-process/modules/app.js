@@ -204,13 +204,6 @@ export default class {
     const winconf = app.winconf || {}
     let winx = Math.abs((width * 0.5 - (winconf.width || 618) * 0.5)) + 28 * apps.size
     let winy = Math.abs((height * 0.5 - (winconf.height || 380) * 0.5)) + 28 * apps.size
-    // 是否是全屏
-    if (winconf.fullscreen) {
-      winx = 0
-      winy = 0
-      winconf.width = width
-      winconf.height = height
-    }
     const win = new BrowserWindow(_.merge({
       x: winx,
       y: winy,
@@ -219,15 +212,14 @@ export default class {
       width: 618,
       height: 380,
       frame: true,
-      transparent: true,
-      backgroundColor: '#00ffffff',
-      resizable: false,
-      maximizable: false,
-      minimizable: false,
+      backgroundColor: '#ffffff',
+      resizable: true,
+      maximizable: true,
+      minimizable: true,
       alwaysOnTop: !winconf.fullscreen && _.isEmpty(global.$config.app.window.alwaysOnTop),
       autoHideMenuBar: true,
-      fullscreenable: false,
-      hasShadow: false,
+      fullscreenable: true,
+      hasShadow: true,
       skipTaskbar: false,
       show: false,
       webPreferences: {
@@ -237,7 +229,7 @@ export default class {
         enableRemoteModule: true,
         contextIsolation: false
       },
-      titleBarStyle: 'hidden'
+      titleBarStyle: 'hiddenInset'
     }, winconf))
     win.winId = 'win_' + Date.now()
     apps.set(win.winId, win)
