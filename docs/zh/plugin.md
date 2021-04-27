@@ -43,6 +43,8 @@ winconf:
   alwaysOnTop: true
   # 是否为透明窗体 default false
   transparent: true
+  # 窗体背景颜色 default #ffffff
+  backgroundColor: #00ffffff
   # 是否全屏  default false
   fullscreen: false
   # 窗体透明度 default 1
