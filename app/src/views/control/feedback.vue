@@ -168,8 +168,8 @@ export default {
         border: none;
         background: rgba(225,225,225,0.218);
         font-size: 12px;
-        flex: 1;
         color: rgba(255,255,255,0.8);
+        flex: 1;
         appearance: none;
     }
 
@@ -211,7 +211,7 @@ export default {
         button {
             border: none;
             background: $funtask-color-primary;
-            padding: 5px 8px;
+            padding: 6px 8px;
             color: #fff;
             cursor: pointer;
             min-width: 100px;

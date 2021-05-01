@@ -9,6 +9,32 @@
     <!--  -->
   </div>
   <div class="settings">
+    <div class="user">
+      <mu-avatar @click="formVisible = !formVisible"
+        class="avatar"
+        :size="50">
+        <!-- <img src="https://muse-ui.org/img/uicon.ac3913bf.jpg"
+          alt=""> -->
+      </mu-avatar>
+      <label>点击登录</label>
+    </div>
+    <mu-form class="login-form"
+      :class="{show:formVisible}"
+      :model="form"
+      label-position="top"
+      label-width="100">
+      <mu-form-item prop="input"
+        label="手机号">
+        <mu-text-field :solo="true" v-model="form.mobile"></mu-text-field>
+      </mu-form-item>
+      <mu-form-item prop="input"
+        label="密码">
+        <mu-text-field type="password" :solo="true" v-model="form.password"></mu-text-field>
+      </mu-form-item>
+      <mu-form-item>
+        <button>登录</button>
+      </mu-form-item>
+    </mu-form>
     <ol>
       <li role="toggle"
         @click="navlink('/appstore')"><i class="iconfont">&#xe605;</i>应用</li>
@@ -46,7 +72,14 @@ export default {
       // 应用数据
       apps: [],
       // 通知
-      notices: []
+      notices: [],
+      // 表单
+      form: {
+        mobile: '',
+        password: ''
+      },
+      // 显示表单
+      formVisible: false
     }
   },
   computed: {
@@ -164,6 +197,22 @@ export default {
         color: $funtask-text-color-inverse;
         font-size: $funtask-font-size-base;
 
+        .user {
+            text-align: center;
+            margin: $funtask-spacing-col-lg * 2 0 $funtask-spacing-col-lg;
+            .avatar {
+                cursor: pointer;
+            }
+            label {
+                display: block;
+                text-align: center;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: $funtask-font-size-sm;
+            }
+        }
+
         ol,
         ul {
             list-style: none;
@@ -173,7 +222,6 @@ export default {
                 padding: $funtask-spacing-col-base * 1.28 $funtask-spacing-row-base;
                 cursor: pointer;
             }
-
         }
 
         ol {
@@ -223,7 +271,7 @@ export default {
         }
 
         ul {
-            padding: $funtask-spacing-col-lg $funtask-spacing-row-lg;
+            padding: 0 $funtask-spacing-row-lg;
             .iconfont {
                 width: 30px;
             }
@@ -231,6 +279,22 @@ export default {
                 display: flex;
                 align-items: center;
             }
+        }
+    }
+
+    .login-form {
+        padding: 0 $funtask-spacing-row-lg * 2;
+        height: 0;
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &.show {
+            height: calc(100vh - 18vw);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 9px;
         }
     }
 }

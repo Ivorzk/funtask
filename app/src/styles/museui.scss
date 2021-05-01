@@ -1,3 +1,30 @@
 .mu-switch-checked {
   color: #ff6300;
 }
+
+.mu-text-field-input {
+  color: #fff;
+}
+
+.mu-form-item {
+  color: #fff;
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+    background: rgba(225,225,225,0.218);
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    flex: 1;
+    appearance: none;
+    height: 30px;
+  }
+}
+
+.mu-input-line {
+  // background-color: #ff6300;
+}
