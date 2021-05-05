@@ -21,18 +21,25 @@
     <mu-form class="login-form"
       :class="{show:formVisible}"
       :model="form"
+      ref="form"
       label-position="top"
       label-width="100">
       <mu-form-item prop="input"
         label="手机号">
-        <mu-text-field :solo="true" v-model="form.mobile"></mu-text-field>
+        <mu-text-field :solo="true"
+          v-model="form.mobile"
+          :rules="rules.mobile"></mu-text-field>
       </mu-form-item>
       <mu-form-item prop="input"
         label="密码">
-        <mu-text-field type="password" :solo="true" v-model="form.password"></mu-text-field>
+        <mu-text-field type="password"
+          :solo="true"
+          v-model="form.password"
+          :rules="rules.password"></mu-text-field>
       </mu-form-item>
       <mu-form-item>
-        <button>登录</button>
+        <button @click="login"
+          :disabled="disabled">登录</button>
       </mu-form-item>
     </mu-form>
     <ol>
@@ -60,6 +67,7 @@
 
 <script>
 import electron from '@suwis/funtask/core/utils/electron'
+import md5 from 'md5'
 export default {
   data() {
     return {
@@ -79,7 +87,23 @@ export default {
         password: ''
       },
       // 显示表单
-      formVisible: false
+      formVisible: false,
+      // 表单禁用
+      disabled: false,
+      // 表单验证
+      rules: {
+        mobile: [{
+          validate: (val) => !!val,
+          message: '请填写手机号'
+        }, {
+          validate: (val) => /^1[0-9]{10}$/.test(val),
+          message: '请填写正确的手机号'
+        }],
+        password: [{
+          validate: (val) => !!val,
+          message: '请输入密码'
+        }],
+      }
     }
   },
   computed: {
@@ -134,6 +158,29 @@ export default {
     async getNotices() {
       const res = await this.$funtask.notice.getList()
       this.notices = res || []
+    },
+    async login() {
+      let result = this.$refs.form.validate()
+      console.log(result, 'result')
+      if (result) return
+      let params = {
+        ...this.form
+      }
+      params.password = md5(params.password)
+      this.disabled = true
+      this.$axios.post('http://cloudapi.suwis.com/auth/login', params).then(res => {
+        setTimeout(() => {
+          this.disabled = false
+        }, 600)
+        let data = res.data
+        if (data.errno == 0) {
+          console.log(res, 'res')
+          // 储存用户信息
+          localStorage.setItem('userInfo', JSON.stringify(data.data))
+        } else {
+          this.$Message.warning(data.errmsg)
+        }
+      })
     }
   }
 }
