@@ -13,10 +13,10 @@
       <mu-avatar @click="formVisible = !formVisible"
         class="avatar"
         :size="50">
-        <!-- <img src="https://muse-ui.org/img/uicon.ac3913bf.jpg"
-          alt=""> -->
+        <img :src="userInfo.avatar_url"
+          alt="">
       </mu-avatar>
-      <label>点击登录</label>
+      <label>{{logined?userInfo.nickname:'点击登录'}}</label>
     </div>
     <mu-form class="login-form"
       :class="{show:formVisible}"
@@ -38,8 +38,11 @@
           :rules="rules.password"></mu-text-field>
       </mu-form-item>
       <mu-form-item>
-        <button @click="login"
-          :disabled="disabled">登录</button>
+        <mu-button class="btn"
+          @click="login"
+          :disabled="disabled"
+          color="primary"
+          :ripple="true">{{disabled?'登录中':'登录'}}</mu-button>
       </mu-form-item>
     </mu-form>
     <ol>
@@ -81,6 +84,8 @@ export default {
       apps: [],
       // 通知
       notices: [],
+      // 用户信息
+      userInfo: {},
       // 表单
       form: {
         mobile: '',
@@ -112,6 +117,9 @@ export default {
       if (length < 10) return `0${length}`
       if (length > 99) return '99+'
       return length
+    },
+    logined() {
+      return this.userInfo.mobile
     }
   },
   mounted() {
@@ -160,9 +168,9 @@ export default {
       this.notices = res || []
     },
     async login() {
-      let result = this.$refs.form.validate()
+      let result = await this.$refs.form.validate()
       console.log(result, 'result')
-      if (result) return
+      if (!result) return
       let params = {
         ...this.form
       }
@@ -174,11 +182,14 @@ export default {
         }, 600)
         let data = res.data
         if (data.errno == 0) {
-          console.log(res, 'res')
           // 储存用户信息
           localStorage.setItem('userInfo', JSON.stringify(data.data))
+          this.userInfo = data.data || {}
+          setTimeout(() => {
+            this.formVisible = false
+          }, 150)
         } else {
-          this.$Message.warning(data.errmsg)
+          this.$toast.error(data.errmsg)
         }
       })
     }
@@ -339,9 +350,10 @@ export default {
             height: calc(100vh - 18vw);
         }
 
-        button {
+        .btn {
             width: 100%;
-            margin-top: 9px;
+            margin: 0;
+            border-radius: 0;
         }
     }
 }
