@@ -3,6 +3,7 @@ import 'muse-ui/dist/muse-ui.css'
 import MuseUI from 'muse-ui'
 import Toast from 'muse-ui-toast'
 import theme from 'muse-ui/lib/theme'
+import 'material-design-icons'
 theme.add('funtask', {
   primary: '#ff6300',
   secondary: '#5e5c5d',

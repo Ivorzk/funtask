@@ -1,6 +1,5 @@
 <template>
-<div class="funtask-control"
-  :class="{show: control.visible,sideslip:control.sideslip}">
+<div class="funtask-control" :class="{show: control.visible,sideslip:control.sideslip}">
   <div class="bg"></div>
   <div class="wrapper">
     <funtask-header @btn-click="headerClick"></funtask-header>
@@ -10,59 +9,32 @@
   </div>
   <div class="settings">
     <div class="user">
-      <mu-avatar @click="formVisible = !formVisible"
-        class="avatar"
-        :size="50">
-        <img :src="userInfo.avatar_url"
-          alt="">
+      <mu-avatar @click="toggleForm" class="avatar" :size="50">
+        <img :src="userInfo.avatar_url||require('@/assets/avatar.png')" alt="">
       </mu-avatar>
       <label>{{logined?userInfo.nickname:'点击登录'}}</label>
     </div>
-    <mu-form class="login-form"
-      :class="{show:formVisible}"
-      :model="form"
-      ref="form"
-      label-position="top"
-      label-width="100">
-      <mu-form-item prop="input"
-        label="手机号">
-        <mu-text-field :solo="true"
-          v-model="form.mobile"
-          :rules="rules.mobile"></mu-text-field>
+    <mu-form class="login-form" :class="{show:formVisible}" :model="form" ref="form" label-position="top" label-width="100">
+      <mu-form-item prop="mobile" :rules="rules.mobile" label="手机号">
+        <mu-text-field :solo="true" v-model="form.mobile"></mu-text-field>
       </mu-form-item>
-      <mu-form-item prop="input"
-        label="密码">
-        <mu-text-field type="password"
-          :solo="true"
-          v-model="form.password"
-          :rules="rules.password"></mu-text-field>
+      <mu-form-item prop="password" :rules="rules.password" label="密码">
+        <mu-text-field type="password" :solo="true" v-model="form.password"></mu-text-field>
       </mu-form-item>
       <mu-form-item>
-        <mu-button class="btn"
-          @click="login"
-          :disabled="disabled"
-          color="primary"
-          :ripple="true">{{disabled?'登录中':'登录'}}</mu-button>
+        <mu-button class="btn" @click="login" :disabled="disabled" color="primary" :ripple="true">{{disabled?'登录中':'登录'}}</mu-button>
       </mu-form-item>
     </mu-form>
     <ol>
-      <li role="toggle"
-        @click="navlink('/appstore')"><i class="iconfont">&#xe605;</i>应用</li>
-      <li role="toggle"
-        @click="navlink('/funlist')"><i class="iconfont">&#xe63c;</i>菜单</li>
-      <li role="toggle"
-        @click="navlink('/notice-list')"><var v-show="noticesCount!='00'"
-          class="num">{{noticesCount}}</var><i class="iconfont">&#xeb7d;</i>通知</li>
+      <li role="toggle" @click="navlink('/appstore')"><i class="iconfont">&#xe605;</i>应用</li>
+      <li role="toggle" @click="navlink('/funlist')"><i class="iconfont">&#xe63c;</i>菜单</li>
+      <li role="toggle" @click="navlink('/notice-list')"><var v-show="noticesCount!='00'" class="num">{{noticesCount}}</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
     <ul>
-      <li role="toggle"
-        @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
-      <li role="toggle"
-        @click="navlink('https://funtask.club')"><i class="iconfont">&#xe600;</i>开发社区</li>
-      <li @click="navlink('/themes')"
-        role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
-      <li @click="navlink('/settings')"
-        role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
+      <li role="toggle" @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
+      <li role="toggle" @click="navlink('https://funtask.club')"><i class="iconfont">&#xe600;</i>开发社区</li>
+      <li @click="navlink('/themes')" role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
+      <li @click="navlink('/settings')" role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
   </div>
 </div>
@@ -98,9 +70,6 @@ export default {
       // 表单验证
       rules: {
         mobile: [{
-          validate: (val) => !!val,
-          message: '请填写手机号'
-        }, {
           validate: (val) => /^1[0-9]{10}$/.test(val),
           message: '请填写正确的手机号'
         }],
@@ -166,6 +135,10 @@ export default {
     async getNotices() {
       const res = await this.$funtask.notice.getList()
       this.notices = res || []
+    },
+    // 切换登录表单
+    toggleForm() {
+      if (!this.logined) this.formVisible = !this.formVisible
     },
     async login() {
       let result = await this.$refs.form.validate()
