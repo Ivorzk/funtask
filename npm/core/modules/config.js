@@ -19,4 +19,14 @@ export default new class {
       })
     })
   }
+
+  // 获取用户信息
+  getUserInfo() {
+    return new Promise((resolve, reject) => {
+      dce.send('userinfo-get', 'json', {
+        resolve,
+        reject
+      })
+    })
+  }
 }

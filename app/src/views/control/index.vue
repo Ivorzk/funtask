@@ -98,6 +98,7 @@ export default {
     electron.ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
     })
+    this.getUserInfo()
   },
   watch: {
     'control.visible'(val) {
@@ -108,6 +109,10 @@ export default {
     }
   },
   methods: {
+    async getUserInfo() {
+      let data = await this.$funtask.config.getUserInfo()
+      this.userInfo = data || {}
+    },
     // 头部点击
     headerClick(type) {
       // 获取消息列表
@@ -142,7 +147,7 @@ export default {
     },
     async login() {
       let result = await this.$refs.form.validate()
-      console.log(result, 'result')
+      // console.log(result, 'result')
       if (!result) return
       let params = {
         ...this.form
@@ -156,8 +161,8 @@ export default {
         let data = res.data
         if (data.errno == 0) {
           // 储存用户信息
-          localStorage.setItem('userInfo', JSON.stringify(data.data))
           this.userInfo = data.data || {}
+          electron.ipcRenderer.send('userinfo-set', this.userInfo)
           setTimeout(() => {
             this.formVisible = false
           }, 150)

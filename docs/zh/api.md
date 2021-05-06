@@ -60,6 +60,17 @@ async getConfig() {
 }
 ```
 
+### funtask.config.getUserInfo
+
+获取登录用户信息
+
+```js
+async getUserInfo() {
+  let result = await funtask.config.getUserInfo()
+  console.log(result)
+}
+```
+
 ## io 文件操作
 
 文件操作模块

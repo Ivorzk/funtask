@@ -12,6 +12,8 @@ import {
   ipcMain
 } from 'electron'
 import lodash from 'lodash'
+import Store from 'electron-store'
+const store = new Store()
 export default class {
   constructor() {
     // 首次加载
@@ -30,6 +32,24 @@ export default class {
     ipcMain.on('config-set', async (evt, options) => {
       const res = await this.setConfig(options)
       evt.reply('config-set-reply', res)
+    })
+
+    // 设置用户信息
+    ipcMain.on('userinfo-set', async (evt, data) => {
+      store.set('userInfo', data)
+      evt.reply('userinfo-set-reply', res)
+    })
+
+    // 获取用户信息
+    ipcMain.on('userinfo-get', async (evt, data) => {
+      let userInfo = store.get('userInfo')
+      evt.reply('userinfo-get-reply', userInfo)
+    })
+
+    // 获取用户信息
+    ipcMain.on('userinfo-delete', async (evt, data) => {
+      store.delete('userInfo')
+      evt.reply('userinfo-delete-reply', true)
     })
   }
 
