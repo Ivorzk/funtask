@@ -229,6 +229,19 @@ funtask.app.stop()
 funtask.app.openDevTools()
 ```
 
+### funtask.app.showContextMenu
+
+打开右键菜单
+
+```js
+funtask.app.showContextMenu([{
+  label: '打开',
+  key: 'start'
+}]).then((item) => {
+  console.log(item)
+})
+```
+
 ## notice 通知
 
 系统通知模块
