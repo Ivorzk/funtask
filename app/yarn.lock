@@ -3839,6 +3839,11 @@ cosmiconfig@^5.0.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
+countly-sdk-web@^20.11.1:
+  version "20.11.1"
+  resolved "https://registry.npmjs.org/countly-sdk-web/-/countly-sdk-web-20.11.1.tgz#e3d8c8edfea85d43f6be274367ee2d47e29a1aa0"
+  integrity sha512-X6Wl592NV3cdacTSsEIm6eCf/MjczU7MSYI+pkHfvW0kfYz/GWv0rjJ+kroAJHxEvv0SdlrO3FebRWQfmlGUvA==
+
 crc@^3.8.0:
   version "3.8.0"
   resolved "https://registry.npmjs.org/crc/-/crc-3.8.0.tgz#ad60269c2c856f8c299e2c4cc0de4556914056c6"
@@ -12184,10 +12189,10 @@ vue-class-component@^7.1.0, vue-class-component@^7.2.3:
   resolved "https://registry.npmjs.org/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
   integrity sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==
 
-vue-cli-plugin-app-config@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.npmjs.org/vue-cli-plugin-app-config/-/vue-cli-plugin-app-config-1.0.10.tgz#1648d42b9b4203633f157a704c90c94a64237a93"
-  integrity sha512-KQ4ZG9J8NHTMhJbUEJwfJ7pC24FVL0udb+IO9Q/MRQFZ5I9TjRqflG01L7L9nnSh9pc9ZHNG3s+HU/NfVPQn+w==
+vue-cli-plugin-app-config@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/vue-cli-plugin-app-config/-/vue-cli-plugin-app-config-1.0.11.tgz#01c6ece018fe378daa83d484af6ac1e3fc40714b"
+  integrity sha512-6D0dvbIZdjiemguZRGWkxTnn8SvqxFriAdJlG1KrT24WP5gfcKqk/PNo6JFDEJwOSKaTDedijbenIiky4J3+SA==
 
 vue-cli-plugin-electron-builder@^2.0.0-rc.6:
   version "2.0.0-rc.6"
