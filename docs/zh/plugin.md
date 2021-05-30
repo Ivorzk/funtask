@@ -33,9 +33,9 @@ name: hello funtask
 main: views/index.html
 # 应用窗体配置
 winconf:
-  # 窗体宽度 default 618
+  # 窗体宽度 如果宽度值小于1则按照屏幕宽度的百分比设置 default 618
   width: 618
-  # 窗体高度 default 380
+  # 窗体高度 如果高度值小于1则按照屏幕高度的百分比设置 default 380
   height: 380
   # 是否为无边框窗体 default true
   frame: true
@@ -47,6 +47,8 @@ winconf:
   backgroundColor: #00ffffff
   # 是否全屏  default false
   fullscreen: false
+  # 默认窗口进入最大化 default false
+  maximize: false
   # 窗体透明度 default 1
   opacity: 0.5
 ```

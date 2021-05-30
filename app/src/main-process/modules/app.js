@@ -204,9 +204,12 @@ export default class {
     const winconf = app.winconf || {}
     let winx = Math.abs((width * 0.5 - (winconf.width || 618) * 0.5)) + 28 * apps.size
     let winy = Math.abs((height * 0.5 - (winconf.height || 380) * 0.5)) + 28 * apps.size
+    // 窗口百分比自适应
+    if (winconf.width && winconf.width <= 1) winconf.width = width * winconf.width
+    if (winconf.height && winconf.height <= 1) winconf.height = height * winconf.height
     const win = new BrowserWindow(_.merge({
-      x: winx,
-      y: winy,
+      x: winconf.maximize ? 0 : winx,
+      y: winconf.maximize ? 0 : winy,
       title: app.name,
       icon: app.icon,
       width: 618,
@@ -243,6 +246,8 @@ export default class {
       app.main.indexOf('://') > -1 ? url = app.main : url = `${global.$config.app.protocol}://./${app.package.name}/${app.main}`
     }
     win.loadURL(url)
+    // 启动窗口最大化
+    if (winconf.maximize) win.maximize()
     win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
     // win.webContents.openDevTools()
     win.webContents.on('did-finish-load', function() {

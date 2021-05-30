@@ -37,7 +37,7 @@ export default class {
     // 设置用户信息
     ipcMain.on('userinfo-set', async (evt, data) => {
       store.set('userInfo', data)
-      evt.reply('userinfo-set-reply', res)
+      evt.reply('userinfo-set-reply', true)
     })
 
     // 获取用户信息
