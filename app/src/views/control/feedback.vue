@@ -1,34 +1,19 @@
 <template>
-<div class="funtask-feedback"
-  @paste="paste">
+<div class="funtask-feedback" @paste="paste">
   <ul>
     <li class="col-xs-3">
-      <input v-model="formdata.name"
-        type="text"
-        placeholder="请输入姓名">
-      <input v-model="formdata.account"
-        type="text"
-        placeholder="请输入联系方式">
-      <select v-model="currentApp"
-        placeholder="请选择需要反馈的应用">
-        <option v-for="(app,idx) in apps"
-          :value="app.package.name"
-          :key="idx">{{app.name}}</option>
+      <input v-model="formdata.name" type="text" placeholder="请输入姓名">
+      <input v-model="formdata.account" type="text" placeholder="请输入联系方式">
+      <select v-model="currentApp" placeholder="请选择需要反馈的应用">
+        <option v-for="(app,idx) in apps" :value="app.package.name" :key="idx">{{app.name}}</option>
       </select>
     </li>
     <li>
-      <textarea v-model="formdata.content"
-        cols="30"
-        rows="8"
-        placeholder="请输入您的问题，可截图直接粘贴上传"></textarea>
+      <textarea v-model="formdata.content" cols="30" rows="8" placeholder="请输入您的问题，可截图直接粘贴上传"></textarea>
     </li>
     <li class="thumbs">
-      <img :src="url"
-        v-for="url in thumbs"
-        :key="url">
-      <funtask-upload ref="upload"
-        @on-success="uploadSuccess"
-        class="btn-add-file">
+      <img :src="url" v-for="url in thumbs" :key="url">
+      <funtask-upload ref="upload" @on-success="uploadSuccess" class="btn-add-file">
         <span>+</span>
       </funtask-upload>
     </li>
@@ -105,6 +90,7 @@ export default {
     async submit() {
       this.formdata.thumbs = this.thumbs.join(',')
       const res = await this.$axios.post('/funtask/feedbacks', this.formdata)
+      this.$countly.$emit('system-feedback', this.formdata)
       alert(res.data.errno ? res.data.errmsg : '提交成功！感谢您的宝贵建议')
       if (!res.data.errno) {
         this.cache()

@@ -1,18 +1,11 @@
 <template>
 <div class="funtask-appstore">
-  <input class="search-input"
-    v-model="keywords"
-    type="text"
-    placeholder="请输入关键字">
+  <input class="search-input" v-model="keywords" type="text" placeholder="请输入关键字">
   <div class="app-list">
-    <dl v-for="(app,idx) in remoteApps"
-      v-show="app.name.indexOf('funtask-')===0"
-      :class="{disabled:app.disabled}"
-      :key="idx">
+    <dl v-for="(app,idx) in remoteApps" v-show="app.name.indexOf('funtask-')===0" :class="{disabled:app.disabled}" :key="idx">
       <dt>{{app.name}}</dt>
       <dd>{{app.description}}</dd>
-      <dd><label v-for="key in app.keywords"
-          :key="key">{{key}}</label></dd>
+      <dd><label v-for="key in app.keywords" :key="key">{{key}}</label></dd>
       <dd class="between">
         <span>
           <!-- <img class="avatar"
@@ -24,42 +17,27 @@
 
           </template>
         </span>
-        <span v-if="!app.installed"
-          class="btn-group">
-          <button @click="install(app)"><i v-if="app.installing"
-              class="iconfont waiting">&#xe640;</i><i v-else
-              class="iconfont">&#xe71f;</i>安装</button>
+        <span v-if="!app.installed" class="btn-group">
+          <button @click="install(app)"><i v-if="app.installing" class="iconfont waiting">&#xe640;</i><i v-else class="iconfont">&#xe71f;</i>安装</button>
         </span>
-        <span v-else
-          class="btn-group">
+        <span v-else class="btn-group">
           <!-- <button><i class="iconfont">&#xe63a;</i>设置</button> -->
           <button @click="uninstall(app)">
-            <i v-if="app.removeling"
-              class="iconfont waiting">&#xe640;</i>
-            <i class="iconfont"
-              v-else>&#xe619;</i>删除</button>
-          <button class="btn-enable"
-            v-if="app.disabled"
-            @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
-          <button v-else
-            @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
-          <button v-if="app.version!=app.localVersion"
-            @click="update(app,idx)">
-            <i v-if="app.installing"
-              class="iconfont waiting">&#xe640;</i><i v-else
-              class="iconfont">&#xe71f;</i>更新
+            <i v-if="app.removeling" class="iconfont waiting">&#xe640;</i>
+            <i class="iconfont" v-else>&#xe619;</i>删除</button>
+          <button class="btn-enable" v-if="app.disabled" @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
+          <button v-else @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
+          <button v-if="app.version!=app.localVersion" @click="update(app,idx)">
+            <i v-if="app.installing" class="iconfont waiting">&#xe640;</i><i v-else class="iconfont">&#xe71f;</i>更新
           </button>
         </span>
       </dd>
     </dl>
   </div>
-  <div class="loading"
-    :class="{show:loading&&remoteApps.length==0}">
-    <img src="@/assets/loading.svg"
-      alt="">
+  <div class="loading" :class="{show:loading&&remoteApps.length==0}">
+    <img src="@/assets/loading.svg" alt="">
   </div>
-  <div class="loading"
-    :class="{show:!loading&&remoteApps.length==0}">
+  <div class="loading" :class="{show:!loading&&remoteApps.length==0}">
     <span>暂无数据~</span>
   </div>
 </div>
@@ -141,6 +119,9 @@ export default {
       const res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
       this.remoteApps = res.data || []
       this.loading = false
+      this.$countly.$emit('app-search', {
+        keywords: this.keywords
+      })
     },
     // 获取系统app
     async getLocalApps() {
@@ -151,7 +132,10 @@ export default {
     },
     // 安装应用
     async install(app) {
-      this.$set(app, 'installing', true)
+      try {
+        this.$countly.$emit('app-installing', app)
+      } catch (e) {}
+      this.$set(app, 'installing', app)
       // 获取应用下载地址
       let res = await this.$funtask.app.install(app)
       // 重新加载本地app列表
@@ -163,6 +147,7 @@ export default {
           this.$set(item, 'installing', false)
         }
       })
+      this.$countly.$emit('app-installed', app)
     },
     // 删除
     async uninstall(app) {
@@ -174,6 +159,7 @@ export default {
       await this.getLocalApps()
       // 更新安装状态
       this.updateAppState()
+      this.$countly.$emit('app-uninstall', app)
     },
     // 更新app状态
     updateAppState() {
@@ -196,6 +182,7 @@ export default {
       // 安装应用
       await this.install(app)
       app.localVersion = app.version
+      this.$countly.$emit('app-update', app)
     },
     // 禁用
     async disable(app) {
@@ -204,6 +191,7 @@ export default {
       await this.getLocalApps()
       // 更新安装状态
       this.updateAppState()
+      this.$countly.$emit('app-disable', app)
     },
     // 启用
     async enable(app) {
@@ -212,6 +200,7 @@ export default {
       await this.getLocalApps()
       // 更新安装状态
       this.updateAppState()
+      this.$countly.$emit('app-enable', app)
     }
   }
 }

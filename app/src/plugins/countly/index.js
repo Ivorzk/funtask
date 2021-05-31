@@ -10,14 +10,24 @@ Countly.init({
 Countly.begin_session()
 
 Countly.add_event({
-  'key': 'app_starting',
-  'count': 3,
-  'sum': 2.97,
-  'dur': 1000,
-  'segmentation': {
-    'app_version': '1.0',
-    'country': 'Turkey'
+  key: 'system-starting',
+  segmentation: {
+    version: $config.package ? $config.package.version || '-' : '-'
   }
 })
+
+// 扩展一个方法, 方便发送事件
+Countly.$emit = (key, value = {}) => {
+  // serialize
+  value = JSON.parse(JSON.stringify(value))
+  for (let key in value) {
+    if (typeof value[key] == 'function' || !value[key]) delete value[key]
+    if (typeof value[key] == 'object') value[key] = JSON.stringify(value[key])
+  }
+  Countly.add_event({
+    key,
+    segmentation: value
+  })
+}
 
 Vue.prototype.$countly = Countly

@@ -1,9 +1,7 @@
 <template>
 <div class="funtask-settings">
   <mu-container>
-    <mu-form label-position="left"
-      label-width="138"
-      :model="form">
+    <mu-form label-position="left" label-width="138" :model="form">
       <mu-form-item label="开机自动启动">
         <mu-switch v-model="autostart"></mu-switch>
       </mu-form-item>
@@ -35,6 +33,9 @@ export default {
           autostart: val
         }
       })
+      this.$countly.$emit('system-setting-autostart', {
+        val
+      })
     },
     alwaysOnTop(val) {
       this.$funtask.config.set({
@@ -43,6 +44,9 @@ export default {
             alwaysOnTop: val
           }
         }
+      })
+      this.$countly.$emit('system-setting-alwaysOnTop', {
+        val
       })
     }
   },

@@ -26,6 +26,7 @@
     "gulp": "^4.0.2",
     "gulp-rename": "^2.0.0",
     "md5": "^2.3.0",
+    "moment": "^2.29.1",
     "muse-ui": "^3.0.2",
     "muse-ui-toast": "^0.3.0",
     "update-electron-app": "^1.5.0",

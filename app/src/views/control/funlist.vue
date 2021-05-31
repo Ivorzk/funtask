@@ -1,20 +1,14 @@
 <template>
 <div class="funtask-funlist">
   <ul>
-    <li v-for="(app,idx) in apps"
-      v-show="!app.disabled"
-      :key="'app_'+idx"
-      @click="start(app)"
-      @contextmenu="showContextMenu(app)">
-      <img v-lazy="app.logo"
-        alt="">
+    <li v-for="(app,idx) in apps" v-show="!app.disabled" :key="'app_'+idx" @click="start(app)" @contextmenu="showContextMenu(app)">
+      <img v-lazy="app.logo" alt="">
       <span>
         {{app.name}}
       </span>
     </li>
   </ul>
-  <p :class="{show:apps.length==0}"
-    class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
+  <p :class="{show:apps.length==0}" class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
 </div>
 </template>
 <script>
@@ -48,11 +42,13 @@ export default {
       this.cantouch = true
       // 收起面板
       this.$parent.minToggle()
+      this.$countly.$emit('app-run', app.package)
     },
     // 卸载
     async uninstall(app) {
       await this.$funtask.app.uninstall(app.package)
       await this.getApps()
+      this.$countly.$emit('app-uninstall', app.package)
     },
     // 显示右键菜单
     showContextMenu(app) {

@@ -138,6 +138,9 @@ export default {
     navlink(path) {
       path.indexOf('http') > -1 ? electron.shell.openExternal(path) : this.$router.push(path)
       this.settingsClose()
+      this.$countly.$emit('system-control-navlink', {
+        path
+      })
     },
     // 获取消息列表
     async getNotices() {
@@ -147,6 +150,9 @@ export default {
     // 切换登录表单
     toggleForm() {
       if (!this.logined) this.formVisible = !this.formVisible
+      this.$countly.$emit('system-control-login-toggle', {
+        visible: this.formVisible
+      })
     },
     async login() {
       let result = await this.$refs.form.validate()
@@ -172,6 +178,10 @@ export default {
         } else {
           this.$toast.error(data.errmsg)
         }
+      })
+      this.$countly.$emit('system-control-login-submit', {
+        // 脱敏记录
+        mobile: this.form.mobile.replace(/(\d{3})\d*(\d{4})/, '$1****$2')
       })
     },
     // 显示右键菜单
