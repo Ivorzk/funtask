@@ -122,6 +122,14 @@ export default class {
 
     // 创建窗体
     this.createWindow()
+
+    // 循环检测
+    setInterval(() => {
+      try {
+        this.control.setSkipTaskbar(true)
+        this.ball.setSkipTaskbar(true)
+      } catch (e) {}
+    }, 2000)
   }
 
   // 创建窗体
