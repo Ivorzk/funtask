@@ -7,8 +7,14 @@ module.exports = {
       customFileProtocol: 'funtask://./', // Make sure to add "./" to the end of the protocol
       // 打包配置
       builderOptions: {
-        copyright: '©2017-2020 Suwis, co. LTD All rights reserved.',
-        publish: []
+        copyright: '©2017-2021 Suwis, co. LTD All rights reserved.',
+        publish: [],
+        nsis: {
+          oneClick: false, // 一键安装
+          // perMachine: false, // 一个用户一个安装程序还是全局安装
+          allowElevation: true, // 权限提升
+          allowToChangeInstallationDirectory: true, //是否允许用户更改安装目录
+        }
       },
       mainProcessFile: 'src/main-process',
       mainProcessWatch: ['main-process/**/*']

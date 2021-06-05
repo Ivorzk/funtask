@@ -35,6 +35,6 @@ export default new class {
   checkForUpdate() {
     // console.log($config, 'autoUpdater ')
     // autoUpdater.setFeedURL($config.apihost + '/funtask/releases')
-    autoUpdater.checkForUpdates()
+    // autoUpdater.checkForUpdates()
   }
 }
