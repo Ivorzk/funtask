@@ -8,7 +8,15 @@ module.exports = {
       // 打包配置
       builderOptions: {
         copyright: '©2017-2021 Suwis, co. LTD All rights reserved.',
-        publish: [],
+        publish: [{
+          provider: 'github',
+          owner: 'suwis',
+          host: 'github.com',
+          protocol: 'https',
+          publishAutoUpdate: true,
+          token: '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',
+          url: 'https://example.com/auto-updates'
+        }],
         nsis: {
           oneClick: false, // 一键安装
           // perMachine: false, // 一个用户一个安装程序还是全局安装
