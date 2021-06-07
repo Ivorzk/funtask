@@ -3,6 +3,7 @@ import {
   MacUpdater,
   NsisUpdater
 } from 'electron-updater'
+let autoUpdater = {}
 const updateOptions = {
   mac: {
     requestHeaders: {
