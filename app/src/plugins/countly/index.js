@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Countly from 'countly-sdk-web'
-
+import electron from '@suwis/funtask/core/utils/electron'
 Countly.init({
   app_key: '55949f46e75e11a20e555e405d80920df13b6d7a',
   url: 'https://countly.suwis.cloud/',
@@ -29,5 +29,12 @@ Countly.$emit = (key, value = {}) => {
     segmentation: value
   })
 }
+
+// 监听主进程发来的统计
+try {
+  electron.ipcRenderer.on('countly-emit', (event, data) => {
+    Countly.$emit(data.key, data.value)
+  })
+} catch (e) {}
 
 Vue.prototype.$countly = Countly

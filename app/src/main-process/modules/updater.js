@@ -7,33 +7,24 @@ import {
   dialog,
   app
 } from 'electron'
+import os from 'os'
 let autoUpdater = {}
+const host = 'https://upyfuntask.suwis.com/funtask/download'
 const updateOptions = {
   mac: {
-    requestHeaders: {
-      // Any request headers to include here
-      // Authorization: 'Basic '
-    },
     provider: 'generic',
-    url: 'https://upyfuntask.suwis.com/funtask/download/mac'
+    url: `${host}/mac/${os.arch()}`
   },
   windows: {
-    requestHeaders: {
-      // Any request headers to include here
-      // Authorization: 'Basic '
-    },
     provider: 'generic',
-    url: 'https://upyfuntask.suwis.com/funtask/download/windows'
+    url: `${host}/windows/${os.arch()}`
   },
   linux: {
-    requestHeaders: {
-      // Any request headers to include here
-      // Authorization: 'Basic '
-    },
     provider: 'generic',
-    url: 'https://upyfuntask.suwis.com/funtask/download/linux'
+    url: `${host}/linux/${os.arch()}`
   }
 }
+
 export default new class {
   constructor() {
     app.on('ready', () => {
@@ -41,6 +32,7 @@ export default new class {
     })
   }
 
+  // 初始化更新脚本
   init() {
     if (process.platform === 'win32') {
       autoUpdater = new NsisUpdater(updateOptions.windows)
@@ -49,13 +41,9 @@ export default new class {
     } else {
       autoUpdater = new AppImageUpdater(updateOptions.linux)
     }
-    // setTimeout(() => {
-    //   dialog.showMessageBoxSync({
-    //     message: '开始运行更新程序'
-    //   })
-    // }, 1000)
     autoUpdater.checkForUpdatesAndNotify()
 
+    // 系统检查更新
     autoUpdater.on('checking-for-update', () => {
       dialog.showMessageBoxSync({
         message: 'Checking for update...'
