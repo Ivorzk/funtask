@@ -7,15 +7,15 @@ module.exports = {
       customFileProtocol: 'funtask://./', // Make sure to add "./" to the end of the protocol
       // 打包配置
       builderOptions: {
-        copyright: '©2017-2021 Suwis, co. LTD All rights reserved.',
+        copyright: '©2017-2021 SUWIS, co. LTD All rights reserved.',
         publish: [{
           provider: 'github',
-          owner: 'suwis',
+          owner: 'Ivorzk',
           host: 'github.com',
           protocol: 'https',
           publishAutoUpdate: true,
           token: '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',
-          url: 'https://example.com/auto-updates'
+          vPrefixedTagName: true
         }],
         nsis: {
           oneClick: false, // 一键安装

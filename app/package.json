@@ -3,6 +3,7 @@
   "version": "1.1.8",
   "author": "funtask@suwis.com",
   "private": true,
+  "repository": "https://github.com/Ivorzk/funtask.git",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
