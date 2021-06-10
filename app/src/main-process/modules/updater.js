@@ -4,38 +4,41 @@ import {
   NsisUpdater
 } from 'electron-updater'
 import {
-  dialog
+  dialog,
+  app
 } from 'electron'
 let autoUpdater = {}
 const updateOptions = {
   mac: {
     requestHeaders: {
       // Any request headers to include here
-      Authorization: 'Basic AUTH_CREDS_VALUE'
+      // Authorization: 'Basic '
     },
     provider: 'generic',
-    url: 'https://www.fastmock.site/mock/50761298e0ca033cb496bb8668a09943/funtask/releases'
+    url: 'https://upyfuntask.suwis.com/funtask/download/mac'
   },
   windows: {
     requestHeaders: {
       // Any request headers to include here
-      Authorization: 'Basic AUTH_CREDS_VALUE'
+      // Authorization: 'Basic '
     },
     provider: 'generic',
-    url: 'https://www.fastmock.site/mock/50761298e0ca033cb496bb8668a09943/funtask/releases'
+    url: 'https://upyfuntask.suwis.com/funtask/download/windows'
   },
   linux: {
     requestHeaders: {
       // Any request headers to include here
-      Authorization: 'Basic AUTH_CREDS_VALUE'
+      // Authorization: 'Basic '
     },
     provider: 'generic',
-    url: 'https://www.fastmock.site/mock/50761298e0ca033cb496bb8668a09943/funtask/releases'
+    url: 'https://upyfuntask.suwis.com/funtask/download/linux'
   }
 }
 export default new class {
   constructor() {
-    this.init()
+    app.on('ready', () => {
+      this.init()
+    })
   }
 
   init() {
@@ -46,11 +49,11 @@ export default new class {
     } else {
       autoUpdater = new AppImageUpdater(updateOptions.linux)
     }
-    setTimeout(() => {
-      dialog.showMessageBoxSync({
-        message: '开始运行更新程序'
-      })
-    }, 1000)
+    // setTimeout(() => {
+    //   dialog.showMessageBoxSync({
+    //     message: '开始运行更新程序'
+    //   })
+    // }, 1000)
     autoUpdater.checkForUpdatesAndNotify()
 
     autoUpdater.on('checking-for-update', () => {
