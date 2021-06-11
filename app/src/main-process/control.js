@@ -143,7 +143,6 @@ export default class {
      * Initial window options
      */
     this.ball = new BrowserWindow({
-      id: 'ball',
       x: width - 108,
       y: height - 108,
       width: 88,
@@ -176,7 +175,6 @@ export default class {
 
     // 初始化菜单
     this.control = new BrowserWindow({
-      id: 'control',
       x: 0,
       y: 0,
       width: 618,

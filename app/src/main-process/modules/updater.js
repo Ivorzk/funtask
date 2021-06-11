@@ -8,6 +8,8 @@ import {
   app
 } from 'electron'
 import os from 'os'
+import countly from './countly'
+import moment from 'moment'
 let autoUpdater = {}
 const host = 'https://upyfuntask.suwis.com/funtask/download'
 const updateOptions = {
@@ -45,37 +47,29 @@ export default new class {
 
     // 系统检查更新
     autoUpdater.on('checking-for-update', () => {
-      dialog.showMessageBoxSync({
-        message: 'Checking for update...'
+      countly.$emit('system-updater-checking-for-update', {
+        date: moment().format('YYYY-MM-DD HH:mm:ss')
       })
     })
     autoUpdater.on('update-available', (info) => {
-      dialog.showMessageBoxSync({
-        message: 'Update available.'
-      })
+      countly.$emit('system-updater-update-available', info)
     })
     autoUpdater.on('update-not-available', (info) => {
-      dialog.showMessageBoxSync({
-        message: 'Update not available.'
+      countly.$emit('system-updater-update-not-available', {
+        date: moment().format('YYYY-MM-DD HH:mm:ss')
       })
     })
     autoUpdater.on('error', (err) => {
-      dialog.showMessageBoxSync({
-        message: 'Error in auto-updater. ' + err
-      })
+      countly.$emit('system-updater-error', err)
     })
     autoUpdater.on('download-progress', (progressObj) => {
       let log_message = "Download speed: " + progressObj.bytesPerSecond
       log_message = log_message + ' - Downloaded ' + progressObj.percent + '%'
       log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
-      dialog.showMessageBoxSync({
-        message: log_message
-      })
+      countly.$emit('system-updater-download-progress', log_message)
     })
     autoUpdater.on('update-downloaded', (info) => {
-      dialog.showMessageBoxSync({
-        message: 'Update downloaded'
-      })
+      countly.$emit('system-updater-update-downloaded', info)
     })
   }
 }

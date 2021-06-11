@@ -2,20 +2,15 @@
  * 主进程 countly 统计模块
  */
 import {
-  BrowserWindow,
-  app
+  BrowserWindow
 } from 'electron'
-export default new class {
-  constructor() {
-    app.on('ready', () => {
-      // TODO: 监听主进程发送过来的事件
-    })
-  }
+export default class {
 
-  emit(key, value) {
-    let ball = BrowserWindow.fromId('ball')
-    if (!ball) return
-    ball.webContents.send('countly-emit', {
+  // 往渲染进程提交
+  static $emit(key, value) {
+    let win = BrowserWindow.getAllWindows()[0]
+    if (!win) return
+    win.webContents.send('countly-emit', {
       key,
       value
     })
