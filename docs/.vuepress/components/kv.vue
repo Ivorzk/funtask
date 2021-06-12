@@ -7,7 +7,9 @@
       <div class="text">
         <em>高效、快乐、人性化</em>
         <span>的多终端智能办公平台</span>
-        <ui-button @click.native="donload">下载</ui-button>
+        <download-helper v-slot:default="ctx">
+          <ui-button>下载版本 {{ctx.app.version}}</ui-button>
+        </download-helper>
       </div>
     </div>
     <div class="features">

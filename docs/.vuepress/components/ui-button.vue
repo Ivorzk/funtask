@@ -8,9 +8,10 @@
     background: #FC601D;
     border: none;
     border-radius: 5px;
-    padding: 0.6vw 3vw;
+    padding: 0.6vw 1vw;
     color: #fff;
     cursor: pointer;
+    min-width: 138px;
     border: none;
     box-shadow: none;
 
@@ -20,7 +21,7 @@
 }
 @media (max-width: 720px) {
     .ui-button {
-        padding: 3vw;
+        padding: 3vw 1vw;
         min-width: 39vw;
     }
 }
