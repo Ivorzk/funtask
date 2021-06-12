@@ -8,6 +8,7 @@ module.exports = {
       // 打包配置
       builderOptions: {
         copyright: '©2017-2021 SUWIS, co. LTD All rights reserved.',
+        appId: 'com.suwis.funtask.app',
         publish: [{
           provider: 'github',
           owner: 'Ivorzk',

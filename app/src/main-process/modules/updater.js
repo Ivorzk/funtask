@@ -4,7 +4,6 @@ import {
   NsisUpdater
 } from 'electron-updater'
 import {
-  dialog,
   app
 } from 'electron'
 import os from 'os'
@@ -66,7 +65,9 @@ export default new class {
       let log_message = "Download speed: " + progressObj.bytesPerSecond
       log_message = log_message + ' - Downloaded ' + progressObj.percent + '%'
       log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
-      countly.$emit('system-updater-download-progress', log_message)
+      countly.$emit('system-updater-download-progress', {
+        progress: log_message
+      })
     })
     autoUpdater.on('update-downloaded', (info) => {
       countly.$emit('system-updater-update-downloaded', info)
