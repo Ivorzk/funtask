@@ -3,17 +3,32 @@
   @click="autodownload">
   <slot :app="app">
     <ul class="platform-list">
-      <li @click.stop="download('windows')">
+      <li title="点击下载"
+        @click.stop="download('windows')">
         <i class="iconfont icon-windows"></i>
         Windows
       </li>
-      <li @click.stop="download('linux')">
+      <li title="点击下载"
+        @click.stop="download('linux')">
         <i class="iconfont icon-linux"></i>
         Linux
       </li>
-      <li @click.stop="download('mac')">
+      <li title="点击下载"
+        @click.stop="download('mac')">
         <i class="iconfont icon-mac"></i>
         Mac
+      </li>
+      <!-- <li @click.stop="download('android')"> -->
+      <li class="disable"
+        title="开发中">
+        <i class="iconfont icon-android"></i>
+        Android
+      </li>
+      <!-- <li @click.stop="download('ios')"> -->
+      <li class="disable"
+        title="开发中">
+        <i class="iconfont icon-mac"></i>
+        IOS
       </li>
     </ul>
   </slot>
@@ -86,15 +101,27 @@ export default {
 </script>
 <style lang="scss">
 .funtask-download-helper {
-    // position: relative;
-    //
     .platform-list {
         display: flex;
         list-style: none;
+        margin: 0;
+        padding: 0;
         li {
             text-align: center;
-            margin: 2rem 3rem;
+            margin: 2rem 2vw;
             cursor: pointer;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &.disable {
+                cursor: not-allowed;
+                color: #ccc !important;
+                * {
+                    color: #ccc !important;
+                }
+            }
         }
         .iconfont {
             display: block;
@@ -103,6 +130,23 @@ export default {
 
             &.icon-windows {
                 color: #2d74d7;
+            }
+            &.icon-android {
+                color: #31de84;
+            }
+        }
+    }
+}
+
+@media (max-width:720px) {
+    .funtask-download-helper {
+        .platform-list {
+            li {
+                margin: 2rem 3.6vw;
+            }
+
+            .iconfont {
+                font-size: 1.8rem;
             }
         }
     }
