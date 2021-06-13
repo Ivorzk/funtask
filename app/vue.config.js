@@ -23,6 +23,10 @@ module.exports = {
           // perMachine: false, // 一个用户一个安装程序还是全局安装
           allowElevation: true, // 权限提升
           allowToChangeInstallationDirectory: true, //是否允许用户更改安装目录
+        },
+        mac: {
+          entitlements: 'build/entitlements.mac.plist',
+          entitlementsInherit: 'build/entitlements.mac.plist'
         }
       },
       mainProcessFile: 'src/main-process',

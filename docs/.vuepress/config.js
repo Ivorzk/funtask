@@ -7,7 +7,7 @@ module.exports = {
     }],
     ['meta', {
       name: 'keywords',
-      content: 'Funtask, SUWIS, 工具, 高效办公'
+      content: 'Funtask, SUWIS, 工具, 高效办公, 方塔'
     }],
     ['meta', {
       name: 'viewport',
