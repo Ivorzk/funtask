@@ -13,20 +13,22 @@
         <i class="iconfont icon-linux"></i>
         Linux
       </li>
-      <li title="点击下载"
-        @click.stop="download('mac')">
+      <!-- <li title="点击下载"
+        @click.stop="download('mac')"> -->
+      <li class="disable"
+        title="开发中，敬请期待">
         <i class="iconfont icon-mac"></i>
         Mac
       </li>
       <!-- <li @click.stop="download('android')"> -->
       <li class="disable"
-        title="开发中">
+        title="开发中，敬请期待">
         <i class="iconfont icon-android"></i>
         Android
       </li>
       <!-- <li @click.stop="download('ios')"> -->
       <li class="disable"
-        title="开发中">
+        title="开发中，敬请期待">
         <i class="iconfont icon-mac"></i>
         IOS
       </li>
@@ -43,7 +45,8 @@ export default {
   data() {
     return {
       app: {},
-      os: {}
+      os: {},
+      published: ['windows', 'linux']
     }
   },
   mounted() {
@@ -88,6 +91,11 @@ export default {
 
     // 自动下载
     autodownload() {
+      // 检测当前平台是否已发布版本
+      if (this.published.indexOf(this.os.family.toLocaleLowerCase()) == -1) {
+        alert('当前平台正在开发中,敬请期待')
+        return
+      }
       location.href = this.apphome() + '/' + this.app.path
     },
 
