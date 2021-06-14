@@ -18,7 +18,6 @@ const tray = new Tray()
 const system = new System()
 let notice = {}
 let control = {}
-
 config.event.on('loaded', (config) => {
   console.log('app $config loaded')
   // 判断应用是否在运行
