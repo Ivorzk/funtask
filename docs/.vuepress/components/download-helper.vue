@@ -149,8 +149,10 @@ export default {
 @media (max-width:720px) {
     .funtask-download-helper {
         .platform-list {
+            display: flex;
             li {
                 margin: 2rem 3.6vw;
+                line-height: 1rem;
             }
 
             .iconfont {
