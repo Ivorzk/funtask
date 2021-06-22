@@ -284,7 +284,7 @@ export default {
         }
         .avatar {
             max-width: 16px;
-            border-radius: $funtask-border-radius-sm / 2;
+            border-radius: $funtask-border-radius-sm;
             margin-right: $funtask-spacing-row-sm;
             vertical-align: top;
             display: inline-block;
