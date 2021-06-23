@@ -111,6 +111,7 @@ export default {
 }
 @media (max-width: 720px) {
     .funtask-cooperative-office {
+        padding: 12vw 0;
         .container {
             display: block;
             h3 {

@@ -187,7 +187,7 @@ export default class {
       minimizable: false,
       alwaysOnTop: global.$config.app.window.alwaysOnTop,
       fullscreenable: false,
-      hasShadow: true,
+      hasShadow: false,
       skipTaskbar: true,
       show: false,
       webPreferences: {

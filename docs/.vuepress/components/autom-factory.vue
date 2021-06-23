@@ -118,6 +118,7 @@ export default {
 }
 @media (max-width: 720px) {
     .funtask-autom-factory {
+        padding: 12vw 0;
         .container {
             display: flex;
             flex-wrap: wrap;

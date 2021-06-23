@@ -1,5 +1,6 @@
 <template>
 <div class="funtask-download-helper"
+  :class="{show:loaded}"
   @click="autodownload">
   <slot :app="app">
     <ul class="platform-list">
@@ -46,11 +47,14 @@ export default {
     return {
       app: {},
       os: {},
-      published: ['windows', 'linux']
+      published: ['windows', 'linux'],
+      loaded: false
     }
   },
   mounted() {
-    this.getAppInfo()
+    this.getAppInfo().then(() => {
+      this.loaded = true
+    })
   },
   methods: {
     apphome(ostype) {
@@ -109,6 +113,12 @@ export default {
 </script>
 <style lang="scss">
 .funtask-download-helper {
+    transition: all 0.3s ease 0.3s;
+    opacity: 0;
+
+    &.show {
+        opacity: 1;
+    }
     .platform-list {
         display: flex;
         list-style: none;
