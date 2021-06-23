@@ -1,6 +1,13 @@
 <template>
-<div id="ball" class="funtask-index" ref="ball" :class="{show: control.visible}">
-  <img @mousedown="e=>e.preventDefault()" @click="toggle" class="icon" src="@/assets/logo.jpg" alt="ball">
+<div id="ball"
+  class="funtask-index"
+  ref="ball"
+  :class="{show: control.visible}">
+  <img @mousedown="e=>e.preventDefault()"
+    @click="toggle"
+    class="icon"
+    src="@/assets/logo.jpg"
+    alt="ball">
 </div>
 </template>
 
@@ -16,8 +23,8 @@ export default {
     }
   },
   mounted() {
-    electron.ipcRenderer.on('control-reply', (event, args) => {
-      this.control.visible = args
+    electron.ipcRenderer.on('control-reply', (event, visible) => {
+      this.control.visible = visible
     })
     electron.ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible

@@ -77,7 +77,7 @@ export default class {
     // 监听菜单状态改变
     ipcMain.on('control-toggle', (evt, args) => {
       // 切换窗体类型
-      const wintype = this.control.getOpacity() === 0 ? 'control' : 'ball'
+      const wintype = this.control.isVisible() ? 'ball' : 'control'
       // 记录最后一次显示的窗口
       this.lastVisibleWindow = this[wintype]
       // 同步菜单位置
@@ -87,15 +87,15 @@ export default class {
       // 设置显示和隐藏 间隔300毫秒，等待动画执行完成
       if (wintype === 'control') {
         this.control.setAlwaysOnTop(true)
-        this.control.setOpacity(wintype === 'control' ? 1 : 0)
+        this.control[wintype === 'control' ? 'show' : 'hide']()
         setTimeout(() => {
-          this.ball.setOpacity(wintype === 'ball' ? 1 : 0)
+          this.ball[wintype === 'ball' ? 'show' : 'hide']()
         }, 300)
       } else {
         this.ball.setAlwaysOnTop(true)
-        this.ball.setOpacity(wintype === 'ball' ? 1 : 0)
+        this.ball[wintype === 'ball' ? 'show' : 'hide']()
         setTimeout(() => {
-          this.control.setOpacity(wintype === 'control' ? 1 : 0)
+          this.control[wintype === 'control' ? 'show' : 'hide']()
         }, 300)
       }
     })
@@ -103,14 +103,14 @@ export default class {
     // 小球切换
     ipcMain.on('ball-toggle', () => {
       if (!this.lastVisibleWindow.id) return
-      const isVisible = this.lastVisibleWindow.getOpacity() === 1
+      const isVisible = this.lastVisibleWindow.isVisible()
       if (isVisible) {
         setTimeout(() => {
-          this.lastVisibleWindow.setOpacity(0)
+          this.lastVisibleWindow.hide()
         }, 300)
       } else {
         this.lastVisibleWindow.setAlwaysOnTop(true)
-        this.lastVisibleWindow.setOpacity(1)
+        this.lastVisibleWindow.show()
       }
       this.lastVisibleWindow.webContents.send('toggle', !isVisible)
     })
@@ -189,7 +189,7 @@ export default class {
       fullscreenable: false,
       hasShadow: true,
       skipTaskbar: true,
-      opacity: 0,
+      show: false,
       webPreferences: {
         nodeIntegration: true,
         nodeIntegrationInWorker: true,
