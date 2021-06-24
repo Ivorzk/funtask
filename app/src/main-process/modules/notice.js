@@ -14,7 +14,7 @@ let display = false
 export default class {
   constructor() {
     // 设置客户端通知名称
-    app.setAppUserModelId('com.im.Funtask')
+    app.setAppUserModelId('Funtask')
     // 监听客户端发送过来的通知
     ipcMain.on('notice-send', async (evt, data) => {
       const key = `notice_${Date.now()}`
