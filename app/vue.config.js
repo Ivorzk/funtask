@@ -41,7 +41,8 @@ module.exports = {
     // options
     'app-config': {
       file: './app.config.js',
-      default: 'dev'
+      default: 'dev',
+      includePackage: true
     }
   }
 }
