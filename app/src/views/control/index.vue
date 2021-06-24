@@ -36,6 +36,7 @@
       <li @click="navlink('/themes')" role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
       <li @click="navlink('/settings')" role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
+    <span class="version">{{package.version}}</span>
   </div>
 </div>
 </template>
@@ -77,7 +78,8 @@ export default {
           validate: (val) => !!val,
           message: '请输入密码'
         }],
-      }
+      },
+      package: $config.package
     }
   },
   computed: {
@@ -348,6 +350,15 @@ export default {
                 display: flex;
                 align-items: center;
             }
+        }
+
+        .version {
+            position: absolute;
+            right: $funtask-spacing-row-lg;
+            bottom: $funtask-spacing-row-sm;
+            font-size: $funtask-font-size-sm;
+            cursor: pointer;
+            color: $funtask-text-color-grey;
         }
     }
 
