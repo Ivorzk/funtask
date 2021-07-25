@@ -16,7 +16,7 @@
     padding: 8px;
     box-sizing: border-box;
     border: none;
-    background: rgba(225,225,225,0.218);
+    // background: rgba(225,225,225,0.218);
     font-size: 12px;
     color: rgba(255,255,255,0.8);
     flex: 1;
@@ -25,6 +25,16 @@
   }
 }
 
-.mu-input-line {
-  // background-color: #ff6300;
+.mu-input {
+  .mu-input-line {
+    background-color: rgba(225,225,225,0.218);
+  }
+
+  &.mu-input__focus {
+    color: #ff6300;
+  }
+}
+
+.mu-radio-checked {
+  color: #ff6300;
 }

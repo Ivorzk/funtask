@@ -1,22 +1,26 @@
 # app配置
 app:
   # 协议
-  protocol:      funtask
+  protocol:       funtask
   # 自动启动
-  autostart:     false
+  autostart:      false
+  # 仓库类型
+  registryType:   npm
+  # 仓库地址
+  registry:       www.npmjs.com
   # 系统托盘配置
   tray:
     # 是否显示
-    visible:     true
+    visible:      true
     # 托盘图标
-    icon:        ''
+    icon:         ''
   # 通知
   notice:
     # 显示停留时间
-    delay:       5000
+    delay:        5000
   # 悬浮球
   window:
-    alwaysOnTop: true
+    alwaysOnTop:  true
 
 # 开发环境配置
 dev:
