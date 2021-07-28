@@ -14,9 +14,6 @@
         <mu-radio value="npm"
           v-model="registryType"
           label="npm"></mu-radio>
-        <mu-radio value="cnpm"
-          v-model="registryType"
-          label="cnpm"></mu-radio>
         <mu-radio value="verdaccio"
           v-model="registryType"
           label="verdaccio"></mu-radio>

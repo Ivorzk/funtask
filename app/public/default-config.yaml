@@ -7,7 +7,7 @@ app:
   # 仓库类型
   registryType:   npm
   # 仓库地址
-  registry:       www.npmjs.com
+  registry:       https://www.npmjs.com
   # 系统托盘配置
   tray:
     # 是否显示

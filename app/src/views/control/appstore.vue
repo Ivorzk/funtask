@@ -1,11 +1,18 @@
 <template>
 <div class="funtask-appstore">
-  <input class="search-input" v-model="keywords" type="text" placeholder="请输入关键字">
+  <input class="search-input"
+    v-model="keywords"
+    type="text"
+    placeholder="请输入关键字">
   <div class="app-list">
-    <dl v-for="(app,idx) in remoteApps" v-show="app.name.indexOf('funtask-')===0" :class="{disabled:app.disabled}" :key="idx">
+    <dl v-for="(app,idx) in remoteApps"
+      v-show="app.name.indexOf('funtask-')===0"
+      :class="{disabled:app.disabled}"
+      :key="idx">
       <dt>{{app.name}}</dt>
       <dd>{{app.description}}</dd>
-      <dd><label v-for="key in app.keywords" :key="key">{{key}}</label></dd>
+      <dd><label v-for="key in app.keywords"
+          :key="key">{{key}}</label></dd>
       <dd class="between">
         <span>
           <!-- <img class="avatar"
@@ -17,27 +24,42 @@
 
           </template>
         </span>
-        <span v-if="!app.installed" class="btn-group">
-          <button @click="install(app)"><i v-if="app.installing" class="iconfont waiting">&#xe640;</i><i v-else class="iconfont">&#xe71f;</i>安装</button>
+        <span v-if="!app.installed"
+          class="btn-group">
+          <button @click="install(app)"><i v-if="app.installing"
+              class="iconfont waiting">&#xe640;</i><i v-else
+              class="iconfont">&#xe71f;</i>安装</button>
         </span>
-        <span v-else class="btn-group">
+        <span v-else
+          class="btn-group">
           <!-- <button><i class="iconfont">&#xe63a;</i>设置</button> -->
           <button @click="uninstall(app)">
-            <i v-if="app.removeling" class="iconfont waiting">&#xe640;</i>
-            <i class="iconfont" v-else>&#xe619;</i>删除</button>
-          <button class="btn-enable" v-if="app.disabled" @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
-          <button v-else @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
-          <button v-if="app.version!=app.localVersion" @click="update(app,idx)">
-            <i v-if="app.installing" class="iconfont waiting">&#xe640;</i><i v-else class="iconfont">&#xe71f;</i>更新
+            <i v-if="app.removeling"
+              class="iconfont waiting">&#xe640;</i>
+            <i class="iconfont"
+              v-else>&#xe619;</i>删除</button>
+          <button class="btn-enable"
+            v-if="app.disabled"
+            @click="enable(app)"><i class="iconfont">&#xe61c;</i>启用</button>
+          <button v-else
+            @click="disable(app)"><i class="iconfont">&#xe76a;</i>禁用</button>
+          <button v-if="app.version!=app.localVersion"
+            @click="update(app,idx)">
+            <i v-if="app.installing"
+              class="iconfont waiting">&#xe640;</i><i v-else
+              class="iconfont">&#xe71f;</i>更新
           </button>
         </span>
       </dd>
     </dl>
   </div>
-  <div class="loading" :class="{show:loading&&remoteApps.length==0}">
-    <img src="@/assets/loading.svg" alt="">
+  <div class="loading"
+    :class="{show:loading&&remoteApps.length==0}">
+    <img src="@/assets/loading.svg"
+      alt="">
   </div>
-  <div class="loading" :class="{show:!loading&&remoteApps.length==0}">
+  <div class="loading"
+    :class="{show:!loading&&remoteApps.length==0}">
     <span>暂无数据~</span>
   </div>
 </div>
@@ -54,12 +76,17 @@ export default {
       // 本地app列表
       localApps: [],
       // 加载状态
-      loading: true
+      loading: true,
+      // 配置
+      config: {
+        app: {}
+      }
     }
   },
   mounted() {
     // 获取本地app
-    this.getLocalApps().then(() => {
+    Promise.all([this.getLocalApps(), this.getConfig()]).then(() => {
+      console.log(this.config, 'config')
       this.searchApps()
     })
   },
@@ -112,12 +139,52 @@ export default {
     }
   },
   methods: {
+    async getConfig() {
+      this.config = await this.$funtask.config.get()
+      return true
+    },
+    // 获取搜索url
+    getQueryurl() {
+      let url
+      switch (this.config.app.registryType) {
+        case 'verdaccio':
+          url = this.config.app.registry + '/-/verdaccio/search/'
+          break;
+        default:
+          url = 'https://www.npmjs.com/search/suggestions?q='
+      }
+      return url
+    },
+    // 转化搜索结果
+    convertSearchData(data) {
+      let list = []
+      if (this.config.registryType == 'npm') list = data
+      switch (this.config.app.registryType) {
+        case 'verdaccio':
+          data.forEach(item => {
+            console.log(item, 'item')
+            let _npmUser = item._npmUser || {}
+            list.push({
+              ...item,
+              publisher: {
+                email: _npmUser.email,
+                username: _npmUser.name
+              }
+            })
+          })
+          break;
+        default:
+          list = data
+      }
+      console.log(list)
+      return list
+    },
     // 获取应用
     async searchApps() {
       this.remoteApps = []
       this.loading = true
-      const res = await this.$axios.get(`https://www.npmjs.com/search/suggestions?q=funtask-${this.keywords}`)
-      this.remoteApps = res.data || []
+      const res = await this.$axios.get(`${this.getQueryurl()}funtask-${this.keywords}`)
+      this.remoteApps = this.convertSearchData(res.data || [])
       this.loading = false
       this.$countly.$emit('app-search', {
         keywords: this.keywords
