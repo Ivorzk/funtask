@@ -176,7 +176,6 @@ export default {
         default:
           list = data
       }
-      console.log(list)
       return list
     },
     // 获取应用
@@ -185,6 +184,7 @@ export default {
       this.loading = true
       const res = await this.$axios.get(`${this.getQueryurl()}funtask-${this.keywords}`)
       this.remoteApps = this.convertSearchData(res.data || [])
+      console.log(this.remoteApps, 'this.remoteApps')
       this.loading = false
       this.$countly.$emit('app-search', {
         keywords: this.keywords

@@ -33,6 +33,11 @@
   &.mu-input__focus {
     color: #ff6300;
   }
+
+  textarea {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .mu-radio-checked {

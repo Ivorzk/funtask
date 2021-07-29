@@ -4,10 +4,10 @@ app:
   protocol:       funtask
   # 自动启动
   autostart:      false
-  # 仓库类型
-  registryType:   npm
   # 仓库地址
-  registry:       https://www.npmjs.com
+  registrys:
+    - https://npm.suwis.com
+
   # 系统托盘配置
   tray:
     # 是否显示

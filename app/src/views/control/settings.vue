@@ -10,17 +10,12 @@
       <mu-form-item label="窗体固定外层">
         <mu-switch v-model="alwaysOnTop"></mu-switch>
       </mu-form-item>
-      <mu-form-item label="应用私有模式">
-        <mu-radio value="npm"
-          v-model="registryType"
-          label="npm"></mu-radio>
-        <mu-radio value="verdaccio"
-          v-model="registryType"
-          label="verdaccio"></mu-radio>
-      </mu-form-item>
-      <mu-form-item v-if="registryType=='verdaccio'"
-        label="应用镜像仓库">
-        <mu-text-field v-model="registry"></mu-text-field>
+      <mu-form-item label="私有镜像仓库">
+        <mu-text-field @blur="addRegistry"
+          placeholder="回车输入仓库"
+          multi-line
+          v-model="registrys"
+          :rows="registrysLength"></mu-text-field>
       </mu-form-item>
     </mu-form>
   </mu-container>
@@ -36,10 +31,13 @@ export default {
       autostart: false,
       // 窗口顶置
       alwaysOnTop: false,
-      // 镜像类型
-      registryType: 'npm',
       // 镜像地址
-      registry: ''
+      registrys: ''
+    }
+  },
+  computed: {
+    registrysLength() {
+      return this.registrys.split(/[(\r\n)\r\n]+/).length
     }
   },
   beforeMount() {
@@ -77,25 +75,27 @@ export default {
       this.$countly.$emit('system-setting-registryType', {
         val
       })
-    },
-    registry: _.debounce(function(val) {
-      this.$funtask.config.set({
-        app: {
-          registry: val
-        }
-      })
-      this.$countly.$emit('system-setting-registry', {
-        val
-      })
-    }, 600)
+    }
   },
   methods: {
     async getConfig() {
       const config = await this.$funtask.config.get()
       this.autostart = config.app.autostart
-      this.registry = config.app.registry
-      this.registryType = config.app.registryType
+      this.registrys = config.app.registrys.join('\n')
+      // console.log(config.app.registrys, 'this.registrys')
       this.alwaysOnTop = config.app.window.alwaysOnTop
+    },
+    // 添加私有仓库
+    addRegistry(e) {
+      let rows = this.registrys.split(/[(\r\n)\r\n]+/)
+      // 去重去空
+      rows = _.compact(_.uniq(rows))
+      this.registrys = rows.join('\n')
+      this.$funtask.config.set({
+        app: {
+          registrys: rows
+        }
+      })
     }
   }
 }
