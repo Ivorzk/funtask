@@ -6,7 +6,6 @@
     placeholder="请输入关键字">
   <div class="app-list">
     <dl v-for="(app,idx) in remoteApps"
-      v-show="app.name.indexOf('funtask-')===0"
       :class="{disabled:app.disabled}"
       :key="idx">
       <dt>{{app.name}}</dt>
@@ -21,7 +20,6 @@
           {{app.publisher.username}} 发布版本 v{{app.version}} • &nbsp;&nbsp;于{{app.date|timediff}}前
           <template v-if="app.localVersion">
             (当前版本:v{{app.localVersion}})
-
           </template>
         </span>
         <span v-if="!app.installed"
@@ -66,6 +64,7 @@
 </template>
 <script>
 import _ from 'lodash'
+import loader from './loader'
 export default {
   data() {
     return {
@@ -86,7 +85,6 @@ export default {
   mounted() {
     // 获取本地app
     Promise.all([this.getLocalApps(), this.getConfig()]).then(() => {
-      console.log(this.config, 'config')
       this.searchApps()
     })
   },
@@ -104,10 +102,8 @@ export default {
       const endDate = new Date()
       // 时间差的毫秒数
       const diff = endDate.getTime() - startDate.getTime()
-
       // 计算出相差天数
       const days = Math.floor(diff / (24 * 3600 * 1000))
-
       // 计算出小时数
       const leave1 = diff % (24 * 3600 * 1000)
       // 计算天数后剩余的毫秒数
@@ -116,12 +112,10 @@ export default {
       const leave2 = leave1 % (3600 * 1000)
       // 计算小时数后剩余的毫秒数
       const minutes = Math.floor(leave2 / (60 * 1000))
-
       // 计算相差秒数
       const leave3 = leave2 % (60 * 1000)
       // 计算分钟数后剩余的毫秒数
       const seconds = Math.round(leave3 / 1000)
-
       if (days > 0) {
         if (days > 365) return Math.floor(days / 365) + '年'
         if (days > 30) return Math.floor(days / 30) + '个月'
@@ -143,52 +137,40 @@ export default {
       this.config = await this.$funtask.config.get()
       return true
     },
-    // 获取搜索url
-    getQueryurl() {
-      let url
-      switch (this.config.app.registryType) {
-        case 'verdaccio':
-          url = this.config.app.registry + '/-/verdaccio/search/'
-          break;
-        default:
-          url = 'https://www.npmjs.com/search/suggestions?q='
-      }
-      return url
-    },
-    // 转化搜索结果
-    convertSearchData(data) {
-      let list = []
-      if (this.config.registryType == 'npm') list = data
-      switch (this.config.app.registryType) {
-        case 'verdaccio':
-          data.forEach(item => {
-            console.log(item, 'item')
-            let _npmUser = item._npmUser || {}
-            list.push({
-              ...item,
-              publisher: {
-                email: _npmUser.email,
-                username: _npmUser.name
-              }
-            })
-          })
-          break;
-        default:
-          list = data
-      }
-      return list
-    },
     // 获取应用
     async searchApps() {
       this.remoteApps = []
       this.loading = true
-      const res = await this.$axios.get(`${this.getQueryurl()}funtask-${this.keywords}`)
-      this.remoteApps = this.convertSearchData(res.data || [])
-      console.log(this.remoteApps, 'this.remoteApps')
-      this.loading = false
+      // 私有仓库
+      let registrys = []
+      // 判断是否使用私有模式
+      if (this.config.app.privateMode) {
+        registrys = this.config.app.registrys || []
+        registrys = registrys.map(url => {
+          return url + '/-/verdaccio/search/funtask-'
+        })
+      }
+      // 搜索队列
+      let urls = ['https://www.npmjs.com/search/suggestions?q=', ...registrys]
+      // console.log(urls, 'urls')
+      let queues = []
+      urls.forEach(url => {
+        this.searchByUrl(url).then((list) => {
+          this.loading = false
+          this.remoteApps = this.remoteApps.concat(list)
+        })
+      })
       this.$countly.$emit('app-search', {
         keywords: this.keywords
       })
+    },
+    // 请求队列
+    async searchByUrl(url) {
+      // 过滤funtask关键字
+      let keywords = this.keywords.replace('funtask-', '')
+      const res = await this.$axios.get(`${url}funtask-${keywords}`)
+      let list = loader[url.indexOf('www.npmjs.com') >= 0 ? 'npm' : 'verdaccio'](res.data)
+      return list
     },
     // 获取系统app
     async getLocalApps() {
