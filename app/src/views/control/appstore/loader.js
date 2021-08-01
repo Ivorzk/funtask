@@ -20,7 +20,11 @@ export default new class {
         publisher: item.publisher,
         date: item.date,
         keywords: item.keywords,
-        description: item.description
+        description: item.description,
+        dist: {
+          // 拼接下载地址
+          tarball: `https://registry.npmjs.org/${item.name}/-/${item.name}-${item.version}.tgz`
+        }
       })
     }
     return list
@@ -45,7 +49,11 @@ export default new class {
         },
         date: item.time || '',
         keywords: item.keywords,
-        description: item.description
+        description: item.description,
+        dist: {
+          // 拼接下载地址
+          tarball: item.tarball
+        }
       })
     }
     return list

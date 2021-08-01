@@ -296,7 +296,7 @@ export default class {
   async install(app) {
     // 下载
     const tmpdir = global.$config.tmpdir + '/funtask/app/'
-    const apppath = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
+    const apppath = await io.download(app.dist.tarball, tmpdir)
     console.log('download complete')
     // 解压
     await compressing.tgz.uncompress(apppath + `${app.name}-${app.version}.tgz`, apppath + `${app.name}-${app.version}/`)

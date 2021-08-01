@@ -147,7 +147,7 @@ export default {
       if (this.config.app.privateMode) {
         registrys = this.config.app.registrys || []
         registrys = registrys.map(url => {
-          return url + '/-/verdaccio/search/funtask-'
+          return url + '/-/verdaccio/search/'
         })
       }
       // 搜索队列
