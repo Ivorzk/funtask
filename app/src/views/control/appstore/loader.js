@@ -37,25 +37,26 @@ export default new class {
     // console.log(data, 'verdaccio')
     let list = []
     for (let item of data) {
-      if (!item._npmUser) continue
       if (item.name.indexOf('funtask-') != 0) continue
+      let author = item._npmUser || {}
       list.push({
         source: 'verdaccio',
         name: item.name,
         version: item.version,
         publisher: {
-          email: item._npmUser.email,
-          username: item._npmUser.name
+          email: author.email || '',
+          username: author.name || 'Anonymous'
         },
         date: item.time || '',
         keywords: item.keywords,
         description: item.description,
         dist: {
           // 拼接下载地址
-          tarball: item.tarball
+          tarball: item.dist.tarball
         }
       })
     }
+    console.log(list, data, 'verdaccio')
     return list
   }
 }
