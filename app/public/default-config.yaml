@@ -4,6 +4,8 @@ app:
   protocol:       funtask
   # 自动启动
   autostart:      false
+  # 私有模式
+  privateMode:    false
   # 仓库地址
   registrys:
     - https://npm.suwis.com

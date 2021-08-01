@@ -10,9 +10,13 @@
       <mu-form-item label="窗体固定外层">
         <mu-switch v-model="alwaysOnTop"></mu-switch>
       </mu-form-item>
-      <mu-form-item label="私有镜像仓库">
+      <mu-form-item label="应用私有模式">
+        <mu-switch v-model="privateMode"></mu-switch>
+      </mu-form-item>
+      <mu-form-item v-show="privateMode"
+        label="私有镜像仓库">
         <mu-text-field @blur="addRegistry"
-          placeholder="回车输入仓库"
+          placeholder="输入verdaccio仓库地址,多个仓库请回车"
           multi-line
           v-model="registrys"
           :rows="registrysLength"></mu-text-field>
@@ -29,6 +33,8 @@ export default {
       form: {},
       // 自动启动
       autostart: false,
+      // 私有模式
+      privateMode: false,
       // 窗口顶置
       alwaysOnTop: false,
       // 镜像地址
@@ -66,13 +72,13 @@ export default {
         val
       })
     },
-    registryType(val) {
+    privateMode(val) {
       this.$funtask.config.set({
         app: {
-          registryType: val
+          privateMode: val
         }
       })
-      this.$countly.$emit('system-setting-registryType', {
+      this.$countly.$emit('system-setting-privateMode', {
         val
       })
     }
@@ -81,7 +87,8 @@ export default {
     async getConfig() {
       const config = await this.$funtask.config.get()
       this.autostart = config.app.autostart
-      this.registrys = config.app.registrys.join('\n')
+      this.registrys = config.app.registrys ? config.app.registrys.join('\n') : []
+      this.privateMode = config.app.privateMode || false
       // console.log(config.app.registrys, 'this.registrys')
       this.alwaysOnTop = config.app.window.alwaysOnTop
     },
