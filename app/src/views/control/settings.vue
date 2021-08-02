@@ -1,9 +1,7 @@
 <template>
 <div class="funtask-settings">
   <mu-container>
-    <mu-form label-position="left"
-      label-width="138"
-      :model="form">
+    <mu-form label-position="left" label-width="138" :model="form">
       <mu-form-item label="开机自动启动">
         <mu-switch v-model="autostart"></mu-switch>
       </mu-form-item>
@@ -13,13 +11,8 @@
       <mu-form-item label="应用私有模式">
         <mu-switch v-model="privateMode"></mu-switch>
       </mu-form-item>
-      <mu-form-item v-show="privateMode"
-        label="私有镜像仓库">
-        <mu-text-field @blur="addRegistry"
-          placeholder="输入verdaccio仓库地址,多个仓库请回车"
-          multi-line
-          v-model="registrys"
-          :rows="registrysLength"></mu-text-field>
+      <mu-form-item v-show="privateMode" label="私有镜像仓库">
+        <mu-text-field @blur="addRegistry" placeholder="输入verdaccio仓库地址,多个仓库请回车" multi-line v-model="registrys" :rows="registrysLength"></mu-text-field>
       </mu-form-item>
     </mu-form>
   </mu-container>
@@ -87,7 +80,7 @@ export default {
     async getConfig() {
       const config = await this.$funtask.config.get()
       this.autostart = config.app.autostart
-      this.registrys = config.app.registrys ? config.app.registrys.join('\n') : []
+      this.registrys = config.app.registrys instanceof Array ? config.app.registrys.join('\n') : ''
       this.privateMode = config.app.privateMode || false
       // console.log(config.app.registrys, 'this.registrys')
       this.alwaysOnTop = config.app.window.alwaysOnTop
