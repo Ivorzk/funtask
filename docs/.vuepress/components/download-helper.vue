@@ -1,28 +1,35 @@
 <template>
-<div class="funtask-download-helper" :class="{show:loaded}" @click="autodownload">
+<div class="funtask-download-helper"
+  :class="{show:loaded}"
+  @click="autodownload">
   <slot :app="app">
     <ul class="platform-list">
-      <li title="点击下载" @click.stop="download('windows')">
+      <li title="点击下载"
+        @click.stop="download('windows')">
         <i class="iconfont icon-windows"></i>
         Windows
       </li>
-      <li title="点击下载" @click.stop="download('linux')">
+      <li title="点击下载"
+        @click.stop="download('linux')">
         <i class="iconfont icon-linux"></i>
         Linux
       </li>
       <!-- <li title="点击下载"
         @click.stop="download('mac')"> -->
-      <li class="disable" title="开发中，敬请期待">
+      <li class="disable"
+        title="开发中，敬请期待">
         <i class="iconfont icon-mac"></i>
         Mac
       </li>
       <!-- <li @click.stop="download('android')"> -->
-      <li class="disable" title="开发中，敬请期待">
+      <li class="disable"
+        title="开发中，敬请期待">
         <i class="iconfont icon-android"></i>
         Android
       </li>
       <!-- <li @click.stop="download('ios')"> -->
-      <li class="disable" title="开发中，敬请期待">
+      <li class="disable"
+        title="开发中，敬请期待">
         <i class="iconfont icon-mac"></i>
         IOS
       </li>
@@ -59,7 +66,7 @@ export default {
         case 'windows':
           arch = this.os.architecture == 64 ? 'x64' : 'ia32'
           break
-        case 'mac':
+        case 'os x':
           arch = this.os.architecture == 64 ? 'x64' : 'ia32'
           break
         case 'linux':
@@ -80,8 +87,11 @@ export default {
     // 获取app信息
     async getAppInfo(os) {
       // console.log(this.apphome(), 'this.apphome')
-      let res = await axios.get(this.apphome(os) + `/latest.yml?_t${Date.now()}`)
-      this.app = await YAML.load(res.data)
+      let res = {}
+      try {
+        res = await axios.get(this.apphome(os) + `/latest.yml?_t${Date.now()}`)
+      } catch (e) {}
+      this.app = await YAML.load(res.data || {})
       // console.log(this.app, 'this.appInfo')
       return this.app
     },
