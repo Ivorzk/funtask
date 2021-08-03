@@ -12240,10 +12240,10 @@ vue-class-component@^7.1.0, vue-class-component@^7.2.3:
   resolved "https://registry.npmjs.org/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
   integrity sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==
 
-vue-cli-plugin-app-config@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/vue-cli-plugin-app-config/-/vue-cli-plugin-app-config-1.0.12.tgz#ba437e7db31e98d19f5a46251f696a8c8ebf6ad8"
-  integrity sha512-RqMdXW96cYRTcCFAb3rgJ5vSsFA6Rt7ILNs/eUGk5aO0BX99438cIAI13eWrPYxbB7RPHdyift0LMFE6oyndvA==
+vue-cli-plugin-app-config@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.npmjs.org/vue-cli-plugin-app-config/-/vue-cli-plugin-app-config-1.0.14.tgz#0ff54ecfc6aacab57336e72398784910f5b7ae99"
+  integrity sha512-I2ze4ybbhHyRVFvJX3qbH5hVQw6lXUr1FxnuO9RFpROJX/8PDWXBxq2f//wxBMae8wGKeNnMb66Q9I1SMuyPBg==
 
 vue-cli-plugin-electron-builder@^2.0.0:
   version "2.0.0"
