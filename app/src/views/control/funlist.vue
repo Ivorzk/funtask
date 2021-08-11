@@ -3,6 +3,7 @@
   <ul>
     <li v-for="(app,idx) in apps" v-show="!app.disabled" :key="'app_'+idx" @click="start(app)" @contextmenu="showContextMenu(app)">
       <img v-lazy="app.logo" alt="">
+      <i v-if="app.debug" class="debug">开发版</i>
       <span>
         {{app.name}}
       </span>
@@ -96,6 +97,7 @@ export default {
         box-sizing: border-box;
         padding: 0 1.68vw 5vw;
         transition: all 0.3s ease;
+        position: relative;
 
         &:active {
             opacity: 0.8;
@@ -108,6 +110,18 @@ export default {
             height: 8vw;
             object-fit: cover;
             border-radius: 100%;
+        }
+
+        .debug {
+            font-style: normal;
+            font-size: 12px;
+            background: rgba(0,0,0,0.5);
+            padding: 2px 5px;
+            position: absolute;
+            border-radius: 3px;
+            transform: translate(-30%,-56%) scale(0.75);
+            left: 50%;
+            color: $funtask-color-primary;
         }
 
         span {

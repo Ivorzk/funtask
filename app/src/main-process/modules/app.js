@@ -109,8 +109,12 @@ export default class {
     const dirs = await this.eachdirs([global.$config.packagesdir])
     // 获取调试目录
     const debugdirs = global.$config.dev.debugdirs || []
-    // 获取app信息
-    global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
+    // 获取本地安装的app信息
+    let localApps = await this.eachAppInfo(dirs, false)
+    // 获取调试app信息
+    let devApps = await this.eachAppInfo(debugdirs, true)
+    // 合并混入
+    global.$apps = [...localApps, ...devApps]
     // console.log(global.$apps)
     this.runAppProcess()
     // 运行初始化任务
@@ -141,7 +145,7 @@ export default class {
   }
 
   // 遍历app信息
-  eachAppInfo(dirs) {
+  eachAppInfo(dirs, debug) {
     return new Promise((resolve, reject) => {
       const apps = []
       // 已禁用的app列表
@@ -165,7 +169,9 @@ export default class {
               // 是否已安装
               installed: true,
               // 是否禁用
-              disabled: disabledApps.indexOf(packageJson.name) > -1
+              disabled: disabledApps.indexOf(packageJson.name) > -1,
+              // 版本 dev
+              debug
             })
           }
         } catch (e) {

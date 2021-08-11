@@ -9,15 +9,7 @@ module.exports = {
       builderOptions: {
         copyright: '©2017-2021 SUWIS, co. LTD All rights reserved.',
         appId: 'com.suwis.funtask.app',
-        publish: [{
-          provider: 'github',
-          owner: 'Ivorzk',
-          host: 'github.com',
-          protocol: 'https',
-          publishAutoUpdate: true,
-          token: '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',
-          vPrefixedTagName: true
-        }],
+        publish: [],
         nsis: {
           oneClick: false, // 一键安装
           // perMachine: false, // 一个用户一个安装程序还是全局安装
