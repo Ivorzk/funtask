@@ -36,9 +36,6 @@ export default {
     electron.ipcRenderer.on('dev-update', (event, visible) => {
       this.getApps()
     })
-    this.$funtask.app.login().then(code => {
-      console.log(code, 'code')
-    })
   },
   methods: {
     async getApps() {
