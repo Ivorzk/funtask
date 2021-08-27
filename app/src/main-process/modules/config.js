@@ -43,7 +43,7 @@ export default class {
     // 获取用户信息
     ipcMain.on('userinfo-get', async (evt, data) => {
       let userInfo = store.get('userInfo')
-      evt.reply('userinfo-get-reply', userInfo)
+      evt.reply('userinfo-get-reply', userInfo.user)
     })
 
     // 获取用户信息

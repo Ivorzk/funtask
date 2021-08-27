@@ -101,4 +101,14 @@ export default new class {
       })
     })
   }
+
+  // login
+  login() {
+    return new Promise((resolve, reject) => {
+      dce.send('app-login', {}, {
+        resolve,
+        reject
+      })
+    })
+  }
 }

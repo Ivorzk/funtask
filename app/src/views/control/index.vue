@@ -47,8 +47,10 @@
           color="primary"
           :ripple="true">{{disabled?'登录中':'登录'}}</mu-button>
         <div class="outer-link">
-          <a href="javascript:;" @click="navlink('https://suwis.live/recover?utm_source=funtask')">忘记密码</a>
-          <a href="javascript:;" @click="navlink('https://suwis.live/signup?utm_source=funtask')">注册</a>
+          <a href="javascript:;"
+            @click="navlink('https://suwis.live/recover?utm_source=funtask')">忘记密码</a>
+          <a href="javascript:;"
+            @click="navlink('https://suwis.live/signup?utm_source=funtask')">注册</a>
         </div>
       </mu-form-item>
     </mu-form>
@@ -204,11 +206,11 @@ export default {
         setTimeout(() => {
           this.disabled = false
         }, 600)
-        let data = res.data
+        let data = res.data || {}
         if (data.errno == 0) {
           // 储存用户信息
-          this.userInfo = data.data || {}
-          electron.ipcRenderer.send('userinfo-set', this.userInfo)
+          this.userInfo = data.data.user
+          electron.ipcRenderer.send('userinfo-set', data.data)
           setTimeout(() => {
             this.formVisible = false
           }, 150)
@@ -245,7 +247,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .funtask-control {
     position: relative;
     width: 100vw;
@@ -405,6 +407,11 @@ export default {
 
         &.show {
             height: calc(100vh - 18vw);
+        }
+
+        .mu-text-field-input {
+            padding-left: 0;
+            padding-right: 0;
         }
 
         .btn {

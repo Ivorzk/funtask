@@ -7,6 +7,8 @@ import path from 'path'
 import io from './io'
 import compressing from 'compressing'
 import _ from 'lodash'
+import axios from 'axios'
+import Store from 'electron-store'
 import {
   BrowserWindow,
   ipcMain,
@@ -18,6 +20,7 @@ import {
   Worker
 } from 'worker_threads'
 const apps = new Map()
+const store = new Store()
 export default class {
   constructor() {
     // 获取app菜单
@@ -75,6 +78,11 @@ export default class {
       })
       const menu = Menu.buildFromTemplate(template)
       menu.popup(BrowserWindow.fromWebContents(evt.sender))
+    })
+    // 登录
+    ipcMain.on('app-login', async (evt, params) => {
+      const data = await this.login()
+      evt.reply('app-login-reply', data)
     })
   }
 
@@ -411,5 +419,26 @@ export default class {
     try {
       apps.get(winId).openDevTools()
     } catch (e) {}
+  }
+
+  // 登录
+  async login() {
+    let userInfo = store.get('userInfo')
+    if (!userInfo || !userInfo.token) return {
+      errmsg: 'not logged in',
+      code: ''
+    }
+    let res = await axios.get('https://cloudapi.suwis.com/auth/login/getCode', {
+      headers: {
+        'token': userInfo.token
+      }
+    })
+    if (res.data.errno != 0) return {
+      errmsg: res.errmsg,
+      code: ''
+    }
+    return {
+      code: res.data.data
+    }
   }
 }

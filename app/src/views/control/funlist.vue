@@ -1,14 +1,20 @@
 <template>
 <div class="funtask-funlist">
   <ul>
-    <li v-for="(app,idx) in apps" v-show="!app.disabled" :key="'app_'+idx" @click="start(app)" @contextmenu="showContextMenu(app)">
-      <img v-lazy="app.logo" alt="">
+    <li v-for="(app,idx) in apps"
+      v-show="!app.disabled"
+      :key="'app_'+idx"
+      @click="start(app)"
+      @contextmenu="showContextMenu(app)">
+      <img v-lazy="app.logo"
+        alt="">
       <span>
         {{app.name}}
       </span>
     </li>
   </ul>
-  <p :class="{show:apps.length==0}" class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
+  <p :class="{show:apps.length==0}"
+    class="no-data-tips">点击右上角菜单图标 - 点击应用 - 安装您需要的工具</p>
 </div>
 </template>
 <script>
@@ -27,6 +33,9 @@ export default {
     // 监听系统刷新
     electron.ipcRenderer.on('dev-update', (event, visible) => {
       this.getApps()
+    })
+    this.$funtask.app.login().then(code => {
+      console.log(code, 'code')
     })
   },
   methods: {
