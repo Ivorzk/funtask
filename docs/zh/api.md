@@ -242,6 +242,16 @@ funtask.app.showContextMenu([{
 })
 ```
 
+### funtask.app.login
+
+打开右键菜单
+
+```js
+funtask.app.login().then((data) => {
+  console.log(data)
+})
+```
+
 ## notice 通知
 
 系统通知模块

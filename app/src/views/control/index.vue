@@ -127,7 +127,7 @@ export default {
       return length
     },
     logined() {
-      return this.userInfo.mobile
+      return Object.keys(this.userInfo).length > 0
     }
   },
   mounted() {
