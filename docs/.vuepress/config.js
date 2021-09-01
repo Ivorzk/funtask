@@ -49,6 +49,7 @@ module.exports = {
     searchMaxSuggestions: 10,
     displayAllHeaders: true,
     sidebar: 'auto',
+    sidebarDepth: 2,
     // 最后一次更新
     lastUpdated: '上次更新',
     markdown: {
