@@ -10,7 +10,7 @@
     <meta name="keywords" content="Funtask, SUWIS, 工具, 高效办公, 方塔">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     
-    <link rel="preload" href="/assets/css/0.styles.d285aed8.css" as="style"><link rel="preload" href="/assets/js/app.38385f3a.js" as="script"><link rel="preload" href="/assets/js/3.da661a6c.js" as="script"><link rel="preload" href="/assets/js/33.3c12fea5.js" as="script"><link rel="prefetch" href="/assets/js/10.36636e30.js"><link rel="prefetch" href="/assets/js/11.79889b6d.js"><link rel="prefetch" href="/assets/js/12.89e9ad95.js"><link rel="prefetch" href="/assets/js/13.4f62a0bd.js"><link rel="prefetch" href="/assets/js/14.dbce979c.js"><link rel="prefetch" href="/assets/js/15.e0a0fc9c.js"><link rel="prefetch" href="/assets/js/16.ce73ed3d.js"><link rel="prefetch" href="/assets/js/17.f6192715.js"><link rel="prefetch" href="/assets/js/18.c6699206.js"><link rel="prefetch" href="/assets/js/19.cc51d067.js"><link rel="prefetch" href="/assets/js/2.54caf53e.js"><link rel="prefetch" href="/assets/js/20.3a13d6f5.js"><link rel="prefetch" href="/assets/js/21.463b5c8e.js"><link rel="prefetch" href="/assets/js/22.5e5271a1.js"><link rel="prefetch" href="/assets/js/23.842c6d81.js"><link rel="prefetch" href="/assets/js/24.18b4a750.js"><link rel="prefetch" href="/assets/js/25.3a899c3c.js"><link rel="prefetch" href="/assets/js/26.52b5efc1.js"><link rel="prefetch" href="/assets/js/27.1cf95b45.js"><link rel="prefetch" href="/assets/js/28.34ffd02b.js"><link rel="prefetch" href="/assets/js/29.870fc4ad.js"><link rel="prefetch" href="/assets/js/30.b3ea4cf2.js"><link rel="prefetch" href="/assets/js/31.0008e6ac.js"><link rel="prefetch" href="/assets/js/32.d73a31a2.js"><link rel="prefetch" href="/assets/js/34.abe7e2d0.js"><link rel="prefetch" href="/assets/js/4.8d82ab3b.js"><link rel="prefetch" href="/assets/js/5.ef348d6b.js"><link rel="prefetch" href="/assets/js/6.5b043eaa.js"><link rel="prefetch" href="/assets/js/7.90b4827d.js"><link rel="prefetch" href="/assets/js/8.9b7ae106.js"><link rel="prefetch" href="/assets/js/9.b3523ebc.js">
+    <link rel="preload" href="/assets/css/0.styles.d285aed8.css" as="style"><link rel="preload" href="/assets/js/app.194314fd.js" as="script"><link rel="preload" href="/assets/js/3.da661a6c.js" as="script"><link rel="preload" href="/assets/js/33.447e0349.js" as="script"><link rel="prefetch" href="/assets/js/10.36636e30.js"><link rel="prefetch" href="/assets/js/11.79889b6d.js"><link rel="prefetch" href="/assets/js/12.89e9ad95.js"><link rel="prefetch" href="/assets/js/13.4f62a0bd.js"><link rel="prefetch" href="/assets/js/14.dbce979c.js"><link rel="prefetch" href="/assets/js/15.e0a0fc9c.js"><link rel="prefetch" href="/assets/js/16.ce73ed3d.js"><link rel="prefetch" href="/assets/js/17.f6192715.js"><link rel="prefetch" href="/assets/js/18.c6699206.js"><link rel="prefetch" href="/assets/js/19.cc51d067.js"><link rel="prefetch" href="/assets/js/2.54caf53e.js"><link rel="prefetch" href="/assets/js/20.3a13d6f5.js"><link rel="prefetch" href="/assets/js/21.463b5c8e.js"><link rel="prefetch" href="/assets/js/22.5e5271a1.js"><link rel="prefetch" href="/assets/js/23.842c6d81.js"><link rel="prefetch" href="/assets/js/24.cc3acb7a.js"><link rel="prefetch" href="/assets/js/25.bcd808b5.js"><link rel="prefetch" href="/assets/js/26.d34806d0.js"><link rel="prefetch" href="/assets/js/27.338251a0.js"><link rel="prefetch" href="/assets/js/28.c1be9f95.js"><link rel="prefetch" href="/assets/js/29.fedcda61.js"><link rel="prefetch" href="/assets/js/30.b1731257.js"><link rel="prefetch" href="/assets/js/31.1b9ab4ac.js"><link rel="prefetch" href="/assets/js/32.67297d7d.js"><link rel="prefetch" href="/assets/js/34.e7308abf.js"><link rel="prefetch" href="/assets/js/4.8d82ab3b.js"><link rel="prefetch" href="/assets/js/5.ef348d6b.js"><link rel="prefetch" href="/assets/js/6.5b043eaa.js"><link rel="prefetch" href="/assets/js/7.90b4827d.js"><link rel="prefetch" href="/assets/js/8.9b7ae106.js"><link rel="prefetch" href="/assets/js/9.b3523ebc.js">
     <link rel="stylesheet" href="/assets/css/0.styles.d285aed8.css">
   </head>
   <body>
@@ -59,8 +59,16 @@
         index.html
 </code></pre></div><h2 id="插件配置"><a href="#插件配置" class="header-anchor">#</a> 插件配置</h2> <p>通过app.yaml 可对插件进行一些个性化的配置，可配置项如下：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># 应用名称</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> hello funtask
-<span class="token comment"># 入口页面 default : views/index.html , 调试模式可以写成本地服务器地址例如： http://localhost:8080</span>
-<span class="token key atrule">main</span><span class="token punctuation">:</span> views/index.html
+<span class="token comment"># 应用环境配置，一般开发环境和正式环境有所区别，通过此配置可避免每次开发需要来回更改配置文件的麻烦</span>
+<span class="token key atrule">env</span><span class="token punctuation">:</span>
+  <span class="token comment"># 开发环境</span>
+  <span class="token key atrule">dev</span><span class="token punctuation">:</span>
+    <span class="token comment"># 入口页面 default : views/index.html , 调试模式可以写成本地服务器地址例如： http://localhost:8080</span>
+    <span class="token key atrule">main</span><span class="token punctuation">:</span>           http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">8080</span>
+  <span class="token comment"># 生产环境</span>
+  <span class="token key atrule">prod</span><span class="token punctuation">:</span>
+    <span class="token comment"># 生产环境入口页面</span>
+    <span class="token key atrule">main</span><span class="token punctuation">:</span>           views/index.html
 <span class="token comment"># 应用窗体配置</span>
 <span class="token key atrule">winconf</span><span class="token punctuation">:</span>
   <span class="token comment"># 窗体宽度 如果宽度值小于1则按照屏幕宽度的百分比设置 default 618</span>
@@ -90,6 +98,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"><!----></div></div>
-    <script src="/assets/js/app.38385f3a.js" defer></script><script src="/assets/js/3.da661a6c.js" defer></script><script src="/assets/js/33.3c12fea5.js" defer></script>
+    <script src="/assets/js/app.194314fd.js" defer></script><script src="/assets/js/3.da661a6c.js" defer></script><script src="/assets/js/33.447e0349.js" defer></script>
   </body>
 </html>

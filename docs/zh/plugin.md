@@ -29,8 +29,16 @@ Funtask 只是一个基础框架，所有功能均由插件来实现，所以你
 ```yaml
 # 应用名称
 name: hello funtask
-# 入口页面 default : views/index.html , 调试模式可以写成本地服务器地址例如： http://localhost:8080
-main: views/index.html
+# 应用环境配置，一般开发环境和正式环境有所区别，通过此配置可避免每次开发需要来回更改配置文件的麻烦
+env:
+  # 开发环境
+  dev:
+    # 入口页面 default : views/index.html , 调试模式可以写成本地服务器地址例如： http://localhost:8080
+    main:           http://localhost:8080
+  # 生产环境
+  prod:
+    # 生产环境入口页面
+    main:           views/index.html
 # 应用窗体配置
 winconf:
   # 窗体宽度 如果宽度值小于1则按照屏幕宽度的百分比设置 default 618
