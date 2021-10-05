@@ -163,8 +163,11 @@ export default class {
           const packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
           const configFile = fs.readFileSync(path.resolve(apppath + '/app.yaml'), 'utf-8')
           if (packageFile && configFile) {
-            const config = YAML.parse(configFile)
+            let config = YAML.parse(configFile)
             const packageJson = JSON.parse(packageFile)
+            // 应用当前环境的配置
+            let env = config.env || {}
+            config = _.defaults(env[debug ? 'dev' : 'prod'] || {}, config)
             apps.push({
               logo: './' + packageJson.name + '/logo.png',
               icon: path.resolve(apppath + '/logo.png'),
