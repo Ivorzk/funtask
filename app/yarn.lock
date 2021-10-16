@@ -1357,10 +1357,10 @@
   resolved "https://registry.npmjs.org/@soda/get-current-script/-/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
-"@suwis/funtask@^1.0.24":
-  version "1.0.24"
-  resolved "https://registry.npmjs.org/@suwis/funtask/-/funtask-1.0.24.tgz#02e0b52350309b90ded180981ccefe82614ed2ab"
-  integrity sha512-RJ963V4+D6hgIa2IoVWXLo3/kSEWwnZgG5ERP21VEDyBTwCyC8emNbXqeB0QPUd/nxjpMLQE81gMIpvydGc+Gg==
+"@suwis/funtask@^1.0.25":
+  version "1.0.25"
+  resolved "https://npm.suwis.com/@suwis%2ffuntask/-/funtask-1.0.25.tgz#9147b04e5549c02c6d569d76f0c39e942187588a"
+  integrity sha512-1dKojTTpwn2t3pseepNCrnNouSppJNOJFfgFVkKYrL4livzzxeFrDXnCwIvkSXdaY/23zxiNXIoLpNxVRXrvGQ==
   dependencies:
     chalk "^4.1.0"
     commander "^6.2.0"
@@ -11213,6 +11213,11 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
+
+sudo-prompt@^9.2.1:
+  version "9.2.1"
+  resolved "https://npm.suwis.com/sudo-prompt/-/sudo-prompt-9.2.1.tgz#77efb84309c9ca489527a4e749f287e6bdd52afd"
+  integrity sha512-Mu7R0g4ig9TUuGSxJavny5Rv0egCEtpZRNMrZaYS1vxkiIxGiGUwoezU3LazIQ+KE04hTrTfNPgxU5gzi7F5Pw==
 
 sumchecker@^3.0.1:
   version "3.0.1"

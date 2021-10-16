@@ -76,6 +76,8 @@ export default class {
       await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
       // 读取默认配置文件
       defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
+      // 重新监听配置文件
+      this.watchConfigFile()
     }
     return {
       custom: custom || defaultFile,
@@ -118,16 +120,17 @@ export default class {
     }
     // 触发配置表加载完成事件
     this.event.emit(this.isFirstLoad ? 'loaded' : 'change', global.$config)
-    // 开始监听文件改变
-    this.watchConfigFile()
     // 修改状态
     this.isFirstLoad = false
+    // 开始监听文件改变
+    this.watchConfigFile()
   }
 
   // 监听配置文件
   watchConfigFile() {
-    // 监听
-    gulp.watch(`${this.apphome}/config.yaml`, () => {
+    // 防止多次监听
+    fs.unwatchFile(`${this.apphome}/config.yaml`)
+    fs.watchFile(`${this.apphome}/config.yaml`, () => {
       this.loadConfig()
     })
   }
