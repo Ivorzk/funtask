@@ -80,8 +80,6 @@ export default class {
       await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
       // 读取默认配置文件
       defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
-      // 重新监听配置文件
-      this.watchConfigFile()
     }
     return {
       custom: custom || defaultFile,
@@ -103,8 +101,10 @@ export default class {
       // 如果报错则删除配置文件，重新设置
       await fs.remove(`${this.apphome}/config.yaml`)
       // 重新执行
-      await this.setConfig(options)
+      return await this.setConfig(options)
     }
+    // 重新加载
+    await this.loadConfig()
     return true
   }
 
@@ -126,8 +126,6 @@ export default class {
     this.event.emit(this.isFirstLoad ? 'loaded' : 'change', global.$config)
     // 修改状态
     this.isFirstLoad = false
-    // 开始监听文件改变
-    this.watchConfigFile()
   }
 
   // 监听配置文件
