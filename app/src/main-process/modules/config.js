@@ -13,7 +13,11 @@ import {
 } from 'electron'
 import lodash from 'lodash'
 import Store from 'electron-store'
+import {
+  watch
+} from 'gulp'
 const store = new Store()
+let watcher = {}
 export default class {
   constructor() {
     // 首次加载
@@ -37,13 +41,13 @@ export default class {
     // 设置用户信息
     ipcMain.on('userinfo-set', async (evt, data) => {
       store.set('userInfo', data)
-      evt.reply('userinfo-set-reply', res)
+      evt.reply('userinfo-set-reply', true)
     })
 
     // 获取用户信息
     ipcMain.on('userinfo-get', async (evt, data) => {
       let userInfo = store.get('userInfo')
-      evt.reply('userinfo-get-reply', userInfo)
+      evt.reply('userinfo-get-reply', userInfo ? userInfo.user : '')
     })
 
     // 获取用户信息
@@ -76,6 +80,8 @@ export default class {
       await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
       // 读取默认配置文件
       defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
+      // 重新监听配置文件
+      this.watchConfigFile()
     }
     return {
       custom: custom || defaultFile,
@@ -118,16 +124,25 @@ export default class {
     }
     // 触发配置表加载完成事件
     this.event.emit(this.isFirstLoad ? 'loaded' : 'change', global.$config)
-    // 开始监听文件改变
-    this.watchConfigFile()
     // 修改状态
     this.isFirstLoad = false
+    // 开始监听文件改变
+    this.watchConfigFile()
   }
 
   // 监听配置文件
   watchConfigFile() {
-    // 监听
-    gulp.watch(`${this.apphome}/config.yaml`, () => {
+    // 防止多次监听
+    try {
+      watcher.close()
+    } catch (e) {}
+    watcher = watch(`${this.apphome}/config.yaml`)
+    watcher.on(`change`, (e) => {
+      console.log('change')
+      this.loadConfig()
+    })
+    watcher.on(`add`, (e) => {
+      console.log('add')
       this.loadConfig()
     })
   }

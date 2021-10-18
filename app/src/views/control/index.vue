@@ -1,5 +1,6 @@
 <template>
-<div class="funtask-control" :class="{show: control.visible,sideslip:control.sideslip}">
+<div class="funtask-control"
+  :class="{show: control.visible,sideslip:control.sideslip}">
   <div class="bg"></div>
   <div class="wrapper">
     <funtask-header @btn-click="headerClick"></funtask-header>
@@ -9,33 +10,70 @@
   </div>
   <div class="settings">
     <div class="user">
-      <mu-avatar @click="toggleForm" class="avatar" :size="50">
-        <img :src="userInfo.avatar_url||require('@/assets/avatar.png')" alt="">
+      <mu-avatar @click="toggleForm"
+        @
+        class="avatar"
+        :size="50">
+        <img :src="userInfo.avatar_url||require('@/assets/avatar.png')"
+          @contextmenu="showContextMenu">
       </mu-avatar>
       <label>{{logined?userInfo.nickname:'点击登录'}}</label>
     </div>
-    <mu-form class="login-form" :class="{show:formVisible}" :model="form" ref="form" label-position="top" label-width="100">
-      <mu-form-item prop="mobile" :rules="rules.mobile" label="手机号">
-        <mu-text-field :solo="true" v-model="form.mobile"></mu-text-field>
+    <mu-form class="login-form"
+      :class="{show:formVisible}"
+      :model="form"
+      ref="form"
+      label-position="top"
+      label-width="100">
+      <mu-form-item prop="mobile"
+        :rules="rules.mobile"
+        label="手机号">
+        <mu-text-field :solo="true"
+          v-model="form.mobile"
+          @keyup.enter.native="login"></mu-text-field>
       </mu-form-item>
-      <mu-form-item prop="password" :rules="rules.password" label="密码">
-        <mu-text-field type="password" :solo="true" v-model="form.password"></mu-text-field>
+      <mu-form-item prop="password"
+        :rules="rules.password"
+        label="密码">
+        <mu-text-field type="password"
+          :solo="true"
+          v-model="form.password"
+          @keyup.enter.native="login"></mu-text-field>
       </mu-form-item>
       <mu-form-item>
-        <mu-button class="btn" @click="login" :disabled="disabled" color="primary" :ripple="true">{{disabled?'登录中':'登录'}}</mu-button>
+        <mu-button class="btn"
+          @click="login"
+          :disabled="disabled"
+          color="primary"
+          :ripple="true">{{disabled?'登录中':'登录'}}</mu-button>
+        <div class="outer-link">
+          <a href="javascript:;"
+            @click="navlink('https://suwis.live/recover?utm_source=funtask')">忘记密码</a>
+          <a href="javascript:;"
+            @click="navlink('https://suwis.live/signup?utm_source=funtask')">注册</a>
+        </div>
       </mu-form-item>
     </mu-form>
     <ol>
-      <li role="toggle" @click="navlink('/appstore')"><i class="iconfont">&#xe605;</i>应用</li>
-      <li role="toggle" @click="navlink('/funlist')"><i class="iconfont">&#xe63c;</i>菜单</li>
-      <li role="toggle" @click="navlink('/notice-list')"><var v-show="noticesCount!='00'" class="num">{{noticesCount}}</var><i class="iconfont">&#xeb7d;</i>通知</li>
+      <li role="toggle"
+        @click="navlink('/appstore')"><i class="iconfont">&#xe605;</i>应用</li>
+      <li role="toggle"
+        @click="navlink('/funlist')"><i class="iconfont">&#xe63c;</i>菜单</li>
+      <li role="toggle"
+        @click="navlink('/notice-list')"><var v-show="noticesCount!='00'"
+          class="num">{{noticesCount}}</var><i class="iconfont">&#xeb7d;</i>通知</li>
     </ol>
     <ul>
-      <li role="toggle" @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
-      <li role="toggle" @click="navlink('https://funtask.club')"><i class="iconfont">&#xe600;</i>开发社区</li>
-      <li @click="navlink('/themes')" role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
-      <li @click="navlink('/settings')" role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
+      <li role="toggle"
+        @click="navlink('/feedback')"><i class="iconfont">&#xe61e;</i>反馈建议</li>
+      <li role="toggle"
+        @click="navlink('https://funtask.club')"><i class="iconfont">&#xe600;</i>开发社区</li>
+      <li @click="navlink('/themes')"
+        role="toggle"><i class="iconfont">&#xeb6e;</i>皮肤设置</li>
+      <li @click="navlink('/settings')"
+        role="toggle"><i class="iconfont">&#xe63a;</i>系统设置</li>
     </ul>
+    <span class="version">{{package.version}}</span>
   </div>
 </div>
 </template>
@@ -77,7 +115,8 @@ export default {
           validate: (val) => !!val,
           message: '请输入密码'
         }],
-      }
+      },
+      package: $config.package
     }
   },
   computed: {
@@ -88,7 +127,7 @@ export default {
       return length
     },
     logined() {
-      return this.userInfo.mobile
+      return Object.keys(this.userInfo).length > 0
     }
   },
   mounted() {
@@ -97,6 +136,9 @@ export default {
     })
     electron.ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
+    })
+    electron.ipcRenderer.on('userinfo-delete-reply', (event, args) => {
+      this.getUserInfo()
     })
     this.getUserInfo()
   },
@@ -135,6 +177,9 @@ export default {
     navlink(path) {
       path.indexOf('http') > -1 ? electron.shell.openExternal(path) : this.$router.push(path)
       this.settingsClose()
+      this.$countly.$emit('system-control-navlink', {
+        path
+      })
     },
     // 获取消息列表
     async getNotices() {
@@ -144,6 +189,9 @@ export default {
     // 切换登录表单
     toggleForm() {
       if (!this.logined) this.formVisible = !this.formVisible
+      this.$countly.$emit('system-control-login-toggle', {
+        visible: this.formVisible
+      })
     },
     async login() {
       let result = await this.$refs.form.validate()
@@ -154,15 +202,15 @@ export default {
       }
       params.password = md5(params.password)
       this.disabled = true
-      this.$axios.post('http://cloudapi.suwis.com/auth/login', params).then(res => {
+      this.$axios.post('https://cloudapi.suwis.com/auth/login', params).then(res => {
         setTimeout(() => {
           this.disabled = false
         }, 600)
-        let data = res.data
+        let data = res.data || {}
         if (data.errno == 0) {
           // 储存用户信息
-          this.userInfo = data.data || {}
-          electron.ipcRenderer.send('userinfo-set', this.userInfo)
+          this.userInfo = data.data.user
+          electron.ipcRenderer.send('userinfo-set', data.data)
           setTimeout(() => {
             this.formVisible = false
           }, 150)
@@ -170,12 +218,36 @@ export default {
           this.$toast.error(data.errmsg)
         }
       })
+      this.$countly.$emit('system-control-login-submit', {
+        // 脱敏记录
+        mobile: this.form.mobile.replace(/(\d{3})\d*(\d{4})/, '$1****$2')
+      })
+    },
+    // 显示右键菜单
+    showContextMenu(app) {
+      this.$funtask.app.showContextMenu([{
+        label: '个人中心',
+        key: 'openUcenter'
+      }, {
+        label: '退出',
+        key: 'logout'
+      }]).then((item) => {
+        this[item.key]()
+      })
+    },
+    // 打开个人中心
+    openUcenter() {
+      electron.shell.openExternal('https://funtask.suwis.live/ucenter')
+    },
+    // 退出
+    logout() {
+      electron.ipcRenderer.send('userinfo-delete', {})
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .funtask-control {
     position: relative;
     width: 100vw;
@@ -316,6 +388,15 @@ export default {
                 align-items: center;
             }
         }
+
+        .version {
+            position: absolute;
+            right: $funtask-spacing-row-lg;
+            bottom: $funtask-spacing-row-sm;
+            font-size: $funtask-font-size-sm;
+            cursor: pointer;
+            color: $funtask-text-color-grey;
+        }
     }
 
     .login-form {
@@ -328,10 +409,27 @@ export default {
             height: calc(100vh - 18vw);
         }
 
+        .mu-text-field-input {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
         .btn {
             width: 100%;
             margin: 0;
             border-radius: 0;
+        }
+
+        .outer-link {
+            margin-top: $funtask-spacing-row-lg * 1.5;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            color: $funtask-text-color-grey;
+
+            a:hover {
+                color: $funtask-color-primary;
+            }
         }
     }
 }

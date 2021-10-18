@@ -23,8 +23,8 @@ export default {
     }
   },
   mounted() {
-    electron.ipcRenderer.on('control-reply', (event, args) => {
-      this.control.visible = args
+    electron.ipcRenderer.on('control-reply', (event, visible) => {
+      this.control.visible = visible
     })
     electron.ipcRenderer.on('toggle', (event, visible) => {
       this.control.visible = visible
@@ -36,6 +36,9 @@ export default {
     toggle() {
       this.control.visible = !this.control.visible
       electron.ipcRenderer.send('control-toggle', this.control.visible)
+      this.$countly.$emit('system-ball-toggle', {
+        visible: this.control.visible
+      })
     }
   }
 }

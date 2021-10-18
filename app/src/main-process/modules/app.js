@@ -7,6 +7,8 @@ import path from 'path'
 import io from './io'
 import compressing from 'compressing'
 import _ from 'lodash'
+import axios from 'axios'
+import Store from 'electron-store'
 import {
   BrowserWindow,
   ipcMain,
@@ -18,6 +20,7 @@ import {
   Worker
 } from 'worker_threads'
 const apps = new Map()
+const store = new Store()
 export default class {
   constructor() {
     // 获取app菜单
@@ -76,6 +79,11 @@ export default class {
       const menu = Menu.buildFromTemplate(template)
       menu.popup(BrowserWindow.fromWebContents(evt.sender))
     })
+    // 登录
+    ipcMain.on('app-login', async (evt, params) => {
+      const data = await this.login()
+      evt.reply('app-login-reply', data)
+    })
   }
 
   // 初始化readme文件
@@ -109,8 +117,12 @@ export default class {
     const dirs = await this.eachdirs([global.$config.packagesdir])
     // 获取调试目录
     const debugdirs = global.$config.dev.debugdirs || []
-    // 获取app信息
-    global.$apps = await this.eachAppInfo([...dirs, ...debugdirs])
+    // 获取本地安装的app信息
+    let localApps = await this.eachAppInfo(dirs, false)
+    // 获取调试app信息
+    let devApps = await this.eachAppInfo(debugdirs, true)
+    // 合并混入
+    global.$apps = [...localApps, ...devApps]
     // console.log(global.$apps)
     this.runAppProcess()
     // 运行初始化任务
@@ -141,7 +153,7 @@ export default class {
   }
 
   // 遍历app信息
-  eachAppInfo(dirs) {
+  eachAppInfo(dirs, debug) {
     return new Promise((resolve, reject) => {
       const apps = []
       // 已禁用的app列表
@@ -151,8 +163,11 @@ export default class {
           const packageFile = fs.readFileSync(path.resolve(apppath + '/package.json'), 'utf-8')
           const configFile = fs.readFileSync(path.resolve(apppath + '/app.yaml'), 'utf-8')
           if (packageFile && configFile) {
-            const config = YAML.parse(configFile)
+            let config = YAML.parse(configFile)
             const packageJson = JSON.parse(packageFile)
+            // 应用当前环境的配置
+            let env = config.env || {}
+            config = _.defaults(env[debug ? 'dev' : 'prod'] || {}, config)
             apps.push({
               logo: './' + packageJson.name + '/logo.png',
               icon: path.resolve(apppath + '/logo.png'),
@@ -165,7 +180,9 @@ export default class {
               // 是否已安装
               installed: true,
               // 是否禁用
-              disabled: disabledApps.indexOf(packageJson.name) > -1
+              disabled: disabledApps.indexOf(packageJson.name) > -1,
+              // 版本 dev
+              debug
             })
           }
         } catch (e) {
@@ -204,9 +221,12 @@ export default class {
     const winconf = app.winconf || {}
     let winx = Math.abs((width * 0.5 - (winconf.width || 618) * 0.5)) + 28 * apps.size
     let winy = Math.abs((height * 0.5 - (winconf.height || 380) * 0.5)) + 28 * apps.size
+    // 窗口百分比自适应
+    if (winconf.width && winconf.width <= 1) winconf.width = width * winconf.width
+    if (winconf.height && winconf.height <= 1) winconf.height = height * winconf.height
     const win = new BrowserWindow(_.merge({
-      x: winx,
-      y: winy,
+      x: winconf.maximize ? 0 : winx,
+      y: winconf.maximize ? 0 : winy,
       title: app.name,
       icon: app.icon,
       width: 618,
@@ -243,6 +263,8 @@ export default class {
       app.main.indexOf('://') > -1 ? url = app.main : url = `${global.$config.app.protocol}://./${app.package.name}/${app.main}`
     }
     win.loadURL(url)
+    // 启动窗口最大化
+    if (winconf.maximize) win.maximize()
     win.webContents.executeJavaScript(`sessionStorage.setItem('winId','${win.winId}')`)
     // win.webContents.openDevTools()
     win.webContents.on('did-finish-load', function() {
@@ -291,7 +313,7 @@ export default class {
   async install(app) {
     // 下载
     const tmpdir = global.$config.tmpdir + '/funtask/app/'
-    const apppath = await io.download(`https://registry.npmjs.org/${app.name}/-/${app.name}-${app.version}.tgz`, tmpdir)
+    const apppath = await io.download(app.dist.tarball, tmpdir)
     console.log('download complete')
     // 解压
     await compressing.tgz.uncompress(apppath + `${app.name}-${app.version}.tgz`, apppath + `${app.name}-${app.version}/`)
@@ -406,5 +428,26 @@ export default class {
     try {
       apps.get(winId).openDevTools()
     } catch (e) {}
+  }
+
+  // 登录
+  async login() {
+    let userInfo = store.get('userInfo')
+    if (!userInfo || !userInfo.token) return {
+      errmsg: 'not logged in',
+      code: ''
+    }
+    let res = await axios.get('https://cloudapi.suwis.com/auth/login/getCode', {
+      headers: {
+        'token': userInfo.token
+      }
+    })
+    if (res.data.errno != 0) return {
+      errmsg: res.errmsg,
+      code: ''
+    }
+    return {
+      code: res.data.data
+    }
   }
 }

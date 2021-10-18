@@ -18,8 +18,7 @@ const tray = new Tray()
 const system = new System()
 let notice = {}
 let control = {}
-
-config.event.on('loaded', () => {
+config.event.on('loaded', (config) => {
   console.log('app $config loaded')
   // 判断应用是否在运行
   if (!gotTheLock) {
@@ -34,6 +33,11 @@ config.event.on('loaded', () => {
   appManager.loadApps()
   // 加载图标
   tray.createTray()
+  // 创建 URL Scheme
+  // setTimeout(() => {
+  //   app.setAsDefaultProtocolClient(config.app.protocol, process.execPath, [`${__dirname}`])
+  //   console.log(res, 'es')
+  // }, 1000)
 })
 config.event.on('change', () => {
   console.log('config change')

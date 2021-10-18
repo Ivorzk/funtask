@@ -12,7 +12,7 @@ import funtask from "@suwis/funtask"
 
 系统模块
 
-### funtask.system.getInfo
+### getInfo
 
 获取应用信息
 
@@ -23,7 +23,7 @@ async getSystemInfo() {
 }
 ```
 
-### funtask.system.getUUID
+### getUUID
 
 获取设备唯一标识
 
@@ -38,7 +38,7 @@ async getUUID() {
 
 Funtask 配置模块
 
-### funtask.config.get
+### get
 
 获取Funtask配置
 
@@ -49,7 +49,7 @@ async getConfig() {
 }
 ```
 
-### funtask.config.set
+### set
 
 设置Funtask配置
 
@@ -60,7 +60,7 @@ async getConfig() {
 }
 ```
 
-### funtask.config.getUserInfo
+### getUserInfo
 
 获取登录用户信息
 
@@ -75,7 +75,7 @@ async getUserInfo() {
 
 文件操作模块
 
-### funtask.io.download
+### download
 
 下载文件
 
@@ -97,7 +97,7 @@ async download() {
 
 应用管理模块
 
-### funtask.app.install
+### install
 
 安装应用
 
@@ -117,7 +117,7 @@ async install() {
 | scope       | 范围   | String | unscoped |
 | description | 应用描述 | String |          |
 
-### funtask.app.uninstall
+### uninstall
 
 卸载应用
 
@@ -137,7 +137,7 @@ async uninstall() {
 | scope       | 范围   | String | unscoped |
 | description | 应用描述 | String |          |
 
-### funtask.app.setting
+### setting
 
 配置应用
 
@@ -156,7 +156,7 @@ async setting() {
 | version | 版本     | String | -   |
 | data    | 应用配置数据 | Object | -   |
 
-### funtask.app.disable
+### disable
 
 禁用应用
 
@@ -174,7 +174,7 @@ async disable() {
 | name    | 应用名称 | String | -   |
 | version | 版本   | String | -   |
 
-### funtask.app.enable
+### enable
 
 启用应用
 
@@ -192,7 +192,7 @@ async enable() {
 | name    | 应用名称 | String | -   |
 | version | 版本   | String | -   |
 
-### funtask.app.getApps
+### getApps
 
 获取Funtask已安装应用菜单
 
@@ -203,7 +203,7 @@ async getApps() {
 }
 ```
 
-### funtask.app.start
+### start
 
 启动一个应用
 
@@ -213,7 +213,7 @@ var app = apps[0]
 await funtask.app.start(app)
 ```
 
-### funtask.app.stop
+### stop
 
 关闭应用, 默认关闭当前窗口
 
@@ -221,7 +221,7 @@ await funtask.app.start(app)
 funtask.app.stop()
 ```
 
-### funtask.app.openDevTools
+### openDevTools
 
 打开调试工具
 
@@ -229,11 +229,34 @@ funtask.app.stop()
 funtask.app.openDevTools()
 ```
 
+### showContextMenu
+
+打开右键菜单
+
+```js
+funtask.app.showContextMenu([{
+  label: '打开',
+  key: 'start'
+}]).then((item) => {
+  console.log(item)
+})
+```
+
+### login
+
+打开右键菜单
+
+```js
+funtask.app.login().then((data) => {
+  console.log(data)
+})
+```
+
 ## notice 通知
 
 系统通知模块
 
-### funtask.notice.send
+### send
 
 发送系统通知消息
 
@@ -258,7 +281,7 @@ async send() {
 
 默认 url 和 command 如果都有值的话，都会被执行
 
-### funtask.notice.getList
+### getList
 
 获取通知列表
 
@@ -274,7 +297,7 @@ async getList() {
 
 粘贴板模块
 
-### funtask.clipboard.writeText
+### writeText
 
 往粘贴板写入文本
 
@@ -283,7 +306,7 @@ async getList() {
 funtask.clipboard.writeText('hello world')
 ```
 
-### funtask.clipboard.readText
+### readText
 
 从粘贴板获取文本
 
@@ -294,7 +317,7 @@ let text = funtask.clipboard.readText()
 // => hello world
 ```
 
-### funtask.clipboard.writeHTML
+### writeHTML
 
 往粘贴板写入HTML
 
@@ -303,7 +326,7 @@ let text = funtask.clipboard.readText()
 funtask.clipboard.writeHTML('<h1>hello world</h1>')
 ```
 
-### funtask.clipboard.readHTML
+### readHTML
 
 从粘贴板获取HTML
 
@@ -314,7 +337,7 @@ let html = funtask.clipboard.readText()
 // => <h1>hello world</h1>
 ```
 
-### funtask.clipboard.writeImage
+### writeImage
 
 往粘贴板写入图片
 
@@ -323,7 +346,7 @@ let html = funtask.clipboard.readText()
 funtask.clipboard.writeImage(base64|NativeImage)
 ```
 
-### funtask.clipboard.readImage
+### readImage
 
 从粘贴板获取文本
 
@@ -340,6 +363,6 @@ console.log(img.toDataURL())
 
 蓝牙模块
 
-### funtask.bluetooth.getDevices
+### getDevices
 
 获取蓝牙列表

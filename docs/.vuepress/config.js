@@ -7,7 +7,7 @@ module.exports = {
     }],
     ['meta', {
       name: 'keywords',
-      content: 'Funtask, SUWIS, 工具, 高效办公'
+      content: 'Funtask, SUWIS, 工具, 高效办公, 方塔'
     }],
     ['meta', {
       name: 'viewport',
@@ -33,7 +33,7 @@ module.exports = {
       selectText: '选择语言',
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
       title: 'Funtask',
-      description: '高效、快乐、人性化的多终端智能办公平台'
+      description: 'Funtask（方塔）更人性化的办公平台'
     },
     // '/en/': {
     //   selectText: 'Languages',
@@ -49,6 +49,7 @@ module.exports = {
     searchMaxSuggestions: 10,
     displayAllHeaders: true,
     sidebar: 'auto',
+    sidebarDepth: 2,
     // 最后一次更新
     lastUpdated: '上次更新',
     markdown: {

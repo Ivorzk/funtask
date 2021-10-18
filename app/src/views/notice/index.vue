@@ -18,6 +18,7 @@
 <script>
 import electron from '@suwis/funtask/core/utils/electron'
 import _ from 'lodash'
+import moment from 'moment'
 let timer
 export default {
   data() {
@@ -51,7 +52,10 @@ export default {
     electron.ipcRenderer.on('notice-push-reply', (event, data) => {
       // 将消息缓存到队列中
       this.queues.push(data)
-      this.$funtask.app.openDevTools()
+      // 统计推送时间段
+      this.$countly.$emit('system-notice-push', {
+        date: moment().format('hh:mm:ss a')
+      })
     })
   },
   methods: {
@@ -163,7 +167,7 @@ export default {
             .arrow {
                 color: #fff;
                 position: absolute;
-                right: 0vw;
+                right: 0;
                 top: -2vw;
                 font-weight: lighter;
                 font-size: 14px;

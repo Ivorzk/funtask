@@ -2,9 +2,9 @@
 <section class="funtask-index">
   <kv></kv>
   <about></about>
-  <wisdom-agriculture></wisdom-agriculture>
-  <autom-factory></autom-factory>
   <cooperative-office></cooperative-office>
+  <autom-factory></autom-factory>
+  <wisdom-agriculture></wisdom-agriculture>
   <social-contact></social-contact>
   <footers></footers>
 </section>

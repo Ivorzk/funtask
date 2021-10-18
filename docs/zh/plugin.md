@@ -29,13 +29,21 @@ Funtask 只是一个基础框架，所有功能均由插件来实现，所以你
 ```yaml
 # 应用名称
 name: hello funtask
-# 入口页面 default : views/index.html , 调试模式可以写成本地服务器地址例如： http://localhost:8080
-main: views/index.html
+# 应用环境配置，一般开发环境和正式环境有所区别，通过此配置可避免每次开发需要来回更改配置文件的麻烦
+env:
+  # 开发环境
+  dev:
+    # 入口页面 default : views/index.html , 调试模式可以写成本地服务器地址例如： http://localhost:8080
+    main:           http://localhost:8080
+  # 生产环境
+  prod:
+    # 生产环境入口页面
+    main:           views/index.html
 # 应用窗体配置
 winconf:
-  # 窗体宽度 default 618
+  # 窗体宽度 如果宽度值小于1则按照屏幕宽度的百分比设置 default 618
   width: 618
-  # 窗体高度 default 380
+  # 窗体高度 如果高度值小于1则按照屏幕高度的百分比设置 default 380
   height: 380
   # 是否为无边框窗体 default true
   frame: true
@@ -47,6 +55,8 @@ winconf:
   backgroundColor: #00ffffff
   # 是否全屏  default false
   fullscreen: false
+  # 默认窗口进入最大化 default false
+  maximize: false
   # 窗体透明度 default 1
   opacity: 0.5
 ```

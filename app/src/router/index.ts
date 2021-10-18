@@ -20,7 +20,7 @@ const routes: Array<RouteConfig> = [{
   }, {
     path: '/appstore',
     name: 'appstore',
-    component: () => import('../views/control/appstore.vue'),
+    component: () => import('../views/control/appstore/index.vue'),
     meta: {
       keepAlive: true
     }
