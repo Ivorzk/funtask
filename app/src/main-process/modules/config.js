@@ -13,7 +13,11 @@ import {
 } from 'electron'
 import lodash from 'lodash'
 import Store from 'electron-store'
+import {
+  watch
+} from 'gulp'
 const store = new Store()
+let watcher = {}
 export default class {
   constructor() {
     // 首次加载
@@ -129,8 +133,16 @@ export default class {
   // 监听配置文件
   watchConfigFile() {
     // 防止多次监听
-    fs.unwatchFile(`${this.apphome}/config.yaml`)
-    fs.watchFile(`${this.apphome}/config.yaml`, () => {
+    try {
+      watcher.close()
+    } catch (e) {}
+    watcher = watch(`${this.apphome}/config.yaml`)
+    watcher.on(`change`, (e) => {
+      console.log('change')
+      this.loadConfig()
+    })
+    watcher.on(`add`, (e) => {
+      console.log('add')
       this.loadConfig()
     })
   }
