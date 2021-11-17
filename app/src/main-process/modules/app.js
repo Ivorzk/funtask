@@ -20,6 +20,7 @@ import {
   Worker
 } from 'worker_threads'
 const apps = new Map()
+const workers = {}
 const store = new Store()
 export default class {
   constructor() {
@@ -123,7 +124,6 @@ export default class {
     let devApps = await this.eachAppInfo(debugdirs, true)
     // 合并混入
     global.$apps = [...localApps, ...devApps]
-    // console.log(global.$apps)
     this.runAppProcess()
     // 运行初始化任务
     await this.init()
@@ -203,9 +203,11 @@ export default class {
     for (const app of global.$apps) {
       const file = path.resolve(global.$config.packagesdir + '/' + app.package.name + '/index.js')
       if (!fs.existsSync(file)) continue
-      app.worker = new Worker(file, {
+      let wid = `w${Date.now()}`
+      workers[wid] = new Worker(file, {
         workerData: {}
       })
+      app.workerId = wid
     }
     console.log('运行应用后台进程完毕')
   }

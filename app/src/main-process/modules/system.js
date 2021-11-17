@@ -28,7 +28,18 @@ export default class {
 
   // 获取uuid
   async getUUID() {
-    const res = process.execSync('wmic csproduct get UUID', {
+    let platform = {
+      aix: '',
+      darwin: '',
+      freebsd: '',
+      linux: 'dmidecode | grep UUID',
+      openbsd: '',
+      sunos: '',
+      android: '',
+      win32: 'wmic csproduct get UUID'
+    }
+    let cmd = platform[os.platform()]
+    const res = process.execSync(cmd, {
       encoding: 'UTF-8'
     })
     const uuid = res.replace('UUID', '').replace(/[\r\n]/g, '').replace(/\s+/g, '')
