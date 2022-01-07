@@ -206,9 +206,12 @@ export default class {
       const file = path.resolve(appdir + '/index.js')
       if (!fs.existsSync(file)) continue
       let wid = `w${Date.now()}`
-      workers[wid] = new Worker(file, {
-        workerData: {}
-      })
+      // 尝试运行应用的后台进程
+      try {
+        workers[wid] = new Worker(file, {
+          workerData: {}
+        })
+      } catch (e) {}
       app.workerId = wid
       // 监听事件
       workers[wid].on('message', (res) => {
