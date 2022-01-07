@@ -36,5 +36,11 @@ module.exports = {
       default: 'dev',
       includePackage: true
     }
+  },
+  chainWebpack: config => {
+    console.log(config,'---------------------------')
+    config.externals = {
+      worker_threads: 'commonjs worker_threads'
+    }
   }
 }

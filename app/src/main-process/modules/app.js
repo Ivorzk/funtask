@@ -26,6 +26,7 @@ export default class {
   constructor() {
     // 获取app菜单
     ipcMain.on('app-get-apps', (evt, dataType) => {
+      console.log('app-get-apps')
       evt.reply('app-get-apps-reply', global.$apps)
     })
     // 打开应用
@@ -201,13 +202,25 @@ export default class {
   // 运行app后台进程
   runAppProcess() {
     for (const app of global.$apps) {
-      const file = path.resolve(global.$config.packagesdir + '/' + app.package.name + '/index.js')
+      let appdir = app.debug ? app.path : global.$config.packagesdir + '/' + app.package.name
+      const file = path.resolve(appdir + '/index.js')
       if (!fs.existsSync(file)) continue
       let wid = `w${Date.now()}`
       workers[wid] = new Worker(file, {
         workerData: {}
       })
       app.workerId = wid
+      // 监听事件
+      workers[wid].on('message', (res) => {
+        // console.log(res.event, wid, 'message')
+        // 触发主进程事件
+        ipcMain.emit(res.event, {
+          reply(event, data) {
+            console.log(data, 'data')
+          }
+        })
+        // ipcRenderer.send('app-get-apps', 'json')
+      })
     }
     console.log('运行应用后台进程完毕')
   }
