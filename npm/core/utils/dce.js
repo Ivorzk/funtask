@@ -6,7 +6,11 @@ let threads = {}
 let env = typeof window !== 'undefined' ? 'browser' : 'node'
 export default new class {
   constructor() {
-    if(env=='node') threads = require('worker_threads')
+    // 判断是否在node环境中工作
+    if (env == 'node') {
+      let thread = 'worker_threads'
+      threads = require(thread)
+    }
     // 事件队列
     this.queues = {}
     this.keymaping = []
@@ -15,10 +19,10 @@ export default new class {
   // 向主进程发送数据
   send(key, data, callback) {
     // 判断是否是worker_threads发来的
-    if (isMainThread) {
-      this.electron(key, data, callback)
+    if (threads.parentPort) {
+      this.worker(key, data, callback)
     } else {
-
+      this.electron(key, data, callback)
     }
   }
 
@@ -38,6 +42,15 @@ export default new class {
 
   // 工作线程
   worker(key, data, callback) {
-
+    threads.parentPort.postMessage({
+      event: key,
+      data: data
+    })
+    this.queues[key] ? this.queues[key].push(callback) : this.queues[key] = [callback]
+    // 监听主进程发来的数据
+    thread.parentPort.once('message', (data) => {
+      let item = this.queues[key].pop()
+      if (item) item.resolve(data)
+    })
   }
 }

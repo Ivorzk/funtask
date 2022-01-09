@@ -1357,10 +1357,10 @@
   resolved "https://registry.npm.taobao.org/@soda/get-current-script/download/@soda/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha1-pTUV2yXYA4N0OBtzryC7Ty5QjYc=
 
-"@suwis/funtask@^1.0.25":
-  version "1.0.25"
-  resolved "https://npm.suwis.com/@suwis%2ffuntask/-/funtask-1.0.25.tgz#9147b04e5549c02c6d569d76f0c39e942187588a"
-  integrity sha512-1dKojTTpwn2t3pseepNCrnNouSppJNOJFfgFVkKYrL4livzzxeFrDXnCwIvkSXdaY/23zxiNXIoLpNxVRXrvGQ==
+"@suwis/funtask@1.0.26":
+  version "1.0.26"
+  resolved "https://registry.npmjs.org/@suwis/funtask/-/funtask-1.0.26.tgz#08f2ddcbe51807cf07169cb926b8fea1008d484b"
+  integrity sha512-Yr/WlNaWkjuSeSO2JSYX+xoGJcTtab15xvc6yCT5nl6Rs5ib5S6Eapoar8cXfGxw8UNNlyU9B0WbNXZX4goC1w==
   dependencies:
     chalk "^4.1.0"
     commander "^6.2.0"

@@ -211,7 +211,9 @@ export default class {
         workers[wid] = new Worker(file, {
           workerData: {}
         })
-      } catch (e) {}
+      } catch (e) {
+        console.log('worker error', e.message)
+      }
       app.workerId = wid
       // 监听事件
       workers[wid].on('message', (res) => {
