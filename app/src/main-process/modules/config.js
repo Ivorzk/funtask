@@ -100,6 +100,7 @@ export default class {
     } catch (e) {
       // 如果报错则删除配置文件，重新设置
       await fs.remove(`${this.apphome}/config.yaml`)
+      // console.log(e)
       // 重新执行
       return await this.setConfig(options)
     }
