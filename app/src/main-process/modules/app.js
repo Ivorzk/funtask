@@ -26,7 +26,6 @@ export default class {
   constructor() {
     // 获取app菜单
     ipcMain.on('app-get-apps', (evt, dataType) => {
-      console.log('app-get-apps')
       evt.reply('app-get-apps-reply', global.$apps)
     })
     // 打开应用
