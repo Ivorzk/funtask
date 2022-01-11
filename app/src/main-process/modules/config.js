@@ -76,10 +76,10 @@ export default class {
     if (exist) {
       custom = fs.readFileSync(`${this.apphome}/config.yaml`, 'utf8')
     } else {
-      // 复制默认配置文件至配置目录
-      await fs.copy(`${__static}/default-config.yaml`, this.apphome + '/config.yaml')
       // 读取默认配置文件
       defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
+      // 写入默认配置文件至配置目录
+      await fs.writeFileSync(this.apphome + '/config.yaml', defaultFile)
     }
     return {
       custom: custom || defaultFile,
@@ -94,14 +94,15 @@ export default class {
     let $config = YAML.parse(file.custom)
     $config = lodash.defaultsDeep(options, $config)
     const configYaml = YAML.stringify($config)
+    console.log(configYaml)
     // 写入文件
     try {
       await fs.writeFileSync(`${this.apphome}/config.yaml`, configYaml)
     } catch (e) {
-      // 如果报错则删除配置文件，重新设置
-      // console.log(e)
+      // 如果报错则尝试删除配置文件，重新设置
+      fs.remove(`${this.apphome}/config.yaml`)
       // 重新执行
-      return false
+      return this.setConfig(options)
     }
     // 重新加载
     await this.loadConfig()
