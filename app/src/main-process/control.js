@@ -18,7 +18,7 @@ app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 protocol.registerSchemesAsPrivileged([{
   scheme: 'funtask',
   privileges: {
-    secure: false,
+    secure: true,
     standard: true,
     bypassCSP: false
   }
