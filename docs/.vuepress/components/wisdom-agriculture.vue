@@ -101,6 +101,7 @@ export default {
                     cursor: pointer;
                     white-space: nowrap;
                     font-size: 0.69vw;
+                    line-height: 1.5;
                     a {
                         color: #fff;
                     }

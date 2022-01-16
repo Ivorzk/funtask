@@ -7,6 +7,7 @@
   <wisdom-agriculture></wisdom-agriculture>
   <social-contact></social-contact>
   <footers></footers>
+  <browser-check></browser-check>
 </section>
 </template>
 <script>

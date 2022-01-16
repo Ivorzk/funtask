@@ -29,6 +29,7 @@ export default {
         img {
             pointer-events: none;
             width: 26vw;
+            flex-shrink: 0;
             margin-left: 5vw;
         }
 
@@ -39,6 +40,7 @@ export default {
             border-radius: 1vw;
             box-shadow: 0 16px 85px rgba(246, 210, 189, 0.45);
             text-align: justify;
+            max-width: 50%;
 
             dt {
                 padding-bottom: 1vw;

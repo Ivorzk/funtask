@@ -46,6 +46,7 @@ export default {
             pointer-events: none;
             width: 26vw;
             margin-right: 5vw;
+            flex-shrink: 0;
         }
 
         h3 {
@@ -101,6 +102,7 @@ export default {
                     cursor: pointer;
                     white-space: nowrap;
                     font-size: 0.69vw;
+                    line-height: 1.5;
                     a {
                         color: #fff;
                     }

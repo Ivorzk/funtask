@@ -50,6 +50,7 @@ export default {
             pointer-events: none;
             width: 19.7vw;
             left: 0;
+            flex-shrink: 0;
             margin-top: 0.8vw;
         }
 
@@ -107,6 +108,7 @@ export default {
                     cursor: pointer;
                     white-space: nowrap;
                     font-size: 0.69vw;
+                    line-height: 1.5;
 
                     a {
                         color: #fff;

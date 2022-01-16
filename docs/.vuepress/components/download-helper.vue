@@ -58,7 +58,6 @@ export default {
   },
   methods: {
     apphome(ostype) {
-      // console.log(platform, 'platform')
       this.os = platform.os
       let family = ostype || this.os.family.toLocaleLowerCase()
       let arch
