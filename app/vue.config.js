@@ -7,9 +7,17 @@ module.exports = {
       customFileProtocol: 'funtask://./', // Make sure to add "./" to the end of the protocol
       // 打包配置
       builderOptions: {
-        copyright: '©2017-2021 SUWIS, co. LTD All rights reserved.',
+        copyright: '©2017-2022 SUWIS, co. LTD All rights reserved.',
         appId: 'com.suwis.funtask.app',
         publish: [],
+        win: {
+          target: [{
+            'target': 'appx',
+            'arch': [
+              'x64'
+            ]
+          }]
+        },
         nsis: {
           oneClick: false, // 一键安装
           // perMachine: false, // 一个用户一个安装程序还是全局安装
@@ -19,6 +27,13 @@ module.exports = {
         mac: {
           entitlements: 'build/entitlements.mac.plist',
           entitlementsInherit: 'build/entitlements.mac.plist'
+        },
+        appx: {
+          applicationId: '',
+          backgroundColor: '#fff',
+          identityName: 'Funtask',
+          publisher: 'suwis',
+          languages: 'cn-ZH'
         }
       },
       mainProcessFile: 'src/main-process',
@@ -38,7 +53,7 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    console.log(config,'---------------------------')
+    console.log(config, '---------------------------')
     config.externals = {
       worker_threads: 'commonjs worker_threads'
     }
