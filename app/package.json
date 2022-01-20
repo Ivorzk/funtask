@@ -1,7 +1,8 @@
 {
   "name": "Funtask",
   "version": "1.1.18",
-  "author": "funtask@suwis.com",
+  "author": "suwis ltd.",
+  "description": "更人性化的办公平台",
   "private": true,
   "repository": "https://github.com/Ivorzk/funtask.git",
   "scripts": {

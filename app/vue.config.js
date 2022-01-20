@@ -10,14 +10,14 @@ module.exports = {
         copyright: '©2017-2022 SUWIS, co. LTD All rights reserved.',
         appId: 'com.suwis.funtask.app',
         publish: [],
-        // win: {
-        //   target: [{
-        //     'target': 'appx',
-        //     'arch': [
-        //       'x64'
-        //     ]
-        //   }]
-        // },
+        win: {
+          target: [{
+            'target': 'msi',
+            // 'arch': [
+            //   'x64'
+            // ]
+          }]
+        },
         nsis: {
           oneClick: false, // 一键安装
           // perMachine: false, // 一个用户一个安装程序还是全局安装
@@ -53,7 +53,6 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    console.log(config, '---------------------------')
     config.externals = {
       worker_threads: 'commonjs worker_threads'
     }
