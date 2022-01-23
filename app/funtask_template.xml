@@ -61,7 +61,7 @@
     </ExclusionItems>
   </Settings>
   <PrepareComputer DisableWindowsSearchService="true" DisableWindowsUpdateService="true" />
-  <SaveLocation PackagePath="E:\work\suwis\LongRunProject\funtask\app\dist_electron\桌面.msix" TemplatePath="E:\work\suwis\LongRunProject\funtask\app\dist_electron\桌面_template.xml" />
-  <Installer Path="E:\work\suwis\LongRunProject\funtask\app\dist_electron\Funtask 1.1.18.msi" />
-  <PackageInformation PackageName="Funtask" PackageDisplayName="Funtask" PublisherName="CN=suwis ltd." PublisherDisplayName="suwis ltd." Version="1.1.18.0" p4:PackageDescription="更人性化的办公平台" xmlns:p4="http://schemas.microsoft.com/msix/msixpackagingtool/template/1910" />
+  <SaveLocation PackagePath="F:\work\suwis\longTimeProject\funtask\app\dist_electron\Funtask.msix" TemplatePath="F:\work\suwis\longTimeProject\funtask\app\dist_electron\funtask_template.xml" />
+  <Installer Path="F:\work\suwis\longTimeProject\funtask\app\dist_electron\Funtask 1.1.18.msi" />
+  <PackageInformation PackageName="Funtask" PackageDisplayName="Funtask" PublisherName="CN=suwis ltd." PublisherDisplayName="suwis ltd." Version="1.1.18.0" p4:PackageDescription="Funtask" xmlns:p4="http://schemas.microsoft.com/msix/msixpackagingtool/template/1910" />
 </MsixPackagingToolTemplate>

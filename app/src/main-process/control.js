@@ -121,7 +121,9 @@ export default class {
     })
 
     // 创建窗体
-    this.createWindow()
+    app.whenReady().then(() => {
+      this.createWindow()
+    })
 
     // 循环检测
     setInterval(() => {
