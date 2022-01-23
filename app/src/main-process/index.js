@@ -32,7 +32,9 @@ config.event.on('loaded', (config) => {
   // 加载app
   appManager.loadApps()
   // 加载图标
-  tray.createTray()
+  app.whenReady().then(() => {
+    tray.createTray()
+  })
   // 创建 URL Scheme
   // setTimeout(() => {
   //   app.setAsDefaultProtocolClient(config.app.protocol, process.execPath, [`${__dirname}`])
