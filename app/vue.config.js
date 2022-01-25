@@ -24,6 +24,9 @@ module.exports = {
           allowToChangeInstallationDirectory: true, //是否允许用户更改安装目录
         },
         mac: {
+          target: [{
+            'target': 'dmg'
+          }],
           entitlements: 'build/entitlements.mac.plist',
           entitlementsInherit: 'build/entitlements.mac.plist'
         },
