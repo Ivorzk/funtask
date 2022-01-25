@@ -28,7 +28,8 @@ module.exports = {
             'target': 'dmg'
           }],
           entitlements: 'build/entitlements.mac.plist',
-          entitlementsInherit: 'build/entitlements.mac.plist'
+          entitlementsInherit: 'build/entitlements.mac.plist',
+          icon: 'build/icons-mac/icon.icns'
         },
         appx: {
           applicationId: '',
