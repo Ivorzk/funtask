@@ -1,35 +1,26 @@
 <template>
-<div class="funtask-download-helper"
-  :class="{show:loaded}"
-  @click="autodownload">
+<div class="funtask-download-helper" :class="{show:loaded}" @click="autodownload">
   <slot :app="app">
     <ul class="platform-list">
-      <li title="点击下载"
-        @click.stop="download('windows')">
+      <li title="点击下载" @click.stop="download('windows')">
         <i class="iconfont icon-windows"></i>
         Windows
       </li>
-      <li title="点击下载"
-        @click.stop="download('linux')">
+      <li title="点击下载" @click.stop="download('linux')">
         <i class="iconfont icon-linux"></i>
         Linux
       </li>
-      <!-- <li title="点击下载"
-        @click.stop="download('mac')"> -->
-      <li class="disable"
-        title="开发中，敬请期待">
+      <li title="点击下载" @click.stop="download('os x')">
         <i class="iconfont icon-mac"></i>
         Mac
       </li>
       <!-- <li @click.stop="download('android')"> -->
-      <li class="disable"
-        title="开发中，敬请期待">
+      <li class="disable" title="开发中，敬请期待">
         <i class="iconfont icon-android"></i>
         Android
       </li>
       <!-- <li @click.stop="download('ios')"> -->
-      <li class="disable"
-        title="开发中，敬请期待">
+      <li class="disable" title="开发中，敬请期待">
         <i class="iconfont icon-mac"></i>
         IOS
       </li>
@@ -47,7 +38,7 @@ export default {
     return {
       app: {},
       os: {},
-      published: ['windows', 'linux'],
+      published: ['windows', 'linux', 'os x'],
       loaded: false
     }
   },
@@ -66,13 +57,13 @@ export default {
           arch = this.os.architecture == 64 ? 'x64' : 'ia32'
           break
         case 'os x':
-          arch = this.os.architecture == 64 ? 'x64' : 'ia32'
+          arch = this.os.architecture == 64 ? 'arm64' : 'arm'
           break
         case 'linux':
           arch = this.os.architecture == 64 ? 'x64' : 'ia32'
           break
         case 'ios':
-          arch = this.os.architecture == 64 ? 'x64' : 'ia32'
+          arch = this.os.architecture == 64 ? 'arm64' : 'arm'
           break
         case 'android':
           arch = this.os.architecture == 64 ? 'x64' : 'ia32'
