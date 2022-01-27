@@ -1,6 +1,6 @@
 # 开发指南
 
-Funtask借助Eelectron和uni-app这两个框架，实现了跨平台运行的能力，你只需要使用HTML+CSS+JS开发一套应用代码，即可在Windows、Mac、Linux、IOS、Android等多平台运行, 这将大幅度帮你降低开发成本，让你的应用模块快速上线
+Funtask借助Eelectron和flutter这两个框架，实现了跨平台运行的能力，你只需要使用HTML+CSS+JS开发一套应用代码，即可在Windows、Mac、Linux、IOS、Android等多平台运行, 这将大幅度帮你降低开发成本，让你的应用模块快速上线
 
 ## 开发第一个应用
 
