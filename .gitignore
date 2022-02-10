@@ -66,3 +66,4 @@ desktop.ini
 yarn.lock
 
 *.zip
+.DS_Store

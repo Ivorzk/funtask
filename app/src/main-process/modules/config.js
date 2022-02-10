@@ -79,7 +79,7 @@ export default class {
       // 读取默认配置文件
       defaultFile = fs.readFileSync(`${__static}/default-config.yaml`, 'utf8')
       // 写入默认配置文件至配置目录
-      await fs.writeFileSync(this.apphome + '/config.yaml', defaultFile)
+      await fs.outputFile(this.apphome + '/config.yaml', defaultFile)
     }
     return {
       custom: custom || defaultFile,
