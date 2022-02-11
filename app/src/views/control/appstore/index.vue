@@ -17,7 +17,7 @@
           <!-- <img class="avatar"
             src="https://s.gravatar.com/avatar/d58973c038d271823c09420d1a0bb64e?size=100&default=retro"
             alt=""> -->
-          {{app.publisher.username}} 发布版本 v{{app.version}} • &nbsp;&nbsp;于{{app.date|timediff}}前
+          {{app.publisher.username}} 发布版本 v{{app.version}} • <template v-if="app.date">于{{app.date|timediff}}前</template>
           <template v-if="app.localVersion">
             (当前版本:v{{app.localVersion}})
           </template>
@@ -147,7 +147,7 @@ export default {
       if (this.config.app.privateMode) {
         registrys = this.config.app.registrys || []
         registrys = registrys.map(url => {
-          return url + '/-/verdaccio/search/'
+          return url + '/-/verdaccio/data/search/'
         })
       }
       // 搜索队列
@@ -350,11 +350,10 @@ export default {
             cursor: pointer;
             margin-left: $funtask-spacing-row-base;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
 
             .iconfont {
                 position: relative;
-                top: 0.3px;
                 margin-right: $funtask-spacing-row-sm * 0.8;
             }
 
