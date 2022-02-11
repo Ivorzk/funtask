@@ -11,10 +11,10 @@ module.exports = {
         publish: [],
         win: {
           target: [{
-            'target': 'msi',
-            // 'arch': [
-            //   'x64'
-            // ]
+            'target': 'nsis',
+            'arch': [
+              'x64'
+            ]
           }]
         },
         nsis: {
