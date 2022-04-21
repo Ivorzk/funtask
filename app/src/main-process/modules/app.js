@@ -5,6 +5,7 @@ import YAML from 'yaml'
 import fs from 'fs-extra'
 import path from 'path'
 import io from './io'
+import os from 'os'
 import compressing from 'compressing'
 import _ from 'lodash'
 import axios from 'axios'
@@ -19,6 +20,9 @@ import {
 import {
   Worker
 } from 'worker_threads'
+import {
+  exec
+} from 'child_process'
 const apps = new Map()
 const workers = {}
 const store = new Store()
@@ -477,13 +481,15 @@ export default class {
 
   // 打印pdf
   async printToPDF(options) {
-    console.log('printToPDF')
     let win = apps.get(options.winId)
     try {
-      let data = await win.printToPDF(options)
+      let data = await win.webContents.printToPDF(options)
       if (!options.name) options.name = 'download.pdf'
-      if (!options.path) options.path = `${path.resolve(options.path)}/Downloads/`
-      await fs.writeFile(options.path + options.name, data)
+      if (!options.path) options.path = path.resolve(`${os.homedir()}/Downloads/${options.name}`)
+      await fs.writeFile(options.path, data)
+      if (options.openFolder) {
+        if (os.type() == 'Windows_NT') exec(`explorer.exe /select,${options.path}`)
+      }
     } catch (e) {
       console.log(e)
     }
