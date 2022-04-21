@@ -477,13 +477,16 @@ export default class {
 
   // 打印pdf
   async printToPDF(options) {
+    console.log('printToPDF')
     let win = apps.get(options.winId)
     try {
       let data = await win.printToPDF(options)
       if (!options.name) options.name = 'download.pdf'
       if (!options.path) options.path = `${path.resolve(options.path)}/Downloads/`
       await fs.writeFile(options.path + options.name, data)
-    } catch (e) {}
+    } catch (e) {
+      console.log(e)
+    }
     return true
   }
 }
