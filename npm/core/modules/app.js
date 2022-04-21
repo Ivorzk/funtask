@@ -111,4 +111,18 @@ export default new class {
       })
     })
   }
+
+  // printToPDF
+  printToPDF(options = {}) {
+    return new Promise((resolve, reject) => {
+      let winId = sessionStorage.getItem('winId')
+      dce.send('app-printToPdf', {
+        ...options,
+        winId
+      }, {
+        resolve,
+        reject
+      })
+    })
+  }
 }

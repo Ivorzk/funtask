@@ -85,6 +85,11 @@ export default class {
       const data = await this.login()
       evt.reply('app-login-reply', data)
     })
+    // 登录
+    ipcMain.on('app-printToPdf', async (evt, options) => {
+      const data = await this.printToPDF(options)
+      evt.reply('app-printToPdf-reply', data)
+    })
   }
 
   // 初始化readme文件
@@ -468,5 +473,17 @@ export default class {
     return {
       code: res.data.data
     }
+  }
+
+  // 打印pdf
+  async printToPDF(options) {
+    let win = apps.get(options.winId)
+    try {
+      let data = await win.printToPDF(options)
+      if (!options.name) options.name = 'download.pdf'
+      if (!options.path) options.path = `${path.resolve(options.path)}/Downloads/`
+      await fs.writeFile(options.path + options.name, data)
+    } catch (e) {}
+    return true
   }
 }
