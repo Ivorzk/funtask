@@ -360,9 +360,9 @@ export default class {
   async uninstall(app) {
     console.log('remove ' + path.resolve(global.$config.packagesdir + `/${app.name}`))
     // 移除调试软件链接
-    await this.unlink(app.name)
+    if (app.debug || app.scope == 'all') await this.unlink(app.name)
     // 删除文件夹
-    await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
+    if (!app.debug || app.scope == 'all') await fs.remove(path.resolve(global.$config.packagesdir + `/${app.name}`))
     // 将app从禁用列表中移除
     await this.toggleApp(app, true)
     return app
@@ -376,9 +376,16 @@ export default class {
     const configJson = YAML.parse(configFile)
     // 初始化app
     configJson.dev.debugdirs ? '' : configJson.dev.debugdirs = []
+    let appdir = ''
+    for (let app of global.$apps) {
+      if (app.debug && app.package.name == name) {
+        appdir = app.path
+        break
+      }
+    }
     for (const idx in configJson.dev.debugdirs) {
       const dir = configJson.dev.debugdirs[idx]
-      if (dir.indexOf(name) > -1) {
+      if (dir == appdir) {
         configJson.dev.debugdirs.splice(idx, 1)
         break
       }

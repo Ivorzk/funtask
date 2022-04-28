@@ -54,7 +54,11 @@ export default {
     },
     // 卸载
     async uninstall(app) {
-      await this.$funtask.app.uninstall(app.package)
+      await this.$funtask.app.uninstall({
+        name: app.package.name,
+        scope: 'unscoped',
+        debug: app.debug
+      })
       await this.getApps()
       this.$countly.$emit('app-uninstall', app.package)
     },

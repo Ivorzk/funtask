@@ -18,6 +18,7 @@ import {
 } from 'gulp'
 const store = new Store()
 let watcher = {}
+import _ from 'lodash'
 export default class {
   constructor() {
     // 首次加载
@@ -25,7 +26,10 @@ export default class {
     // 初始化事件实例
     this.event = new events.EventEmitter()
     // 加载配置文件
-    this.loadConfig()
+    this.loadConfig().then(() => {
+      // 监听
+      this.watchConfigFile()
+    })
 
     // 监听web端向app请求配置信息
     ipcMain.on('config-get', (evt) => {
@@ -94,7 +98,6 @@ export default class {
     let $config = YAML.parse(file.custom)
     $config = lodash.defaultsDeep(options, $config)
     const configYaml = YAML.stringify($config)
-    console.log(configYaml)
     // 写入文件
     try {
       await fs.writeFileSync(`${this.apphome}/config.yaml`, configYaml)
@@ -136,10 +139,9 @@ export default class {
       watcher.close()
     } catch (e) {}
     watcher = watch(`${this.apphome}/config.yaml`)
-    watcher.on(`change`, (e) => {
-      console.log('change')
+    watcher.on(`change`, _.debounce((e) => {
       this.loadConfig()
-    })
+    }, 150))
     watcher.on(`add`, (e) => {
       console.log('add')
       this.loadConfig()
