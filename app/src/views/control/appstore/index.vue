@@ -175,7 +175,9 @@ export default {
     // 获取系统app
     async getLocalApps() {
       const apps = await this.$funtask.app.getApps()
-      this.localApps = apps
+      apps.forEach(app => {
+        if (!app.debug) this.localApps.push(app)
+      })
       return apps
       // console.log(this.localApps, 'localApps')
     },

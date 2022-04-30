@@ -110,12 +110,9 @@ async install() {
 
 > options 参数结构
 
-| 名称          | 说明   | 类型     | 默认值      |
-| :---------- | :--- | ------ | -------- |
-| name        | 应用名称 | String | -        |
-| version     | 版本   | String | -        |
-| scope       | 范围   | String | unscoped |
-| description | 应用描述 | String |          |
+| 名称   | 说明   | 类型     | 默认值 |
+| :--- | :--- | ------ | --- |
+| name | 应用名称 | String | -   |
 
 ### uninstall
 
@@ -130,12 +127,11 @@ async uninstall() {
 
 > options 参数结构
 
-| 名称          | 说明   | 类型     | 默认值      |
-| :---------- | :--- | ------ | -------- |
-| name        | 应用名称 | String | -        |
-| version     | 版本   | String | -        |
-| scope       | 范围   | String | unscoped |
-| description | 应用描述 | String |          |
+| 名称    | 说明                                    | 类型      | 默认值        |
+| :---- | :------------------------------------ | ------- | ---------- |
+| name  | 应用名称                                  | String  | -          |
+| scope | 范围 `unscoped` 删除当前版本  `all` 删除开发版和测试版 | String  | `unscoped` |
+| debug | 是否是调试版本                               | Boolean | false      |
 
 ### setting
 
@@ -249,6 +245,27 @@ funtask.app.showContextMenu([{
 ```js
 funtask.app.login().then((data) => {
   console.log(data)
+})
+```
+
+### printToPDF
+
+将页面输出成为pdf文件
+
+```js
+funtask.app.printToPDF({
+  marginsType: 0, // 边距类型 默认0 无边距 1 最小边距 2
+  printBackground: false, // 是否打印背景色
+  printSelectionOnly: false, // 只打印选择的页面
+  pageRanges: { // 打印范围（可选）
+    from: 0,
+    to: 20
+  },
+  landscape: false, // 横向 true 纵向 false
+  pageSize: 'A4', // 打印尺寸 A3, A4, A5, Legal, Letter
+  scaleFactor: 100 // 网页比例 1 ~ 100
+}).then((data) => {
+  // todo
 })
 ```
 
