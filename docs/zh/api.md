@@ -240,7 +240,7 @@ funtask.app.showContextMenu([{
 
 ### login
 
-打开右键菜单
+funtask授权登录，调用此方法获取到code之后，使用服务端api通过code获取用户登录信息
 
 ```js
 funtask.app.login().then((data) => {
