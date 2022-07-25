@@ -35,11 +35,6 @@ config.event.on('loaded', (config) => {
   app.whenReady().then(() => {
     tray.createTray()
   })
-  // 创建 URL Scheme
-  // setTimeout(() => {
-  //   app.setAsDefaultProtocolClient(config.app.protocol, process.execPath, [`${__dirname}`])
-  //   console.log(res, 'es')
-  // }, 1000)
 })
 config.event.on('change', () => {
   console.log('config change')

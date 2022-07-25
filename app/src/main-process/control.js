@@ -9,6 +9,7 @@ import {
   ipcMain,
   screen
 } from 'electron'
+import os from 'os'
 import customProtocol from './modules/protocol'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
@@ -36,8 +37,15 @@ export default class {
     this.control = {}
     // 最后一次显示的窗口
     this.lastVisibleWindow = {}
+
+    // 创建 URL Scheme
+    app.setAsDefaultProtocolClient(global.$config.app.protocol, process.execPath, [`${__dirname}`])
+    // 解析URL参数
+    this.parseURL(process.argv)
     // 监听第二个实例
-    app.on('second-instance', (event, commandLine, workingDirectory) => {
+    app.on('second-instance', (event, argv, workingDirectory) => {
+      // Windows
+      this.parseURL(argv)
       if (!this.lastVisibleWindow.id) return
       // 切换悬浮球
       if (this.lastVisibleWindow.getOpacity() !== 1) {
@@ -45,6 +53,11 @@ export default class {
       } else {
         this.lastVisibleWindow.focus()
       }
+    })
+
+    // macOS
+    app.on('open-url', (event, urlStr) => {
+      this.parseURL(process.argv)
     })
 
     app.on('window-all-closed', () => {
@@ -132,6 +145,32 @@ export default class {
         this.ball.setSkipTaskbar(true)
       } catch (e) {}
     }, 2000)
+  }
+
+  // 解析 URL Scheme 参数
+  parseURL(argv) {
+    let urlStr = argv
+    if (os.platform == 'win32') {
+      const prefix = global.$config.app ? global.$config.app.protocol || 'funtask' : 'funtask'
+      const offset = app.isPackaged ? 1 : 2
+      const url = argv.find((arg, i) => i >= offset && arg.startsWith(prefix))
+      if (url) urlStr = url
+    }
+    // myapp://?name=1&pwd=2
+    console.log(urlStr)
+    const urlInfo = new URL(urlStr)
+    // console.log(urlInfo) // -> ?name=1&pwd=2
+    if (urlInfo.host == 'schema' && urlInfo.pathname) {
+      let paths = urlInfo.pathname.split('/')
+      try {
+        this[paths[1]](paths[2])
+      } catch (e) {}
+    }
+  }
+
+  // 安装应用
+  install(name) {
+    console.log('安装', name)
   }
 
   // 创建窗体
