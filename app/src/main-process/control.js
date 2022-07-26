@@ -171,6 +171,23 @@ export default class {
   // 安装应用
   install(name) {
     console.log('安装', name)
+    // 判断是否安装安装的有app
+    let apps = global.$apps || []
+    let app = {
+      name
+    }
+    apps.some(item => {
+      if (item.package.name == name) {
+        app = item
+        return true
+      }
+    })
+    // console.log(app)
+    ipcMain.emit(app.package ? 'app-start' : 'app-install', {
+      reply() {
+        console.log('url open end')
+      }
+    }, app)
   }
 
   // 创建窗体
