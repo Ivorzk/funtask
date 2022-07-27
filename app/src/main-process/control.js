@@ -11,6 +11,7 @@ import {
 } from 'electron'
 import os from 'os'
 import customProtocol from './modules/protocol'
+import npm from './tools/npm'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
 app.allowRendererProcessReuse = true
@@ -160,17 +161,18 @@ export default class {
     console.log(urlStr)
     const urlInfo = new URL(urlStr)
     // console.log(urlInfo) // -> ?name=1&pwd=2
-    if (urlInfo.host == 'schema' && urlInfo.pathname) {
+    if (urlInfo.host == 'scheme' && urlInfo.pathname) {
       let paths = urlInfo.pathname.split('/')
       try {
-        this[paths[1]](paths[2])
-      } catch (e) {}
+        this[paths[1]](paths[2], paths[3])
+      } catch (e) {
+        console.log(e.message)
+      }
     }
   }
 
   // 安装应用
-  install(name) {
-    console.log('安装', name)
+  async install(name, zipurl) {
     // 判断是否安装安装的有app
     let apps = global.$apps || []
     let app = {
@@ -182,9 +184,42 @@ export default class {
         return true
       }
     })
+    // console.log(name, zipurl)
+    // 如果没有安装则构建安装地址
+    if (!app.package) {
+      let packages = zipurl ? [] : await npm.search(name)
+      // console.log(packages, 'packages')
+      let pkg = packages[0] || {}
+      app.version = pkg.version
+      app.dist = {
+        // 拼接下载地址
+        tarball: zipurl || `https://registry.npmjs.org/${name}/-/${name}-${pkg.version}.tgz`
+      }
+    }
     // console.log(app)
     ipcMain.emit(app.package ? 'app-start' : 'app-install', {
-      reply() {
+      reply: () => {
+        console.log('url open end')
+        // 如果首次安装，则尝试打开
+        if (!app.package) this.install(name)
+      }
+    }, app)
+  }
+
+  // 打开应用
+  start(name) {
+    let app = {}
+    // 判断是否安装安装的有app
+    let apps = global.$apps || []
+    apps.some(item => {
+      if (item.package.name == name) {
+        app = item
+        return true
+      }
+    })
+    if (!app.package) return
+    ipcMain.emit('app-start', {
+      reply: () => {
         console.log('url open end')
       }
     }, app)
