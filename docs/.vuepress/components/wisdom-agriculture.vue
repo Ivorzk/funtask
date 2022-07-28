@@ -118,6 +118,7 @@ export default {
             display: block;
             h3 {
                 font-size: 4.9vw;
+                margin-bottom: 5vw;
             }
             img.poster {
                 width: 90%;
@@ -130,7 +131,7 @@ export default {
             dl {
                 dt {
                     font-size: 3.9vw;
-                    margin-bottom: 5vw;
+                    margin-top: 5vw;
                 }
                 dd {
                     line-height: 8vw;

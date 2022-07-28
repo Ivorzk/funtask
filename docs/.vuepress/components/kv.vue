@@ -2,7 +2,8 @@
 <section class="funtask-kv">
   <div class="container">
     <div class="poster">
-      <img src="kv/poster.png" alt="funtask">
+      <img src="kv/poster.png"
+        alt="funtask">
       <div class="text">
         <em>Funtask（方塔）</em>
         <span>更人性化的办公平台</span>
@@ -14,25 +15,24 @@
     <div class="features">
       <dl>
         <dt>
-          <img src="kv/features_fast.png" alt="">
+          <img src="kv/features_fast.png"
+            alt="">
         </dt>
-        <dd><em>高效</em>巧用科技的力量帮你管理你的工作流，让你的
-          效率倍速增长，四两拨千斤</dd>
+        <dd><em>高效</em>巧用科技的力量帮你管理你的工作流，让你的效率倍速增长，四两拨千斤</dd>
       </dl>
       <dl>
         <dt>
-          <img src="kv/features_happy.png" alt="">
+          <img src="kv/features_happy.png"
+            alt="">
         </dt>
-        <dd><em>快乐</em>不断创新，让枯燥琐碎的工作变得有趣起来，
-          哇哦！原来还有这么酷的工作方式~</dd>
+        <dd><em>快乐</em>不断创新，让枯燥琐碎的工作变得有趣起来，哇哦！原来还有这么酷的工作方式~</dd>
       </dl>
       <dl>
         <dt>
-          <img src="kv/features_humanized.png" alt="">
+          <img src="kv/features_humanized.png"
+            alt="">
         </dt>
-        <dd><em>人性化</em>你可以像搭积木一样，将不同功能组合在一
-          起，打造一个属于你的工作平台
-        </dd>
+        <dd><em>人性化</em>你可以像搭积木一样，将不同功能组合在一起，打造一个属于你的工作平台</dd>
       </dl>
     </div>
   </div>
@@ -139,9 +139,8 @@ export default {
             width: 100%;
 
             dl {
-
+                margin-bottom: 5vw;
                 dt {
-
                     img {
                         display: block;
                         max-width: 18vw;
@@ -151,7 +150,7 @@ export default {
                 }
 
                 dd {
-                    padding: 0.68vw;
+                    padding: 0 0.68vw 0.68vw;
                     margin: 0;
                     font-size: 3.2vw;
 

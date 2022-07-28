@@ -56,6 +56,7 @@ export default {
 }
 @media (max-width: 720px) {
     .funtask-about {
+
         .container {
             flex-direction: column-reverse;
             flex-wrap: wrap;
@@ -67,6 +68,7 @@ export default {
 
             dl {
                 width: calc(100% - 10px);
+                min-width: calc(100% - 10px);
                 box-shadow: none;
                 border-radius: 0;
                 background: transparent;

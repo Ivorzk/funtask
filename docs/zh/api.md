@@ -383,3 +383,33 @@ console.log(img.toDataURL())
 ### getDevices
 
 获取蓝牙列表
+
+## url scheme 浏览器唤起
+
+客户端支持版本 v1.1.22 +
+
+格式规范
+
+> funtask://scheme/{option}/{value}/{value}
+
+### start
+
+通过网页打开一个应用
+
+```html
+<!-- funtask-api-demos 为应用名称 -->
+<a href="funtask://scheme/start/funtask-api-demos">打开一个应用</a>
+```
+
+示例：<a href="funtask://scheme/start/funtask-api-demos">打开funtask-api-demos</a>
+
+### install
+
+通过网页安装一个应用
+
+```html
+<!-- funtask-api-demos 为应用名称 -->
+<a href="funtask://scheme/install/funtask-api-demos">安装一个应用</a>
+```
+
+示例：<a href="funtask://scheme/install/funtask-api-demos">安装funtask-api-demos</a>
